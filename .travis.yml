@@ -5,10 +5,12 @@ cache: yarn
 branches:
   only:
     - master
-before_script:
+before_install:
   - "yarn global add firebase-tools"
   - "yarn global add gatsby"
-script:
+install:
   - "yarn build"
-after_success:
-  - "firebase deploy --project=exapp-f3519 --token=${FIREBASE_API_TOKEN}"
+deploy:
+  provider: firebase
+  token:
+    secure: $FIREBASE_TOKEN
