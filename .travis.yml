@@ -5,10 +5,10 @@ cache: yarn
 branches:
   only:
     - master
-before_install:
+before_script:
   - "yarn global add firebase-tools"
   - "yarn global add gatsby"
-install:
+script:
   - "yarn build"
 deploy:
   provider: firebase
