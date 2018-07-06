@@ -9,6 +9,7 @@ before_script:
 - yarn global add firebase-tools
 - yarn global add gatsby
 - yarn global add eslint
+- yarn global add eslint-plugin-promise
 script:
 - yarn build
 deploy:
