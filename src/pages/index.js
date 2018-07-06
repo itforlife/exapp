@@ -5,7 +5,7 @@ const IndexPage = () => (
   <div>
     <h1>Exapp.IO</h1>
     <p>Empowering social good</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Link to="/page-2/">Go</Link>
   </div>
 )
 
