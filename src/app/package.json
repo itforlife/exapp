@@ -1,0 +1,21 @@
+{
+    "name": "exapp",
+    "version": "1.0.0",
+    "dependencies": {
+        "dotenv": "^6.0.0",
+        "firebase": "^5.2.0",
+        "next": "^6.1.1",
+        "react": "^16.4.1",
+        "react-dom": "^16.4.1",
+        "react-helmet": "^5.2.0"
+    },
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "format": "prettier --write 'src/**/*.js'"
+    },
+    "devDependencies": {
+        "prettier": "^1.12.0"
+    }
+}
