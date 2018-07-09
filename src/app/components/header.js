@@ -1,5 +1,5 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'next/link';
 
 const Header = ({ siteTitle }) => (
   <div
@@ -17,13 +17,13 @@ const Header = ({ siteTitle }) => (
     >
       <h1 style={{ margin: 0 }}>
         <Link
-          to="/"
+          href="/"
           style={{
             color: 'white',
             textDecoration: 'none',
           }}
         >
-          {siteTitle}
+            <a style={{ fontSize: 20 }}>{siteTitle}</a>
         </Link>
       </h1>
     </div>
