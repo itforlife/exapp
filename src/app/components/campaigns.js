@@ -1,27 +1,21 @@
 import React from 'react'
-import API from '../services/api'
+import CampaignsStore from '../stores/campaignsStore'
+import { observer } from 'mobx-react';
 
+
+@observer
 export class CampaignsList extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      campaigns: [],
-    }
-  }
-  componentWillMount() {
-    API.campaigns.onSnapshot(querySnapshot => {
-      this.setState({ campaigns: querySnapshot.docs })
-    })
-  }
+
   onNameChange = ev => {
-    this.setState({ name: ev.target.value })
+    CampaignsStore.onNameChange(ev.target.value);
   }
   onCreateCampaign = ev => {
-    API.campaigns.add({
-      name: this.state.name,
-    })
+    CampaignsStore.onCreateCampaign();
+
     ev.preventDefault()
-    ev.stopPropagation()
+  }
+  onRemoveCampaign = (campaign) => {
+    return () => CampaignsStore.removeCampaign(campaign);
   }
   render() {
     return (
@@ -39,11 +33,11 @@ export class CampaignsList extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.campaigns.map(campaignDoc => {
-              const campaign = campaignDoc.data()
+            {CampaignsStore.campaigns.map(campaign => {
               return (
-                <tr key={campaignDoc.id}>
-                  <td>{campaign.name}</td>
+                <tr key={campaign.id}>
+                  <td>{campaign.data.name}</td>
+                  <td onClick={this.onRemoveCampaign(campaign)}>x</td>
                 </tr>
               )
             })}
