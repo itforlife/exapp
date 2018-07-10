@@ -7,12 +7,11 @@ branches:
   - master
 before_script:
 - yarn global add firebase-tools
-- yarn global add gatsby
+- yarn global add next
 - yarn global add eslint
 - yarn global add eslint-plugin-promise
 script:
-- yarn build
-- cd functions && npm install && cd ..
+- yarn install
 deploy:
   skip_cleanup: true
   provider: firebase
