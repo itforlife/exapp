@@ -1,26 +1,16 @@
-# gatsby-starter-default
-
-The default Gatsby starter.
-
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
 
 ## Install
 
-Make sure that you have the Gatsby CLI program installed:
-
+1. Go to https://console.firebase.google.com/ and create a new project 
+2. Create a Database in test mode
+3. Add an .env file in ```src/app``` that is similar to .sample.env with your firebase config
+4. Run npm install in the root of the project
 ```sh
-npm install --global gatsby-cli
+npm install
 ```
-
-And run from your CLI:
-
-```sh
-gatsby new gatsby-example-site
-```
-
-Then you can run it by:
+5. Start the aplication: 
 
 ```sh
-cd gatsby-example-site
-gatsby develop
+cd src/app
+npm run dev
 ```
