@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Favorit Page - About</title>
+
+	<!-- Required meta tags always come first -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap-reboot.css">
+	<link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap-grid.css">
+
+	<!-- Main Styles CSS -->
+	<link rel="stylesheet" type="text/css" href="css/main.min.css">
+	<link rel="stylesheet" type="text/css" href="css/fonts.min.css">
+
+	<!-- Main Font -->
+	<script src="js/webfontloader.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {
+				families: ['Roboto:300,400,500,700:latin']
+			}
+		});
+	</script>
+
+</head>
+<body>
+
+{{> headers-navigations/left-panel }}
+
+{{> headers-navigations/left-panel-responsive }}
+
+{{> headers-navigations/right-panel }}
+
+{{> headers-navigations/right-panel-responsive }}
+
+{{> headers-navigations/header-BP page-title="favourite page" }}
+
+{{> headers-navigations/header-BP-responsive }}
+
+<div class="header-spacer"></div>
+
+{{> headers-navigations/top-header-favourite }}
+
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+			<div class="ui-block">
+				<div class="ui-block-content">
+					<div class="monthly-indicator">
+						<a href="#" class="btn btn-control bg-breez">
+							<svg class="olymp-stats-arrow"><use xlink:href="svg-icons/sprites/icons.svg#olymp-stats-arrow"></use></svg>
+						</a>
+						<div class="monthly-count">
+							522.670 New Favourites
+							<span class="indicator positive"> + 78.546</span>
+							<span class="period">Last Month</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+			<div class="ui-block">
+				<div class="ui-block-content">
+					<div class="monthly-indicator">
+						<a href="#" class="btn btn-control bg-primary negative">
+							<svg class="olymp-stats-arrow"><use xlink:href="svg-icons/sprites/icons.svg#olymp-stats-arrow"></use></svg>
+						</a>
+						<div class="monthly-count">
+							208.341 New Visitors
+							<span class="indicator negative"> - 47.052</span>
+							<span class="period">Last Month</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+			<div class="ui-block">
+				<div class="ui-block-title">
+					<div class="h6 title">Single Two Bar Graphic</div>
+					<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
+				</div>
+
+				<div class="ui-block-content">
+
+					<div class="points">
+
+						<span>
+							<span class="statistics-point bg-primary"></span>
+							Statistic 01
+						</span>
+
+						<span>
+							<span class="statistics-point bg-yellow"></span>
+							Statistic 02
+						</span>
+
+					</div>
+
+					<div class="chart-js chart-js-two-bars">
+						<canvas id="two-bars-chart" width="400" height="300"></canvas>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="col col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+			<div class="ui-block responsive-flex">
+				<div class="ui-block-title">
+					<div class="h6 title">Lines Graphic</div>
+
+					<select class="selectpicker form-control without-border">
+						<option value="LY">LAST YEAR (2016)</option>
+						<option value="2">CURRENT YEAR (2017)</option>
+					</select>
+
+					<div class="points align-right">
+
+						<span>
+							<span class="statistics-point bg-blue"></span>
+							FAVOURITES
+						</span>
+
+						<span>
+							<span class="statistics-point bg-breez"></span>
+							VISITORS
+						</span>
+
+					</div>
+
+					<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
+
+				</div>
+
+				<div class="ui-block-content">
+					<div class="chart-js chart-js-line-stacked">
+						<canvas id="line-stacked-chart" width="730" height="300"></canvas>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+{{> back-to-top}}
+
+{{> windows-popup/window-chat-responsive}}
+
+
+<!-- JS Scripts -->
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/jquery.appear.js"></script>
+<script src="js/jquery.mousewheel.js"></script>
+<script src="js/perfect-scrollbar.js"></script>
+<script src="js/jquery.matchHeight.js"></script>
+<script src="js/svgxuse.js"></script>
+<script src="js/imagesloaded.pkgd.js"></script>
+<script src="js/Headroom.js"></script>
+<script src="js/velocity.js"></script>
+<script src="js/ScrollMagic.js"></script>
+<script src="js/jquery.waypoints.js"></script>
+<script src="js/jquery.countTo.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/material.min.js"></script>
+<script src="js/bootstrap-select.js"></script>
+<script src="js/smooth-scroll.js"></script>
+<script src="js/selectize.js"></script>
+<script src="js/swiper.jquery.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/daterangepicker.js"></script>
+<script src="js/simplecalendar.js"></script>
+<script src="js/fullcalendar.js"></script>
+<script src="js/isotope.pkgd.js"></script>
+<script src="js/ajax-pagination.js"></script>
+<script src="js/Chart.js"></script>
+<script src="js/chartjs-plugin-deferred.js"></script>
+<script src="js/circle-progress.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/run-chart.js"></script>
+<script src="js/jquery.magnific-popup.js"></script>
+<script src="js/jquery.gifplayer.js"></script>
+<script src="js/mediaelement-and-player.js"></script>
+<script src="js/mediaelement-playlist-plugin.min.js"></script>
+
+<script src="js/base-init.js"></script>
+<script defer src="fonts/fontawesome-all.js"></script>
+
+<script src="Bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</body>
+</html>

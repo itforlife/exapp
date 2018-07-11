@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Favourite Page</title>
+
+	<!-- Required meta tags always come first -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap-reboot.css">
+	<link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap-grid.css">
+
+	<!-- Main Styles CSS -->
+	<link rel="stylesheet" type="text/css" href="css/main.min.css">
+	<link rel="stylesheet" type="text/css" href="css/fonts.min.css">
+
+	<!-- Main Font -->
+	<script src="js/webfontloader.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {
+				families: ['Roboto:300,400,500,700:latin']
+			}
+		});
+	</script>
+
+</head>
+<body>
+
+{{> headers-navigations/left-panel }}
+
+{{> headers-navigations/left-panel-responsive }}
+
+{{> headers-navigations/right-panel }}
+
+{{> headers-navigations/right-panel-responsive }}
+
+{{> headers-navigations/header-BP page-title="favourite page" }}
+
+{{> headers-navigations/header-BP-responsive }}
+
+<div class="header-spacer"></div>
+
+{{> headers-navigations/top-header-favourite }}
+
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-sm-12 col-12">
+			<div id="newsfeed-items-grid">
+				<div class="ui-block">
+
+					{{> posts/posts21-BP }}
+
+					{{> comments/comment-list4 }}
+
+					<a href="#" class="more-comments">View more comments <span>+</span></a>
+
+					{{> forms/comment-form }}
+
+				</div>
+
+				<div class="ui-block">
+					{{> posts/posts22-BP }}
+				</div>
+
+				<div class="ui-block">
+					{{> posts/posts23-BP }}
+				</div>
+			</div>
+			<a id="load-more-button" href="#" class="btn btn-control btn-more" data-load-link="items-to-load.html" data-container="newsfeed-items-grid"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
+
+		</div>
+
+		<div class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-12 col-12">
+			<div class="ui-block">
+				<div class="ui-block-title">
+					<h6 class="title">Page Intro</h6>
+					<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
+				</div>
+				<div class="ui-block-content">
+					{{> widgets/w-personal-info6 }}
+
+					{{> widgets/w-socials }}
+				</div>
+			</div>
+
+			<div class="ui-block">
+				<div class="ui-block-title">
+					<h6 class="title">Location</h6>
+					<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
+				</div>
+
+				{{> widgets/w-contacts }}
+			</div>
+
+			<div class="ui-block">
+				<div class="ui-block-title">
+					<h6 class="title">Faved this Page</h6>
+					<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
+				</div>
+				<div class="ui-block-content">
+					{{> widgets/w-faved-pages2 }}
+				</div>
+			</div>
+
+
+			<div class="ui-block">
+				<div class="ui-block-title">
+					<h6 class="title">Twitter Feed</h6>
+					<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
+				</div>
+
+				{{> widgets/w-twitter1 }}
+			</div>
+		</div>
+
+		<div class="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-12 col-12">
+			<div class="ui-block">
+				<div class="ui-block-title">
+					<h6 class="title">Last Photos</h6>
+					<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
+				</div>
+				<div class="ui-block-content">
+					{{> widgets/w-last-photo1 }}
+				</div>
+			</div>
+
+			<div class="ui-block">
+				<div class="ui-block-title">
+					<h6 class="title">Green Goo’s Playlist</h6>
+					<a href="#" class="more">
+						<span class="c-green">
+							<svg class="olymp-remove-playlist-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-remove-playlist-icon"></use></svg>
+						</span>
+					</a>
+				</div>
+
+				{{> widgets/w-playlist }}
+
+			</div>
+
+			<div class="ui-block">
+				<div class="ui-block-title">
+					<h6 class="title">Green Goo's Poll</h6>
+					<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
+				</div>
+				<div class="ui-block-content">
+					{{> widgets/w-pool }}
+
+					<a href="#" class="btn btn-md-2 btn-border-think custom-color c-grey full-width">Vote Now!</a>
+				</div>
+			</div>
+
+			<div class="ui-block">
+				<div class="ui-block-title">
+					<h6 class="title">Last Videos</h6>
+					<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
+				</div>
+				<div class="ui-block-content">
+					{{> widgets/w-last-video }}
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+{{> windows-popup/playlist-popup}}
+
+{{> windows-popup/update-header-photo}}
+
+{{> windows-popup/choose-from-my-photo}}
+
+{{> back-to-top}}
+
+{{> windows-popup/window-chat-responsive}}
+
+
+<!-- JS Scripts -->
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/jquery.appear.js"></script>
+<script src="js/jquery.mousewheel.js"></script>
+<script src="js/perfect-scrollbar.js"></script>
+<script src="js/jquery.matchHeight.js"></script>
+<script src="js/svgxuse.js"></script>
+<script src="js/imagesloaded.pkgd.js"></script>
+<script src="js/Headroom.js"></script>
+<script src="js/velocity.js"></script>
+<script src="js/ScrollMagic.js"></script>
+<script src="js/jquery.waypoints.js"></script>
+<script src="js/jquery.countTo.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/material.min.js"></script>
+<script src="js/bootstrap-select.js"></script>
+<script src="js/smooth-scroll.js"></script>
+<script src="js/selectize.js"></script>
+<script src="js/swiper.jquery.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/daterangepicker.js"></script>
+<script src="js/simplecalendar.js"></script>
+<script src="js/fullcalendar.js"></script>
+<script src="js/isotope.pkgd.js"></script>
+<script src="js/ajax-pagination.js"></script>
+<script src="js/Chart.js"></script>
+<script src="js/chartjs-plugin-deferred.js"></script>
+<script src="js/circle-progress.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/run-chart.js"></script>
+<script src="js/jquery.magnific-popup.js"></script>
+<script src="js/jquery.gifplayer.js"></script>
+<script src="js/mediaelement-and-player.js"></script>
+<script src="js/mediaelement-playlist-plugin.min.js"></script>
+
+<script src="js/base-init.js"></script>
+<script defer src="fonts/fontawesome-all.js"></script>
+
+<script src="Bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,657 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>Olympus - HTML Social Network Toolkit</title>
+	
+	<meta name="description" content="Olympus is the most complete social network kit. It provides all necessary components for building social networks, network applications and beautiful portals. This is a unique and creative solution for your projects.">
+	<meta name="author" content="Crumina">
+	<meta name="copyright" content="Crumina">
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+	<meta name="date" content="2017-04-11T00:00:00+02:00">
+	
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	<link rel="stylesheet" href="assets/js/google-code-prettify/prettify.css" media="screen">
+	<script src="assets/js/google-code-prettify/prettify.js"></script>
+
+	
+	
+	<script src="assets/js/jquery.js"></script>
+	
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	
+	<script>document.createElement('section');var duration='500',easing='swing';</script>
+	<script src="assets/js/script.js"></script>
+	
+	<style>
+		html{background-color:#FFFFFF;color:#383838;}
+		::-moz-selection{background:#444444;color:#DDDDDD;}
+		::selection{background:#444444;color:#DDDDDD;}
+		#documenter_sidebar #documenter_logo{background-image:url();}
+		a{color:#0000FF;}
+		.btn {
+			border-radius:3px;
+		}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -ms-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -webkit-gradient(linear, 0 0, 0 0088CC%, from(#DDDDDD), to(#0044CC));
+			  background-image: -webkit-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -o-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: linear-gradient(top, #0088CC, #0044CC);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088CC', endColorstr='#0044CC', GradientType=0);
+			  border-color: #0044CC #0044CC #bfbfbf;
+			  color:#FFFFFF;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  border-color: #0088CC #0088CC #bfbfbf;
+		  background-color: #0044CC;
+		}
+		hr{border-top:1px solid #EBEBEB;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ul a{background-color:#DDDDDD;color:#222222;}
+		#documenter_sidebar ul a{-webkit-text-shadow:1px 1px 0px #EEEEEE;-moz-text-shadow:1px 1px 0px #EEEEEE;text-shadow:1px 1px 0px #EEEEEE;}
+		#documenter_sidebar ul{border-top:1px solid #AAAAAA;}
+		#documenter_sidebar ul a{border-top:1px solid #EEEEEE;border-bottom:1px solid #AAAAAA;color:#444444;}
+		#documenter_sidebar ul a:hover{background:#444444;color:#DDDDDD;border-top:1px solid #444444;}
+		#documenter_sidebar ul a.current{background:#444444;color:#DDDDDD;border-top:1px solid #444444;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body class="documenter-project-olympus">
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ul id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+				
+			<li><a href="#welcome" title="Welcome">Welcome</a></li>
+			<li><a href="#installing_template" title="Installing template">Installing template</a></li>
+			<li><a href="#html_structure" title="HTML Structure">HTML Structure</a></li>
+			<li><a href="#css_files" title="CSS Files">CSS Files</a></li>
+			<li><a href="#javascript_files" title="Javascript Files">Javascript Files</a></li>
+			<li><a href="#svg_inline_icons" title="SVG inline icons">SVG inline icons</a></li>
+			<li><a href="#gulp_javascript_task_runner" title="Gulp javascript task runner">Gulp javascript task runner</a></li>
+			<li><a href="#sass_scss" title="SASS, SCSS">SASS, SCSS</a></li>
+			<li><a href="#sources_and_credits" title="Sources and Credits">Sources and Credits</a></li>
+			<li><a href="#newsletter_form" title="Newsletter form">Newsletter form</a></li>
+			<li><a href="#contact_form" title="Contact form">Contact form</a></li>
+			<li><a href="#sticky_header" title="Sticky header">Sticky header</a></li>
+			<li><a href="#sticky_footer" title="Sticky footer">Sticky footer</a></li>
+			<li><a href="#main_slider" title="Main slider">Main slider</a></li>
+
+		</ul>
+		<div id="documenter_copyright">Copyright Crumina 2017<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v2.0</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover">
+	<h1>Olympus</h1>
+	<h2>HTML Social Network Toolkit</h2>
+	<div id="documenter_buttons">
+		
+	</div>
+	<hr>
+	<ul>
+	<li>created: 08/03/2016</li>
+	<li>latest update: 04/11/2017</li>
+	<li>by: Crumina</li>
+	<li><a href="http://crumina.net/">crumina.net/</a></li>
+	<li>email: <a href="mailto:&#105;&#110;&#102;&#111;&#64;&#99;&#114;&#117;&#109;&#105;&#110;&#97;&#46;&#110;&#101;&#116;">&#105;&#110;&#102;&#111;&#64;&#99;&#114;&#117;&#109;&#105;&#110;&#97;&#46;&#110;&#101;&#116;</a></li>
+	</ul>
+	<p></p>
+	</section>
+	
+	<section id="welcome">
+	<div class="page-header"><h3>Welcome</h3><hr class="notop"></div>
+<div>
+	Welcome To Olympus- HTML Social Network Toolkit</div>
+<div>
+	&nbsp;</div>
+<div>
+	This document covers the installation and use of this theme and often reveals answers to common problems and issues - read this document thoroughly if you are experiencing any difficulties. If you have any questions that are beyond the scope of this document, feel free to pose them in the dedicated support section.</div>
+</section>
+<section id="installing_template">
+	<div class="page-header"><h3>Installing template</h3><hr class="notop"></div>
+<div>
+	After unzipping the download pack, you&#39;ll find a template folder with all the files.</div>
+<div>
+	&nbsp;</div>
+<div>
+	You can view this template in any browser. You can also view or edit the template without an internet connection.</div>
+<div>
+	&nbsp;</div>
+<div>
+	In order to install template on your server open your FTP Client (like Filezilla) or use you cpanel directly, and upload the content of the Template on your server root.</div>
+<div>
+	&nbsp;</div>
+<div>
+	Once you are ready, go to <strong>www.yourdomainname.com/index.html</strong></div>
+</section>
+<section id="html_structure">
+	<div class="page-header"><h3>HTML Structure</h3><hr class="notop"></div>
+<h4 id="html_structure_bootstrap">Bootstrap</h4>
+<div>
+	&nbsp;</div>
+<div>
+	This Template has a Responsive layout and is based on the Bootstrap Grid. For more information about this visit <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>.</div>
+<div>
+	&nbsp;</div>
+<div>
+	&nbsp;</div>
+<div>
+	The default Bootstrap grid system utilizes 12 columns, making for a 1170px wide container without responsive features enabled. With the responsive CSS file added, the grid adapts to be 724px and 1170px wide depending on your viewport. Below 767px viewports, the columns become fluid and stack vertically.</div>
+<div>
+	&nbsp;</div>
+<div>
+	<h4 id="html_structure_basic_grid_html">Basic Grid HTML</h4>
+	<div>
+		&nbsp;</div>
+	<div>
+		For a simple two column layout, create a .container and add the appropriate number of .col-md* columns.</div>
+	<div>
+		&nbsp;</div>
+	<div>
+		Given this example, we have .col-md-4 and .col-md-8, making for 12 total columns and a complete row</div>
+	<div>
+		&nbsp;</div>
+	<div>
+		<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;container&quot;&gt;  
+    &lt;div class=&quot;col-md-4&quot;&gt;...&lt;/div&gt;  
+    &lt;div class=&quot;col-md-8&quot;&gt;...&lt;/div&gt;  
+&lt;/div&gt;</pre>
+	</div>
+</div>
+<h4 id="html_structure_nesting_columns">Nesting Columns</h4>
+<div>
+	&nbsp;</div>
+<div>
+	To nest your content with the default grid, add a new .container and set of .col-md* columns within an existing .col-md* column. Nested rows should include a set of columns that add up to the number of columns of its parent.</div>
+<div>
+	&nbsp;</div>
+<div>
+	<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;container&quot;&gt;  
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-md-9&quot;&gt;  
+            Level 1 column  
+            &lt;div class=&quot;row&quot;&gt;  
+                &lt;div class=&quot;col-md-8&quot;&gt;Level 2 column&lt;/div&gt;  
+                &lt;div class=&quot;col-md-4&quot;&gt;Level 2 column&lt;/div&gt;  
+            &lt;/div&gt;  
+        &lt;/div&gt;  
+        &lt;div class=&quot;col-md-3&quot;&gt;  
+            Level 1 column  
+        &lt;/div&gt;  
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="css_files">
+	<div class="page-header"><h3>CSS Files</h3><hr class="notop"></div>
+<div>
+	CSS files, that load in &lt;head&gt; section of page in current template are following:</div>
+<div>
+	&nbsp;</div>
+<div>
+	<pre class="prettyprint lang-html linenums">
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/fonts.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/crumina-fonts.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/normalize.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/grid.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/base.css&quot;&gt;</pre>
+	<div>
+		&nbsp; &nbsp; &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/blocks.css&quot;&gt;</div>
+	<div>
+		&nbsp; &nbsp; &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/layouts.css&quot;&gt;</div>
+	<div>
+		&nbsp; &nbsp; &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/modules.css&quot;&gt;</div>
+	<div>
+		&nbsp; &nbsp; &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/widgets-styles.css&quot;&gt;</div>
+	&lt;!--Plugins styles--&gt; &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/jquery.mCustomScrollbar.min.css&quot;&gt; &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/swiper.min.css&quot;&gt; &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/primary-menu.css&quot;&gt; &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/magnific-popup.css&quot;&gt;</div>
+<ol>
+	<li>
+		<strong>fonts.css,&nbsp;crumina-fonts.css</strong> - icon fonts used in the theme</li>
+	<li>
+		<strong>normalize.css</strong> - proper reset styles for browsers</li>
+	<li>
+		<strong>grid.css</strong> - Bootstrap grid</li>
+	<li>
+		<strong>base.css</strong> - basic stylesheet</li>
+	<li>
+		<strong>blocks.css</strong> - styles for for blocks</li>
+	<li>
+		<strong>layouts.css</strong> - styles for layouts</li>
+	<li>
+		<strong>modules.css</strong> - styles for modules</li>
+	<li>
+		<strong>widgets-styles.css</strong> - styles for widgets</li>
+	<li>
+		<strong>jquery.mCustomScrollbar.min.css</strong> - styles for scrollbar of aside panel</li>
+	<li>
+		<strong>swiper.min.css</strong> - core styles for theme slider</li>
+	<li>
+		<strong>primary-menu.css</strong> - main menu with dropdowns and megamenus styles</li>
+	<li>
+		<strong>magnific-popup.css</strong> - styles for lightbox plugin.</li>
+</ol>
+<p>
+	&nbsp;</p>
+</section>
+<section id="javascript_files">
+	<div class="page-header"><h3>Javascript Files</h3><hr class="notop"></div>
+<p>
+	Javascript files, that load right before closing &lt;body&gt; tag of page in current template are following:</p>
+<pre class="prettyprint lang-html linenums">
+&lt;!-- JS Script --&gt;
+&lt;script src=&quot;js/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/crum-mega-menu.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/swiper.jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/theme-plugins.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/main.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/velocity.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/ScrollMagic.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/animation.velocity.min.js&quot;&gt;&lt;/script&gt;
+&lt;!-- ...end JS Script --&gt;</pre>
+<ol>
+	<li>
+		jquery-2.1.4.min.js - latest version of jQuery library connected</li>
+	<li>
+		crum-mega-menu.js - mobile menu and megamenu generation</li>
+	<li>
+		swiper.jquery.min.js -&nbsp;main slider library used in template - <a href="http://idangero.us/swiper/api/#.V6G9Qvl9670">Homepage and API</a></li>
+	<li>
+		theme-plugins.js - JS pluginsand utilities used in the theme. You can find full version of this plugin in &#39;Uncompressed&#39; folder of the theme package</li>
+	<li>
+		main.js -&nbsp;main custom javascript file of template</li>
+	<li>
+		velocity.min.js,&nbsp;ScrollMagic.min.js,&nbsp;animation.velocity.min.js - plugins for row backgrounds animation.</li>
+</ol>
+</section>
+<section id="svg_inline_icons">
+	<div class="page-header"><h3>SVG inline icons</h3><hr class="notop"></div>
+<p>
+	There are used SVG icons instead of the IMG icons in the theme. The most often used of them are arrow-left, arrow-right and to-top icons. They are included inline in the source of each HTML page at the bottom before include JS files section.</p>
+<p>
+	&nbsp;</p>
+<pre class="prettyprint lang-html linenums">
+&lt;svg style=&quot;display:none;&quot;&gt;
+    &lt;symbol id=&quot;arrow-left&quot; viewBox=&quot;122.9 388.2 184.3 85&quot;&gt;
+        ...
+    &lt;/symbol&gt;
+    &lt;symbol id=&quot;arrow-right&quot; viewBox=&quot;122.9 388.2 184.3 85&quot;&gt;
+        ...
+    &lt;/symbol&gt;
+    &lt;symbol id=&quot;to-top&quot; viewBox=&quot;0 0 32 32&quot;&gt;
+        ...
+    &lt;/symbol&gt;
+&lt;/svg&gt;</pre>
+<p>
+	&nbsp;</p>
+</section>
+<section id="gulp_javascript_task_runner">
+	<div class="page-header"><h3>Gulp javascript task runner</h3><hr class="notop"></div>
+<p>
+	For creating Seosight we used <a href="http://gulpjs.com/">Gulp</a>.&nbsp;</p>
+<p>
+	You can find Gulp files with modules and tasks in the root of the project in <strong>gulpfile.js</strong>&nbsp;file.</p>
+<p>
+	In the root of the project you can also find&nbsp;<strong>package.json</strong> file, where all plugins and their versions are listed.</p>
+<p>
+	The compiled HTML website is located in <strong>&#39;HTML&#39; </strong>folder.</p>
+<p>
+	&nbsp;</p>
+</section>
+<section id="sass_scss">
+	<div class="page-header"><h3>SASS, SCSS</h3><hr class="notop"></div>
+<p>
+	All .scss files are located in <strong>saas/../</strong>&nbsp;folder.</p>
+<p>
+	In <strong>&quot;saas/base&quot;</strong> folder you will find basic, global files with styles for the entire project, namely:</p>
+<ul>
+	<li>
+		<strong>global.scss</strong> - includes styles for main template conponents such as &quot;body&quot;, &quot;a&quot;, &quot;p&quot;, &quot;table&quot;, &quot;ol&quot;, &quot;ul&quot;, &quot;form&quot;, &quot;input&quot; etc;</li>
+	<li>
+		<strong>helper.scss</strong> - includes all additional classes and their styles used for building pages of the project;</li>
+	<li>
+		<strong>table-of-content.scss</strong> - includes table of content for &quot;saas&quot; folder;</li>
+	<li>
+		<strong>typography.scss</strong> - includes typography styles of the project;</li>
+	<li>
+		<strong>variables.scss</strong> - lists all global variables and their styles, such as main colors of the template, size variables and font families.</li>
+</ul>
+<p>
+	In <strong>&quot;saas/blocks/..&quot;</strong>, <strong>&quot;saas/layouts/..&quot;</strong>, <strong>&quot;saas/modules..&quot;</strong>, <strong>&quot;saas/widgets..&quot;</strong> you will find styles for all blocks, layouts and widgets available in the project.&nbsp;</p>
+<p>
+	For your convenience all styles files are divided blockwise. There you can edit styles and responsive settings for the particular block.</p>
+<p>
+	The detailed structure of those files is provided in&nbsp;<strong>saas/base/_table-of-content.scss</strong> file.</p>
+<div>
+	In the root of &nbsp;the <strong>saas/.. </strong>folder you will find:</div>
+<ol>
+	<li>
+		<strong>fonts.scss</strong> - style file of the font icons&nbsp;Font Awesome 4.5.0;</li>
+	<li>
+		<strong>grid.scss</strong> - includes styles for the modular grid of the project;</li>
+	<li>
+		<strong>normalize.scss</strong> - customizable CSS file, that makes browsers display all elements more consistently in accordance to the modern standards;</li>
+</ol>
+</section>
+<section id="sources_and_credits">
+	<div class="page-header"><h3>Sources and Credits</h3><hr class="notop"></div>
+<p>
+	The following materials were used in the template.</p>
+<h4 id="sources_and_credits_google_fonts">Google Fonts</h4>
+<p>
+	Before you start editing the template be sure to install the font.&nbsp;</p>
+<p>
+	<a href="https://www.google.com/fonts/specimen/Varela+Round" rel="nofollow">Varela Round</a></p>
+<h4 id="sources_and_credits_graphics">Graphics</h4>
+<div>
+	All flat filled outline illustration are included in the HTML files. Stock photos are not included in psd files. The following provides links&nbsp;</div>
+<div>
+	&nbsp;</div>
+<ul>
+	<li>
+		<a href="http://www.freepik.com/" rel="nofollow">Freepik</a></li>
+	<li>
+		<a href="http://www.flaticon.com/" rel="nofollow">Flaticon</a></li>
+	<li>
+		<a href="https://www.iconfinder.com/" rel="nofollow">Iconfinder</a></li>
+	<li>
+		<a href="http://www.pixeden.com/" rel="nofollow">Pixeden</a></li>
+	<li>
+		<a href="http://graphicburger.com/" rel="nofollow">GraphicBurger</a></li>
+	<li>
+		<a href="http://www.shutterstock.com/" rel="nofollow">Shutterstock</a></li>
+</ul>
+<h4 id="sources_and_credits_there_were_also_used_materials_and_images_of_the_great_designers">There were also used materials and images of the great designers:</h4>
+<ul>
+	<li>
+		<a href="https://dribbble.com/shots/2552247-Dashboard-Free-PSD" rel="nofollow">Dux Nguyen</a></li>
+	<li>
+		<a href="https://dribbble.com/shots/2409585-FreeBie-ThemePanda-Responsive-Dashboard-Design" rel="nofollow">Raaz Das</a></li>
+	<li>
+		<a href="https://www.behance.net/gallery/16433957/Ultra-Free-Admin-Dashboard-UI-" rel="nofollow">Mushfiqul Islam</a></li>
+	<li>
+		<a href="https://dribbble.com/shots/2051248-File-Management-Free-PSD" rel="nofollow">Balkan Brothers</a></li>
+	<li>
+		<a href="https://dribbble.com/shots/2062935-File-Dashboard-Free-PSD" rel="nofollow">Miramark Diaz</a></li>
+	<li>
+		<a href="https://www.iconfinder.com/iconsets/office-vol-5-2" rel="nofollow">Sergei Kokota</a></li>
+	<li>
+		<a href="https://dribbble.com/shots/2597645-Free-responsive-landing-template" rel="nofollow">Areto Development</a></li>
+	<li>
+		<a href="https://www.behance.net/gallery/34925239/Apex-Free-App-Landing-Page" rel="nofollow">Imran Mondal</a></li>
+	<li>
+		<a href="https://www.behance.net/gallery/31934727/Free-PSD-template" rel="nofollow">Hafijul Islam</a></li>
+	<li>
+		<a href="https://dribbble.com/shots/2280188-Food-Magazine-Template" rel="nofollow">Stelian Firez</a></li>
+	<li>
+		<a href="https://dribbble.com/shots/2604500-Real-Estate" rel="nofollow">Ugurcan Bulut</a></li>
+</ul>
+</section>
+<section id="newsletter_form">
+	<div class="page-header"><h3>Newsletter form</h3><hr class="notop"></div>
+<p>
+	When someone submits his email via Newsletter form, it is automatically recorded in the <strong>email.csv</strong> file.</p>
+<p>
+	This &nbsp;file can be used to import all submitted emails into any mailing system like Mailchimp, Mailjet etc.</p>
+<p>
+	<strong>import.php</strong> file - ensures functionality of email.csv file. It is a mandatory file and it must be added together with email.csv file in the root of your <strong>html</strong> folder.</p>
+<p>
+	If you would like to change thanking messages of the newsletter form, you must edit <strong>js/form-actions.js</strong> file on line 18.</p>
+<p>
+	<img alt="" src="images/seo1.jpg"></p>
+<p>
+	&nbsp;</p>
+</section>
+<section id="contact_form">
+	<div class="page-header"><h3>Contact form</h3><hr class="notop"></div>
+<p>
+	In order to setup email submission via the contact form, you must edit&nbsp;<strong>send_mail.php</strong> file and enter your email address on line 3.</p>
+<p>
+	<img alt="" src="images/seo2.jpg"></p>
+<p>
+	In order to chnage thanking message, you must edit&nbsp;<strong>js/form-actions.js</strong> file on line 44.</p>
+<p>
+	<img alt="" src="images/seo3.jpg"></p>
+</section>
+<section id="sticky_header">
+	<div class="page-header"><h3>Sticky header</h3><hr class="notop"></div>
+<div>
+	In version 1.3. we added sticky header function, that makes page scroll more convenient. Sticky header is available in 4 animation variants - <em>Slide, Swing, Flip, Bounce</em>. You can choose the one you like most.</div>
+<div>
+	&nbsp;</div>
+<div>
+	In <strong>..js/main.js</strong> file find the following code:</div>
+<div>
+	&nbsp;</div>
+<pre>
+$header.headroom(
+
+    {
+
+        &quot;offset&quot;: 210,
+
+        &quot;tolerance&quot;: 5,
+
+        &quot;classes&quot;: {
+
+            &quot;initial&quot;: &quot;animated&quot;,
+
+            &quot;pinned&quot;: &quot;swingInX&quot;,
+
+            &quot;unpinned&quot;: &quot;swingOutX&quot;
+
+        }
+
+    }
+
+);</pre>
+<div>
+	&nbsp;</div>
+<div>
+	In order to change animation style you need to use the strings below instead of the default ones:</div>
+<div>
+	&nbsp;</div>
+<div>
+	for Slide:</div>
+<pre>
+ &quot;pinned&quot;: &quot;slideDown&quot;,
+
+ &quot;unpinned&quot;: &quot;slideUp&quot;</pre>
+<div>
+	&nbsp;</div>
+<div>
+	for Swing:</div>
+<pre>
+&quot;pinned&quot;: &quot;swingInX&quot;,
+
+&quot;unpinned&quot;: &quot;swingOutX&quot;</pre>
+<div>
+	&nbsp;</div>
+<div>
+	for Flip: &nbsp;</div>
+<pre>
+&quot;pinned&quot;: &quot;flipInX&quot;,
+
+&quot;unpinned&quot;: &quot;flipOutX&quot;</pre>
+<div>
+	&nbsp;</div>
+<div>
+	for Bounce:</div>
+<pre>
+&quot;pinned&quot;: &quot;bounceInDown&quot;,
+
+&quot;unpinned&quot;: &quot;bounceOutUp&quot;</pre>
+<div>
+	&nbsp;</div>
+<div>
+	If you haven&#39;t updated to version 1.3., but want to use sticky header function, you have to add <strong>id=&quot;site-header&quot;</strong> in the page layout, namely into&nbsp;</div>
+<div>
+	&nbsp;</div>
+<pre>
+&lt;header class=&quot;header&quot;&gt;...&lt;/header&gt; </pre>
+<div>
+	&nbsp;</div>
+<div>
+	in order to get</div>
+<div>
+	&nbsp;</div>
+<pre>
+&lt;header class=&quot;header&quot; id=&quot;site-header&quot;&gt;...&lt;/header&gt; </pre>
+<div>
+	&nbsp;</div>
+<div>
+	Also you have to update the following files:</div>
+<div>
+	&nbsp;</div>
+<div>
+	<strong>..base.css</strong> - basic stylesheet
+	<div>
+		..<strong>blocks.css</strong> - styles for for blocks</div>
+	<div>
+		..<strong>layouts.css</strong> - styles for layouts</div>
+	<div>
+		..<strong>modules.css</strong> - styles for modules</div>
+	<div>
+		..<strong>widgets-styles.css,&nbsp;</strong></div>
+</div>
+<div>
+	<strong>&nbsp;..js/theme-plugins.js,</strong></div>
+<div>
+	<strong>&nbsp;..js/main.js</strong> .</div>
+<div>
+	&nbsp; &nbsp;&nbsp;</div>
+<div>
+	More detailed documentation on sticky header you will find by following the links below:</div>
+<div>
+	&nbsp;</div>
+<div>
+	http://wicky.nillia.ms/headroom.js/</div>
+<div>
+	https://github.com/WickyNilliams/headroom.js</div>
+<div>
+	&nbsp;</div>
+<div>
+	In order to deactivate sticky header option, it is enough to remove <strong>id=&quot;site-header&quot;</strong> from the page layout, namely from</div>
+<div>
+	&nbsp;</div>
+<pre>
+&lt;header class=&quot;header&quot; id=&quot;site-header&quot;&gt;...&lt;/header&gt;</pre>
+<div>
+	&nbsp;</div>
+<div>
+	in order layout gets this look -&nbsp;</div>
+<div>
+	&nbsp;</div>
+<pre>
+&lt;header class=&quot;header&quot;&gt;...&lt;/header&gt;</pre>
+</section>
+<section id="sticky_footer">
+	<div class="page-header"><h3>Sticky footer</h3><hr class="notop"></div>
+<div>
+	In version 1.3 there was added sticky footer option. In order to activate it, you need to add class <strong>&quot;js-fixed-footer&quot;</strong> + <strong>id=&quot;site-footer&quot;</strong>&nbsp;into &nbsp;</div>
+<pre>
+&lt;footer class=&quot;footer&quot;&gt;...&lt;/footer&gt;  </pre>
+<div>
+	&nbsp;</div>
+<div>
+	in order to get this look:</div>
+<pre>
+...
+&lt;footer class=&quot;footer js-fixed-footer&quot; id=&quot;site-footer&quot;&gt;...&lt;/footer&gt;
+...</pre>
+<div>
+	&nbsp;</div>
+<div>
+	If you haven&#39;t updated to version 1.3, but want to use sticky footer option, you need to do the following:</div>
+<div>
+	&nbsp;</div>
+<div>
+	1) Add class &nbsp;<strong>&quot;js-fixed-footer&quot;</strong> + <strong>id=&quot;site-footer&quot;</strong> into page layout, namely into &nbsp;</div>
+<div>
+	&nbsp;</div>
+<pre>
+&lt;footer class=&quot;footer&quot;&gt;...&lt;/footer&gt;</pre>
+<div>
+	in order to get the next look:</div>
+<pre>
+...
+&lt;footer class=&quot;footer js-fixed-footer&quot; id=&quot;site-footer&quot;&gt;...&lt;/footer&gt;
+...</pre>
+<div>
+	2) Wrap all page content <strong>AFTER</strong></div>
+<pre>
+&lt;div class=&quot;mCustomScrollbar&quot; data-mcs-theme=&quot;dark&quot;&gt;...&lt;/div&gt; </pre>
+<div>
+	&nbsp;</div>
+<div>
+	and <strong>BEFORE</strong></div>
+<div>
+	&nbsp;</div>
+<pre>
+ &lt;footer class=&quot;footer js-fixed-footer&quot; id=&quot;site-footer&quot;&gt;...&lt;/footer&gt; </pre>
+<div>
+	&nbsp;</div>
+<div>
+	into</div>
+<div>
+	&nbsp;</div>
+<pre>
+&lt;div class=&quot;content-wrapper&quot;&gt;&lt;/div&gt;</pre>
+<div>
+	&nbsp;</div>
+<div>
+	in order to get the next layout structure:</div>
+<div>
+	&nbsp;</div>
+<pre>
+....
+
+&lt;div class=&quot;mCustomScrollbar&quot; data-mcs-theme=&quot;dark&quot;&gt;...&lt;/&gt;
+
+&lt;div class=&quot;content-wrapper&quot;&gt;
+
+ //...CONTENT...//
+
+&lt;/div&gt;
+
+&lt;footer class=&quot;footer js-fixed-footer&quot; id=&quot;site-footer&quot;&gt;...&lt;/footer&gt;
+
+...</pre>
+<div>
+	3) Update the main style and js files: <strong>base.css</strong>,&nbsp;<strong>blocks.css</strong>,&nbsp;<strong>layouts.css</strong>,&nbsp;<strong>modules.css</strong>,&nbsp;<strong>widgets-styles.css</strong><br>
+	&nbsp;in css folder&nbsp;and &nbsp;<strong>..js/main.js</strong> and enjoy the sticky footer function in your project :)</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="main_slider">
+	<div class="page-header"><h3>Main slider</h3><hr class="notop"></div>
+<div>
+	In version 1.3 there were made changes in the main slider of the template. For your convenience there were added addional classes for positionning content inside the slider, namely:</div>
+<div>
+	&nbsp;</div>
+<div>
+	<strong>.slider-content-fullwidth</strong> - content occupies full slider width;</div>
+<div>
+	<strong>.slider-content-half-width</strong> - content occupies&nbsp;half of the slider width.</div>
+</section>
+
+	</div>
+</body>
+</html>

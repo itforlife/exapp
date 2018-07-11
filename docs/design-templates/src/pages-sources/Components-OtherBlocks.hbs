@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Components - Other Blocks</title>
+
+	<!-- Required meta tags always come first -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap-reboot.css">
+	<link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap-grid.css">
+
+	<!-- Main Styles CSS -->
+	<link rel="stylesheet" type="text/css" href="css/main.min.css">
+	<link rel="stylesheet" type="text/css" href="css/fonts.min.css">
+
+	<!-- Main Font -->
+	<script src="js/webfontloader.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {
+				families: ['Roboto:300,400,500,700:latin']
+			}
+		});
+	</script>
+
+</head>
+<body>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-12">
+			<h2 class="presentation-margin">Button Versions</h2>
+		</div>
+
+		<div class="col col-xl-12">
+			<div class="ui-block">
+				<div class="ui-block-content">
+					<div class="row">
+						<div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+							<a href="#" class="btn btn-primary btn-lg">Big Button</a>
+							<a href="#" class="btn btn-primary btn-md">Medium Button</a>
+							<a href="#" class="btn btn-primary btn-md-2">Medium Button V2</a>
+							<a href="#" class="btn btn-primary btn-sm">Small Button</a>
+						</div>
+						<div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+							<a href="#" class="btn btn-secondary btn-lg">Big Button</a>
+							<a href="#" class="btn btn-secondary btn-md">Medium Button</a>
+							<a href="#" class="btn btn-secondary btn-md-2">Medium Button V2</a>
+							<a href="#" class="btn btn-secondary btn-sm">Small Button</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+							<a href="#" class="btn btn-purple btn-lg">Big Button</a>
+						</div>
+						<div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+							<a href="#" class="btn btn-blue btn-lg">Big Button</a>
+						</div>
+						<div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+							<a href="#" class="btn btn-breez btn-lg">Big Button</a>
+						</div>
+						<div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+							<a href="#" class="btn btn-green btn-lg">Big Button</a>
+						</div>
+						<div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+							<a href="#" class="btn btn-grey btn-lg">Big Button</a>
+						</div>
+						<div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+							<a href="#" class="btn btn-grey-light btn-lg">Big Button</a>
+						</div>
+						<div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+							<a href="#" class="btn btn-grey-lighter btn-lg">Big Button</a>
+						</div>
+						<div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+							<a href="#" class="btn btn-breez-light btn-lg">Big Button</a>
+						</div>
+						<div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+							<a href="#" class="btn btn-yellow btn-lg">Big Button</a>
+						</div>
+						<div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+							<a href="#" class="btn btn-smoke btn-lg btn-light-bg">Big Button</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-12">
+			<h2 class="presentation-margin">Friends</h2>
+		</div>
+
+		<div class="col col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+			<div class="ui-block">
+
+				{{> friend-items/friend-item1}}
+
+			</div>
+		</div>
+		<div class="col col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+			<div class="ui-block">
+
+				{{> friend-items/friend-item2}}
+
+			</div>
+		</div>
+		<div class="col col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+			<div class="ui-block">
+
+				{{> friend-items/friend-item3}}
+
+			</div>
+		</div>
+		<div class="col col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+			<div class="ui-block">
+
+				{{> friend-items/friend-item4}}
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-12">
+			<h2 class="presentation-margin">Favourite pages</h2>
+		</div>
+
+		<div class="col col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+			<div class="ui-block">
+
+				{{> friend-items-fav/friend-items-fav1}}
+
+			</div>
+		</div>
+		<div class="col col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+			<div class="ui-block">
+
+				{{> friend-items-fav/friend-items-fav2}}
+
+			</div>
+		</div>
+		<div class="col col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+			<div class="ui-block">
+
+				{{> friend-items-fav/friend-items-fav3}}
+
+			</div>
+		</div>
+		<div class="col col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+			<div class="ui-block">
+
+				{{> friend-items-fav/friend-items-fav4}}
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-12">
+			<h2 class="presentation-margin">Photo Album</h2>
+		</div>
+
+		<div class="col col-xl-12">
+			<div class="photo-album-item-wrap col-4-width" >
+
+				{{> photo-album-items/photo-album-item-create}}
+
+			</div>
+
+			<div class="photo-album-item-wrap col-4-width" >
+
+				{{> photo-album-items/photo-album-item1}}
+
+			</div>
+
+			<div class="photo-album-item-wrap col-4-width" >
+
+				{{> photo-album-items/photo-album-item2}}
+
+			</div>
+
+			<div class="photo-album-item-wrap col-4-width" >
+
+				{{> photo-album-items/photo-album-item3}}
+
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-12">
+			<h2 class="presentation-margin">Video Album</h2>
+		</div>
+		<div class="col col-lg-3 col-md-3 col-sm-6 col-6">
+
+			{{> features-video/video-item1}}
+
+		</div>
+		<div class="col col-lg-3 col-md-3 col-sm-6 col-6">
+
+			{{> features-video/video-item2}}
+
+		</div>
+		<div class="col col-lg-3 col-md-3 col-sm-6 col-6">
+
+			{{> features-video/video-item3}}
+
+		</div>
+		<div class="col col-lg-3 col-md-3 col-sm-6 col-6">
+
+			{{> features-video/video-item4}}
+
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-12">
+			<h2 class="presentation-margin">Badges</h2>
+		</div>
+		<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+			<div class="ui-block">
+
+				{{> birthsday-items-badges/birthsday-item-badges1}}
+
+			</div>
+
+			<div class="ui-block">
+
+				{{> birthsday-items-badges/birthsday-item-badges2}}
+
+			</div>
+
+			<div class="ui-block">
+
+				{{> birthsday-items-badges/birthsday-item-badges3}}
+
+			</div>
+
+			<div class="ui-block">
+
+				{{> birthsday-items-badges/birthsday-item-badges4}}
+
+			</div>
+
+			<div class="ui-block">
+
+				{{> birthsday-items-badges/birthsday-item-badges5}}
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-12">
+			<h2 class="presentation-margin">Birthday</h2>
+		</div>
+		<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+			<div class="ui-block">
+				<div class="ui-block-title">
+					<h6 class="title">January</h6>
+				</div>
+			</div>
+		</div>
+		<div class="col col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+			<div class="ui-block">
+
+				{{> birthsday-items/birthsday-item1}}
+
+			</div>
+		</div>
+
+		<div class="col col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+			<div class="ui-block">
+
+				{{> birthsday-items/birthsday-item1}}
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-12">
+			<h2 class="presentation-margin">Chat</h2>
+		</div>
+		<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+			{{> windows-popup/popup-chat}}
+
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-12">
+			<h2 class="presentation-margin">Pagination</h2>
+		</div>
+		<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+			{{> page-navigation/pagination}}
+
+		</div>
+	</div>
+</div>
+
+
+
+{{> back-to-top}}
+
+
+<!-- JS Scripts -->
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/jquery.appear.js"></script>
+<script src="js/jquery.mousewheel.js"></script>
+<script src="js/perfect-scrollbar.js"></script>
+<script src="js/jquery.matchHeight.js"></script>
+<script src="js/svgxuse.js"></script>
+<script src="js/imagesloaded.pkgd.js"></script>
+<script src="js/Headroom.js"></script>
+<script src="js/velocity.js"></script>
+<script src="js/ScrollMagic.js"></script>
+<script src="js/jquery.waypoints.js"></script>
+<script src="js/jquery.countTo.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/material.min.js"></script>
+<script src="js/bootstrap-select.js"></script>
+<script src="js/smooth-scroll.js"></script>
+<script src="js/selectize.js"></script>
+<script src="js/swiper.jquery.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/daterangepicker.js"></script>
+<script src="js/simplecalendar.js"></script>
+<script src="js/fullcalendar.js"></script>
+<script src="js/isotope.pkgd.js"></script>
+<script src="js/ajax-pagination.js"></script>
+<script src="js/Chart.js"></script>
+<script src="js/chartjs-plugin-deferred.js"></script>
+<script src="js/circle-progress.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/run-chart.js"></script>
+<script src="js/jquery.magnific-popup.js"></script>
+<script src="js/jquery.gifplayer.js"></script>
+<script src="js/mediaelement-and-player.js"></script>
+<script src="js/mediaelement-playlist-plugin.min.js"></script>
+
+<script src="js/base-init.js"></script>
+<script defer src="fonts/fontawesome-all.js"></script>
+
+<script src="Bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</body>
+</html>

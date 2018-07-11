@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Company Page - Shopping Cart</title>
+
+	<!-- Required meta tags always come first -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap-reboot.css">
+	<link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap-grid.css">
+
+	<!-- Main Styles CSS -->
+	<link rel="stylesheet" type="text/css" href="css/main.min.css">
+	<link rel="stylesheet" type="text/css" href="css/fonts.min.css">
+
+	<!-- Main Font -->
+	<script src="js/webfontloader.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {
+				families: ['Roboto:300,400,500,700:latin']
+			}
+		});
+	</script>
+
+
+</head>
+<body class="body-bg-white">
+
+
+{{> stunning-headers/stunning-header-shop3
+	stunning-title = 'Shopping Cart'
+}}
+
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col col-xl-10 m-auto col-lg-10 col-md-12 col-sm-12 col-12">
+				<form action="#" method="post" class="cart-main">
+
+					{{> shop/shop-table-cart}}
+
+				</form>
+
+				<div class="row medium-padding100">
+					<div class="col col-xl-5 mr-auto col-lg-5 col-md-6 col-sm-12 col-12">
+
+						{{> shop/form-calculate-shiping}}
+
+					</div>
+
+					<div class="col col-xl-5 ml-auto col-lg-5 col-md-6 col-sm-12 col-12">
+						<div class="crumina-module crumina-heading with-title-decoration">
+							<h5 class="heading-title">Order Totals</h5>
+						</div>
+
+						{{> shop/order-totals-list}}
+
+						<a href="#" class="btn btn-purple btn-lg full-width">Go to Checkout</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{{> animation-sections/call-to-action-animation}}
+
+{{> windows-popup/registration-login-form-popup}}
+
+{{> footers/footer-full-width}}
+
+{{> windows-popup/window-chat-responsive}}
+
+{{> back-to-top}}
+
+
+<!-- JS Scripts -->
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/jquery.appear.js"></script>
+<script src="js/jquery.mousewheel.js"></script>
+<script src="js/perfect-scrollbar.js"></script>
+<script src="js/jquery.matchHeight.js"></script>
+<script src="js/svgxuse.js"></script>
+<script src="js/imagesloaded.pkgd.js"></script>
+<script src="js/Headroom.js"></script>
+<script src="js/velocity.js"></script>
+<script src="js/ScrollMagic.js"></script>
+<script src="js/jquery.waypoints.js"></script>
+<script src="js/jquery.countTo.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/material.min.js"></script>
+<script src="js/bootstrap-select.js"></script>
+<script src="js/smooth-scroll.js"></script>
+<script src="js/selectize.js"></script>
+<script src="js/swiper.jquery.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/daterangepicker.js"></script>
+<script src="js/simplecalendar.js"></script>
+<script src="js/fullcalendar.js"></script>
+<script src="js/isotope.pkgd.js"></script>
+<script src="js/ajax-pagination.js"></script>
+<script src="js/Chart.js"></script>
+<script src="js/chartjs-plugin-deferred.js"></script>
+<script src="js/circle-progress.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/run-chart.js"></script>
+<script src="js/jquery.magnific-popup.js"></script>
+<script src="js/jquery.gifplayer.js"></script>
+<script src="js/mediaelement-and-player.js"></script>
+<script src="js/mediaelement-playlist-plugin.min.js"></script>
+
+<script src="js/base-init.js"></script>
+<script defer src="fonts/fontawesome-all.js"></script>
+
+<script src="Bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+
+</body>
+</html>

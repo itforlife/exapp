@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Olympus icons SVG Sprite</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style type="text/css">
+  html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-family:inherit;font-size:100%;vertical-align:baseline}
+  body{line-height:1;color:#000;background:#fff}
+  ol,ul{list-style:none}
+  table{border-collapse:separate;border-spacing:0;vertical-align:middle}
+  caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}
+  a img{border:none}
+  *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+  body{font-family:'Dosis','Tahoma',sans-serif}
+  .container{margin:15px auto;width:80%}
+  h1{margin:40px 0 20px;font-weight:700;font-size:38px;line-height:32px;color:#fb565e}
+  h2{font-size:18px;padding:0 0 21px 5px;margin:45px 0 0 0;text-transform:uppercase;font-weight:500; color: #fb565e;}
+  p {margin: 10px 0 ; line-height:1.3em; color: #454545;}
+  .small{font-size:14px;color:#a5adb4;}
+  .small a{color:#a5adb4;}
+  .small a:hover{color:#fb565e}
+  .glyphs{margin:0 0 60px 0;padding:30px 0 20px 30px;color:rgba(0,0,0,0.8);border:1px solid #d8e0e5;-webkit-border-radius:3px;border-radius:3px;}
+  .glyphs li{margin:0 30px 20px 0;padding:0;display:inline-block;overflow:hidden}
+  .glyphs input{margin:0;margin-top:5px;padding:8px;line-height:16px;font-size:16px;display:block;width:150px;height:40px;border:1px solid #d8e0e5;-webkit-border-radius:5px;border-radius:5px;background:#fff;outline:0;float:right;}
+  .glyphs input:focus{border:1px solid #fbde4a;-webkit-box-shadow:inset 0 0 3px #fbde4a;box-shadow:inset 0 0 3px #fbde4a}
+  .glyphs input:hover{-webkit-box-shadow:inset 0 0 3px #fbde4a;box-shadow:inset 0 0 3px #fbde4a}
+
+  /*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+.hljs {
+  display: block; padding: 0.5em;
+  color: #333;
+  background: #f8f8f8
+}
+
+.hljs-comment,
+.hljs-template_comment,
+.diff .hljs-header,
+.hljs-javadoc {
+  color: #998;
+  font-style: italic
+}
+
+.hljs-keyword,
+.css .rule .hljs-keyword,
+.hljs-winutils,
+.javascript .hljs-title,
+.nginx .hljs-title,
+.hljs-subst,
+.hljs-request,
+.hljs-status {
+  color: #333;
+  font-weight: bold
+}
+
+.hljs-number,
+.hljs-hexcolor,
+.ruby .hljs-constant {
+  color: #099;
+}
+
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-phpdoc,
+.tex .hljs-formula {
+  color: #d14
+}
+
+.hljs-title,
+.hljs-id,
+.coffeescript .hljs-params,
+.scss .hljs-preprocessor {
+  color: #900;
+  font-weight: bold
+}
+
+.javascript .hljs-title,
+.lisp .hljs-title,
+.clojure .hljs-title,
+.hljs-subst {
+  font-weight: normal
+}
+
+.hljs-class .hljs-title,
+.haskell .hljs-type,
+.vhdl .hljs-literal,
+.tex .hljs-command {
+  color: #458;
+  font-weight: bold
+}
+
+.hljs-tag,
+.hljs-tag .hljs-title,
+.hljs-rules .hljs-property,
+.django .hljs-tag .hljs-keyword {
+  color: #000080;
+  font-weight: normal
+}
+
+.hljs-attribute,
+.hljs-variable,
+.lisp .hljs-body {
+  color: #008080
+}
+
+.hljs-regexp {
+  color: #009926
+}
+
+.hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.lisp .hljs-keyword,
+.tex .hljs-special,
+.hljs-prompt {
+  color: #990073
+}
+
+.hljs-built_in,
+.lisp .hljs-title,
+.clojure .hljs-built_in {
+  color: #0086b3
+}
+
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-pi,
+.hljs-doctype,
+.hljs-shebang,
+.hljs-cdata {
+  color: #999;
+  font-weight: bold
+}
+
+.hljs-deletion {
+  background: #fdd
+}
+
+.hljs-addition {
+  background: #dfd
+}
+
+.diff .hljs-change {
+  background: #0086b3
+}
+
+.hljs-chunk {
+  color: #aaa
+}
+
+
+  .tip {
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 30px;
+  }
+  .tip > .number {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 16px;
+    margin-right: 12px;
+    padding: 3px 7px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background-color: #fb565e;
+    color: #fff;
+    text-align: center;
+  }
+  code {
+    background: #faf9ff;
+    border: 1px solid #bab9c0;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding: 0 4px;
+    font-size: 14px;
+  }
+  pre code {
+    display: block;
+    padding: 4px 6px;
+  }
+
+  [class^="olymp-"],
+  [class*=" olymp-"] {
+    margin: 10px;
+    height: 32px;
+    width: 32px;
+    float: left;
+    fill: currentColor;
+  }
+  </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  
+    <symbol id="olymp-accordion-close-icon" viewBox="0 0 512 512">
+      <path d="m512 205l0 102-512 0 0-102z"/>
+    </symbol>
+  
+    <symbol id="olymp-add-a-place-icon" viewBox="0 0 512 512">
+      <path d="m256 0c-91 0-168 58-197 140l50 0c26-55 82-93 147-93 90 0 163 73 163 162 0 128-126 243-163 256-31-12-118-92-150-186l-49 0c36 128 159 233 199 233 47 0 209-143 209-303 0-115-93-209-209-209z m0 117c-51 0-93 42-93 93 0 52 42 93 93 93 51 0 93-41 93-93 0-51-42-93-93-93z m0 140c-26 0-47-21-47-47 0-26 21-46 47-46 26 0 47 20 47 46 0 26-21 47-47 47z m-209-71l46 0 0 47-46 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-add-to-conversation-icon" viewBox="0 0 512 512">
+      <path d="m465 23l-418 0c-26 0-47 21-47 47l0 233c0 25 21 46 47 46 0 0 8 0 23 0l0-46-23 0 0-233 418 0 0 279c26 0 47-21 47-46l0-233c0-26-21-47-47-47z m-162 326l23 0 0-46-23 0z m69 0l47 0 0-46-47 0z m-116-46l-140 96 0-96-46 0 0 186 186-140 0 0 47 0 0-46z m70-140l-47 0 0-47-46 0 0 47-47 0 0 46 47 0 0 47 46 0 0-47 47 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-albums-icon" viewBox="0 0 512 512">
+      <path d="m284 0l0 228 228 0 0-228z m171 171l-114 0 0-114 114 0z m-455 341l228 0 0-228-228 0z m57-171l114 0 0 114-114 0z m398 114l-114 0 0-114 57 0 0-57-114 0 0 228 228 0 0-114-57 0z m-455-227l228 0 0-228-228 0z m57-171l114 0 0 114-114 0z m398 284l57 0 0-57-57 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-badge-icon" viewBox="0 0 512 512">
+      <path d="m410 256c0-85-69-154-154-154-85 0-154 69-154 154 0 85 69 154 154 154 85 0 154-69 154-154z m-256 0c0-57 45-102 102-102 57 0 102 45 102 102 0 57-45 102-102 102-57 0-102-45-102-102z m102-256c-141 0-256 115-256 256 0 115 75 212 179 244l0-54c-75-31-128-104-128-190 0-113 92-205 205-205 113 0 205 92 205 205 0 86-53 159-128 190l0 54c104-32 179-129 179-244 0-141-115-256-256-256z m-26 512l52 0 0-51-52 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-block-from-chat-icon" viewBox="0 0 512 512">
+      <path d="m465 23l-418 0c-26 0-47 21-47 47l0 233c0 25 21 46 47 46 0 0 8 0 23 0l0-46-23 0 0-233 418 0 0 279c26 0 47-21 47-46l0-233c0-26-21-47-47-47z m-162 326l23 0 0-46-23 0z m69 0l47 0 0-46-47 0z m-116-46l-140 96 0-96-46 0 0 186 186-140 0 0 47 0 0-46z m66-150l-33-33-33 33-33-33-33 33 33 33-33 33 33 33 33-33 33 33 33-33-33-33z"/>
+    </symbol>
+  
+    <symbol id="olymp-blog-icon" viewBox="0 0 512 512">
+      <path d="m435 0l-358 0c-28 0-51 23-51 51l0 461 358 0 0-102 102 0 0-52-153 0 0 103-256 0 0-410 358 0 0 154 51 0 0-154c0-28-23-51-51-51z m-51 102l-256 0 0 52 256 0z m0 103l-256 0 0 51 256 0z m-256 153l154 0 0-51-154 0z m307-51l51 0 0-51-51 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-calendar-icon" viewBox="0 0 512 512">
+      <path d="m419 512l46 0 0-47-46 0z m0-465l-47 0 0-24c0-13-10-23-23-23-13 0-23 10-23 23l0 24-140 0 0-24c0-13-10-23-23-23-13 0-23 10-23 23l0 24-47 0c-26 0-46 20-46 46l0 372c0 26 20 47 46 47l279 0 0-47-279 0 0-372 47 0 0 23c0 13 10 24 23 24 13 0 23-11 23-24l0-23 140 0 0 23c0 13 10 24 23 24 13 0 23-11 23-24l0-23 47 0 0 326 46 0 0-326c0-26-20-46-46-46z m-256 372l46 0 0-47-46 0z m116 0l0-47-46 0 0 47z m24 0l46 0 0-47-46 0z m-24-116l-116 0 0 46 116 0z m70 0l-46 0 0 46 46 0z m-70-70l-116 0 0 46 116 0z m70 0l-46 0 0 46 46 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-camera-icon" viewBox="0 0 512 512">
+      <path d="m256 192c-47 0-85 38-85 85 0 47 38 86 85 86 47 0 85-39 85-86 0-47-38-85-85-85z m0 128c-24 0-43-19-43-43 0-23 19-42 43-42 24 0 43 19 43 42 0 24-19 43-43 43z m171-213l-43 0c0-24-19-43-43-43l-170 0c-24 0-43 19-43 43l-43 0c-47 0-85 38-85 85l0 171c0 47 38 85 85 85 0 0 83 0 191 0l1 0 0-43-192 0c-23 0-42-19-42-42l0-171c0-24 19-43 42-43l86 0 0-42 170 0 0 42 86 0c23 0 42 19 42 43l0 171c0 23-19 42-42 42l-22 0 0 43c14 0 22 0 22 0 47 0 85-38 85-85l0-171c0-47-38-85-85-85z m-107 341l43 0 0-43-43 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-chat-messages-icon" viewBox="0 0 512 512">
+      <path d="m315 148l-276 0c-17 0-39 20-39 39l0 177c0 19 22 40 39 40l0 59 158-59 0-40-118 40 0-40-40 0 0-177 276 0 0 217c18 0 39-21 39-40l0-177c0-19-21-39-39-39z m-79 256l40 0 0-40-40 0z m-157-138l197 0 0-39-197 0z m0 59l118 0 0-39-118 0z m118-236l315 0c0-19-22-40-39-40l-276 0c-18 0-39 21-39 40l0 19 39 0z m276 177l-20 0 0 0-39 0 0 39-40-13 0 43 79 29 0-59c10 0 20 0 20 0 17 0 39-20 39-39l0-59-39 0z m0-99l39 0 0-39-39 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-check-icon" viewBox="0 0 512 512">
+      <path d="m154 355l-102-102-51 51 153 152 255-254-51-51z m306-306l-51 51 51 51 51-51z"/>
+    </symbol>
+  
+    <symbol id="olymp-checked-calendar-icon" viewBox="0 0 512 512">
+      <path d="m419 512l46 0 0-47-46 0z m0-465l-47 0 0-24c0-13-10-23-23-23-13 0-23 10-23 23l0 24-140 0 0-24c0-13-10-23-23-23-13 0-23 10-23 23l0 24-47 0c-26 0-46 20-46 46l0 372c0 26 20 47 46 47l279 0 0-47-279 0 0-372 47 0 0 23c0 13 10 24 23 24 13 0 23-11 23-24l0-23 140 0 0 23c0 13 10 24 23 24 13 0 23-11 23-24l0-23 47 0 0 326 46 0 0-326c0-26-20-46-46-46z m-196 265l-33-33-33 33 33 33 33 33 33-33 99-99-33-33z"/>
+    </symbol>
+  
+    <symbol id="olymp-login-icon" viewBox="0 0 512 512">
+      <path d="m23 279c0 104 69 193 163 222l0-49c-68-28-116-95-116-173 0-78 48-145 116-172l0-50c-94 30-163 118-163 222z m303-222l0 50c68 27 116 94 116 172 0 78-48 145-116 173l0 49c94-30 163-118 163-222 0-104-69-192-163-222z m-93 176l46 0 0-233-46 0z m0 279l46 0 0-47-46 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-heart-icon" viewBox="0 0 512 512">
+      <path d="m333 333l51 0 0 51-51 0z m135-264c-29-29-61-44-101-44-37 0-80 31-111 62-32-31-73-61-112-61-38 0-72 11-100 39-59 58-59 153 0 211 16 17 178 197 178 197 10 9 22 13 34 13 12 0 24-4 33-13l27-29-36-36-24 25c-30-33-160-177-176-193-19-19-29-43-29-70 0-26 10-50 29-69 17-17 37-24 64-24 6 0 32 3 76 47l37 36 35-37c32-32 61-46 75-46 26 0 45 8 65 28 19 18 29 43 29 69 0 26-10 51-29 69-1 1-1 1-27 29l-2 3 36 36 4-4c0 0 25-27 25-27 59-59 59-153 0-211z"/>
+    </symbol>
+  
+    <symbol id="olymp-headphones-icon" viewBox="0 0 512 512">
+      <path d="m141 282c7 0 13 5 13 12l0 128c0 7-6 13-13 13-7 0-13-6-13-13l0-128c0-7 6-12 13-12m0-52c-35 0-64 29-64 64l0 128c0 36 29 64 64 64 35 0 64-28 64-64l0-128c0-35-29-64-64-64z m-41 179c-27-1-48-24-48-51 0-27 21-50 48-51l0-51c-55 1-100 47-100 102 0 56 45 101 100 103z m271-127c7 0 13 5 13 12l0 128c0 7-6 13-13 13-7 0-13-6-13-13l0-128c0-7 6-12 13-12m0-52c-35 0-64 29-64 64l0 128c0 36 29 64 64 64 35 0 64-28 64-64l0-128c0-35-29-64-64-64z m41 179c27-1 48-24 48-51 0-27-21-50-48-51l0-51c55 1 100 47 100 102 0 56-45 101-100 103z m-349-248c-7 22-12 45-12 69l0 68 51 0 0-68c0-13 2-26 6-39z m193-135c-24 0-47 4-69 12l30 44c12-3 25-5 39-5 85 0 154 69 154 153l0 68 51 0 0-68c0-113-92-204-205-204z m-153 50l51 0 0 51-51 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-happy-sticker-icon" viewBox="0 0 512 512">
+      <path d="m410 0l-77 0 0 51 77 0c28 0 51 23 51 51l0 205-51 0c-57 0-103 46-103 103l0 51-205 0c-28 0-51-23-51-51l0-308c0-28 23-51 51-51l77 0 0-51-77 0c-56 0-102 46-102 102l0 308c0 56 46 102 102 102l282 0c52-52 80-76 128-128l0-282c0-56-46-102-102-102z m-52 461l0-51c0-29 23-52 52-52l51 0c-29 26-64 64-103 103z m-179-256l-51 0 0 51 51 0z m77 153c42 0 76-21 76-48l0-3-153 0 0 3c0 27 34 48 77 48z m26-358l-52 0 0 51 52 0z m102 205l-51 0 0 51 51 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-happy-faces-icon" viewBox="0 0 512 512">
+      <path d="m205 93c-113 0-205 91-205 204 0 92 60 170 143 196l0-44c-60-24-102-83-102-152 0-90 73-163 164-163 90 0 164 73 164 163 0 69-43 128-103 152l0 43c83-26 144-103 144-195 0-113-92-204-205-204z m-62 163l-40 0 0 41 40 0z m123 0l0 41 41 0 0-41z m-123 84c0 22 28 39 62 39 34 0 61-17 61-39l0-2-123 0z m41 162l41 0 0-41-41 0z m28-450l136 0c0 0 23 6 34 10l37-27c-27-16-58-24-91-24-44 0-84 15-116 41z m287 74l-33 33c3 12 5 23 5 36 0 27-7 52-20 74l0 63c37-34 61-83 61-137 0-24-5-47-13-69z m-28-54l-41 0 0 41 41 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-happy-face-icon" viewBox="0 0 512 512">
+      <path d="m256 0c-141 0-256 115-256 256 0 114 75 211 179 244l0-54c-75-31-128-104-128-190 0-113 92-205 205-205 113 0 205 92 205 205 0 86-53 159-128 190l0 54c104-33 179-130 179-244 0-141-115-256-256-256z m-77 205l-51 0 0 51 51 0z m154 0l0 51 51 0 0-51z m-154 105c0 27 35 48 77 48 42 0 77-21 77-48l0-3-154 0z m52 202l51 0 0-51-51 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-dropdown-arrow-icon" viewBox="0 0 512 512">
+      <path d="m447 86l-192 204-191-204-64 68 255 272 256-272z"/>
+    </symbol>
+  
+    <symbol id="olymp-day-calendar-icon" viewBox="0 0 512 512">
+      <path d="m419 512l46 0 0-47-46 0z m-186-163l46 0 0-46-46 0z m186-302l-47 0 0-24c0-13-10-23-23-23-13 0-23 10-23 23l0 24-140 0 0-24c0-13-10-23-23-23-13 0-23 10-23 23l0 24-47 0c-26 0-46 20-46 46l0 372c0 26 20 47 46 47l279 0 0-47-279 0 0-372 47 0 0 23c0 13 10 24 23 24 13 0 23-11 23-24l0-23 140 0 0 23c0 13 10 24 23 24 13 0 23-11 23-24l0-23 47 0 0 326 46 0 0-326c0-26-20-46-46-46z m-256 372l186 0 0-186-186 0z m46-140l94 0 0 93-94 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-cupcake-icon" viewBox="0 0 512 512">
+      <path d="m128 512l64 0 0-43-27 0-15-104 208-1 5-1-256 0z m235-149l-16 106-27 0 0 43 64 0 22-149z m80-156c-15-44-58-76-123-79l0 43c42 2 72 20 82 49 3 8 7 14 13 19 7 6 12 17 12 28 0 10-4 20-10 26-7 6-11 14-12 22-3 16-18 27-36 27-6-1-20-11-25-14-7-5-16-8-24-8-3 0-6 1-8 1-11 2-21 9-28 18-9 15-20 24-28 24-10 0-21-12-28-24-7-9-16-16-28-18-2 0-5-1-8-1-8 0-17 3-24 8-5 3-19 13-25 14-18 0-33-11-36-27-1-8-5-16-11-22-7-6-11-16-11-26 0-11 5-22 12-28 6-5 10-11 13-19 9-27 40-46 82-49l0-43c-63 4-108 36-123 79-16 13-26 35-26 60 0 23 9 43 22 57 7 34 39 60 78 60 17 0 36-12 49-21 14 21 36 43 64 43 28 0 50-22 64-43 13 9 32 21 49 21 39 0 71-26 78-60 13-14 22-34 22-57 0-25-10-47-26-60z m-208 262l42 0 0 43-42 0z m0-256l42 0 0-128-42 0z m21-213c-12 0-21 10-21 21l0 22c0 11 9 21 21 21 12 0 21-10 21-21l0-22c0-11-9-21-21-21z"/>
+    </symbol>
+  
+    <symbol id="olymp-computer-icon" viewBox="0 0 512 512">
+      <path d="m465 349l-418 0 0-279 465 0c0-26-21-47-47-47l-418 0c-26 0-47 21-47 47l0 279c0 26 21 47 47 47l139 0 0 46-70 0 0 47 280 0 0-47-70 0 0-46 139 0c26 0 47-21 47-47l0-140-47 0z m-186 93l-46 0 0-46 46 0z m186-279l47 0 0-47-47 0z m-279 70l0-47-46 0 0 47z m93 0l0-47-46 0 0 47z m93 0l0-47-46 0 0 47z"/>
+    </symbol>
+  
+    <symbol id="olymp-comments-post-icon" viewBox="0 0 512 512">
+      <path d="m455 28l-398 0c-32 0-57 26-57 57l0 256c0 32 25 57 57 57 0 0 11 0 28 0l0-57-28 0 0-256 398 0 0 313c32 0 57-25 57-57l0-256c0-31-25-57-57-57z m-199 370l28 0 0-57-28 0z m85 0l57 0 0-57-57 0z m-227-199l284 0 0-57-284 0z m0 85l170 0 0-56-170 0z m142 57l-114 61 0-61-57 0 0 143 171-86z"/>
+    </symbol>
+  
+    <symbol id="olymp-close-icon" viewBox="0 0 512 512">
+      <path d="m228 284l56 0 0-56-56 0z m269-229l-40-40-161 161 40 40z m-482 402l40 40 161-161-40-40z m281-121l161 161 40-40-161-161z m-281-281l161 161 40-40-161-161z"/>
+    </symbol>
+  
+    <symbol id="olymp-logout-icon" viewBox="0 0 512 512">
+      <path d="m320 107c60 0 111 35 135 85l46 0c-27-75-97-128-181-128-84 0-154 53-181 128l46 0c24-50 75-85 135-85z m0 298c-60 0-111-35-135-85l-46 0c27 75 97 128 181 128 84 0 154-53 181-128l-46 0c-24 50-75 85-135 85z m-43-128l0-42-195 0 39-39-30-30-91 90 91 91 30-31-39-39z m192-42l0 42 43 0 0-42z"/>
+    </symbol>
+  
+    <symbol id="olymp-magnifying-glass-icon" viewBox="0 0 512 512">
+      <path d="m318 66c-73-73-191-73-263 0-73 73-73 191 0 263 72 73 190 73 263 0 73-72 73-190 0-263z m-33 231c-55 54-143 54-198 0-54-55-54-143 0-198 55-54 143-54 198 0 54 55 54 143 0 198z m82 49l33-33 33 33-33 33z m66 99c-9 9-24 9-33 0l-99-99-13-13 66-66-20-20-99 99 33 33 99 99c27 27 72 27 99 0 27-27 27-72 0-99l-33 33c9 9 9 24 0 33z"/>
+    </symbol>
+  
+    <symbol id="olymp-manage-widgets-icon" viewBox="0 0 512 512">
+      <path d="m0 93l0 326c0 26 21 46 47 46l186 0 0-46-186 0 0-326 186 0 0-46-186 0c-26 0-47 20-47 46z m140 279l0-232-47 0 0 232z m46 0l47 0 0-232-47 0z m93-279l47 0 0-46-47 0z m93 0l47 0 0-46-47 0z m93-46l0 46 47 0 0-46z m0 139l47 0 0-46-47 0z m0 93l47 0 0-46-47 0z m0 93l47 0 0-46-47 0z m0 93l47 0 0-46-47 0z m-93 0l47 0 0-46-47 0z m-93 0l47 0 0-46-47 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-menu-icon" viewBox="0 0 512 512">
+      <path d="m57 57l-57 0 0 57 57 0z m57 0l0 57 398 0 0-57z m57 171l-171 0 0 56 171 0z m57 0l0 56 56 0 0-56z m113 56l171 0 0-56-171 0z m-341 171l398 0 0-57-398 0z m455 0l57 0 0-57-57 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-month-calendar-icon" viewBox="0 0 512 512">
+      <path d="m419 512l46 0 0-47-46 0z m0-465l-47 0 0-24c0-13-10-23-23-23-13 0-23 10-23 23l0 24-140 0 0-24c0-13-10-23-23-23-13 0-23 10-23 23l0 24-47 0c-26 0-46 20-46 46l0 372c0 26 20 47 46 47l279 0 0-47-279 0 0-372 47 0 0 23c0 13 10 24 23 24 13 0 23-11 23-24l0-23 140 0 0 23c0 13 10 24 23 24 13 0 23-11 23-24l0-23 47 0 0 326 46 0 0-326c0-26-20-46-46-46z m-256 372l46 0 0-47-46 0z m70 0l46 0 0-47-46 0z m70 0l46 0 0-47-46 0z m-94-116l-46 0 0 46 46 0z m70 0l-46 0 0 46 46 0z m70 0l-46 0 0 46 46 0z m-140-70l-46 0 0 46 46 0z m70 0l-46 0 0 46 46 0z m70 0l-46 0 0 46 46 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-multimedia-icon" viewBox="0 0 512 512">
+      <path d="m461 0l-359 0 0 51 359 0 0 87-185 92-122-136-103 83 0-75-51 0 0 359c0 28 23 51 51 51l410 0c28 0 51-23 51-51l0-410c0-28-23-51-51-51z m-410 243l99-80 126 144-225 0z m410 218l-410 0 0-103 410 0z m0-154l-117 0-33-37 150-75z m-410-307l-51 0 0 51 51 0z m128 384l-51 0 0 51 51 0z m103 0l-52 0 0 51 52 0z m102 0l-51 0 0 51 51 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-newsfeed-icon" viewBox="0 0 512 512">
+      <path d="m128 410l0-52 154 0 0 52z m0-154l256 0 0 51-256 0z m256 154l0 102-358 0 0-461c0-28 23-51 51-51l358 0c28 0 51 23 51 51l0 154-409 0 0 256 256 0 0-103 153 0 0 52z m51-256l0-103-358 0 0 103z m-281-26l-52 0 0-51 52 0z m76 0l-51 0 0-51 51 0z m77 0l-51 0 0-51 51 0z m128 128l51 0 0 51-51 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-photos-icon" viewBox="0 0 512 512">
+      <path d="m128 358l256 0 0-256-256 0z m51-204l154 0 0 153-154 0z m256 358l51 0 0-51-51 0z m0-512l-358 0c-28 0-51 23-51 51l0 410c0 28 23 51 51 51l307 0 0-51-307 0 0-410 358 0 0 359 51 0 0-359c0-28-23-51-51-51z"/>
+    </symbol>
+  
+    <symbol id="olymp-play-icon" viewBox="0 0 512 512">
+      <path d="m427 171l-249-154c-19-11-37-16-56-16-45 0-90 35-90 102l0 89 64 0c0-77 0-89 0-89 0-24 10-38 26-38 6 0 14 2 22 7l250 153c28 17 30 45 2 62l-252 154c-8 5-16 7-22 7-16 0-26-14-26-38 0 0 0-9 0-25 0 0 0-1 0-1l-64 0 0 26c0 67 45 102 90 102 19 0 37-6 55-17l252-153c32-20 51-51 51-85 0-35-19-66-53-86z m-395 85l64 0 0 64-64 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-plus-icon" viewBox="0 0 512 512">
+      <path d="m293 0l-74 0 0 219-219 0 0 74 219 0 0 219 74 0 0-219 73 0 0-74-73 0z m146 219l0 74 73 0 0-74z"/>
+    </symbol>
+  
+    <symbol id="olymp-popup-left-arrow" viewBox="0 0 512 512">
+      <path d="m114 228l0 56 57 0 0-56z m109 68l-41 40 161 161 41-40z m120-281l-161 161 41 40 161-161z"/>
+    </symbol>
+  
+    <symbol id="olymp-popup-right-arrow" viewBox="0 0 512 512">
+      <path d="m341 228l0 56 57 0 0-56z m-213 229l41 40 161-161-41-40z m0-402l161 161 41-40-161-161z"/>
+    </symbol>
+  
+    <symbol id="olymp-register-icon" viewBox="0 0 512 512">
+      <path d="m223 78c45 0 86 17 117 45l61 0c-41-54-105-90-178-90-100 0-184 66-213 156l48 0c26-65 90-111 165-111z m0 356c-75 0-139-46-165-111l-47 0c28 90 112 156 212 156 72 0 137-35 177-89l-60 0c-31 27-72 44-117 44z m222-200l0-67-44 0 0 67-67 0 0 44 67 0 0 67 44 0 0-67 67 0 0-44z m-400 0l-45 0 0 44 45 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-thunder-icon" viewBox="0 0 512 512">
+      <path d="m461 179l-128 0 102-179-298 0-86 282 77 0-26 230 77-71 0-79-25 22 25-154-51 0 51-179 154 0-77 179 77 0 0 68z m-231 179l52 0 0-51-52 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-three-dots-icon" viewBox="0 0 512 512">
+      <path d="m448 192c-35 0-64 29-64 64 0 35 29 64 64 64 35 0 64-29 64-64 0-35-29-64-64-64z m-192 0c-35 0-64 29-64 64 0 35 29 64 64 64 35 0 64-29 64-64 0-35-29-64-64-64z m-192 0c-35 0-64 29-64 64 0 35 29 64 64 64 35 0 64-29 64-64 0-35-29-64-64-64z"/>
+    </symbol>
+  
+    <symbol id="olymp-status-icon" viewBox="0 0 512 512">
+      <path d="m461 26l-410 0c-28 0-51 23-51 51l0 307 51 0 0 0 410 0 0-51-410 0 0-256 410 0 0 358-359 0 0 51 359 0c28 0 51-23 51-51l0-358c0-28-23-51-51-51z m-461 460l51 0 0-51-51 0z m102-358l0 51 154 0 0-51z m0 154l308 0 0-52-308 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-stats-icon" viewBox="0 0 512 512">
+      <path d="m372 163l-46 0 0 20-62 201-12-81-47 0 28 187 0 22 46 0 0-20 69-224 24 84 0 20 47 0 0-46-47-143z m-141 0l-22-141 0-22-46 0 0 20-93 283-70 0 0 46 116 0 0-23 62-198 8 35z m234 163l0 46 47 0 0-46z m-232-117l-47 0 0 47 47 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-star-icon" viewBox="0 0 512 512">
+      <path d="m384 435l52 0 0 51-52 0z m126-244c-4-14-16-23-29-25l-133-21-58-124c-6-13-19-21-33-21-15 0-28 8-34 21l-58 124-133 21c-13 2-25 11-29 25-4 13-1 27 9 37l97 101-23 140c-2 14 4 28 16 36 6 5 13 7 21 7 6 0 12-2 18-5l116-64 76 42 0-58-52-29-24-14-25 14-90 50 18-111 4-25-18-19-79-81 106-16 27-4 12-25 45-97 44 97 12 25 27 4 106 16-79 82-18 18 5 25 7 47 52 0-9-55 98-101c9-10 12-24 8-37z"/>
+    </symbol>
+  
+    <symbol id="olymp-small-pin-icon" viewBox="0 0 512 512">
+      <path d="m256 114c-47 0-85 38-85 85 0 47 38 85 85 85 47 0 85-38 85-85 0-47-38-85-85-85z m0 114c-16 0-28-13-28-29 0-16 12-28 28-28 16 0 28 12 28 28 0 16-12 29-28 29z m0-228c-77 0-144 46-177 114l67 0c26-35 66-57 110-57 78 0 142 68 142 152 0 116-103 222-142 244-29-17-98-86-128-169l-60 0c37 126 150 228 188 228 45 0 199-143 199-303 0-115-89-209-199-209z m-199 171l57 0 0 57-57 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-small-calendar-icon" viewBox="0 0 512 512">
+      <path d="m398 57l-28 0 0-29c0-15-13-28-29-28-15 0-28 13-28 28l0 29-114 0 0-29c0-15-13-28-28-28-16 0-29 13-29 28l0 29-28 0c-32 0-57 23-57 50l0 354c0 28 25 51 57 51l227 0 0-57-227 0 0-341 28 0 0 28c0 16 13 29 29 29 15 0 28-13 28-29l0-28 114 0 0 28c0 16 13 29 28 29 16 0 29-13 29-29l0-28 28 0 0 284 57 0 0-291c0-27-25-50-57-50z m0 455l57 0 0-57-57 0z m-227-228l170 0 0-56-170 0z m0 114l57 0 0-57-57 0z m113 0l57 0 0-57-57 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-share-icon" viewBox="0 0 512 512">
+      <path d="m144 266l0 40 118 0 0 39-118 0 0 40-78-60 78-59m40-79l-63 48-79 59-42 31 42 32 79 59 63 47 0-79 118 0 0-118-118 0z m19-59l40 0 0 39-40 0z m260 28l-78-59-63-48 0 79-40 0 0 39 79 0 0-39 79 59-79 60 0-40-118 0 0 0-39 0 0 39 118 0 0 79 63-47 78-59 42-32z"/>
+    </symbol>
+  
+    <symbol id="olymp-settings-v2-icon" viewBox="0 0 512 512">
+      <path d="m142 341c-37 0-68 24-80 57l-62 0 0 57 62 0c12 33 43 57 80 57 37 0 69-24 80-57l176 0 0-57-176 0c-11-33-43-57-80-57z m29 114l-57 0 0-57 57 0z m199-284c-37 0-69 24-80 57l-290 0 0 56 290 0c11 34 43 57 80 57 37 0 68-24 80-57l62 0 0-56-62 0c-12-34-43-57-80-57z m28 113l-57 0 0-56 57 0z m-176-227c-11-33-43-57-80-57-37 0-68 24-80 57l-62 0 0 57 62 0c12 33 43 57 80 57 37 0 69-24 80-57l290 0 0-57z m-51 57l-57 0 0-57 57 0z m284 341l57 0 0-57-57 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-settings-icon" viewBox="0 0 512 512">
+      <path d="m114 62l0-62-57 0 0 62c-33 12-57 43-57 80 0 37 24 69 57 80l0 176 57 0 0-176c33-11 57-43 57-80 0-37-24-68-57-80z m0 109l-57 0 0-57 57 0z m341-109l0-62-57 0 0 62c-33 12-57 43-57 80 0 37 24 69 57 80l0 290 57 0 0-290c33-11 57-43 57-80 0-37-24-68-57-80z m0 109l-57 0 0-57 57 0z m-171 119l0-290-56 0 0 290c-34 11-57 43-57 80 0 37 23 68 57 80l0 62 56 0 0-62c33-12 57-43 57-80 0-37-24-69-57-80z m0 108l-56 0 0-57 56 0z m-227 114l57 0 0-57-57 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-save-playlist-icon" viewBox="0 0 512 512">
+      <path d="m118 320c5 0 10 5 10 11l0 106c0 6-5 11-10 11-6 0-11-5-11-11l0-106c0-6 5-11 11-11m0-43c-30 0-54 24-54 54l0 106c0 30 24 54 54 54 29 0 53-24 53-54l0-106c0-30-24-54-53-54z m-34 149c-23-1-41-20-41-42 0-23 18-42 41-43l0-42c-47 1-84 38-84 85 0 47 37 84 84 85z m225-106c6 0 11 5 11 11l0 106c0 6-5 11-11 11-6 0-11-5-11-11l0-106c0-6 5-11 11-11m0-43c-29 0-53 24-53 54l0 106c0 30 24 54 53 54 30 0 53-24 53-54l0-106c0-30-23-54-53-54z m34 149c23-1 41-20 41-42 0-23-18-42-41-43l0-42c46 1 84 38 84 85 0 47-38 84-84 85z m-290-206c-7 18-10 37-10 57l0 57 42 0 0-57c0-11 2-22 5-32z m160-113c-20 0-39 3-57 10l25 37c10-3 21-5 32-5 71 0 128 58 128 128l0 57 43 0 0-57c0-94-76-170-171-170z m-127 42l42 0 0 43-42 0z m341-128l42 0 0 128-42 0z m-43 43l128 0 0 43-128 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-remove-playlist-icon" viewBox="0 0 512 512">
+      <path d="m118 299c5 0 10 4 10 10l0 107c0 6-5 11-10 11-6 0-11-5-11-11l0-107c0-6 5-10 11-10m0-43c-30 0-54 24-54 53l0 107c0 29 24 53 54 53 29 0 53-24 53-53l0-107c0-29-24-53-53-53z m-34 149c-23-1-41-20-41-43 0-22 18-41 41-42l0-43c-47 1-84 39-84 86 0 46 37 84 84 85z m225-106c6 0 11 4 11 10l0 107c0 6-5 11-11 11-6 0-11-5-11-11l0-107c0-6 5-10 11-10m0-43c-29 0-53 24-53 53l0 107c0 29 24 53 53 53 30 0 53-24 53-53l0-107c0-29-23-53-53-53z m34 149c23-1 41-20 41-43 0-22-18-41-41-42l0-43c46 1 84 39 84 86 0 46-38 84-84 85z m-290-207c-7 18-10 38-10 58l0 56 42 0 0-56c0-11 2-22 5-33z m160-113c-20 0-39 4-57 11l25 36c10-2 21-4 32-4 71 0 128 57 128 128l0 56 43 0 0-56c0-94-76-171-171-171z m-127 43l42 0 0 42-42 0z m298-85l128 0 0 42-128 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-weather-icon" viewBox="0 0 512 512">
+      <path d="m256 433l39 0 0 40-39 0z m126-104c0-47-41-84-92-86-25-28-63-46-105-46-71 0-129 50-134 113-30 14-51 43-51 76 0 48 43 87 96 87l121 0 0-40-121 0c-31 0-57-21-57-47 0-16 11-32 29-40l21-10 2-23c3-43 44-77 94-77 30 0 57 12 75 33l11 13 18 0c30 1 54 22 54 47l0 27 25 10c16 6 26 18 26 32 0 9 0 35-44 35l-15 0 0 40 15 0c46 0 83-25 83-75 0-31-21-58-51-69z m-87-191c-54 0-99 37-113 87l35 11 2 2c8-35 39-61 76-61 44 0 79 36 79 79 0 23-10 43-25 58 7 9 16 20 24 31 24-22 41-53 41-89 0-65-53-118-119-118z m-110-20l-27-28c-8-7-21-7-28 0-8 8-8 20 0 28l28 28c7 8 20 8 27 0 8-8 8-20 0-28z m110 0c11 0 20-9 20-20l0-39c0-11-9-20-20-20-11 0-19 9-19 20l0 39c0 11 8 20 19 20z m197 99l-39 0c-11 0-20 8-20 19 0 11 9 20 20 20l39 0c11 0 20-9 20-20 0-11-9-19-20-19z m-41-134c7 8 7 20 0 28l-28 28c-8 7-20 7-28 0-8-8-8-20 0-28l28-28c7-8 20-8 28 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-weather-refresh-icon" viewBox="0 0 512 512">
+      <path d="m256 512c-130 0-236-106-236-236 0-67 28-127 73-170l-55-54 195-29-29 195-53-54c-8 8-16 15-22 24-18 25-31 54-31 88 0 87 71 157 158 157 87 0 158-70 158-157 0-39-15-73-38-101l61-50c34 41 55 93 55 151 0 130-106 236-236 236z"/>
+    </symbol>
+  
+    <symbol id="olymp-week-calendar-icon" viewBox="0 0 512 512">
+      <path d="m419 512l46 0 0-47-46 0z m0-465l-47 0 0-24c0-13-10-23-23-23-13 0-23 10-23 23l0 24-140 0 0-24c0-13-10-23-23-23-13 0-23 10-23 23l0 24-47 0c-26 0-46 20-46 46l0 372c0 26 20 47 46 47l279 0 0-47-279 0 0-372 47 0 0 23c0 13 10 24 23 24 13 0 23-11 23-24l0-23 140 0 0 23c0 13 10 24 23 24 13 0 23-11 23-24l0-23 47 0 0 326 46 0 0-326c0-26-20-46-46-46z m-256 372l186 0 0-47-186 0z m186-116l-186 0 0 46 186 0z m0-70l-186 0 0 46 186 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-shopping-bag-icon" viewBox="0 0 512 512">
+      <path d="m326 512l116 0-23-419-70 0c0-51-42-93-93-93-51 0-93 42-93 93l-70 0-23 419 116 0 0-47-70 0 24-325 23 0 0 46 46 0 0-46 94 0 0 46 46 0 0-46 23 0 24 325-70 0z m-117-419c0-26 21-46 47-46 26 0 47 20 47 46z m24 419l46 0 0-47-46 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-google" viewBox="0 0 512 512">
+      <path d="m261 219l0 88 145 0c-6 38-44 111-145 111-87 0-159-73-159-162 0-89 72-162 159-162 50 0 83 2112 102 40l70-67c-45 2461-103-67-172-67-141 0-256 114-256 256 0 142 115 256 256 256 148 0 246-104 246-250 0-17-2-30-4-43z"/>
+    </symbol>
+  
+    <symbol id="olymp-settings" viewBox="0 0 512 512">
+      <path d="m256 142c-63 0-114 51-114 114 0 63 51 114 114 114 63 0 114-51 114-114 0-63-51-114-114-114z m0 195c-44 0-81-36-81-81 0-44 37-81 81-81 45 0 81 37 81 81 0 45-36 81-81 81z m215-150l-23 0c-3-6-5-12-7-17l16-17c16-16 16-42 0-58l-40-40c-16-16-42-16-58 0l-17 16c-5-2-11-4-17-7l0-23c0-23-18-41-41-41l-56 0c-23 0-41 18-41 41l0 23c-6 3-12 5-17 7l-17-16c-16-16-42-16-58 0l-40 40c-16 16-16 42 0 58l16 17c-2 5-4 11-7 17l-23 0c-23 0-41 18-41 41l0 56c0 23 18 41 41 41l23 0c3 6 5 12 7 17l-16 17c-16 16-16 42 0 58l40 40c16 16 42 16 58 0l17-16c5 2 11 4 17 7l0 23c0 23 18 41 41 41l56 0c23 0 41-18 41-41l0-23c6-3 12-5 17-7l17 16c16 16 42 16 58 0l40-40c16-16 16-42 0-58l-16-17c2-5 4-11 7-17l23 0c23 0 41-18 41-41l0-56c0-23-18-41-41-41z m8 97c0 5-4 8-8 8l-35 0c-8 0-14 5-16 12-4 12-8 23-14 34-4 6-3 14 3 19l25 25c3 3 3 8 0 12l-40 40c-4 3-9 3-12 0l-25-25c-5-6-13-7-19-3-11 6-22 10-34 14-7 2-12 8-12 16l0 35c0 4-3 8-8 8l-56 0c-5 0-8-4-8-8l0-35c0-8-5-14-12-16-12-4-23-8-34-14-6-4-14-3-19 3l-25 25c-3 3-8 3-12 0l-40-40c-3-4-3-9 0-12l25-25c6-5 7-13 3-19-6-11-10-22-14-34-2-7-8-12-16-12l-35 0c-4 0-8-3-8-8l0-56c0-5 4-8 8-8l35 0c8 0 14-5 16-12 4-12 8-23 14-34 4-6 3-14-3-19l-25-25c-3-3-3-8 0-12l40-40c4-3 9-3 12 0l25 25c5 6 13 7 19 3 11-6 22-10 34-14 7-2 12-8 12-16l0-35c0-4 3-8 8-8l56 0c5 0 8 4 8 8l0 35c0 8 5 14 12 16 12 4 23 8 34 14 6 4 14 3 19-3l25-25c3-3 8-3 12 0l40 40c3 4 3 9 0 12l-25 25c-6 5-7 13-3 19 6 11 10 22 14 34 2 7 8 12 16 12l35 0c4 0 8 3 8 8z m-207-170c0 8-7 16-16 16-9 0-16-8-16-16 0-9 7-16 16-16 9 0 16 7 16 16z m0 284c0 9-7 16-16 16-9 0-16-7-16-16 0-8 7-15 16-15 9 0 16 7 16 15z m142-142c0 9-7 16-16 16-8 0-15-7-15-16 0-9 7-16 15-16 9 0 16 7 16 16z m-284 0c0 9-8 16-16 16-9 0-16-7-16-16 0-9 7-16 16-16 8 0 16 7 16 16z m242-101c0 9-7 16-15 16-9 0-16-7-16-16 0-8 7-15 16-15 8 0 15 7 15 15z m-201 202c0 8-7 15-16 15-8 0-15-7-15-15 0-9 7-16 15-16 9 0 16 7 16 16z m201 0c0 8-7 15-15 15-9 0-16-7-16-15 0-9 7-16 16-16 8 0 15 7 15 16z m-201-202c0 9-7 16-16 16-8 0-15-7-15-16 0-8 7-15 15-15 9 0 16 7 16 15z"/>
+    </symbol>
+  
+    <symbol id="olymp-accordion-open-icon" viewBox="0 0 512 512">
+      <path d="m512 205l0 102-512 0 0-102z m-205 307l-102 0 0-512 102 0z"/>
+    </symbol>
+  
+    <symbol id="olymp-soundcloud" viewBox="0 0 512 512">
+      <path d="m0 260c-1 0-2 96-2 2112l20-2064 5 45c0 1217 2082 2081 0 2-1 2112-2 2112-2 2112l-6-45-6-46c0-1-1-2-2-2m-19 17664c-1 0-2 800-2 1984l-4 2852 27904 0c0 1 98 194 98 194 0 0 2-1 224-3l-4-28-5-28c0-2 0-2-1-2m39-26c-2 0-3 96-3 224l-4 54 480 53c0 1 98 258 128 0 2-2 256-3 256-3l-6-53-5-54c-1-1-2-3-3-3m-20-1c-2 0-3 128-3 288l-28999-25178 4 54c0 1666 2947 2944 2947 2944 0 0 3-1 32-3l-5-54-5-56c0-1-1-3-3-3m-24 114z m0-106c0-2-1-4-3-4-2 0-4 128-4 32l-2919-2918 4 55c0 2 164 3396 160 0 4-1 32-3 32-3l-4-55-5-52z m-17-37c-2 0-4 192-4 384l-4 85 3968 54c0 2 1731 388 2016 0 3-2 384-3 384-3l-5-55-4-85c-1-2-2-4-4-4m-21-19c-2 0-4 192-4 416l-4 104 352 54c0 3 197 421 197 421 0 0 4-2 448-5l-5-54-4-104c0-3-2-4-4-4m-21-10c-3 0-5 192-5 448l-4 113 352 53c1 259 485 483 0 5-2 480-4 480-4 480l-5-54-4-112c0-3-2-5-5-5m-26 96c0-3-2-5-5-5-3 0-5 224-5 512l-4 116 32 53c1 291 518 515 0 6-2 512-5 512-5 512l-3-54-4-116z m0 170z m16-173c-3 0-6 256-6 544l-3 114 32 52c0 4 262 550 288 0 6-2 544-5 544-5l-3-53-3-113c0-4-3-6-6-6m-22 352c-3 0-6 288-6 608l-11195-6543 2 53c0 3 262 614 32 0 6-3 608-6 608-6l-2-52-3-109c0-4-3-6-6-6m-25-21c-1 0-3-1-4-1-1 0-2 32-3 96-2 1152-4 32-4 544l0 2-574-499 2 52 0 1c1 128 290 385 131 229 226 0 4-1 448-2 1216-2 192-3 192-5l0-5 2496-47-3-130c0-2-1-4-3-5m-2 188z m18-200c-1-1-2-2-3-2-2 0-3 32-5 128-1 128-2 32-2 512l0 1-3 141 186 153c0 4 39 711 39 711 0 0 7-3 704-7l-4-52-3-141c0-3-1-5-3-6m190 80c-8 0-17 1824-24 4960-5-56-52-101-111-101-14 0-27 288-40 768-5 192-6 384-6 768l0 200c0 388 711 736 711 736l175 0c34 32 62-27 62-62 0-35-28-63-62-63"/>
+    </symbol>
+  
+</svg>
+
+
+<div class="container">
+  <p class="small">This SVG sprite was created with <a href="http://fontastic.me/">Fontastic</a></p>
+
+  <h2>icons reference</h2>
+  <ul class="glyphs">
+    
+    <li>
+      <svg class="olymp-accordion-close-icon">
+        <use xlink:href="#olymp-accordion-close-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-accordion-close-icon"><use xlink:href="#olymp-accordion-close-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-add-a-place-icon">
+        <use xlink:href="#olymp-add-a-place-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-add-a-place-icon"><use xlink:href="#olymp-add-a-place-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-add-to-conversation-icon">
+        <use xlink:href="#olymp-add-to-conversation-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-add-to-conversation-icon"><use xlink:href="#olymp-add-to-conversation-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-albums-icon">
+        <use xlink:href="#olymp-albums-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-albums-icon"><use xlink:href="#olymp-albums-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-badge-icon">
+        <use xlink:href="#olymp-badge-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-badge-icon"><use xlink:href="#olymp-badge-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-block-from-chat-icon">
+        <use xlink:href="#olymp-block-from-chat-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-block-from-chat-icon"><use xlink:href="#olymp-block-from-chat-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-blog-icon">
+        <use xlink:href="#olymp-blog-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-blog-icon"><use xlink:href="#olymp-blog-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-calendar-icon">
+        <use xlink:href="#olymp-calendar-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-calendar-icon"><use xlink:href="#olymp-calendar-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-camera-icon">
+        <use xlink:href="#olymp-camera-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-camera-icon"><use xlink:href="#olymp-camera-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-chat-messages-icon">
+        <use xlink:href="#olymp-chat-messages-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-chat-messages-icon"><use xlink:href="#olymp-chat-messages-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-check-icon">
+        <use xlink:href="#olymp-check-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-check-icon"><use xlink:href="#olymp-check-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-checked-calendar-icon">
+        <use xlink:href="#olymp-checked-calendar-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-checked-calendar-icon"><use xlink:href="#olymp-checked-calendar-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-login-icon">
+        <use xlink:href="#olymp-login-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-login-icon"><use xlink:href="#olymp-login-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-heart-icon">
+        <use xlink:href="#olymp-heart-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-headphones-icon">
+        <use xlink:href="#olymp-headphones-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-headphones-icon"><use xlink:href="#olymp-headphones-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-happy-sticker-icon">
+        <use xlink:href="#olymp-happy-sticker-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-happy-sticker-icon"><use xlink:href="#olymp-happy-sticker-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-happy-faces-icon">
+        <use xlink:href="#olymp-happy-faces-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-happy-faces-icon"><use xlink:href="#olymp-happy-faces-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-happy-face-icon">
+        <use xlink:href="#olymp-happy-face-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-dropdown-arrow-icon">
+        <use xlink:href="#olymp-dropdown-arrow-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-dropdown-arrow-icon"><use xlink:href="#olymp-dropdown-arrow-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-day-calendar-icon">
+        <use xlink:href="#olymp-day-calendar-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-day-calendar-icon"><use xlink:href="#olymp-day-calendar-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-cupcake-icon">
+        <use xlink:href="#olymp-cupcake-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-cupcake-icon"><use xlink:href="#olymp-cupcake-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-computer-icon">
+        <use xlink:href="#olymp-computer-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-computer-icon"><use xlink:href="#olymp-computer-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-comments-post-icon">
+        <use xlink:href="#olymp-comments-post-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-comments-post-icon"><use xlink:href="#olymp-comments-post-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-close-icon">
+        <use xlink:href="#olymp-close-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-close-icon"><use xlink:href="#olymp-close-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-logout-icon">
+        <use xlink:href="#olymp-logout-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-logout-icon"><use xlink:href="#olymp-logout-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-magnifying-glass-icon">
+        <use xlink:href="#olymp-magnifying-glass-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-magnifying-glass-icon"><use xlink:href="#olymp-magnifying-glass-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-manage-widgets-icon">
+        <use xlink:href="#olymp-manage-widgets-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-manage-widgets-icon"><use xlink:href="#olymp-manage-widgets-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-menu-icon">
+        <use xlink:href="#olymp-menu-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-menu-icon"><use xlink:href="#olymp-menu-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-month-calendar-icon">
+        <use xlink:href="#olymp-month-calendar-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-month-calendar-icon"><use xlink:href="#olymp-month-calendar-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-multimedia-icon">
+        <use xlink:href="#olymp-multimedia-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-multimedia-icon"><use xlink:href="#olymp-multimedia-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-newsfeed-icon">
+        <use xlink:href="#olymp-newsfeed-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-newsfeed-icon"><use xlink:href="#olymp-newsfeed-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-photos-icon">
+        <use xlink:href="#olymp-photos-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-photos-icon"><use xlink:href="#olymp-photos-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-play-icon">
+        <use xlink:href="#olymp-play-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-play-icon"><use xlink:href="#olymp-play-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-plus-icon">
+        <use xlink:href="#olymp-plus-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-plus-icon"><use xlink:href="#olymp-plus-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-popup-left-arrow">
+        <use xlink:href="#olymp-popup-left-arrow"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-popup-left-arrow"><use xlink:href="#olymp-popup-left-arrow"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-popup-right-arrow">
+        <use xlink:href="#olymp-popup-right-arrow"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-popup-right-arrow"><use xlink:href="#olymp-popup-right-arrow"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-register-icon">
+        <use xlink:href="#olymp-register-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-register-icon"><use xlink:href="#olymp-register-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-thunder-icon">
+        <use xlink:href="#olymp-thunder-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-thunder-icon"><use xlink:href="#olymp-thunder-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-three-dots-icon">
+        <use xlink:href="#olymp-three-dots-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-status-icon">
+        <use xlink:href="#olymp-status-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-status-icon"><use xlink:href="#olymp-status-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-stats-icon">
+        <use xlink:href="#olymp-stats-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-stats-icon"><use xlink:href="#olymp-stats-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-star-icon">
+        <use xlink:href="#olymp-star-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-star-icon"><use xlink:href="#olymp-star-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-small-pin-icon">
+        <use xlink:href="#olymp-small-pin-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-small-pin-icon"><use xlink:href="#olymp-small-pin-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-small-calendar-icon">
+        <use xlink:href="#olymp-small-calendar-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-small-calendar-icon"><use xlink:href="#olymp-small-calendar-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-share-icon">
+        <use xlink:href="#olymp-share-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-share-icon"><use xlink:href="#olymp-share-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-settings-v2-icon">
+        <use xlink:href="#olymp-settings-v2-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-settings-v2-icon"><use xlink:href="#olymp-settings-v2-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-settings-icon">
+        <use xlink:href="#olymp-settings-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-settings-icon"><use xlink:href="#olymp-settings-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-save-playlist-icon">
+        <use xlink:href="#olymp-save-playlist-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-save-playlist-icon"><use xlink:href="#olymp-save-playlist-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-remove-playlist-icon">
+        <use xlink:href="#olymp-remove-playlist-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-remove-playlist-icon"><use xlink:href="#olymp-remove-playlist-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-weather-icon">
+        <use xlink:href="#olymp-weather-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-weather-icon"><use xlink:href="#olymp-weather-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-weather-refresh-icon">
+        <use xlink:href="#olymp-weather-refresh-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-weather-refresh-icon"><use xlink:href="#olymp-weather-refresh-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-week-calendar-icon">
+        <use xlink:href="#olymp-week-calendar-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-week-calendar-icon"><use xlink:href="#olymp-week-calendar-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-shopping-bag-icon">
+        <use xlink:href="#olymp-shopping-bag-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-shopping-bag-icon"><use xlink:href="#olymp-shopping-bag-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-google">
+        <use xlink:href="#olymp-google"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-google"><use xlink:href="#olymp-google"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-settings">
+        <use xlink:href="#olymp-settings"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-settings"><use xlink:href="#olymp-settings"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-accordion-open-icon">
+        <use xlink:href="#olymp-accordion-open-icon"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-accordion-open-icon"><use xlink:href="#olymp-accordion-open-icon"></use></svg>'>
+    </li>
+    
+    <li>
+      <svg class="olymp-soundcloud">
+        <use xlink:href="#olymp-soundcloud"></use>
+      </svg>
+
+      <input type="text" readonly="readonly" value='<svg class="olymp-soundcloud"><use xlink:href="#olymp-soundcloud"></use></svg>'>
+    </li>
+    
+  </ul>
+
+  <h2>How to add SVG sprite icons to your project?</h2>
+
+<div class="tip"><p></p><div class="number">1</div>Upload the icons.svg file to your server. In our examples below we assume that the sprite file will be available at: <code>http://yoursite.com/images/icons.svg</code><p></p></div><div class="tip"><p></p><div class="number">2</div>Go to "Icons Reference" and choose an icon that you want to have on your HTML page. Then click and copy its markup to your HTML page. For instance, the markup for a twitter icon could look like this:<p></p><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">svg</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"icon-twitter"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">use</span> <span class="hljs-attribute">xlink:href</span>=<span class="hljs-value">"#icon-twitter"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">use</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">svg</span>&gt;</span>
+</code></pre></div><div class="tip"><p></p><div class="number">3</div>Now it's time to add the sprite file URL to the icon markup. In the example below, the URL is <code>/images/icons.svg</code>. So now the twitter icon markup could look like this:<p></p><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">svg</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"icon-twitter"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">use</span> <span class="hljs-attribute">xlink:href</span>=<span class="hljs-value">"/images/icons.svg#icon-twitter"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">use</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">svg</span>&gt;</span>
+</code></pre></div><div class="tip"><p></p><div class="number">4</div>Add the code below to the CSS file that you use for your html page:<p></p><pre><code><span class="hljs-attr_selector">[class^="icon-"]</span>, <span class="hljs-attr_selector">[class*=" icon-"]</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">32</span>px</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">32</span>px</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> inline-block</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">fill</span>:<span class="hljs-value"> currentColor</span></span>;
+<span class="hljs-rule">}</span></span>
+</code></pre><p>You can use <code>height</code> and <code>width</code> properties to control icon size. To define icon color use <code>fill</code> property. Note: <code>currentColor</code> keyword inherits the color value of a parent element.</p></div><div class="tip"><p></p><div class="number">5</div>For IE capability you can use a great polyfill: <a href="https://github.com/jonathantneal/svg4everybody" target="blank">svg4everybody</a><p></p></div><div class="tip"><p> <b>Remember: </b>with Icon Cloud you don't have to worry about IE capability, the sprite file and other stuff. We'll take care of all of that for you, just click the "Publish" button and give it a try.</p></div>
+
+</div>
+
+<script type="text/javascript">
+(function() {
+  var glyphs, _i, _len, _ref;
+
+  _ref = document.getElementsByClassName('glyphs');
+  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+    glyphs = _ref[_i];
+    glyphs.addEventListener('click', function(event) {
+      if (event.target.tagName === 'INPUT') {
+        return event.target.select();
+      }
+    });
+  }
+
+}).call(this);
+</script>
+</body>
+</html>
