@@ -17,5 +17,6 @@ initFirestorter({firebase: firebase});
 const campaignsCollection = new Collection('campaigns');
 
 export {
-	campaignsCollection
+  campaignsCollection,
+  firebase
 };
