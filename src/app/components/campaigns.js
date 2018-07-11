@@ -1,28 +1,26 @@
 import React from 'react'
 import CampaignsStore from '../stores/campaignsStore'
-import { observer } from 'mobx-react';
-
+import { observer } from 'mobx-react'
 
 @observer
 export class CampaignsList extends React.Component {
-
   onNameChange = ev => {
-    CampaignsStore.onNameChange(ev.target.value);
+    CampaignsStore.onNameChange(ev.target.value)
   }
   onCreateCampaign = ev => {
-    CampaignsStore.onCreateCampaign();
+    CampaignsStore.onCreateCampaign()
 
     ev.preventDefault()
   }
-  onRemoveCampaign = (campaign) => {
-    return () => CampaignsStore.removeCampaign(campaign);
+  onRemoveCampaign = campaign => {
+    return () => CampaignsStore.removeCampaign(campaign)
   }
   render() {
     return (
       <div>
         <h3>Campaigns list</h3>
         <form onSubmit={this.onCreateCampaign}>
-          <label>Campaign name</label>
+          <label>Choose a name:</label>
           <input type="text" onChange={this.onNameChange} name="campaignName" />
           <button type="submit"> Create campaign</button>
         </form>
