@@ -3,6 +3,10 @@ import Link from 'next/link';
 import { CampaignsList } from '../components/campaigns';
 import userStore from '../stores/userStore';
 import {observer} from 'mobx-react';
+import "../assets/Bootstrap/dist/css/bootstrap-reboot.css";
+import "../assets/Bootstrap/dist/css/bootstrap.css";
+import "../assets/Bootstrap/dist/css/bootstrap-grid.css";
+
 const IndexPage = observer(() => (
   <div>
     <h1>Exapp.IO</h1>
