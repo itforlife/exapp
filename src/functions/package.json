@@ -9,6 +9,8 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
+    "@zeit/next-css": "^0.2.0",
+    "bootstrap": "^4.1.1",
     "firebase": "^5.2.0",
     "firebase-admin": "~5.12.1",
     "firebase-functions": "^1.0.3",

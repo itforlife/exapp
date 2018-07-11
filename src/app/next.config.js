@@ -1,8 +1,8 @@
 const webpack = require('webpack');
 require('dotenv').config();
+const withCSS = require('@zeit/next-css')
 
-
-module.exports = {
+module.exports = withCSS({
     distDir: '../functions/next',
     webpack: (cfg) => {
       cfg.plugins.push(
@@ -17,5 +17,5 @@ module.exports = {
       );
   
       return cfg;
-    }
-};
+    },
+});

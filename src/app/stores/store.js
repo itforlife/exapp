@@ -15,8 +15,9 @@ if (!firebase.apps.length) {
 }
 initFirestorter({firebase: firebase});
 const campaignsCollection = new Collection('campaigns');
-
+const auth = firebase.auth();
 export {
   campaignsCollection,
-  firebase
+  firebase,
+  auth
 };

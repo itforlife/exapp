@@ -9,7 +9,6 @@
   },
   "license": "MIT",
   "scripts": {
-    "install": "yarn build-all",
     "next": "yarn build-firebase && cd \"src/app\" && yarn && yarn dev",
     "preserve": "yarn build-all",
     "serve": "firebase serve",
