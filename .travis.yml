@@ -11,7 +11,7 @@ before_script:
 - yarn global add eslint
 - yarn global add eslint-plugin-promise
 script:
-- yarn install
+- yarn build-all
 deploy:
   skip_cleanup: true
   provider: firebase
