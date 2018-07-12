@@ -1,12 +1,12 @@
 
-import { campaignsCollection } from './store';
 import { observable, action } from 'mobx';
 
-
-class CampaignsStore {
+export class CampaignsStore {
 
   @observable name;
-
+  constructor(campaignsCollection) {
+    this.campaignsCollection = campaignsCollection;
+  } 
   @action
   onNameChange = (name) => {
     this.name = name;
@@ -21,16 +21,14 @@ class CampaignsStore {
   }
 
   get campaigns() {
-    return campaignsCollection.docs;
+    return this.campaignsCollection.docs;
   }
 
   addCampaign = (payload) => {
-    campaignsCollection.add(payload)
+    this.campaignsCollection.add(payload)
   }
 
   removeCampaign = (campaign) => {
     campaign.delete();
   }
 }
-
-export default new CampaignsStore();

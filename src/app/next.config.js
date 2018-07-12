@@ -1,8 +1,10 @@
 const webpack = require('webpack');
 require('dotenv').config();
 const withCSS = require('@zeit/next-css')
+const withImages = require('next-images')
+const withFonts = require('next-fonts')
 
-module.exports = withCSS({
+module.exports = withFonts(withImages(withCSS({
     distDir: '../functions/next',
     webpack: (cfg) => {
       cfg.plugins.push(
@@ -15,7 +17,6 @@ module.exports = withCSS({
           'process.env.MESSAGING_SENDER_ID': JSON.stringify(process.env.MESSAGING_SENDER_ID),
         })
       );
-  
       return cfg;
     },
-});
+})));
