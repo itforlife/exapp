@@ -1,33 +1,58 @@
-import React from 'react'
-import Link from 'next/link'
-import { CampaignsList } from '../components/campaigns'
-import userStore from '../stores/userStore'
-import { observer } from 'mobx-react'
-import 'bootstrap/dist/css/bootstrap-reboot.css'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/css/bootstrap-grid.css'
+import React from 'react';
+import { observer } from 'mobx-react';
+import ExappStore from '../stores/exappStore';
+import { Provider } from 'mobx-react';
+import { AuthenticationComponent } from '../components/authentication/authenticationComponent';
 
-const IndexPage = observer(() => (
-  <div>
-    <h1>Exapp.IO</h1>
-    {userStore.isUserLogedIn && <h2> hi {userStore.userProfile.email}</h2>}
-    <p>Empowering social good</p>
-    <CampaignsList />
-    {userStore.isUserLogedIn ? (
-      <button type="button" onClick={userStore.signOut}>
-        Sign Out
-      </button>
-    ) : (
-      <div>
-        <Link href="/register-page">
-          <a style={{ fontSize: 20, display: 'block' }}>register</a>
-        </Link>
-        <Link href="/login-page">
-          <a style={{ fontSize: 20 }}>Log In</a>
-        </Link>
-      </div>
-    )}
-  </div>
-))
+import "../assets/css/fonts.min.css";
+import "../assets/css/main.css";
+import "bootstrap/dist/css/bootstrap-reboot.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap-grid.css";
 
-export default IndexPage
+
+@observer
+class LandingPage extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.exappStore = ExappStore;
+  }
+
+  componentDidMount() {
+    const authenticationStore = ExappStore.authenticationStore;
+    authenticationStore.auth.onAuthStateChanged((user) => {
+      if (user) {
+        authenticationStore.setAuthenticationUser({isUserLogedIn: true})
+
+      } else {
+        authenticationStore.setAuthenticationUser({isUserLogedIn: false})
+      }
+    });
+  }
+  render = () => {
+    const authenticationStore = this.exappStore.authenticationStore;
+    return (
+        <Provider exappStore={this.exappStore}>
+          <div className='landing-page'>
+            <div className='content-bg-wrap'>
+            <div className="header-spacer--standard"></div>
+              <div className='container'>
+                <div className='row display-flex'>
+                  <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div className="landing-content">
+                      <h1>Welcome to the Exapp app</h1>
+                      <a className="btn btn-md btn-border c-white" onClick={authenticationStore.setRegisterFormActive}>Register Now!</a>
+                    </div>
+                  </div>
+                  <AuthenticationComponent />
+                </div>
+              </div>
+            </div>
+          </div>
+        </Provider>
+    )
+  } 
+}
+
+export default LandingPage
