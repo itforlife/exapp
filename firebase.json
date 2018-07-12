@@ -4,11 +4,11 @@
     "indexes": "firestore.indexes.json"
   },
   "functions": {
-    "source": "src/functions"
+    "source": "dist/functions"
   },
   "hosting": {
-    "public": "public",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "public": "dist/public",
+    "ignore": ["firebase.json"],
     "rewrites": [
       {
         "source": "**/**",

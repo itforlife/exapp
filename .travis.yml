@@ -8,8 +8,11 @@ branches:
 before_script:
 - yarn global add firebase-tools
 - yarn global add next
-- yarn global add eslint
-- yarn global add eslint-plugin-promise
+- yarn global add cpx
+- yarn global add rimraf
+- yarn global add @babel/cli
+- yarn global add @babel/core
+- yarn global add prettier
 script:
 - yarn build-all
 deploy:

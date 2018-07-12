@@ -44,6 +44,5 @@ npm install
 5.  Start the aplication:
 
 ```sh
-cd src/app
 npm run dev
 ```

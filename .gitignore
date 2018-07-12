@@ -8,3 +8,4 @@ npm-debug.log
 # Build directory
 .DS_Store
 /src/functions/next
+/dist
