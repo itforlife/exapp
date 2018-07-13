@@ -35,8 +35,8 @@ Upon a challenge completion users are rewarded points which unlock badges that g
 1.  Go to https://console.firebase.google.com/ and create a new project
 2.  Create a Database in test mode
 3.  Enable Authentication with email
-4.  Add an .env file in `src/app` that is similar to .sample.env with your firebase config
-5.  Run npm install in the root of the project
+4.  Add an .env file in the project root folder that is similar to .sample.env with your firebase config
+5.  Run npm install
 
 ```sh
 yarn build-all or npm run build-all
