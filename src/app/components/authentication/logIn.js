@@ -3,7 +3,7 @@ import { observer, inject } from 'mobx-react';
 import { FloatingInput } from '../floatingInput';
 import { Checkbox } from '../checkbox';
 
-@inject('exappStore')
+@inject('exappStore', 'router')
 @observer
 export class LogIn extends React.Component{
     
@@ -12,10 +12,25 @@ export class LogIn extends React.Component{
 
         await authenticationStore.signInEmail();
         if(authenticationStore.isUserLogedIn) {
-            window.location.href = '/home-page'
+            this.props.router.push('/home-page');
         }
     }
+    onFacebookSignIn = async () => {
+        const authenticationStore = this.props.exappStore.authenticationStore;
 
+        await authenticationStore.signInFacebook();
+        if(authenticationStore.isUserLogedIn) {
+            this.props.router.push('/home-page');
+        }
+    }
+    onTwitterSignIn = async () => {
+        const authenticationStore = this.props.exappStore.authenticationStore;
+
+        await authenticationStore.signInTwitter();
+        if(authenticationStore.isUserLogedIn) {
+            this.props.router.push('/home-page');
+        }
+    }
     render() {
         const authenticationStore = this.props.exappStore.authenticationStore;
 
@@ -48,9 +63,9 @@ export class LogIn extends React.Component{
 
                             <div className="or"></div>
 
-                            <a href="#" className="btn btn-lg bg-facebook full-width btn-icon-left"><i className="fab fa-facebook-f" aria-hidden="true"></i>Login with Facebook</a>
+                            <a className="btn btn-lg bg-facebook full-width btn-icon-left" onClick={this.onFacebookSignIn}><i className="fab fa-facebook-f" aria-hidden="true"></i>Login with Facebook</a>
 
-                            <a href="#" className="btn btn-lg bg-twitter full-width btn-icon-left"><i className="fab fa-twitter" aria-hidden="true"></i>Login with Twitter</a>
+                            <a className="btn btn-lg bg-twitter full-width btn-icon-left" onClick={this.onTwitterSignIn}><i className="fab fa-twitter" aria-hidden="true"></i>Login with Twitter</a>
 
 
                             <p>Don’t you have an account? <a href="#" onClick={authenticationStore.setRegisterFormActive}>Register Now!</a> it’s really simple and you can start enjoing all the benefits!</p>

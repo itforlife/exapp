@@ -3,12 +3,13 @@ import { observer } from 'mobx-react'
 import ExappStore from '../stores/exappStore'
 import { Provider } from 'mobx-react'
 import { AuthenticationComponent } from '../components/authentication/authenticationComponent'
+import { withRouter } from 'next/router'
 
 import '../assets/css/fonts.min.css'
-import '../assets/css/main.css'
 import 'bootstrap/dist/css/bootstrap-reboot.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-grid.css'
+import { indexStyles } from './index.css';
 
 @observer
 class LandingPage extends React.Component {
@@ -17,20 +18,10 @@ class LandingPage extends React.Component {
     this.exappStore = ExappStore
   }
 
-  componentDidMount() {
-    const authenticationStore = ExappStore.authenticationStore
-    authenticationStore.auth.onAuthStateChanged(user => {
-      if (user) {
-        authenticationStore.setAuthenticationUser({ isUserLogedIn: true })
-      } else {
-        authenticationStore.setAuthenticationUser({ isUserLogedIn: false })
-      }
-    })
-  }
   render = () => {
-    const authenticationStore = this.exappStore.authenticationStore
+    const authenticationStore = this.exappStore.authenticationStore;
     return (
-      <Provider exappStore={this.exappStore}>
+      <Provider exappStore={this.exappStore} router={this.props.router}>
         <div className="landing-page">
           <div className="content-bg-wrap">
             <div className="header-spacer--standard" />
@@ -51,10 +42,11 @@ class LandingPage extends React.Component {
               </div>
             </div>
           </div>
+          <style jsx>{indexStyles}</style>
         </div>
       </Provider>
     )
   }
 }
 
-export default LandingPage
+export default withRouter(LandingPage)

@@ -7,8 +7,13 @@ class ExappStore {
     authenticationStore = null;
 
     constructor() {
+      const authenticationStoreConfig = {
+        auth: firebaseStore.auth,
+        facebookProvider: firebaseStore.facebookProvider,
+        twitterProvider: firebaseStore.twitterProvider
+      }
       this.campaignsStore = new CampaignsStore(firebaseStore.campaignsCollection);
-      this.authenticationStore = new AuthenticationStore(firebaseStore.auth);
+      this.authenticationStore = new AuthenticationStore(authenticationStoreConfig);
     }
 }
 export default new ExappStore();
