@@ -17,8 +17,16 @@ if (!firebase.apps.length) {
 initFirestorter({firebase: firebase});
 const campaignsCollection = new Collection('campaigns');
 const auth = firebase.auth();
+const facebookProvider = new firebase.auth.FacebookAuthProvider();
+facebookProvider.addScope('user_birthday');
+facebookProvider.addScope('user_friends');
+facebookProvider.addScope('public_profile');
+const twitterProvider = new firebase.auth.TwitterAuthProvider();
+
 export {
   campaignsCollection,
   firebase,
-  auth
+  auth,
+  facebookProvider,
+  twitterProvider
 };

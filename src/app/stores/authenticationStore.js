@@ -1,4 +1,4 @@
-import { observable, action, reaction } from 'mobx';
+import { observable, action } from 'mobx';
 
 
 export class AuthenticationStore {
@@ -10,8 +10,17 @@ export class AuthenticationStore {
   @observable isLoginFormActive = true;
   @observable isRegisterFormActive = false;
 
-  constructor(auth) {
-    this.auth = auth;
+  constructor(config) {
+    this.auth = config.auth;
+    this.facebookProvider = config.facebookProvider;
+    this.twitterProvider = config.twitterProvider;
+    this.auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setAuthenticationUser({ isUserLogedIn: true });
+      } else {
+        this.setAuthenticationUser({ isUserLogedIn: false });
+      }
+    })
   }
 
   @action
@@ -37,45 +46,60 @@ export class AuthenticationStore {
   }
 
   @action
-  createUser = () => {
+  createUser = async () => {
     this.isLoading = true;
-    return this.auth.createUserWithEmailAndPassword(this.inputValues.email, this.inputValues.password)
-    .then(user => {
-          this.isLoading = false;
-          this.inputValues = {};
-    })
-    .catch(action((error) => {
+    try {
+      await this.auth.createUserWithEmailAndPassword(this.inputValues.email, this.inputValues.password);
+      this.isLoading = false;
+      this.inputValues = {};
+    } catch(error) {
         // Handle Errors here.
         this.errorMessage = error.message;
         this.isLoading = false;
-    }));
+    };
+  }
 
+  signInFacebook = async() => {
+    try {
+        await this.auth.signInWithPopup(this.facebookProvider);
+    }
+    catch(error) {
+      console.log('errorCode', error.message);
+      console.log('errorCode', error.email);
+      console.log('errorCode', error.credential);
+
+    }
+  }
+
+  signInTwitter = async() => {
+    try {
+        const result  = await this.auth.signInWithPopup(this.twitterProvider);
+    }
+    catch(error) {
+      console.log('errorCode', error.message);
+      console.log('errorCode', error.email);
+      console.log('errorCode', error.credential);
+
+    }
   }
 
   @action
-  signInEmail = () => {
+  signInEmail = async () => {
     this.isLoading = true;
-
-    return this.auth.signInWithEmailAndPassword(this.inputValues.email, this.inputValues.password)
-    .then(() => {
-        this.isLoading = false;
-        this.inputValues = {};
-    })
-    .catch(action((error) => {
+    try {
+      await this.auth.signInWithEmailAndPassword(this.inputValues.email, this.inputValues.password);
+      this.isLoading = false;
+      this.inputValues = {};
+    } catch(error) {
       this.errorMessage = error.message;
-    }));
+    };
   }
 
   get userProfile() {
     return this.auth.currentUser;
   }
 
-  signOut = () => {
-    this.auth.signOut().then(function() {
-          //to be changed with a router store
-          window.location.href = '/'
-      }).catch(function(error) {
-        // An error happened.
-      });
+  signOut = async () => {
+    await this.auth.signOut();
   }
 }

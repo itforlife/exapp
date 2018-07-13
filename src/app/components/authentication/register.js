@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react';
 import { FloatingInput } from '../floatingInput';
 import { Checkbox } from '../checkbox';
 
-@inject('exappStore')
+@inject('exappStore', 'router')
 @observer
 export class Register extends React.Component {
     
@@ -13,7 +13,7 @@ export class Register extends React.Component {
 
         await authenticationStore.createUser();
         if(authenticationStore.isUserLogedIn) {
-            window.location.href = '/home-page'
+            this.props.router.push('/home-page');
         }
     }
     render() {
