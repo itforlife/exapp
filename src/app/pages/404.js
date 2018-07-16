@@ -1,10 +1,11 @@
 import React from 'react'
+import { translate } from 'react-i18next'
 
-const NotFoundPage = () => (
+const NotFoundPage = ({ t }) => (
   <div>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <h1>{t('notFound.title')}</h1>
+    <p>{t('notFound.description')}</p>
   </div>
 )
 
-export default NotFoundPage
+export default translate(['data'])(NotFoundPage)

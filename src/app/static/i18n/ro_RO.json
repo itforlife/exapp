@@ -1,8 +1,34 @@
 {
   "index": {
-    "title": "Exapp - Reteua sociala caritabila"
+    "mainCallToAction": "Exapp - platforma sociala caritabila",
+    "joinUsButton": "Alatura-te!"
   },
-  "footer": {
-    "headline": "Copyright"
+  "notFound": {
+    "description": "Nu am gasit ceea ce cautai...",
+    "title": "Pagina lipsa"
+  },
+  "layout": {
+    "footerText": "Copyright 2018",
+    "headerText": "Here goes the header data & nav"
+  },
+  "authentication": {
+    "loginTab": "Intra in cont",
+    "registerTab": "Inregistreaza-te",
+    "loginTitle": "Intra in cont",
+    "mailInputLabel": "Email-ul tau",
+    "passwordInputLabel": "Parola ta",
+    "forgotPasswordLabel": "Ai uitat parola?",
+    "loginButton": "Intra in cont",
+    "loginFacebookButton": "Intra cu Facebook",
+    "loginTwitterButton": "Intra cu Twitter",
+    "noAccountText": "Nu ai cont ?",
+    "registerNowText": "Inregistreza-te acum!",
+    "createAccountCall": "e simplu sa fii implicat!",
+    "rememberMe": "Tine-ma minte",
+    "registerTitle": "Inregistreza-te in Exapp",
+    "firstNameInputLabel": "Prenume",
+    "lastNameInputLabel": "Nume",
+    "termsAndConditionsText": "Accept termenii si conditiile",
+    "registerButtonText": "Finalizeaza inregistrarea!"
   }
 }

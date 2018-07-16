@@ -1,30 +1,32 @@
-/* global fetch */
-import 'isomorphic-fetch'
+import Backend from 'i18next-xhr-backend'
+import LanguageDetector from 'i18next-browser-languagedetector'
 import i18next from 'i18next'
 
-export async function getResources(lng, baseUrl) {
-  const response = await fetch(`${baseUrl}/${lng}.json`)
-  const json = await response.json()
-
-  return {
-    [lng]: {
-      data: json,
-    },
-  }
+const i18nOptions = {
+  backend: {
+    loadPath: 'static/i18n/{{lng}}.json',
+  },
+  fallbackLng: 'en_EN',
+  defaultNS: 'data',
+  ns: 'data',
+  debug: false,
+  interpolation: {
+    escapeValue: false, // not needed for react!!
+  },
+  react: {
+    wait: true,
+  },
 }
 
-export const initLang = (lng, resources) =>
-  i18next.init({
-    lng,
-    fallbackLng: 'en_EN',
-    defaultNS: 'data',
-    ns: 'data',
-    debug: false,
-    interpolation: {
-      escapeValue: false, // not needed for react!!
-    },
-    react: {
-      wait: true,
-    },
-    resources,
-  })
+export const i18n = i18next
+
+// for browser use xhr backend to load translations and browser lng detector
+if (process.browser) {
+  i18n
+    .use(Backend)
+    // .use(Cache)
+    .use(LanguageDetector)
+}
+
+// initialize if not already initialized
+if (!i18n.isInitialized) i18n.init(i18nOptions)

@@ -14,17 +14,17 @@ export default class Exapp extends App {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
-    const defaultLocale = 'en_EN'
-    const validLocales = [defaultLocale, 'ro_RO']
-    const lng = defaultLocale
-    const host =
-      process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000'
-        : 'https://exapp.io'
-    const resources = await getResources(lng, `${host}/static/i18n`)
-    console.log(resources)
+    // const defaultLocale = 'en_EN'
+    // const validLocales = [defaultLocale, 'ro_RO']
+    // const lng = 'ro_RO' || defaultLocale
+    // const host =
+    //   process.env.NODE_ENV !== 'production'
+    //     ? 'http://localhost:3000'
+    //     : 'https://exapp.io'
+    // const resources = await getResources(lng, `${host}/static/i18n`)
+    // console.log(resources)
 
-    return { pageProps, lng, resources }
+    return { pageProps }
   }
   @computed
   get pageLayout() {
@@ -32,11 +32,11 @@ export default class Exapp extends App {
     return LandingPageLayout
   }
   render() {
-    const { Component, pageProps, lng, resources } = this.props
+    const { Component, pageProps } = this.props
     const PageLayout = this.pageLayout
     return (
       <Container>
-        <CoreLayout lng={lng} resources={resources}>
+        <CoreLayout>
           <PageLayout>
             <Component {...pageProps} />
           </PageLayout>
