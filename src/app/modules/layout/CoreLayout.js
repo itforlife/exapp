@@ -3,7 +3,9 @@ import { I18nextProvider } from 'react-i18next'
 import { i18n } from '../../i18n'
 import { Provider, observer } from 'mobx-react'
 import ApplicationStore from './ApplicationStore'
+import { withRouter } from 'next/router'
 
+@withRouter
 @observer
 export class CoreLayout extends Component {
   constructor(props) {
