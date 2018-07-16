@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap-reboot.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-grid.css'
 import { indexStyles } from './index.css';
+import * as I18N from '../i18n';
 
 @observer
 class LandingPage extends React.Component {
@@ -17,7 +18,6 @@ class LandingPage extends React.Component {
     super(props)
     this.exappStore = ExappStore
   }
-
   render = () => {
     const authenticationStore = this.exappStore.authenticationStore;
     return (
