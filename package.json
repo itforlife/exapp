@@ -49,7 +49,7 @@
     "predeploy": "yarn build-all",
     "deploy": "firebase deploy",
     "build-all": "yarn build-next && yarn build-functions && yarn build-public",
-    "build-public": "cpx \"src/public/**/*.*\" \"dist/public\" -C",
+    "build-public": "cpx \"src/app/static/**/*.*\" \"dist/public/static\" -C",
     "build-next": "next build \"src/app\"",
     "build-functions": "babel \"src/functions\" --out-dir \"dist/functions\"",
     "prebuild-functions": "yarn copy-deps && yarn install-deps",
