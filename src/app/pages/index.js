@@ -2,7 +2,7 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import ExappStore from '../stores/exappStore'
 import { Provider } from 'mobx-react'
-import { AuthenticationComponent } from '../components/authentication/authenticationComponent'
+import { AuthenticationComponent } from '../modules/authentication/authenticationComponent'
 import { withRouter } from 'next/router'
 
 import '../assets/css/fonts.min.css'
