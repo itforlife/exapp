@@ -5,11 +5,11 @@ import { Register } from './register';
 import classnames from 'classnames';
 import { indexStyles } from './index.css';
 
-@inject('exappStore')
+@inject('appStore')
 @observer
 export class AuthenticationComponent extends React.Component{
     render() {
-        const authenticationStore = this.props.exappStore.authenticationStore;
+        const authenticationStore = this.props.appStore.authenticationStore;
         const loginActiveClassName = classnames(
             {
                 active: authenticationStore.isLoginFormActive

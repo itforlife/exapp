@@ -1,22 +1,22 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react';
 
-@inject('exappStore')
+@inject('appStore')
 @observer
 export class CampaignsList extends React.Component {
   onNameChange = ev => {
-    this.props.exappStore.campaignsStore.onNameChange(ev.target.value);
+    this.props.appStore.campaignsStore.onNameChange(ev.target.value);
   }
   onCreateCampaign = ev => {
-    this.props.exappStore.campaignsStore.onCreateCampaign();
+    this.props.appStore.campaignsStore.onCreateCampaign();
 
     ev.preventDefault()
   }
   onRemoveCampaign = (campaign) => {
-    return () => this.props.exappStore.campaignsStore.removeCampaign(campaign);
+    return () => this.props.appStore.campaignsStore.removeCampaign(campaign);
   }
   render() {
-    const { campaignsStore } = this.props.exappStore;
+    const { campaignsStore } = this.props.appStore;
     return (
       <div>
         <h3>Campaigns list</h3>
