@@ -1,6 +1,6 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-import AppStore from '../stores/appStore'
+import AppStore from '../modules/layout/ApplicationStore'
 import { Provider } from 'mobx-react'
 import { CampaignsList } from '../modules/campaigns/campaigns'
 import { withRouter } from 'next/router'
