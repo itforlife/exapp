@@ -13,88 +13,6 @@ $c-twitter: ${colors['c-twitter']};
 /*------------- #REGISTRATION-LOGIN-FORM --------------*/
 
 
-
-.btn-lg {
-  i, svg {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 1080px) {
-  .btn-lg {
-    padding: 1rem;
-  }
-}
-
-.full-width {
-  width: 100%;
-}
-.btn-purple {
-  background-color: $purple;
-}
-.btn-icon-left {
-  i, svg {
-    font-size: 12px;
-    margin-right: 10px;
-  }
-}
-.bg-facebook {
-  background-color: $c-facebook;
-}
-
-.bg-twitter {
-  background-color: $c-twitter;
-}
-button {
-
-  &.btn {
-    padding: .5rem 1rem;
-  }
-
-  &.btn-md {
-    padding: 1rem 3.5rem;
-    font-size: 0.75rem;
-    border-radius: 0.3rem;
-  }
-
-  &.btn-md-2 {
-    padding: .8rem 2.1rem;
-    font-size: 0.688rem;
-    border-radius: 0.3rem;
-  }
-
-  &.btn-lg {
-    padding: 1rem 3rem;
-  }
-}
-
-.btn {
-  color: $white-color;
-  margin-bottom: 15px;
-  position: relative;
-
-  &:hover {
-    opacity: .8;
-    color: $white-color;
-  }
-
-  &:focus {
-    box-shadow: none;
-  }
-
-  &.c-grey {
-    border-color: #d8dbe6;
-
-    &:hover {
-      color: inherit;
-    }
-  }
-
-  &.disabled, &:disabled {
-    background-color: #9a9fbf;
-    border-color: #9a9fbf;
-  }
-}
 .registration-login-form {
   border: 1px solid $border-color;
   border-radius: 0 5px 5px 0;
@@ -115,9 +33,6 @@ button {
     display: table;
     width: 50%;
 
-    &:last-child .nav-link {
-      border-bottom: 0;
-    }
   }
 
   .nav-link {
@@ -125,18 +40,19 @@ button {
 		border: none;
 		border-bottom: 1px solid $border-color;
 		border-right: 1px solid $border-color;
+		border-left: 1px solid $border-color;
 		padding: 25px;
 		color: #c0c4d8;
 		fill: #c0c4d8;
-		background-color: #fafbfd;
+		background-color: $white-color;
 		height: 100%;
 		display: table-cell;
 		vertical-align: middle;
 
 		&.active {
-			fill: $primary-color;
-			background-color: $white-color;
-			border-color: $border-color;
+			fill: #fafbfd;
+			background-color: #fafbfd;
+			border-color: white;
 		}
 
 		svg {
@@ -155,7 +71,6 @@ button {
 
   .title {
 		padding: 25px;
-		border-bottom: 1px solid $border-color;
 		margin-bottom: 0;
   }
 
@@ -171,11 +86,6 @@ button {
 
 .remember {
   margin-bottom: 1rem;
-
-  .checkbox {
-		display: inline-block;
-		margin-bottom: 0;
-  }
 
   a {
 		line-height: 2;
@@ -237,7 +147,6 @@ button {
 
 @media (max-width: 1023px) {
   .registration-login-form {
-		padding-top: 71px;
 		padding-left: 0;
   }
 

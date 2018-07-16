@@ -1,16 +1,16 @@
 
 
 export const colors = {
-    "primary-color": "#ff5e3a !default",
+    "primary-color": "#ff5e3a",
     "secondary-color": '#3f4257',
-    'form-color': '#515365 !default',
+    'form-color': '#515365',
     'placeholder-form - color': '#888da8',
-    'white-color': '#fff !default',
+    'white-color': '#fff',
     'heading-color': '#515365',
     'icon-color':' #9a9fbf',
-    'body-bg': '#edf2f6 !default',
-    'body-font-color': '#888da8 !default',
-    'body-bg-white': '#ffffff !default',
+    'body-bg': '#edf2f6',
+    'body-font-color': '#888da8',
+    'body-bg-white': '#ffffff',
     'border-round': '100%',
     'border-rounded': '3px',
     'border-color': '#e6ecf5',

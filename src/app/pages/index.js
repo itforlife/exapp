@@ -4,8 +4,8 @@ import ExappStore from '../stores/exappStore'
 import { Provider } from 'mobx-react'
 import { AuthenticationComponent } from '../modules/authentication/authenticationComponent'
 import { withRouter } from 'next/router'
-
-import '../assets/css/fonts.min.css'
+import {Button } from '../modules/elements';
+import '../static/assets/css/fonts.min.css'
 import 'bootstrap/dist/css/bootstrap-reboot.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-grid.css'
@@ -30,12 +30,12 @@ class LandingPage extends React.Component {
                 <div className="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                   <div className="landing-content">
                     <h1>Exapp - The social good network</h1>
-                    <a
+                    <Button  
                       className="btn btn-md btn-border c-white"
                       onClick={authenticationStore.setRegisterFormActive}
                     >
                       Join us!
-                    </a>
+                    </Button>
                   </div>
                 </div>
                 <AuthenticationComponent />

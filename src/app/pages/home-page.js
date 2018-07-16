@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import ExappStore from '../stores/exappStore';
 import { Provider } from 'mobx-react';
-import { CampaignsList } from '../components/campaigns';
+import { CampaignsList } from '../modules/campaigns/campaigns';
 import { withRouter } from 'next/router';
 
 const Component = observer((props) => {
