@@ -1,8 +1,10 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { Footer, Header } from '../modules/layout'
+import ExappStore from '../stores/exappStore'
 
 export default class MyDocument extends Document {
   render() {
+    const authenticationStore = ExappStore.authenticationStore;
     return (
       <html>
         <Head>
@@ -10,9 +12,9 @@ export default class MyDocument extends Document {
           <link rel="stylesheet" href="/_next/static/style.css" />
         </Head>
         <body>
-          <Header />
+          {authenticationStore.isUserLogedIn && <Header />}
           <Main />
-          <Footer />
+          {authenticationStore.isUserLogedIn && <Footer />}
           <NextScript />
         </body>
       </html>

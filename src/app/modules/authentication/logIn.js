@@ -1,7 +1,6 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react';
-import { FloatingInput } from '../elements/floatingInput';
-import { Checkbox } from '../elements/checkbox';
+import { FloatingInput, Checkbox, Button } from '../elements';
 import { indexStyles } from './index.css';
 
 @inject('exappStore', 'router')
@@ -59,16 +58,17 @@ export class LogIn extends React.Component{
                                 <Checkbox name={'optionsCheckboxes'} label={'Remember Me'}/> 
                                 <a href="#" className="forgot">Forgot my Password</a>
                             </div>
-
-                            <a className="btn btn-lg btn-primary full-width" onClick={this.onSingIn}>Login</a>
-
+                            <Button className="btn btn-lg btn-primary full-width" onClick={this.onSingIn}>
+                                Login
+                            </Button>
                             <div className="or"></div>
 
-                            <a className="btn btn-lg bg-facebook full-width btn-icon-left" onClick={this.onFacebookSignIn}><i className="fab fa-facebook-f" aria-hidden="true"></i>Login with Facebook</a>
-
-                            <a className="btn btn-lg bg-twitter full-width btn-icon-left" onClick={this.onTwitterSignIn}><i className="fab fa-twitter" aria-hidden="true"></i>Login with Twitter</a>
-
-
+                            <Button className="btn btn-lg bg-facebook full-width btn-icon-left" onClick={this.onFacebookSignIn}>
+                                <i className="fab fa-facebook-f" aria-hidden="true"></i> Login with Facebook
+                            </Button>
+                            <Button className="btn btn-lg bg-twitter full-width btn-icon-left" onClick={this.onTwitterSignIn}>
+                                <i className="fab fa-twitter" aria-hidden="true"></i> Login with Twitter
+                            </Button>
                             <p>Don’t you have an account? <a href="#" onClick={authenticationStore.setRegisterFormActive}>Register Now!</a> it’s really simple and you can start enjoing all the benefits!</p>
                         </div>
                     </div>

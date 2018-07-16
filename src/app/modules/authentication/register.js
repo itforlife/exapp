@@ -1,8 +1,7 @@
 
 import React from 'react'
 import { observer, inject } from 'mobx-react';
-import { FloatingInput } from '../elements/floatingInput';
-import { Checkbox } from '../elements/checkbox';
+import { FloatingInput, Checkbox, Button } from '../elements';
 import { indexStyles } from './index.css';
 
 @inject('exappStore', 'router')
@@ -55,25 +54,16 @@ export class Register extends React.Component {
                                     name={'password'}
                                     value={authenticationStore.inputValues.password}
                                 />
-                                <div className="form-group date-time-picker label-floating">
-                                    <label className="control-label">Your Birthday</label>
-                                    <input name="datetimepicker"  />
-                                    <span className="input-group-addon">
-                                        <svg className="olymp-calendar-icon"><use xlinkHref="svg-icons/sprites/icons.svg#olymp-calendar-icon"></use></svg>
-                                    </span>
-                                </div>
-    
-                                
                                 <div className="remember">
-                                    <Checkbox name={'optionsCheckboxes'} label={'Remember Me'}/> 
+                                    <Checkbox name={'optionsCheckboxes'} label={'I Accept termin & conditions'}/> 
                                 </div>
-        
-                                <a href="#" 
+                                <Button 
                                     className="btn btn-purple btn-lg full-width" 
-                                    onClick={this.onCompleteRegistration}
+                                    onClick={this.onCompleteRegistration} 
                                 >
                                     Complete Registration!
-                                </a>
+                                </Button>
+    
                             </div>
                         </div>
                     </form>
