@@ -2,7 +2,7 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import AppStore from '../stores/appStore'
 import { Provider } from 'mobx-react'
-import { CampaignsList } from '../modules/components/campaigns'
+import { CampaignsList } from '../modules/campaigns/campaigns'
 import { withRouter } from 'next/router'
 
 const Component = observer(props => {
