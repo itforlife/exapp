@@ -33,8 +33,8 @@ class LandingPage extends React.Component {
                   </Button>
                 </div>
               </div>
+              <AuthenticationComponent />
             </div>
-            <AuthenticationComponent />
           </div>
         </div>
         <style jsx>{indexStyles}</style>

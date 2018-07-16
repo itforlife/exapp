@@ -9,7 +9,6 @@ export class CoreLayout extends Component {
   constructor(props) {
     super(props)
     this.i18n = initLang(this.props.lng, this.props.resources)
-    console.log(this.props.resources)
     this.appStore = ApplicationStore
   }
   render() {
