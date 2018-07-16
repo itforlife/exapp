@@ -1,7 +1,6 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react'
 import { AuthenticationComponent } from '../modules/authentication/authenticationComponent'
-import { withRouter } from 'next/router'
 import { Button } from '../modules/elements'
 import '../static/assets/css/fonts.min.css'
 import 'bootstrap/dist/css/bootstrap-reboot.css'
@@ -43,4 +42,4 @@ class LandingPage extends React.Component {
   }
 }
 
-export default withRouter(LandingPage)
+export default LandingPage;
