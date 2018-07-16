@@ -1,5 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import { Footer, Header } from '../components/layout'
+import { Footer, Header } from '../modules/layout'
 
 export default class MyDocument extends Document {
   render() {

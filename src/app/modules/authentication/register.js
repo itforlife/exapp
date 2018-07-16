@@ -1,8 +1,9 @@
 
 import React from 'react'
 import { observer, inject } from 'mobx-react';
-import { FloatingInput } from '../floatingInput';
-import { Checkbox } from '../checkbox';
+import { FloatingInput } from '../elements/floatingInput';
+import { Checkbox } from '../elements/checkbox';
+import { indexStyles } from './index.css';
 
 @inject('exappStore', 'router')
 @observer
@@ -76,6 +77,8 @@ export class Register extends React.Component {
                             </div>
                         </div>
                     </form>
+                    <style jsx>{indexStyles}</style>
+
                 </div>
         )
     }

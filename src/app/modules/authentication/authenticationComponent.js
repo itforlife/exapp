@@ -3,6 +3,7 @@ import { observer, inject } from 'mobx-react';
 import { LogIn } from './logIn';
 import { Register } from './register';
 import classnames from 'classnames';
+import { indexStyles } from './index.css';
 
 @inject('exappStore')
 @observer
@@ -43,6 +44,7 @@ export class AuthenticationComponent extends React.Component{
                         </div>
                     </div>
                 </div>
+                <style jsx>{indexStyles}</style>
             </div>
         )
 

@@ -1,5 +1,5 @@
-import { CampaignsStore } from './campaignsStore';
-import { AuthenticationStore } from './authenticationStore';
+import { CampaignsStore } from '../modules/campaigns/campaignsStore';
+import { AuthenticationStore } from '../modules/authentication/authenticationStore';
 import * as firebaseStore from '../firebase';
 
 class ExappStore {
