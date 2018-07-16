@@ -1,15 +1,17 @@
-import React from 'react';
-import { observer } from 'mobx-react';
-import ExappStore from '../stores/exappStore';
-import { Provider } from 'mobx-react';
-import { CampaignsList } from '../modules/campaigns/campaigns';
-import { withRouter } from 'next/router';
+import React from 'react'
+import { observer } from 'mobx-react'
+import AppStore from '../stores/appStore'
+import { Provider } from 'mobx-react'
+import { CampaignsList } from '../modules/components/campaigns'
+import { withRouter } from 'next/router'
 
-const Component = observer((props) => {
+const Component = observer(props => {
   return (
     <div>
       <h1>Exapp.IO</h1>
-      {props.authenticationStore.isUserLogedIn && <h2> hi {props.authenticationStore.userProfile.email}</h2>}
+      {props.authenticationStore.isUserLogedIn && (
+        <h2> hi {props.authenticationStore.userProfile.email}</h2>
+      )}
       <p>Empowering social good</p>
       <CampaignsList />
       <button onClick={props.onSignOut}>Sign out </button>
@@ -18,22 +20,24 @@ const Component = observer((props) => {
 })
 
 class HomePage extends React.Component {
-
-  onSignOut = async() => {
-    await ExappStore.authenticationStore.signOut
-    this.props.router.push('/');
+  onSignOut = async () => {
+    await AppStore.authenticationStore.signOut
+    this.props.router.push('/')
   }
 
   render = () => {
-    const { authenticationStore } = ExappStore;
+    const { authenticationStore } = AppStore
     return (
-        <Provider exappStore={ExappStore}>
-          <div>
-              <Component authenticationStore={authenticationStore} onSignOut={this.onSignOut}/>
-          </div>
-        </Provider>
+      <Provider appStore={AppStore}>
+        <div>
+          <Component
+            authenticationStore={authenticationStore}
+            onSignOut={this.onSignOut}
+          />
+        </div>
+      </Provider>
     )
-  } 
+  }
 }
 
-export default withRouter(HomePage);
+export default withRouter(HomePage)

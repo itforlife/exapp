@@ -1,5 +1,6 @@
 import React from 'react'
+import { translate } from 'react-i18next'
 
-const Footer = () => <footer>Here goes the footer data</footer>
+const Footer = ({ t }) => <footer>{t('footer.headline')}</footer>
 
-export default Footer
+export default translate(['data'])(Footer)

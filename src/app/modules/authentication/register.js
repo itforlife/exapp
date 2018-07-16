@@ -4,12 +4,12 @@ import { observer, inject } from 'mobx-react';
 import { FloatingInput, Checkbox, Button } from '../elements';
 import { indexStyles } from './index.css';
 
-@inject('exappStore', 'router')
+@inject('appStore', 'router')
 @observer
 export class Register extends React.Component {
     
     onCompleteRegistration = async() => {
-        const authenticationStore = this.props.exappStore.authenticationStore;
+        const authenticationStore = this.props.appStore.authenticationStore;
 
         await authenticationStore.createUser();
         if(authenticationStore.isUserLogedIn) {
@@ -17,7 +17,7 @@ export class Register extends React.Component {
         }
     }
     render() {
-        const authenticationStore = this.props.exappStore.authenticationStore;
+        const authenticationStore = this.props.appStore.authenticationStore;
         return (
                 <div>
                     <div className="title h6">Register to Exapp</div>

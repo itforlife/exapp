@@ -1,7 +1,5 @@
 import React from 'react'
-import { observer } from 'mobx-react'
-import ExappStore from '../stores/exappStore'
-import { Provider } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import { AuthenticationComponent } from '../modules/authentication/authenticationComponent'
 import { withRouter } from 'next/router'
 import {Button } from '../modules/elements';
@@ -9,19 +7,16 @@ import '../static/assets/css/fonts.min.css'
 import 'bootstrap/dist/css/bootstrap-reboot.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-grid.css'
-import { indexStyles } from './index.css';
-import * as I18N from '../i18n';
-
+import { indexStyles } from './index.css'
+@inject('appStore')
 @observer
 class LandingPage extends React.Component {
   constructor(props) {
     super(props)
-    this.exappStore = ExappStore
   }
   render = () => {
-    const authenticationStore = this.exappStore.authenticationStore;
+    const authenticationStore = this.props.appStore
     return (
-      <Provider exappStore={this.exappStore} router={this.props.router}>
         <div className="landing-page">
           <div className="content-bg-wrap">
             <div className="header-spacer--standard" />
@@ -38,13 +33,13 @@ class LandingPage extends React.Component {
                     </Button>
                   </div>
                 </div>
-                <AuthenticationComponent />
               </div>
+              <AuthenticationComponent />
             </div>
           </div>
-          <style jsx>{indexStyles}</style>
         </div>
-      </Provider>
+        <style jsx>{indexStyles}</style>
+      </div>
     )
   }
 }
