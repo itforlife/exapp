@@ -19,7 +19,7 @@ export const initLang = (lng, resources) =>
     fallbackLng: 'en_EN',
     defaultNS: 'data',
     ns: 'data',
-    debug: true,
+    debug: false,
     interpolation: {
       escapeValue: false, // not needed for react!!
     },
