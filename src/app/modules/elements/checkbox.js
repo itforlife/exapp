@@ -1,5 +1,5 @@
 import React from 'react'
-import {indexStyles} from './index.css';
+import {checkboxStyles} from './checkbox.css';
 
 
 export const Checkbox = (props) => {
@@ -11,7 +11,7 @@ export const Checkbox = (props) => {
                 <span className="checkbox-material"><span className="check"></span></span>
                 {props.label}
             </label>
-            <style jsx>{indexStyles}</style>
+            <style jsx>{checkboxStyles}</style>
 
         </div>
     )
