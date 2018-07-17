@@ -34,8 +34,8 @@ export class LogIn extends React.Component {
   }
   render() {
     const authenticationStore = this.props.appStore.authenticationStore
+    const formStore = authenticationStore.loginForm;
     const { t } = this.props
-
     return (
       <div>
         <div className="title h6"> {t('authentication.loginTitle')}</div>
@@ -43,19 +43,21 @@ export class LogIn extends React.Component {
           <div className="row">
             <div className="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
               <FloatingInput
-                inputLabel={t('authentication.mailInputLabel')}
-                inputType={'email'}
-                onChange={authenticationStore.fieldChange}
-                name={'email'}
-                value={authenticationStore.inputValues.email}
+                {...formStore.$('email').bind({type: 'email',
+                                                placeholder: t('authentication.mailInputLabel'),
+                                                label: t('authentication.mailInputLabel')
+                                              })}
               />
+                <p>{formStore.$('email').error}</p>
               <FloatingInput
-                inputLabel={t('authentication.passwordInputLabel')}
-                inputType={'password'}
-                onChange={authenticationStore.fieldChange}
-                name={'password'}
-                value={authenticationStore.inputValues.password}
+                {...formStore.$('password').bind({
+                                                  type: 'password',
+                                                  placeholder: t('authentication.passwordInputLabel'),
+                                                  label: t('authentication.passwordInputLabel')
+                                                })}
               />
+                <p>{formStore.$('password').error}</p>
+
               <div className="remember">
                 <Checkbox
                   name={'optionsCheckboxes'}

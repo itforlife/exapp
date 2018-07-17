@@ -9,15 +9,17 @@ import { indexStyles } from './index.css'
 @observer
 export class Register extends React.Component {
   onCompleteRegistration = async () => {
-    const authenticationStore = this.props.appStore.authenticationStore
+    const authenticationStore = this.props.appStore.authenticationStore;
 
-    await authenticationStore.createUser()
+    await authenticationStore.createUser();
     if (authenticationStore.isUserLogedIn) {
-      this.props.router.push('/home-page')
+      this.props.router.push('/home-page');
     }
   }
   render() {
-    const authenticationStore = this.props.appStore.authenticationStore
+    const authenticationStore = this.props.appStore.authenticationStore;
+    const formStore = authenticationStore.registerForm;
+
     const { t } = this.props
     return (
       <div>
@@ -26,34 +28,34 @@ export class Register extends React.Component {
           <div className="row">
             <div className="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
               <FloatingInput
-                inputLabel={t('authentication.firstNameInputLabel')}
-                onChange={authenticationStore.fieldChange}
-                name={'firstName'}
-                value={authenticationStore.inputValues.firstName}
+                {...formStore.$('firstName').bind({
+                  placeholder: t('authentication.firstNameInputLabel'),
+                  label: t('authentication.firstNameInputLabel')
+                })}
               />
             </div>
             <div className="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
               <FloatingInput
-                inputLabel={t('authentication.lastNameInputLabel')}
-                onChange={authenticationStore.fieldChange}
-                name={'lastName'}
-                value={authenticationStore.inputValues.lastName}
+                {...formStore.$('lastName').bind({
+                  placeholder: t('authentication.lastNameInputLabel'),
+                  label: t('authentication.lastNameInputLabel')
+                })}
               />
             </div>
             <div className="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
               <FloatingInput
-                inputLabel={t('authentication.mailInputLabel')}
-                inputType={'email'}
-                onChange={authenticationStore.fieldChange}
-                name={'email'}
-                value={authenticationStore.inputValues.email}
+                {...formStore.$('email').bind({
+                                              type: 'email',
+                                              placeholder: t('authentication.mailInputLabel'),
+                                              label: t('authentication.mailInputLabel')
+                                            })}
               />
               <FloatingInput
-                inputLabel={t('authentication.passwordInputLabel')}
-                inputType={'password'}
-                onChange={authenticationStore.fieldChange}
-                name={'password'}
-                value={authenticationStore.inputValues.password}
+                {...formStore.$('password').bind({
+                                                  type: 'password',
+                                                  placeholder: t('authentication.passwordInputLabel'),
+                                                  label: t('authentication.passwordInputLabel')
+                                                })}
               />
               <div className="remember">
                 <Checkbox
