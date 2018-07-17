@@ -2,7 +2,7 @@ import React from 'react'
 import { observer, inject } from 'mobx-react'
 import { translate } from 'react-i18next'
 import { FloatingInput, Checkbox, Button } from '../elements'
-import { indexStyles } from './index.css'
+import { registerStyles } from './register.css'
 
 @inject('appStore', 'router')
 @translate(['data'])
@@ -29,7 +29,6 @@ export class Register extends React.Component {
             <div className="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
               <FloatingInput
                 {...formStore.$('firstName').bind({
-                  placeholder: t('authentication.firstNameInputLabel'),
                   label: t('authentication.firstNameInputLabel')
                 })}
               />
@@ -37,7 +36,6 @@ export class Register extends React.Component {
             <div className="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
               <FloatingInput
                 {...formStore.$('lastName').bind({
-                  placeholder: t('authentication.lastNameInputLabel'),
                   label: t('authentication.lastNameInputLabel')
                 })}
               />
@@ -46,14 +44,12 @@ export class Register extends React.Component {
               <FloatingInput
                 {...formStore.$('email').bind({
                                               type: 'email',
-                                              placeholder: t('authentication.mailInputLabel'),
                                               label: t('authentication.mailInputLabel')
                                             })}
               />
               <FloatingInput
                 {...formStore.$('password').bind({
                                                   type: 'password',
-                                                  placeholder: t('authentication.passwordInputLabel'),
                                                   label: t('authentication.passwordInputLabel')
                                                 })}
               />
@@ -72,7 +68,7 @@ export class Register extends React.Component {
             </div>
           </div>
         </form>
-        <style jsx>{indexStyles}</style>
+        <style jsx>{registerStyles}</style>
       </div>
     )
   }

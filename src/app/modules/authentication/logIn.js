@@ -2,7 +2,7 @@ import React from 'react'
 import { observer, inject } from 'mobx-react'
 import { translate } from 'react-i18next'
 import { FloatingInput, Checkbox, Button } from '../elements'
-import { indexStyles } from './index.css'
+import { loginStyles } from './login.css'
 
 @inject('appStore', 'router')
 @translate(['data'])
@@ -44,7 +44,6 @@ export class LogIn extends React.Component {
             <div className="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
               <FloatingInput
                 {...formStore.$('email').bind({type: 'email',
-                                                placeholder: t('authentication.mailInputLabel'),
                                                 label: t('authentication.mailInputLabel')
                                               })}
               />
@@ -52,7 +51,6 @@ export class LogIn extends React.Component {
               <FloatingInput
                 {...formStore.$('password').bind({
                                                   type: 'password',
-                                                  placeholder: t('authentication.passwordInputLabel'),
                                                   label: t('authentication.passwordInputLabel')
                                                 })}
               />
@@ -99,7 +97,7 @@ export class LogIn extends React.Component {
             </div>
           </div>
         </form>
-        <style jsx>{indexStyles}</style>
+        <style jsx>{loginStyles}</style>
       </div>
     )
   }

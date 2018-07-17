@@ -1,5 +1,5 @@
 import React from 'react'
-import {indexStyles} from './index.css';
+import {buttonsStyles} from './buttons.css';
 
 export const Button = (props) => {
 
@@ -12,7 +12,7 @@ export const Button = (props) => {
             >
                 {props.children}
             </a>
-            <style jsx>{indexStyles}</style>
+            <style jsx>{buttonsStyles}</style>
         </div>
 
     )
