@@ -21,7 +21,7 @@ const Component = observer(props => {
 
 class HomePage extends React.Component {
   onSignOut = async () => {
-    await AppStore.authenticationStore.signOut
+    await AppStore.authenticationStore.signOut();
     this.props.router.push('/')
   }
 

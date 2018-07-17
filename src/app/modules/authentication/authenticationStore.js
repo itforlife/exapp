@@ -1,17 +1,18 @@
 import { observable, action } from 'mobx';
+import { loginForm, registerForm } from './authenticationForm';
 
 
 export class AuthenticationStore {
 
-  @observable inputValues = {};
   @observable isUserLogedIn = false;
   @observable isLoading = false;
-  @observable errorMessage;
   @observable isLoginFormActive = true;
   @observable isRegisterFormActive = false;
-
+  @observable form;
   constructor(config) {
     this.auth = config.auth;
+    this.loginForm = loginForm;
+    this.registerForm = registerForm;
     this.facebookProvider = config.facebookProvider;
     this.twitterProvider = config.twitterProvider;
     this.auth.onAuthStateChanged(user => {
@@ -41,17 +42,13 @@ export class AuthenticationStore {
   }
 
   @action
-  fieldChange = (fieldName, value) => {
-    this.inputValues[fieldName] = value;
-  }
-
-  @action
   createUser = async () => {
     this.isLoading = true;
+
     try {
-      await this.auth.createUserWithEmailAndPassword(this.inputValues.email, this.inputValues.password);
+      await this.auth.createUserWithEmailAndPassword(this.registerForm.$('email').value, this.registerForm.$('password').value);
       this.isLoading = false;
-      this.inputValues = {};
+      this.registerForm.clear();
     } catch(error) {
         // Handle Errors here.
         this.errorMessage = error.message;
@@ -87,9 +84,9 @@ export class AuthenticationStore {
   signInEmail = async () => {
     this.isLoading = true;
     try {
-      await this.auth.signInWithEmailAndPassword(this.inputValues.email, this.inputValues.password);
+      await this.auth.signInWithEmailAndPassword(this.loginForm.$('email').value, this.loginForm.$('password').value);
       this.isLoading = false;
-      this.inputValues = {};
+      this.loginForm.clear();
     } catch(error) {
       this.errorMessage = error.message;
     };
@@ -101,5 +98,6 @@ export class AuthenticationStore {
 
   signOut = async () => {
     await this.auth.signOut();
+    console.log('signout')
   }
 }
