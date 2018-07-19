@@ -4,7 +4,10 @@ import { i18n } from '../../i18n'
 import { Provider, observer } from 'mobx-react'
 import ApplicationStore from './ApplicationStore'
 import { withRouter } from 'next/router'
-
+import '../../static/assets/css/fonts.min.css'
+import 'bootstrap/dist/css/bootstrap-reboot.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap-grid.css'
 @withRouter
 @observer
 export class CoreLayout extends Component {

@@ -16,6 +16,7 @@ if (!firebase.apps.length) {
 }
 initFirestorter({firebase: firebase});
 const campaignsCollection = new Collection('campaigns');
+const usersCollection = new Collection('users');
 const auth = firebase.auth();
 const facebookProvider = new firebase.auth.FacebookAuthProvider();
 facebookProvider.addScope('user_birthday');
@@ -28,5 +29,6 @@ export {
   firebase,
   auth,
   facebookProvider,
-  twitterProvider
+  twitterProvider,
+  usersCollection
 };
