@@ -3,10 +3,7 @@ import { observer, inject } from 'mobx-react'
 import { translate } from 'react-i18next'
 import { AuthenticationComponent } from '../modules/authentication/authenticationComponent'
 import { Button } from '../modules/elements'
-import '../static/assets/css/fonts.min.css'
-import 'bootstrap/dist/css/bootstrap-reboot.css'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/css/bootstrap-grid.css'
+
 import { indexStyles } from './index.css'
 @inject('appStore')
 @translate(['data'])

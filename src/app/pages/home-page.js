@@ -10,7 +10,10 @@ const Component = observer(props => {
     <div>
       <h1>Exapp.IO</h1>
       {props.authenticationStore.isUserLogedIn && (
+        <div>
         <h2> hi {props.authenticationStore.userProfile.email}</h2>
+        <h2> hi {props.authenticationStore.userProfile.firstName}</h2>
+        </div>
       )}
       <p>Empowering social good</p>
       <CampaignsList />

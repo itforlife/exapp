@@ -32,5 +32,9 @@
     "lastNameInputLabel": "Last Name",
     "termsAndConditionsText": "I Accept terms & conditions",
     "registerButtonText": "Complete Registration!"
+  },
+  "accountDashboard":  {
+    "headerTitle": "Your Account Dashboard",
+    "headerContent": "Here you’ll find everything you need to change your profile information, settings, change your pasword and much more! have fun!"
   }
 }

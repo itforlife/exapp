@@ -30,5 +30,9 @@
     "lastNameInputLabel": "Nume",
     "termsAndConditionsText": "Accept termenii si conditiile",
     "registerButtonText": "Finalizeaza inregistrarea!"
+  },
+  "accountDashboard":  {
+      "headerTitle": "Pagina de profil",
+      "headerContent": "Aici vei gasit tot ce ai nevoie pentru a schimba informatii despre profil, setari si parola!"
   }
 }

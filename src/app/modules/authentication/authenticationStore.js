@@ -1,4 +1,5 @@
-import { observable, action } from 'mobx';
+import { observable, action, computed } from 'mobx';
+import { Document } from 'firestorter';
 import { loginForm, registerForm } from './authenticationForm';
 
 
@@ -8,18 +9,23 @@ export class AuthenticationStore {
   @observable isLoading = false;
   @observable isLoginFormActive = true;
   @observable isRegisterFormActive = false;
+  @observable currentUser = {};
   @observable form;
   constructor(config) {
     this.auth = config.auth;
+    this.usersCollection = config.usersCollection;
     this.loginForm = loginForm;
     this.registerForm = registerForm;
     this.facebookProvider = config.facebookProvider;
     this.twitterProvider = config.twitterProvider;
+    this.currentUser = null;
     this.auth.onAuthStateChanged(user => {
       if (user) {
         this.setAuthenticationUser({ isUserLogedIn: true });
+        this.currentUser = new Document(`users/${this.auth.currentUser.uid}`);
       } else {
         this.setAuthenticationUser({ isUserLogedIn: false });
+        this.currentUser = null;
       }
     })
   }
@@ -46,7 +52,14 @@ export class AuthenticationStore {
     this.isLoading = true;
 
     try {
-      await this.auth.createUserWithEmailAndPassword(this.registerForm.$('email').value, this.registerForm.$('password').value);
+      const result = await this.auth.createUserWithEmailAndPassword(this.registerForm.$('email').value, this.registerForm.$('password').value);
+      this.addUserCollection({
+        email: result.user.email,
+        userId: result.user.uid,
+        firstName: this.registerForm.$('firstName').value,
+        lastName: this.registerForm.$('lastName').value,
+        signInMethod: 'email'
+      }, true)
       this.isLoading = false;
       this.registerForm.clear();
     } catch(error) {
@@ -58,7 +71,17 @@ export class AuthenticationStore {
 
   signInFacebook = async() => {
     try {
-        await this.auth.signInWithPopup(this.facebookProvider);
+        const result = await this.auth.signInWithPopup(this.facebookProvider);
+          const profile = result.additionalUserInfo.profile;
+        
+         this.addUserCollection({
+            email: result.user.email,
+            userId: result.user.uid,
+            firstName: profile.first_name,
+            lastName: profile.last_name,
+            birthday: profile.birthday,
+            signInMethod: result.credential.signInMethod
+          }, result.additionalUserInfo.isNewUser);
     }
     catch(error) {
       console.log('errorCode', error.message);
@@ -71,6 +94,13 @@ export class AuthenticationStore {
   signInTwitter = async() => {
     try {
         const result  = await this.auth.signInWithPopup(this.twitterProvider);
+        const profile = result.additionalUserInfo.profile;
+        this.addUserCollection({
+          userId: result.user.uid,
+          firstName: profile.name,
+          lastName: profile.name,
+          signInMethod: result.credential.signInMethod
+        }, result.additionalUserInfo.isNewUser)
     }
     catch(error) {
       console.log('errorCode', error.message);
@@ -92,12 +122,19 @@ export class AuthenticationStore {
     };
   }
 
+  addUserCollection = async (userInfo, isNewUser) => {
+    if(isNewUser) {
+      const userDoc = new Document(`users/${userInfo.userId}`);
+      await userDoc.set(userInfo);
+    }
+  }
+
+  @computed
   get userProfile() {
-    return this.auth.currentUser;
+    return this.isUserLogedIn && this.currentUser && this.currentUser.data ? this.currentUser.data : {};
   }
 
   signOut = async () => {
     await this.auth.signOut();
-    console.log('signout')
   }
 }
