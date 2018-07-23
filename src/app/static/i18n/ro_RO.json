@@ -3,6 +3,9 @@
     "mainCallToAction": "Exapp - platforma sociala caritabila",
     "joinUsButton": "Alatura-te!"
   },
+  "startCampaign": {
+    "campaignInfoTitle": "Informatii campanie"
+  },
   "notFound": {
     "description": "Nu am gasit ceea ce cautai...",
     "title": "Pagina lipsa"
@@ -31,8 +34,9 @@
     "termsAndConditionsText": "Accept termenii si conditiile",
     "registerButtonText": "Finalizeaza inregistrarea!"
   },
-  "accountDashboard":  {
-      "headerTitle": "Pagina de profil",
-      "headerContent": "Aici vei gasit tot ce ai nevoie pentru a schimba informatii despre profil, setari si parola!"
+  "accountDashboard": {
+    "headerTitle": "Pagina de profil",
+    "headerContent":
+      "Aici vei gasit tot ce ai nevoie pentru a schimba informatii despre profil, setari si parola!"
   }
 }

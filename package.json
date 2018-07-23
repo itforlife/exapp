@@ -16,6 +16,7 @@
     "i18next": "^11.3.6",
     "i18next-browser-languagedetector": "^2.2.1",
     "i18next-xhr-backend": "^1.5.1",
+    "immutable": "^3.8.2",
     "isomorphic-fetch": "^2.2.1",
     "mobx": "^4.0.0",
     "mobx-react": "^5.2.3",
@@ -27,6 +28,9 @@
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
     "react-i18next": "^7.8.1",
+    "react-icons-kit": "^1.1.6",
+    "slate": "^0.34.6",
+    "slate-react": "^0.13.3",
     "styled-jsx": "^2.2.7",
     "validatorjs": "^3.14.2"
   },

@@ -14,6 +14,10 @@ export default class MyDocument extends Document {
           <meta name="apple-mobile-web-app-status-bar-style" content="black" />
           <meta name="apple-mobile-web-app-title" content="Exapp" />
           <link rel="stylesheet" href="/_next/static/style.css" />
+          <link
+            rel="stylesheet"
+            href="//cdn.quilljs.com/1.2.6/quill.snow.css"
+          />
         </Head>
         <body>
           <Main />
