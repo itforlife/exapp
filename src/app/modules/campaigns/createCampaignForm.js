@@ -3,7 +3,7 @@ import { observer, inject } from 'mobx-react'
 import { translate } from 'react-i18next'
 import { RichTextEditor } from '../elements/rich-text'
 import { FloatingInput, Button } from '../elements'
-import { createCampaignFormStyles } from './createCampaignForm.css';
+import { createCampaignFormStyles } from './createCampaignForm.css'
 
 @inject('appStore')
 @translate(['data'])
@@ -13,7 +13,10 @@ export class CreateCampaignForm extends React.Component {
     super(props)
   }
   render() {
-    const { t } = this.props
+    const {
+      t,
+      appStore: { createCampaignFormStore },
+    } = this.props
     return (
       <div>
         <h1>{t('startCampaign.campaignInfoTitle')}</h1>
@@ -27,6 +30,9 @@ export class CreateCampaignForm extends React.Component {
                 name="campaignTitle"
                 id="campaignTitle"
                 placeholder="Type a campaign title"
+                onChange={ev =>
+                  createCampaignFormStore.onTitleChange(ev.target.value)
+                }
               />
             </div>
             <div className="form-group">
@@ -39,7 +45,10 @@ export class CreateCampaignForm extends React.Component {
               <label className="h4" for="campaignDescription">
                 Description
               </label>
-              <RichTextEditor placeholder="A detailed description of campaigns goals" />
+              <RichTextEditor
+                onChange={createCampaignFormStore.onDescriptionChange}
+                placeholder="A detailed description of campaigns goals"
+              />
             </div>
             <div className="form-group">
               <label className="h4" for="campaignShortSummary">
@@ -47,11 +56,19 @@ export class CreateCampaignForm extends React.Component {
               </label>
               <textarea
                 className="form-control"
+                onChange={ev =>
+                  createCampaignFormStore.onSummaryChange(ev.target.value)
+                }
                 placeholder="A really short excerpt of what the campaign is about"
               />
             </div>
             <div className="create-campaign-btn-container">
-              <Button className="btn btn-md btn-purple">Create campaign</Button>
+              <Button
+                onClick={createCampaignFormStore.onCreateCampaign}
+                className="btn btn-md btn-purple"
+              >
+                Create campaign
+              </Button>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Editor } from 'slate-react'
 import { Value } from 'slate'
 import { Toolbar } from './toolbar'
+import { throws } from 'assert'
 
 function CodeNode(props) {
   return (
@@ -56,8 +57,12 @@ export class RichTextEditor extends React.Component {
       }),
     }
   }
-  onChange({ value }) {
+  onChange(ev) {
+    const { value } = ev
     this.setState({ editorValue: value })
+    if (this.props.onChange) {
+      this.props.onChange(value.toJSON())
+    }
   }
   renderNode(props) {
     switch (props.node.type) {
@@ -87,13 +92,13 @@ export class RichTextEditor extends React.Component {
       <div>
         <Toolbar onToobarItemClicked={this.applyToolbarChange} />
         <Editor
+          {...this.props}
           value={this.state.editorValue}
           onChange={this.onChange}
           plugins={plugins}
           className="form-control"
           renderNode={this.renderNode}
           renderMark={this.renderMark}
-          {...this.props}
         />
       </div>
     )
