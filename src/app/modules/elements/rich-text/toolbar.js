@@ -6,7 +6,7 @@ import { underline } from 'react-icons-kit/feather/underline'
 export const Toolbar = props => (
   <div>
     <button
-      className="toolbar-icon"
+      className="btn btn-default toolbar-icon"
       title="Bold"
       onClick={() => {
         props.onToobarItemClicked(change => change.toggleMark('bold').value)
@@ -15,7 +15,7 @@ export const Toolbar = props => (
       <Icon icon={bold} />
     </button>
     <button
-      className="toolbar-icon"
+      className="btn btn-default toolbar-icon"
       title="Italic"
       onClick={() => {
         props.onToobarItemClicked(change => change.toggleMark('italic').value)
@@ -24,7 +24,7 @@ export const Toolbar = props => (
       <Icon icon={italic} />
     </button>
     <button
-      className="toolbar-icon"
+      className="btn btn-default toolbar-icon"
       title="Underline"
       onClick={() => {
         props.onToobarItemClicked(

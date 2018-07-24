@@ -47,7 +47,7 @@ export class RichTextEditor extends React.Component {
               nodes: [
                 {
                   object: 'text',
-                  leaves: ['A line of text in paragraph'],
+                  leaves: [''],
                 },
               ],
             },
@@ -90,8 +90,10 @@ export class RichTextEditor extends React.Component {
           value={this.state.editorValue}
           onChange={this.onChange}
           plugins={plugins}
+          className="form-control"
           renderNode={this.renderNode}
           renderMark={this.renderMark}
+          {...this.props}
         />
       </div>
     )
