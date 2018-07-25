@@ -22,5 +22,5 @@ export const comp = <P extends IInjectedProps>(
       />
     )
   }
-  return withRouter(observer(inject('appStore')(translate(['data'])(fn))))
+  return withRouter(translate(['data'])(inject('appStore')(observer(fn))))
 }

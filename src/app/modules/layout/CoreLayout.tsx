@@ -8,19 +8,21 @@ import 'bootstrap/dist/css/bootstrap-reboot.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-grid.css'
 import { i18n as Intl } from 'i18next'
-import { comp, IInjectedProps } from '../../utils/decorators'
 
-export const CoreLayout = comp(
-  class extends React.Component<IInjectedProps> {
-    i18n: Intl = i18n
-    appStore: typeof ApplicationStore = ApplicationStore
-    render() {
-      const { children } = this.props
-      return (
-        <Provider appStore={this.appStore}>
-          <I18nextProvider i18n={this.i18n}>{children}</I18nextProvider>
-        </Provider>
-      )
-    }
+export class CoreLayout extends React.Component {
+  i18n: Intl
+  appStore: typeof ApplicationStore
+  constructor(props) {
+    super(props)
+    this.i18n = i18n
+    this.appStore = ApplicationStore
   }
-)
+  render() {
+    const { children } = this.props
+    return (
+      <Provider appStore={this.appStore}>
+        <I18nextProvider i18n={this.i18n}>{children}</I18nextProvider>
+      </Provider>
+    )
+  }
+}
