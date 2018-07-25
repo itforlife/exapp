@@ -1,10 +1,11 @@
-import { CampaignsStore, CreateCampaignFormStore } from '../campaigns/'
+import { CampaignsStore, CreateCampaignFormStore } from '../campaigns'
 import { AuthenticationStore } from '../authentication/authenticationStore'
 import * as firebaseStore from '../../firebase'
 
 class ApplicationStore {
-  campaignsStore = null
-  authenticationStore = null
+  campaignsStore: CampaignsStore = null
+  authenticationStore: AuthenticationStore = null
+  createCampaignFormStore: CreateCampaignFormStore = null
   constructor() {
     const authenticationStoreConfig = {
       auth: firebaseStore.auth,

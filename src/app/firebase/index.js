@@ -1,6 +1,6 @@
 
 import firebase from 'firebase'
-import 'firebase/firestore'
+import 'firebase/firestore/dist/index.cjs'
 import {initFirestorter, Collection} from 'firestorter';
 
 const config = {

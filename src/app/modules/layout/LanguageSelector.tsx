@@ -1,3 +1,4 @@
+import * as React from 'react'
 export const LanguageSelector = props => {
   return (
     <div>
@@ -5,14 +6,14 @@ export const LanguageSelector = props => {
         <li
           data-lang="en_EN"
           className="flag flag-gb"
-          onClick={ev => props.onChangeLanguage(ev.target.dataset.lang)}
+          onClick={() => props.onChangeLanguage('en_EN')}
         >
           EN
         </li>
         <li
           data-lang="ro_RO"
           className="flag flag-ro"
-          onClick={ev => props.onChangeLanguage(ev.target.dataset.lang)}
+          onClick={() => props.onChangeLanguage('ro_RO')}
         >
           RO
         </li>

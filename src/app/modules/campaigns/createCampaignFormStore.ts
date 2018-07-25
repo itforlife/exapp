@@ -1,7 +1,11 @@
 import { observable, action } from 'mobx'
 
 export class CreateCampaignFormStore {
-  @observable name
+  @observable title: string = ''
+  @observable summary: string = ''
+  @observable description: any = {}
+  @observable campaignsCollection: any
+
   constructor(campaignsCollection) {
     this.campaignsCollection = campaignsCollection
     this.title = ''

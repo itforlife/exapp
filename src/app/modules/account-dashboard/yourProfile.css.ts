@@ -1,4 +1,4 @@
-import css from 'styled-jsx/css';
+import * as css from 'styled-jsx/css';
 import {colors } from '../../theme/index.css';
 
 

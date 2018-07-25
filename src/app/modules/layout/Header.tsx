@@ -1,10 +1,8 @@
-import React from 'react'
+import * as React from 'react'
 import { translate } from 'react-i18next'
 import { LanguageSelector } from './LanguageSelector'
-const changeLanguage = lang => {
-  localStorage.setItem('i18nextLng', lang)
-}
-const Header = ({ t, i18n }) => (
+
+const Header = ({ i18n }) => (
   <header>
     <LanguageSelector
       onChangeLanguage={lang => {

@@ -1,24 +1,33 @@
-import React from 'react'
-import { observer, inject } from 'mobx-react'
-import { translate } from 'react-i18next'
+import * as React from 'react'
 import { LogIn } from './logIn'
 import { Register } from './register'
 import classnames from 'classnames'
 import { indexStyles } from './index.css'
+import { comp, IInjectedProps } from '../../utils/decorators'
 
-@inject('appStore')
-@translate(['data'])
-@observer
-export class AuthenticationComponent extends React.Component {
+interface IAuthenticationComponentProps extends IInjectedProps {
+  x: string
+}
+
+class AuthenticationComponentCls extends React.Component<
+  IAuthenticationComponentProps
+> {
+  constructor(props: IAuthenticationComponentProps) {
+    super(props)
+  }
+  get injectedProps() {
+    return this.props as IInjectedProps
+  }
   render() {
-    const authenticationStore = this.props.appStore.authenticationStore
+    const { t, appStore } = this.injectedProps
+    console.log(appStore.authenticationStore.createUser())
+    const authenticationStore = appStore.authenticationStore
     const loginActiveClassName = classnames({
       active: authenticationStore.isLoginFormActive,
     })
     const registerActiveClassName = classnames({
       active: authenticationStore.isRegisterFormActive,
     })
-    const { t } = this.props
 
     return (
       <div className="col col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12">
@@ -57,3 +66,5 @@ export class AuthenticationComponent extends React.Component {
     )
   }
 }
+
+export const AuthenticationComponent = comp(AuthenticationComponentCls)

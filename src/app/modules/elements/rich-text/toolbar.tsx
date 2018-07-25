@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { Icon } from 'react-icons-kit'
 import { bold } from 'react-icons-kit/feather/bold'
 import { italic } from 'react-icons-kit/feather/italic'

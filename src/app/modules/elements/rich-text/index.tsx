@@ -1,7 +1,7 @@
-import { Editor } from 'slate-react'
+import * as React from 'react'
+import { Editor, EditorProps } from 'slate-react'
 import { Value } from 'slate'
 import { Toolbar } from './toolbar'
-import { throws } from 'assert'
 
 function CodeNode(props) {
   return (
@@ -18,7 +18,7 @@ function MarkHotkey(options) {
 
       event.preventDefault()
       change.toggleMark(type)
-      return true
+      return change
     },
   }
 }
@@ -30,8 +30,17 @@ const plugins = [
   MarkHotkey({ key: '~', type: 'strikethrough' }),
   MarkHotkey({ key: 'u', type: 'underline' }),
 ]
+interface IRichTextEditorProps extends Partial<EditorProps> {
+  onChange(value: {}): void
+}
+interface IRichTextEditorState {
+  editorValue: Value
+}
 
-export class RichTextEditor extends React.Component {
+export class RichTextEditor extends React.Component<
+  IRichTextEditorProps,
+  IRichTextEditorState
+> {
   constructor(props) {
     super(props)
     this.onChange = this.onChange.bind(this)
@@ -48,7 +57,7 @@ export class RichTextEditor extends React.Component {
               nodes: [
                 {
                   object: 'text',
-                  leaves: [''],
+                  leaves: [],
                 },
               ],
             },

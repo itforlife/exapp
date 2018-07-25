@@ -2,13 +2,12 @@ import App, { Container } from 'next/app'
 import React from 'react'
 import { CoreLayout } from '../modules/layout/CoreLayout'
 import { LandingPageLayout } from '../modules/layout/LandingPageLayout'
-import { getResources } from '../i18n'
 import { observer } from 'mobx-react'
 import { computed } from 'mobx'
 
 @observer
 export default class Exapp extends App {
-  static async getInitialProps({ Component, router, ctx }) {
+  static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
 
     if (Component.getInitialProps) {

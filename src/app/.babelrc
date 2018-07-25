@@ -1,15 +1,14 @@
 {
-    "presets": [
-      ["next/babel", {
+  "presets": [
+    [
+      "next/babel",
+      {
         "styled-jsx": {
-          "plugins": [
-            "styled-jsx-plugin-sass"
-          ]
+          "plugins": ["styled-jsx-plugin-sass"]
         }
-      }]
+      }
     ],
-    "plugins": [
-      "transform-decorators-legacy",
-      "transform-class-properties"
-    ]
-  }
+    "@zeit/next-typescript/babel"
+  ],
+  "plugins": ["transform-decorators-legacy", "transform-class-properties"]
+}

@@ -1,4 +1,5 @@
-import { Footer, Header } from './index'
+import * as React from 'react'
+import { Footer, Header } from '.'
 
 export const LandingPageLayout = props => (
   <div>

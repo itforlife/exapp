@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { translate } from 'react-i18next'
 
 const Footer = ({ t }) => <footer>{t('layout.footerText')}</footer>
