@@ -32,7 +32,9 @@
     "firstNameInputLabel": "Prenume",
     "lastNameInputLabel": "Nume",
     "termsAndConditionsText": "Accept termenii si conditiile",
-    "registerButtonText": "Finalizeaza inregistrarea!"
+    "registerButtonText": "Finalizeaza inregistrarea!",
+    "phoneNumberInputLabel": "Numarul de telefon",
+    "birthdayInputlabel": "Data de nastere" 
   },
   "accountDashboard": {
     "headerTitle": "Pagina de profil",

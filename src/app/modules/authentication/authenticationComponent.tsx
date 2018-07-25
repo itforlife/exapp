@@ -12,21 +12,29 @@ interface IAuthenticationComponentProps extends IInjectedProps {
 class AuthenticationComponentCls extends React.Component<
     IAuthenticationComponentProps
 > {
-    constructor(props: IAuthenticationComponentProps) {
-        super(props)
-    }
-    get injectedProps() {
-        return this.props as IInjectedProps
-    }
-    public render() {
-        const { t, appStore } = this.injectedProps
-        const authenticationStore = appStore.authenticationStore
-        const loginActiveClassName = classnames({
-            active: authenticationStore.isLoginFormActive,
-        })
-        const registerActiveClassName = classnames({
-            active: authenticationStore.isRegisterFormActive,
-        })
+  constructor(props: IAuthenticationComponentProps) {
+    super(props)
+    const {authenticationStore} = this.props.appStore;
+    autorun(() => {
+        const currentUser = authenticationStore.currentUser;
+        if (currentUser) {
+          this.props.router.push('/account-dashboard');
+        }
+    })
+  }
+  get injectedProps() {
+    return this.props as IInjectedProps
+  }
+  render() {
+    const { t, appStore } = this.injectedProps
+    console.log(appStore.authenticationStore.createUser())
+    const authenticationStore = appStore.authenticationStore
+    const loginActiveClassName = classnames({
+      active: authenticationStore.isLoginFormActive,
+    })
+    const registerActiveClassName = classnames({
+      active: authenticationStore.isRegisterFormActive,
+    })
 
         return (
             <div className="col col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12">

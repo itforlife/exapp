@@ -13,27 +13,21 @@ export const LogIn = comp(
       const authenticationStore = appStore.authenticationStore
 
       await authenticationStore.signInEmail()
-      if (authenticationStore.isUserLogedIn) {
-        router.push('/home-page')
-      }
+
     }
     public onFacebookSignIn = async () => {
       const { appStore, router } = this.injectedProps
       const authenticationStore = appStore.authenticationStore
 
       await authenticationStore.signInFacebook()
-      if (authenticationStore.isUserLogedIn) {
-        router.push('/home-page')
-      }
+
     }
     public onTwitterSignIn = async () => {
       const { appStore, router } = this.injectedProps
       const authenticationStore = appStore.authenticationStore
 
       await authenticationStore.signInTwitter()
-      if (authenticationStore.isUserLogedIn) {
-        router.push('/home-page')
-      }
+
     }
     public render() {
       const { t, appStore } = this.injectedProps
