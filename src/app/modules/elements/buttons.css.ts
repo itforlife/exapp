@@ -7,18 +7,18 @@ $c-facebook: ${colors['c-facebook']};
 $c-twitter: ${colors['c-twitter']};
 $white-color: ${colors['white-color']};
 $primary-color: ${colors['primary-color']};
-$orange: ${colors['orange']};
-$blue: ${colors['blue']};
-$breez: ${colors['breez']};
+$orange: ${colors.orange};
+$blue: ${colors.blue};
+$breez: ${colors.breez};
 $breez-light: ${colors['breez-light']};
-$yellow: ${colors['yellow']};
-$smoke: ${colors['smoke']};
+$yellow: ${colors.yellow};
+$smoke: ${colors.smoke};
 $secondary-color: ${colors['secondary-color']};
 $heading-color: ${colors['heading-color']};
 $border-color: ${colors['border-color']};
 
-$green: ${colors['green']};
-$grey: ${colors['grey']};
+$green: ${colors.green};
+$grey: ${colors.grey};
 $grey-light: ${colors['grey-light']};
 $grey-lighter: ${colors['grey-lighter']};
 

@@ -2,15 +2,15 @@ import React from 'react'
 import { AuthenticationComponent } from '../modules/authentication/authenticationComponent'
 import { Button } from '../modules/elements'
 
-import { indexStyles } from './index.css'
 import { comp, IInjectedProps } from '../utils/decorators'
+import { indexStyles } from './index.css'
 
 const LandingPage = comp(
   class extends React.Component<IInjectedProps> {
     get injectedProps() {
       return this.props as IInjectedProps
     }
-    render() {
+    public render() {
       const { t, appStore } = this.injectedProps
       const { authenticationStore } = appStore
       return (
@@ -34,7 +34,7 @@ const LandingPage = comp(
               </div>
             </div>
           </div>
-          <style jsx>{indexStyles}</style>
+          <style jsx={true}>{indexStyles}</style>
         </div>
       )
     }

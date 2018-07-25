@@ -1,10 +1,10 @@
-import { observable, action } from 'mobx'
+import { action, observable } from 'mobx'
 
 export class CreateCampaignFormStore {
-  @observable title: string = ''
-  @observable summary: string = ''
-  @observable description: any = {}
-  @observable campaignsCollection: any
+  @observable public title: string = ''
+  @observable public summary: string = ''
+  @observable public description: any = {}
+  @observable public campaignsCollection: any
 
   constructor(campaignsCollection) {
     this.campaignsCollection = campaignsCollection
@@ -13,19 +13,19 @@ export class CreateCampaignFormStore {
     this.description = ''
   }
   @action
-  onTitleChange = title => {
+  public onTitleChange = title => {
     this.title = title
   }
   @action
-  onDescriptionChange = description => {
+  public onDescriptionChange = description => {
     this.description = description
   }
   @action
-  onSummaryChange = summary => {
+  public onSummaryChange = summary => {
     this.summary = summary
   }
   @action
-  onCreateCampaign = () => {
+  public onCreateCampaign = () => {
     this.addCampaign({
       title: this.title,
       description: this.description,
@@ -36,7 +36,7 @@ export class CreateCampaignFormStore {
     this.summary = ''
   }
 
-  addCampaign = payload => {
+  public addCampaign = payload => {
     this.campaignsCollection.add(payload)
   }
 }

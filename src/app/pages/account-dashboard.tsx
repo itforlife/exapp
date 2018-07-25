@@ -1,12 +1,10 @@
-import React from 'react';
-import { DashBoardHeader } from '../modules/account-dashboard/dashBoardHeader';
-import { accountDashBoardStyle } from './accountDashboard.css';
-import { YourProfile } from '../modules/account-dashboard/yourProfile';
+import React from 'react'
+import { DashBoardHeader } from '../modules/account-dashboard/dashBoardHeader'
+import { YourProfile } from '../modules/account-dashboard/yourProfile'
+import { accountDashBoardStyle } from './accountDashboard.css'
 
 class AccountDashBoard extends React.Component {
-
-
-    render() {
+    public render() {
         return (
             <div>
                 <DashBoardHeader />
@@ -15,10 +13,11 @@ class AccountDashBoard extends React.Component {
                         <div className="col col-xl-9 order-xl-2 col-lg-9 order-lg-2 col-md-12 order-md-1 col-sm-12 col-12">
                             <div className="ui-block">
                                 <div className="ui-block-title">
-                                    <h6 className="title">Personal Information</h6>
+                                    <h6 className="title">
+                                        Personal Information
+                                    </h6>
                                 </div>
-                                <div className="ui-block-content">
-                                </div>
+                                <div className="ui-block-content" />
                             </div>
                         </div>
 
@@ -29,11 +28,10 @@ class AccountDashBoard extends React.Component {
                         </div>
                     </div>
                 </div>
-            <style jsx>{accountDashBoardStyle}</style>
-
+                <style jsx={true}>{accountDashBoardStyle}</style>
             </div>
-        );
+        )
     }
 }
 
-export default AccountDashBoard; 
+export default AccountDashBoard

@@ -18,7 +18,7 @@ export const LanguageSelector = props => {
           RO
         </li>
       </ul>
-      <style jsx>
+      <style jsx={true}>
         {`
           .flag {
             display: inline-block;

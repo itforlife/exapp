@@ -1,13 +1,13 @@
 import * as React from 'react'
-import { dasBoardHeaderStyle } from './dashBoardHeader.css'
 import { comp, IInjectedProps } from '../../utils/decorators'
+import { dasBoardHeaderStyle } from './dashBoardHeader.css'
 
 export const DashBoardHeader = comp(
   class extends React.Component<IInjectedProps> {
     get injectedProps() {
       return this.props as IInjectedProps
     }
-    render() {
+    public render() {
       const { t } = this.injectedProps
 
       return (
@@ -28,7 +28,7 @@ export const DashBoardHeader = comp(
             src="static/assets/img/account-bottom.png"
             alt="friends"
           />
-          <style jsx>{dasBoardHeaderStyle}</style>
+          <style jsx={true}>{dasBoardHeaderStyle}</style>
         </div>
       )
     }

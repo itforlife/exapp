@@ -1,21 +1,21 @@
 {
-  "compileOnSave": false,
-  "include": ["src/app/**/*", "src/functions/**/*"],
-  "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "allowJs": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "removeComments": false,
-    "preserveConstEnums": true,
-    "sourceMap": true,
-    "skipLibCheck": true,
-    "baseUrl": ".",
-    "lib": ["dom", "es2016"],
-    "experimentalDecorators": true
-  }
+    "compileOnSave": false,
+    "include": ["src/app/**/*.tsx", "src/app/**/*.ts", "src/functions/**/*.ts"],
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "baseUrl": ".",
+        "lib": ["dom", "es2016"],
+        "experimentalDecorators": true
+    }
 }

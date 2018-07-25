@@ -1,0 +1,13 @@
+{
+    "extends": ["tslint:latest", "tslint-config-prettier", "tslint-react"],
+    "rules": {
+        "semicolon": [false, "never"],
+        "quotemark": [true, "single", "jsx-double"],
+        "indent": [true, "spaces", 4],
+        "no-submodule-imports": false,
+        "object-literal-sort-keys": false,
+        "jsx-no-multiline-js": false,
+        "jsx-no-lambda": false,
+        "jsx-alignment": false
+    }
+}

@@ -1,18 +1,18 @@
-import { observable } from 'mobx'
 import { Collection } from 'firestorter'
+import { observable } from 'mobx'
 
 export class CampaignsStore {
-  @observable name
-  campaignsCollection: Collection
-  constructor(campaignsCollection) {
-    this.campaignsCollection = campaignsCollection
-  }
+    @observable public name
+    public campaignsCollection: Collection
+    constructor(campaignsCollection) {
+        this.campaignsCollection = campaignsCollection
+    }
 
-  get campaigns() {
-    return this.campaignsCollection.docs
-  }
+    get campaigns() {
+        return this.campaignsCollection.docs
+    }
 
-  removeCampaign = campaign => {
-    campaign.delete()
-  }
+    public removeCampaign = campaign => {
+        campaign.delete()
+    }
 }

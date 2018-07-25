@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Editor, EditorProps } from 'slate-react'
 import { Value } from 'slate'
+import { Editor, EditorProps } from 'slate-react'
 import { Toolbar } from './toolbar'
 
 function CodeNode(props) {
@@ -14,7 +14,7 @@ function MarkHotkey(options) {
   const { type, key } = options
   return {
     onKeyDown(event, change) {
-      if (!event.ctrlKey || event.key !== key) return
+      if (!event.ctrlKey || event.key !== key) { return }
 
       event.preventDefault()
       change.toggleMark(type)
@@ -66,20 +66,20 @@ export class RichTextEditor extends React.Component<
       }),
     }
   }
-  onChange(ev) {
+  public onChange(ev) {
     const { value } = ev
     this.setState({ editorValue: value })
     if (this.props.onChange) {
       this.props.onChange(value.toJSON())
     }
   }
-  renderNode(props) {
+  public renderNode(props) {
     switch (props.node.type) {
       case 'code':
         return <CodeNode {...props} />
     }
   }
-  renderMark(props) {
+  public renderMark(props) {
     switch (props.mark.type) {
       case 'bold':
         return <strong>{props.children}</strong>
@@ -91,12 +91,12 @@ export class RichTextEditor extends React.Component<
         return <strong>{props.children}</strong>
     }
   }
-  applyToolbarChange(changeFn) {
+  public applyToolbarChange(changeFn) {
     this.setState({
       editorValue: changeFn.call(null, this.state.editorValue.change()),
     })
   }
-  render() {
+  public render() {
     return (
       <div>
         <Toolbar onToobarItemClicked={this.applyToolbarChange} />

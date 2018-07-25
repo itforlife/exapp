@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { FloatingInput, Checkbox, Button } from '../elements'
-import { loginStyles } from './login.css'
 import { comp, IInjectedProps } from '../../utils/decorators'
+import { Button, Checkbox, FloatingInput } from '../elements'
+import { loginStyles } from './login.css'
 
 export const LogIn = comp(
   class extends React.Component<IInjectedProps> {
     get injectedProps() {
       return this.props as IInjectedProps
     }
-    onSingIn = async () => {
+    public onSingIn = async () => {
       const { appStore, router } = this.injectedProps
       const authenticationStore = appStore.authenticationStore
 
@@ -17,7 +17,7 @@ export const LogIn = comp(
         router.push('/home-page')
       }
     }
-    onFacebookSignIn = async () => {
+    public onFacebookSignIn = async () => {
       const { appStore, router } = this.injectedProps
       const authenticationStore = appStore.authenticationStore
 
@@ -26,7 +26,7 @@ export const LogIn = comp(
         router.push('/home-page')
       }
     }
-    onTwitterSignIn = async () => {
+    public onTwitterSignIn = async () => {
       const { appStore, router } = this.injectedProps
       const authenticationStore = appStore.authenticationStore
 
@@ -35,7 +35,7 @@ export const LogIn = comp(
         router.push('/home-page')
       }
     }
-    render() {
+    public render() {
       const { t, appStore } = this.injectedProps
       const { authenticationStore } = appStore
       const formStore = authenticationStore.loginForm
@@ -104,7 +104,7 @@ export const LogIn = comp(
               </div>
             </div>
           </form>
-          <style jsx>{loginStyles}</style>
+          <style jsx={true}>{loginStyles}</style>
         </div>
       )
     }

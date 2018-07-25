@@ -1,8 +1,8 @@
+import { inject, observer } from 'mobx-react'
+import { RouterProps, withRouter } from 'next/router'
 import * as React from 'react'
-import { observer, inject } from 'mobx-react'
 import { translate } from 'react-i18next'
 import ApplicationStore from '../modules/layout/ApplicationStore'
-import { RouterProps, withRouter } from 'next/router'
 
 export interface IInjectedProps {
   appStore: typeof ApplicationStore

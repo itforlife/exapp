@@ -1,13 +1,13 @@
+import { computed } from 'mobx'
+import { observer } from 'mobx-react'
 import App, { Container } from 'next/app'
 import React from 'react'
 import { CoreLayout } from '../modules/layout/CoreLayout'
 import { LandingPageLayout } from '../modules/layout/LandingPageLayout'
-import { observer } from 'mobx-react'
-import { computed } from 'mobx'
 
 @observer
 export default class Exapp extends App {
-  static async getInitialProps({ Component, ctx }) {
+  public static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
 
     if (Component.getInitialProps) {
@@ -30,7 +30,7 @@ export default class Exapp extends App {
     // Add here funky logic to determine what layout to use
     return LandingPageLayout
   }
-  render() {
+  public render() {
     const { Component, pageProps } = this.props
     const PageLayout = this.pageLayout
     return (
