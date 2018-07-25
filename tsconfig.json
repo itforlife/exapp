@@ -1,6 +1,7 @@
 {
     "compileOnSave": false,
     "include": ["src/app/**/*.tsx", "src/app/**/*.ts", "src/functions/**/*.ts"],
+    "exclude": ["node_modules", "build", "scripts"],
     "compilerOptions": {
         "target": "esnext",
         "module": "esnext",
