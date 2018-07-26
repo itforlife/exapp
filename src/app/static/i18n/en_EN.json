@@ -34,7 +34,9 @@
     "firstNameInputLabel": "First Name",
     "lastNameInputLabel": "Last Name",
     "termsAndConditionsText": "I Accept terms & conditions",
-    "registerButtonText": "Complete Registration!"
+    "registerButtonText": "Complete Registration!",
+    "phoneNumberInputLabel": "Your Phone Number",
+    "birthdayInputlabel": "Your birthday" 
   },
   "accountDashboard": {
     "headerTitle": "Your Account Dashboard",

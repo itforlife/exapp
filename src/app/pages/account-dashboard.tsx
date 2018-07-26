@@ -1,8 +1,11 @@
-import React from 'react'
-import { DashBoardHeader } from '../modules/account-dashboard/dashBoardHeader'
-import { YourProfile } from '../modules/account-dashboard/yourProfile'
-import { accountDashBoardStyle } from './accountDashboard.css'
+import { observer } from 'mobx-react'
+import React from 'react';
+import { DashBoardHeader } from '../modules/account-dashboard/dashBoardHeader';
+import { PersonalInformation } from '../modules/account-dashboard/personalInformation';
+import { YourProfile } from '../modules/account-dashboard/yourProfile';
+import { accountDashBoardStyle } from './accountDashboard.css';
 
+@observer
 class AccountDashBoard extends React.Component {
     public render() {
         return (
@@ -12,12 +15,7 @@ class AccountDashBoard extends React.Component {
                     <div className="row">
                         <div className="col col-xl-9 order-xl-2 col-lg-9 order-lg-2 col-md-12 order-md-1 col-sm-12 col-12">
                             <div className="ui-block">
-                                <div className="ui-block-title">
-                                    <h6 className="title">
-                                        Personal Information
-                                    </h6>
-                                </div>
-                                <div className="ui-block-content" />
+                                <PersonalInformation />
                             </div>
                         </div>
 

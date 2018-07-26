@@ -4,23 +4,20 @@ import { Button, Checkbox, FloatingInput } from '../elements'
 import { registerStyles } from './register.css'
 
 export const Register = comp(
-    class extends React.Component<IInjectedProps> {
-        get injectedProps() {
-            return this.props as IInjectedProps
-        }
-        public onCompleteRegistration = async () => {
-            const { appStore, router } = this.injectedProps
-            const authenticationStore = appStore.authenticationStore
+  class extends React.Component<IInjectedProps> {
+    get injectedProps() {
+      return this.props as IInjectedProps
+    }
+    public onCompleteRegistration = async () => {
+      const { appStore } = this.injectedProps
+      const authenticationStore = appStore.authenticationStore
 
-            await authenticationStore.createUser()
-            if (authenticationStore.isUserLogedIn) {
-                router.push('/home-page')
-            }
-        }
-        public render() {
-            const { appStore, t } = this.injectedProps
-            const authenticationStore = appStore.authenticationStore
-            const formStore = authenticationStore.registerForm
+      await authenticationStore.createUser()
+    }
+    public render() {
+      const { appStore, t } = this.injectedProps
+      const authenticationStore = appStore.authenticationStore
+      const formStore = authenticationStore.registerForm
 
             return (
                 <div>

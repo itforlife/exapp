@@ -2,8 +2,10 @@ import { computed } from 'mobx'
 import { observer } from 'mobx-react'
 import App, { Container } from 'next/app'
 import React from 'react'
+import { AuthenticatedUserPageLayout } from '../modules/layout/AuthenticatedUserPageLayout'
 import { CoreLayout } from '../modules/layout/CoreLayout'
 import { LandingPageLayout } from '../modules/layout/LandingPageLayout'
+
 
 @observer
 export default class Exapp extends App {
@@ -13,22 +15,20 @@ export default class Exapp extends App {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
-    // const defaultLocale = 'en_EN'
-    // const validLocales = [defaultLocale, 'ro_RO']
-    // const lng = 'ro_RO' || defaultLocale
-    // const host =
-    //   process.env.NODE_ENV !== 'production'
-    //     ? 'http://localhost:3000'
-    //     : 'https://exapp.io'
-    // const resources = await getResources(lng, `${host}/static/i18n`)
-    // console.log(resources)
 
     return { pageProps }
   }
   @computed
   get pageLayout() {
     // Add here funky logic to determine what layout to use
-    return LandingPageLayout
+    const currentRoute = this.props.router.pathname;
+    switch(currentRoute) {
+      case '/': 
+         return LandingPageLayout
+      default: 
+         return AuthenticatedUserPageLayout
+    }
+    
   }
   public render() {
     const { Component, pageProps } = this.props
