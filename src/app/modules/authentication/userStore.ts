@@ -139,7 +139,6 @@ export class UserStore {
       }
   }
   public updateUserInformation = async (userInfo) => {
-      debugger;
         await this.currentUser.update(userInfo)
   }
   @computed
