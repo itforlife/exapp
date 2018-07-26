@@ -54,6 +54,7 @@ class PersonalInformationClass extends React.Component<IInjectedProps> {
                                 <div className="col col-lg-6 col-md-6 col-sm-12 col-12">
                                     <Button
                                         className="btn btn-secondary btn-lg full-width"
+                                        onClick={accountDashboardStore.resetForm}
                                     >
                                         Cancel
                                     </Button>
@@ -61,6 +62,7 @@ class PersonalInformationClass extends React.Component<IInjectedProps> {
                                 <div className="col col-lg-6 col-md-6 col-sm-12 col-12">
                                     <Button
                                         className="btn btn-primary btn-lg full-width"
+                                        onClick={accountDashboardStore.updateUser}
                                     >
                                         Save all Changes<div className="ripple-container" />                                
                                     </Button>

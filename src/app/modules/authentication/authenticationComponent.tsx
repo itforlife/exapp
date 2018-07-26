@@ -15,9 +15,9 @@ class AuthenticationComponentCls extends React.Component<
 > {
   constructor(props: IAuthenticationComponentProps) {
     super(props)
-    const {authenticationStore} = this.props.appStore;
+    const {userStore} = this.props.appStore;
     autorun(() => {
-        const currentUser = authenticationStore.currentUser;
+        const currentUser = userStore.currentUser;
         if (currentUser) {
           this.props.router.push('/account-dashboard');
         }
@@ -28,12 +28,12 @@ class AuthenticationComponentCls extends React.Component<
   }
   public render() {
     const { t, appStore } = this.injectedProps
-    const authenticationStore = appStore.authenticationStore
+    const userStore = appStore.userStore
     const loginActiveClassName = classnames({
-      active: authenticationStore.isLoginFormActive,
+      active: userStore.isLoginFormActive,
     })
     const registerActiveClassName = classnames({
-      active: authenticationStore.isRegisterFormActive,
+      active: userStore.isRegisterFormActive,
     })
 
         return (
@@ -44,7 +44,7 @@ class AuthenticationComponentCls extends React.Component<
                             <a
                                 className={`nav-link inline-items ${loginActiveClassName}`}
                                 role="tab"
-                                onClick={authenticationStore.setLoginFormActive}
+                                onClick={userStore.setLoginFormActive}
                             >
                                 {t('authentication.loginTab')}
                             </a>
@@ -54,7 +54,7 @@ class AuthenticationComponentCls extends React.Component<
                                 className={`nav-link inline-items ${registerActiveClassName}`}
                                 role="tab"
                                 onClick={
-                                    authenticationStore.setRegisterFormActive
+                                    userStore.setRegisterFormActive
                                 }
                             >
                                 {t('authentication.registerTab')}

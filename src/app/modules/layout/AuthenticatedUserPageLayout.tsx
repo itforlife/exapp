@@ -19,7 +19,7 @@ class AuthenticatedUserPageLayoutCmp extends React.Component<IInjectedProps> {
         );
         const loadingMarkup = (<div>Loading...</div>)
 
-        return appStore.authenticationStore.currentUser ? authenticatedMarkup : loadingMarkup
+        return appStore.userStore.currentUser ? authenticatedMarkup : loadingMarkup
     }
 }
 

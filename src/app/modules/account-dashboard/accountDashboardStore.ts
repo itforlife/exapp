@@ -1,6 +1,4 @@
 
-import { Document as FirestorterDocument } from 'firestorter'
-
 import { computed, observable, reaction } from 'mobx';
 import { profileInformationForm } from './ProfileInformationForm';
 
@@ -20,7 +18,7 @@ export class AccountDashboardStore {
 
   @observable public isLoading = false;
   @observable public currentUser: ICurrentUser;
-  @observable public authenticationStore;
+  @observable public userStore;
   public auth;
   public usersCollection;
   public profileInformationForm;
@@ -28,8 +26,8 @@ export class AccountDashboardStore {
     this.auth = config.auth;
     this.usersCollection = config.usersCollection;
     this.profileInformationForm = profileInformationForm;
-    this.authenticationStore = config.authenticationStore;
-    reaction(() => this.authenticationStore.currentUser, (currentUser) => {
+    this.userStore = config.userStore;
+    reaction(() => this.userStore.currentUser, (currentUser) => {
       const isFetching = currentUser.isLoading;
       const { data: userInfo } = currentUser;
         if(!isFetching && userInfo){
@@ -40,6 +38,10 @@ export class AccountDashboardStore {
     );    
   }
 
+  public resetForm = () => {
+    const userInfo = this.userStore.currentUser.data;
+    this.initForm(userInfo);
+  }
 
   public initForm = (userInfo) => {
     this.profileInformationForm.init({
@@ -50,12 +52,15 @@ export class AccountDashboardStore {
       birthday: userInfo.birthday
     })
   }
+  public updateUser = () => {
+    return this.userStore.updateUserInformation({
+      firstName: this.profileInformationForm.$('firstName').value,
+      lastName: this.profileInformationForm.$('lastName').value,
+      phoneNumber: this.profileInformationForm.$('phoneNumber').value,
+      birthday: this.profileInformationForm.$('birthday').value
 
-  public updateUserCollection = async (userInfo) => {
-      const userDoc = new FirestorterDocument(`users/${userInfo.userId}`);
-      await userDoc.set(userInfo);
+    })
   }
-
   @computed
   get userProfile() {
     return this.currentUser && this.currentUser.data ? this.currentUser.data : {};
