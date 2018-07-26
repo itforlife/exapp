@@ -11,6 +11,9 @@ declare module 'firestorter' {
     isActive: boolean
     snapshot: FirebaseFirestore.DocumentSnapshot
     isLoading: boolean
+    fetch(): Promise<Document>
+    ready(): Promise<void>
+
   }
   export class Collection {
     constructor(path: string | FirebaseFirestore.CollectionReference)

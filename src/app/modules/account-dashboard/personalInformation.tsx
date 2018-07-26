@@ -1,16 +1,16 @@
 import React from 'react';
-import { personalInformationStyle } from './personalInformation.css';
 import { FloatingInput } from '../elements/floatingInput';
-import { observer, inject } from 'mobx-react'
-import { translate } from 'react-i18next'
+import { Button } from '../elements/button';
+import {personalInformationStyle} from './personalInformation.css';
+import { comp, IInjectedProps } from '../../utils/decorators'
 
-@inject('appStore')
-@translate(['data'])
-@observer
-export class PersonalInformation extends React.Component {
 
+class PersonalInformationClass extends React.Component<IInjectedProps> {
+    get injectedProps() {
+        return this.props as IInjectedProps
+      }
     render() {
-        const { t, appStore } = this.props;
+        const { t, appStore } = this.injectedProps;
         const { accountDashboardStore } = appStore;
         const formStore = accountDashboardStore.profileInformationForm;
         return (
@@ -51,10 +51,27 @@ export class PersonalInformation extends React.Component {
                                     })}  
                                 />                             
                             </div>
+                            <div className="col col-lg-6 col-md-6 col-sm-12 col-12">
+                                <Button
+                                    className="btn btn-secondary btn-lg full-width"
+                                >
+                                    Cancel
+                                </Button>
+							</div>
+                            <div className="col col-lg-6 col-md-6 col-sm-12 col-12">
+                                <Button
+                                    className="btn btn-primary btn-lg full-width"
+                                >
+                                    Save all Changes<div className="ripple-container"></div>                                
+                                </Button>
+							</div>
                         </div>
                     </form>
                 </div>
+                <style jsx>{personalInformationStyle}</style>
             </div>
         )  
     }
 }
+
+export const PersonalInformation = comp(PersonalInformationClass)

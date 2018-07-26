@@ -16,6 +16,7 @@ export class AuthenticationStore {
   @observable isLoginFormActive = true;
   @observable isRegisterFormActive = false;
   @observable currentUser = null;
+  @observable errorMessage: string;
   auth: firebase.auth.Auth
   loginForm: typeof loginForm
   registerForm: typeof registerForm
@@ -138,12 +139,12 @@ export class AuthenticationStore {
         }
     }
 
-    @computed
-    get userProfile() {
-        return this.isUserLogedIn && this.currentUser && this.currentUser.data
-            ? this.currentUser.data
-            : {}
-    }
+  @computed
+  get userProfile() {
+    return this.currentUser && this.currentUser.data
+      ? this.currentUser.data
+      : {}
+  }
 
   waitForUser = () => {
     return new Promise((resolve) => {

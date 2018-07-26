@@ -4,7 +4,10 @@ import { comp, IInjectedProps } from '../../utils/decorators'
 import { indexStyles } from './index.css'
 import { LogIn } from './logIn'
 import { Register } from './register'
-
+import classnames from 'classnames'
+import { indexStyles } from './index.css'
+import { comp, IInjectedProps } from '../../utils/decorators'
+import {autorun} from 'mobx';
 interface IAuthenticationComponentProps extends IInjectedProps {
     x: string
 }
@@ -27,7 +30,6 @@ class AuthenticationComponentCls extends React.Component<
   }
   render() {
     const { t, appStore } = this.injectedProps
-    console.log(appStore.authenticationStore.createUser())
     const authenticationStore = appStore.authenticationStore
     const loginActiveClassName = classnames({
       active: authenticationStore.isLoginFormActive,

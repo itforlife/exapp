@@ -8,22 +8,22 @@ export const LogIn = comp(
     get injectedProps() {
       return this.props as IInjectedProps
     }
-    public onSingIn = async () => {
-      const { appStore, router } = this.injectedProps
+    onSingIn = async () => {
+      const { appStore } = this.injectedProps
       const authenticationStore = appStore.authenticationStore
 
       await authenticationStore.signInEmail()
 
     }
-    public onFacebookSignIn = async () => {
-      const { appStore, router } = this.injectedProps
+    onFacebookSignIn = async () => {
+      const { appStore } = this.injectedProps
       const authenticationStore = appStore.authenticationStore
 
       await authenticationStore.signInFacebook()
 
     }
-    public onTwitterSignIn = async () => {
-      const { appStore, router } = this.injectedProps
+    onTwitterSignIn = async () => {
+      const { appStore } = this.injectedProps
       const authenticationStore = appStore.authenticationStore
 
       await authenticationStore.signInTwitter()
