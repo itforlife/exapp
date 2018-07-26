@@ -8,6 +8,7 @@
         "object-literal-sort-keys": false,
         "jsx-no-multiline-js": false,
         "jsx-no-lambda": false,
-        "jsx-alignment": false
+        "jsx-alignment": false,
+        "no-implicit-dependencies": [true, "dev"]
     }
 }
