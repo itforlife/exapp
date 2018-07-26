@@ -2,13 +2,24 @@
 import { Document as FirestorterDocument } from 'firestorter'
 
 import { computed, observable, reaction } from 'mobx';
-import { profileInformationForm } from '../elements/form/forms';
+import { profileInformationForm } from './ProfileInformationForm';
 
+
+export interface IUserData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: number;
+  birthday: string;
+}
+export interface ICurrentUser {
+  data: IUserData;
+}
 
 export class AccountDashboardStore {
 
   @observable public isLoading = false;
-  @observable public currentUser = {};
+  @observable public currentUser: ICurrentUser;
   @observable public authenticationStore;
   public auth;
   public usersCollection;

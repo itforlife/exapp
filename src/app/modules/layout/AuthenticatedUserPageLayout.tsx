@@ -4,7 +4,7 @@ import { Footer, Header } from './index'
 
 
 
-class AuthenticatedUserPageLayoutCmp extends React.Component {
+class AuthenticatedUserPageLayoutCmp extends React.Component<IInjectedProps> {
     get injectedProps() {
         return this.props as IInjectedProps
     }
