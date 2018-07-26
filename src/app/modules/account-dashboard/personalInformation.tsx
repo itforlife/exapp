@@ -1,15 +1,15 @@
 import React from 'react';
-import { FloatingInput } from '../elements/floatingInput';
-import { Button } from '../elements/button';
-import {personalInformationStyle} from './personalInformation.css';
 import { comp, IInjectedProps } from '../../utils/decorators'
+import { Button } from '../elements/button';
+import { FloatingInput } from '../elements/floatingInput';
+import { personalInformationStyle } from './personalInformation.css';
 
 
 class PersonalInformationClass extends React.Component<IInjectedProps> {
     get injectedProps() {
         return this.props as IInjectedProps
       }
-    render() {
+    public render() {
         const { t, appStore } = this.injectedProps;
         const { accountDashboardStore } = appStore;
         const formStore = accountDashboardStore.profileInformationForm;
@@ -51,24 +51,24 @@ class PersonalInformationClass extends React.Component<IInjectedProps> {
                                     })}  
                                 />                             
                             </div>
-                            <div className="col col-lg-6 col-md-6 col-sm-12 col-12">
-                                <Button
-                                    className="btn btn-secondary btn-lg full-width"
-                                >
-                                    Cancel
-                                </Button>
-							</div>
-                            <div className="col col-lg-6 col-md-6 col-sm-12 col-12">
-                                <Button
-                                    className="btn btn-primary btn-lg full-width"
-                                >
-                                    Save all Changes<div className="ripple-container"></div>                                
-                                </Button>
-							</div>
+                                <div className="col col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <Button
+                                        className="btn btn-secondary btn-lg full-width"
+                                    >
+                                        Cancel
+                                    </Button>
+                                </div>
+                                <div className="col col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <Button
+                                        className="btn btn-primary btn-lg full-width"
+                                    >
+                                        Save all Changes<div className="ripple-container" />                                
+                                    </Button>
+                                </div>
                         </div>
                     </form>
                 </div>
-                <style jsx>{personalInformationStyle}</style>
+                <style jsx={true}>{personalInformationStyle}</style>
             </div>
         )  
     }

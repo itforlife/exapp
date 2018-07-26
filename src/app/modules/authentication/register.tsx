@@ -8,13 +8,13 @@ export const Register = comp(
     get injectedProps() {
       return this.props as IInjectedProps
     }
-    onCompleteRegistration = async () => {
+    public onCompleteRegistration = async () => {
       const { appStore } = this.injectedProps
       const authenticationStore = appStore.authenticationStore
 
       await authenticationStore.createUser()
     }
-    render() {
+    public render() {
       const { appStore, t } = this.injectedProps
       const authenticationStore = appStore.authenticationStore
       const formStore = authenticationStore.registerForm

@@ -2,11 +2,10 @@ import { computed } from 'mobx'
 import { observer } from 'mobx-react'
 import App, { Container } from 'next/app'
 import React from 'react'
+import { AuthenticatedUserPageLayout } from '../modules/layout/AuthenticatedUserPageLayout'
 import { CoreLayout } from '../modules/layout/CoreLayout'
 import { LandingPageLayout } from '../modules/layout/LandingPageLayout'
-import { AuthenticatedUserPageLayout } from '../modules/layout/AuthenticatedUserPageLayout'
-import { observer } from 'mobx-react'
-import { computed } from 'mobx'
+
 
 @observer
 export default class Exapp extends App {

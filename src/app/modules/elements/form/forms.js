@@ -3,7 +3,7 @@ import MobxReactForm from 'mobx-react-form';
 import validatorjs from 'validatorjs';
 
 
-const autheticationFields = [{
+const fields = [{
     name: 'email',
     rules: 'required|email|string|between:5,25'
   }, {
@@ -18,9 +18,6 @@ const autheticationFields = [{
     name: 'lastName',
     rules: 'required|string|between:5,25'
   },
-];
-
-const profileInformationFields = autheticationFields.concat([
   {
     name: 'birthday',
     rules: 'string'
@@ -29,10 +26,11 @@ const profileInformationFields = autheticationFields.concat([
     phoneNumber: 'phoneNumber',
     rules:'number|between:8:10'
   }
-]);
+];
+
 
 const plugins = { dvr: validatorjs };
 
-export const loginForm = new MobxReactForm({ fields: autheticationFields }, { plugins });
-export const registerForm = new MobxReactForm({ fields: autheticationFields }, { plugins });
-export const profileInformationForm = new MobxReactForm({ fields: profileInformationFields }, { plugins });
+export const loginForm = new MobxReactForm({ fields }, { plugins });
+export const registerForm = new MobxReactForm({ fields }, { plugins });
+export const profileInformationForm = new MobxReactForm({ fields }, { plugins });

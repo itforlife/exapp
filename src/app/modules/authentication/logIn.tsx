@@ -8,21 +8,21 @@ export const LogIn = comp(
     get injectedProps() {
       return this.props as IInjectedProps
     }
-    onSingIn = async () => {
+    public onSingIn = async () => {
       const { appStore } = this.injectedProps
       const authenticationStore = appStore.authenticationStore
 
       await authenticationStore.signInEmail()
 
     }
-    onFacebookSignIn = async () => {
+    public onFacebookSignIn = async () => {
       const { appStore } = this.injectedProps
       const authenticationStore = appStore.authenticationStore
 
       await authenticationStore.signInFacebook()
 
     }
-    onTwitterSignIn = async () => {
+    public onTwitterSignIn = async () => {
       const { appStore } = this.injectedProps
       const authenticationStore = appStore.authenticationStore
 

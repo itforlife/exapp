@@ -1,13 +1,11 @@
 import classnames from 'classnames'
+import {autorun} from 'mobx';
 import * as React from 'react'
 import { comp, IInjectedProps } from '../../utils/decorators'
 import { indexStyles } from './index.css'
 import { LogIn } from './logIn'
 import { Register } from './register'
-import classnames from 'classnames'
-import { indexStyles } from './index.css'
-import { comp, IInjectedProps } from '../../utils/decorators'
-import {autorun} from 'mobx';
+
 interface IAuthenticationComponentProps extends IInjectedProps {
     x: string
 }
@@ -28,7 +26,7 @@ class AuthenticationComponentCls extends React.Component<
   get injectedProps() {
     return this.props as IInjectedProps
   }
-  render() {
+  public render() {
     const { t, appStore } = this.injectedProps
     const authenticationStore = appStore.authenticationStore
     const loginActiveClassName = classnames({

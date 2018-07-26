@@ -1,13 +1,13 @@
+import { observer } from 'mobx-react'
 import React from 'react';
 import { DashBoardHeader } from '../modules/account-dashboard/dashBoardHeader';
-import { accountDashBoardStyle } from './accountDashboard.css';
-import { YourProfile } from '../modules/account-dashboard/yourProfile';
 import { PersonalInformation } from '../modules/account-dashboard/personalInformation';
-import { observer } from 'mobx-react'
+import { YourProfile } from '../modules/account-dashboard/yourProfile';
+import { accountDashBoardStyle } from './accountDashboard.css';
 
 @observer
 class AccountDashBoard extends React.Component {
-    render() {
+    public render() {
         return (
             <div>
                 <DashBoardHeader />

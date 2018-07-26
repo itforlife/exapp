@@ -13,16 +13,16 @@ interface ITwitterProfile {
 }
 
 export class AuthenticationStore {
-  @observable isLoginFormActive = true;
-  @observable isRegisterFormActive = false;
-  @observable currentUser = null;
-  @observable errorMessage: string;
-  auth: firebase.auth.Auth
-  loginForm: typeof loginForm
-  registerForm: typeof registerForm
-  usersCollection: typeof usersCollection
-  facebookProvider: firebase.auth.FacebookAuthProvider
-  twitterProvider: firebase.auth.TwitterAuthProvider
+  @observable public isLoginFormActive = true;
+  @observable public isRegisterFormActive = false;
+  @observable public currentUser = null;
+  @observable public errorMessage: string;
+  public auth: firebase.auth.Auth
+  public loginForm: typeof loginForm
+  public registerForm: typeof registerForm
+  public usersCollection: typeof usersCollection
+  public facebookProvider: firebase.auth.FacebookAuthProvider
+  public twitterProvider: firebase.auth.TwitterAuthProvider
 
   constructor(config) {
     this.auth = config.auth;
@@ -48,7 +48,7 @@ export class AuthenticationStore {
     }
 
   @action
-  createUser = async () => {
+  public createUser = async () => {
 
     try {
       const result = await this.auth.createUserWithEmailAndPassword(
@@ -70,33 +70,33 @@ export class AuthenticationStore {
       // Handle Errors here.
       this.errorMessage = error.message
     }
+  }
+  public signInFacebook = async () => {
+      try {
+          const result = await this.auth.signInWithPopup(
+              this.facebookProvider
+          )
+          const profile = result.additionalUserInfo.profile as IFBProfile
 
-    public signInFacebook = async () => {
-        try {
-            const result = await this.auth.signInWithPopup(
-                this.facebookProvider
-            )
-            const profile = result.additionalUserInfo.profile as IFBProfile
-
-            this.addUserCollection(
-                {
-                    email: result.user.email,
-                    userId: result.user.uid,
-                    firstName: profile.first_name,
-                    lastName: profile.last_name,
-                    birthday: profile.birthday,
-                    signInMethod: result.credential.signInMethod,
-                },
-                result.additionalUserInfo.isNewUser
-            )
-        } catch (error) {
-            /*tslint:disable:no-console */
-            console.log('errorCode', error.message)
-            console.log('errorCode', error.email)
-            console.log('errorCode', error.credential)
-            /*tslint:enable:no-console */
-        }
-    }
+          this.addUserCollection(
+              {
+                  email: result.user.email,
+                  userId: result.user.uid,
+                  firstName: profile.first_name,
+                  lastName: profile.last_name,
+                  birthday: profile.birthday,
+                  signInMethod: result.credential.signInMethod,
+              },
+              result.additionalUserInfo.isNewUser
+          )
+      } catch (error) {
+          /*tslint:disable:no-console */
+          console.log('errorCode', error.message)
+          console.log('errorCode', error.email)
+          console.log('errorCode', error.credential)
+          /*tslint:enable:no-console */
+      }
+  }
 
     public signInTwitter = async () => {
         try {
@@ -121,7 +121,7 @@ export class AuthenticationStore {
     }
 
   @action
-  signInEmail = async () => {
+  public signInEmail = async () => {
     try {
       await this.auth.signInWithEmailAndPassword(
         this.loginForm.$('email').value,
@@ -131,13 +131,13 @@ export class AuthenticationStore {
     } catch (error) {
       this.errorMessage = error.message
     }
-
-    public addUserCollection = async (userInfo, isNewUser) => {
-        if (isNewUser) {
-            const userDoc = new FirestorterDocument(`users/${userInfo.userId}`)
-            await userDoc.set(userInfo)
-        }
-    }
+  }
+  public addUserCollection = async (userInfo, isNewUser) => {
+      if (isNewUser) {
+          const userDoc = new FirestorterDocument(`users/${userInfo.userId}`)
+          await userDoc.set(userInfo)
+      }
+  }
 
   @computed
   get userProfile() {
@@ -146,16 +146,19 @@ export class AuthenticationStore {
       : {}
   }
 
-  waitForUser = () => {
+  public waitForUser = () => {
     return new Promise((resolve) => {
-     this.auth.onAuthStateChanged((user) => {
-       this.handleUserAuthChange(user, resolve)
-     })
+      this.auth.onAuthStateChanged((user) => {
+        this.handleUserAuthChange(user, resolve)
+      })
     }) 
- }
-
+  }
+  public signOut = async () => {
+    await this.auth.signOut()
+  }
+ 
  @action
- handleUserAuthChange = async (user, resolve) => {
+ private handleUserAuthChange = async (user, resolve) => {
    if (user) {
      const currentUser = new FirestorterDocument(`users/${user.uid}`);
      currentUser.fetch();
@@ -168,7 +171,4 @@ export class AuthenticationStore {
    }
  }
 
-  signOut = async () => {
-    await this.auth.signOut()
-  }
 }
