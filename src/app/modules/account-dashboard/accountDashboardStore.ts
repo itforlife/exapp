@@ -1,12 +1,29 @@
-import { observable, action, computed, reaction } from 'mobx';
-import { profileInformationForm } from '../elements/form/forms';
 
+import { Document as FirestorterDocument } from 'firestorter'
+
+import { computed, observable, reaction } from 'mobx';
+import { profileInformationForm } from './ProfileInformationForm';
+
+
+export interface IUserData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: number;
+  birthday: string;
+}
+export interface ICurrentUser {
+  data: IUserData;
+}
 
 export class AccountDashboardStore {
 
-  @observable isLoading = false;
-  @observable currentUser = {};
-  @observable authenticationStore;
+  @observable public isLoading = false;
+  @observable public currentUser: ICurrentUser;
+  @observable public authenticationStore;
+  public auth;
+  public usersCollection;
+  public profileInformationForm;
   constructor(config) {
     this.auth = config.auth;
     this.usersCollection = config.usersCollection;
@@ -24,7 +41,7 @@ export class AccountDashboardStore {
   }
 
 
-  initForm = (userInfo) => {
+  public initForm = (userInfo) => {
     this.profileInformationForm.init({
       email: userInfo.email,
       firstName: userInfo.firstName,
@@ -34,8 +51,8 @@ export class AccountDashboardStore {
     })
   }
 
-  updateUserCollection = async (userInfo) => {
-      const userDoc = new Document(`users/${userInfo.userId}`);
+  public updateUserCollection = async (userInfo) => {
+      const userDoc = new FirestorterDocument(`users/${userInfo.userId}`);
       await userDoc.set(userInfo);
   }
 

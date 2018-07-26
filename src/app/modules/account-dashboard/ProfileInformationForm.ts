@@ -31,6 +31,4 @@ const fields = [{
 
 const plugins = { dvr: validatorjs };
 
-export const loginForm = new MobxReactForm({ fields }, { plugins });
-export const registerForm = new MobxReactForm({ fields }, { plugins });
 export const profileInformationForm = new MobxReactForm({ fields }, { plugins });
