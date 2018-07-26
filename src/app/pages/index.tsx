@@ -12,7 +12,7 @@ const LandingPage = comp(
     }
     public render() {
       const { t, appStore } = this.injectedProps
-      const { authenticationStore } = appStore
+      const { userStore } = appStore
       return (
         <div className="landing-page">
           <div className="content-bg-wrap">
@@ -24,7 +24,7 @@ const LandingPage = comp(
                     <h1> {t('index.mainCallToAction')}</h1>
                     <Button
                       className="btn btn-md btn-border c-white"
-                      onClick={authenticationStore.setRegisterFormActive}
+                      onClick={userStore.setRegisterFormActive}
                     >
                       {t('index.joinUsButton')}
                     </Button>

@@ -10,14 +10,14 @@ export const Register = comp(
     }
     public onCompleteRegistration = async () => {
       const { appStore } = this.injectedProps
-      const authenticationStore = appStore.authenticationStore
+      const userStore = appStore.userStore
 
-      await authenticationStore.createUser()
+      await userStore.createUser()
     }
     public render() {
       const { appStore, t } = this.injectedProps
-      const authenticationStore = appStore.authenticationStore
-      const formStore = authenticationStore.registerForm
+      const userStore = appStore.userStore
+      const formStore = userStore.registerForm
 
             return (
                 <div>

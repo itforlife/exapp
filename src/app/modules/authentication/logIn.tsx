@@ -10,29 +10,29 @@ export const LogIn = comp(
     }
     public onSingIn = async () => {
       const { appStore } = this.injectedProps
-      const authenticationStore = appStore.authenticationStore
+      const userStore = appStore.userStore
 
-      await authenticationStore.signInEmail()
+      await userStore.signInEmail()
 
     }
     public onFacebookSignIn = async () => {
       const { appStore } = this.injectedProps
-      const authenticationStore = appStore.authenticationStore
+      const userStore = appStore.userStore
 
-      await authenticationStore.signInFacebook()
+      await userStore.signInFacebook()
 
     }
     public onTwitterSignIn = async () => {
       const { appStore } = this.injectedProps
-      const authenticationStore = appStore.authenticationStore
+      const userStore = appStore.userStore
 
-      await authenticationStore.signInTwitter()
+      await userStore.signInTwitter()
 
     }
     public render() {
       const { t, appStore } = this.injectedProps
-      const { authenticationStore } = appStore
-      const formStore = authenticationStore.loginForm
+      const { userStore } = appStore
+      const formStore = userStore.loginForm
       return (
         <div>
           <div className="title h6"> {t('authentication.loginTitle')}</div>
@@ -89,7 +89,7 @@ export const LogIn = comp(
                   {t('authentication.noAccountText')}{' '}
                   <a
                     href="#"
-                    onClick={authenticationStore.setRegisterFormActive}
+                    onClick={userStore.setRegisterFormActive}
                   >
                     {t('authentication.registerNowText')}
                   </a>{' '}

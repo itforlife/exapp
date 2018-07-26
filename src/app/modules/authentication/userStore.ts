@@ -12,7 +12,7 @@ interface ITwitterProfile {
     name: string
 }
 
-export class AuthenticationStore {
+export class UserStore {
   @observable public isLoginFormActive = true;
   @observable public isRegisterFormActive = false;
   @observable public currentUser = null;
@@ -138,7 +138,10 @@ export class AuthenticationStore {
           await userDoc.set(userInfo)
       }
   }
-
+  public updateUserInformation = async (userInfo) => {
+      debugger;
+        await this.currentUser.update(userInfo)
+  }
   @computed
   get userProfile() {
     return this.currentUser && this.currentUser.data
