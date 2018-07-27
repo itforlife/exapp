@@ -19,12 +19,8 @@ export class AccountDashboardStore {
   @observable public isLoading = false;
   @observable public currentUser: ICurrentUser;
   @observable public userStore;
-  public auth;
-  public usersCollection;
   public profileInformationForm;
   constructor(config) {
-    this.auth = config.auth;
-    this.usersCollection = config.usersCollection;
     this.profileInformationForm = profileInformationForm;
     this.userStore = config.userStore;
     reaction(() => this.userStore.currentUser, (currentUser) => {
