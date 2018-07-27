@@ -1,6 +1,5 @@
-import { Document as FirestorterDocument } from 'firestorter'
 import { action, computed, observable } from 'mobx'
-import { usersCollection } from '../../firebase'
+import { UserApi } from '../../data-access/userApi';
 import { loginForm, registerForm } from './authenticationForm'
 
 interface IFBProfile {
@@ -16,21 +15,14 @@ export class UserStore {
   @observable public isLoginFormActive = true;
   @observable public isRegisterFormActive = false;
   @observable public currentUser = null;
-  @observable public errorMessage: string;
-  public auth: firebase.auth.Auth
+  @observable public errorMessage: string = '';
   public loginForm: typeof loginForm
   public registerForm: typeof registerForm
-  public usersCollection: typeof usersCollection
-  public facebookProvider: firebase.auth.FacebookAuthProvider
-  public twitterProvider: firebase.auth.TwitterAuthProvider
-
+  private userApi: UserApi;
   constructor(config) {
-    this.auth = config.auth;
-    this.usersCollection = config.usersCollection;
+    this.userApi = config.userApi;
     this.loginForm = loginForm;
     this.registerForm = registerForm;
-    this.facebookProvider = config.facebookProvider;
-    this.twitterProvider = config.twitterProvider;
     this.currentUser = null;
     this.waitForUser();
   }
@@ -50,35 +42,26 @@ export class UserStore {
   @action
   public createUser = async () => {
 
+    const payload = {
+      email: this.registerForm.$('email').value,
+      password:  this.registerForm.$('password').value,
+      firstName: this.registerForm.$('firstName').value,
+      lastName: this.registerForm.$('lastName').value
+    }
     try {
-      const result = await this.auth.createUserWithEmailAndPassword(
-        this.registerForm.$('email').value,
-        this.registerForm.$('password').value
-      )
-      this.addUserCollection(
-        {
-          email: result.user.email,
-          userId: result.user.uid,
-          firstName: this.registerForm.$('firstName').value,
-          lastName: this.registerForm.$('lastName').value,
-          signInMethod: 'email',
-        },
-        true
-      )
+      await this.userApi.createUserWithEmailAndPassword(payload);
       this.registerForm.clear()
+      this.errorMessage = '';
     } catch (error) {
-      // Handle Errors here.
       this.errorMessage = error.message
     }
   }
   public signInFacebook = async () => {
       try {
-          const result = await this.auth.signInWithPopup(
-              this.facebookProvider
-          )
+          const result = await this.userApi.signInWithProvider('facebook');
           const profile = result.additionalUserInfo.profile as IFBProfile
 
-          this.addUserCollection(
+          await this.addUserCollection(
               {
                   email: result.user.email,
                   userId: result.user.uid,
@@ -90,19 +73,15 @@ export class UserStore {
               result.additionalUserInfo.isNewUser
           )
       } catch (error) {
-          /*tslint:disable:no-console */
-          console.log('errorCode', error.message)
-          console.log('errorCode', error.email)
-          console.log('errorCode', error.credential)
-          /*tslint:enable:no-console */
+          this.errorMessage = error.message
       }
   }
 
     public signInTwitter = async () => {
         try {
-            const result = await this.auth.signInWithPopup(this.twitterProvider)
+            const result = await this.userApi.signInWithProvider('twitter');
             const profile = result.additionalUserInfo.profile as ITwitterProfile
-            this.addUserCollection(
+            await this.addUserCollection(
                 {
                     userId: result.user.uid,
                     firstName: profile.name,
@@ -112,30 +91,26 @@ export class UserStore {
                 result.additionalUserInfo.isNewUser
             )
         } catch (error) {
-            /*tslint:disable:no-console */
-            console.log('errorCode', error.message)
-            console.log('errorCode', error.email)
-            console.log('errorCode', error.credential)
-            /*tslint:enable:no-console */
+          this.errorMessage = error.message
         }
     }
 
   @action
   public signInEmail = async () => {
     try {
-      await this.auth.signInWithEmailAndPassword(
+      await this.userApi.signInWithEmailAndPassword(
         this.loginForm.$('email').value,
         this.loginForm.$('password').value
       )
       this.loginForm.clear()
+      this.errorMessage = '';
     } catch (error) {
       this.errorMessage = error.message
     }
   }
   public addUserCollection = async (userInfo, isNewUser) => {
       if (isNewUser) {
-          const userDoc = new FirestorterDocument(`users/${userInfo.userId}`)
-          await userDoc.set(userInfo)
+        await this.userApi.addUserCollection(userInfo);
       }
   }
   public updateUserInformation = async (userInfo) => {
@@ -148,29 +123,17 @@ export class UserStore {
       : {}
   }
 
+  @action
   public waitForUser = () => {
-    return new Promise((resolve) => {
-      this.auth.onAuthStateChanged((user) => {
-        this.handleUserAuthChange(user, resolve)
-      })
-    }) 
+    this.userApi.auth.onAuthStateChanged(this.handleUserAuthChange);
   }
+
   public signOut = async () => {
-    await this.auth.signOut()
+    await this.userApi.signOut();
   }
  
- @action
- private handleUserAuthChange = async (user, resolve) => {
-   if (user) {
-     const currentUser = new FirestorterDocument(`users/${user.uid}`);
-     currentUser.fetch();
-     await currentUser.ready();
-     this.currentUser = currentUser;
-     resolve(this.currentUser)
-   } else {
-     this.currentUser = null;
-     
-   }
- }
-
+  @action
+  private handleUserAuthChange = async (user) => {
+    this.currentUser = user ? await this.userApi.getCurrentUser(user.uid) : null;
+  }
 }

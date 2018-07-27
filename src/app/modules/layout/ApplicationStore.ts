@@ -1,33 +1,27 @@
-import * as firebaseStore from '../../firebase'
+import * as firebaseStore from '../../data-access'
+import { Api } from '../../data-access/api';
 import { AccountDashboardStore } from '../account-dashboard/accountDashboardStore';
 import { UserStore } from '../authentication/userStore'
 import { CampaignsStore, CreateCampaignFormStore } from '../campaigns'
-
 
 class ApplicationStore {
   public campaignsStore: CampaignsStore = null
   public userStore: UserStore = null
   public createCampaignFormStore: CreateCampaignFormStore = null
   public accountDashboardStore: AccountDashboardStore = null;
-
+  public api: Api = null;
   constructor() {
-    const userStoreConfig = {
-      auth: firebaseStore.auth,
-      facebookProvider: firebaseStore.facebookProvider,
-      twitterProvider: firebaseStore.twitterProvider,
-      usersCollection: firebaseStore.usersCollection,
-    }
+    this.api = new Api();
+  
     this.campaignsStore = new CampaignsStore(firebaseStore.campaignsCollection)
     this.createCampaignFormStore = new CreateCampaignFormStore(
       firebaseStore.campaignsCollection
     )
-    this.userStore = new UserStore(
-      userStoreConfig
-    )
+    this.userStore = new UserStore({
+      userApi: this.api.userApi
+    })
     this.accountDashboardStore = new AccountDashboardStore(
       {
-        auth: firebaseStore.auth,
-        usersCollection: firebaseStore.usersCollection,
         userStore: this.userStore
       }
     )

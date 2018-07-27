@@ -23,11 +23,15 @@ facebookProvider.addScope('user_friends')
 facebookProvider.addScope('public_profile')
 const twitterProvider = new firebase.auth.TwitterAuthProvider()
 
+const providers = {
+    facebook: facebookProvider,
+    twitter: twitterProvider
+}
+
 export {
     campaignsCollection,
     firebase,
     auth,
-    facebookProvider,
-    twitterProvider,
+    providers,
     usersCollection,
 }
