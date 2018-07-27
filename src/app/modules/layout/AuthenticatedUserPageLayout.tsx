@@ -1,6 +1,6 @@
 import React from 'react';
 import { comp, IInjectedProps } from '../../utils/decorators'
-import { Footer, Header } from './index'
+import { Footer, Header } from '.'
 
 
 

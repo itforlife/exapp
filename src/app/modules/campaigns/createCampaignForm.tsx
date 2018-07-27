@@ -2,6 +2,7 @@ import React from 'react'
 import { comp, IInjectedProps } from '../../utils/decorators'
 import { Button, FloatingInput } from '../elements'
 import { RichTextEditor } from '../elements/rich-text'
+import { UploadButton } from '../elements/UploadButton'
 import { createCampaignFormStyles } from './createCampaignForm.css'
 
 export const CreateCampaignForm = comp(
@@ -17,6 +18,7 @@ export const CreateCampaignForm = comp(
                 t,
                 appStore: { createCampaignFormStore },
             } = this.injectedProps
+
             return (
                 <div>
                     <h1>{t('startCampaign.campaignInfoTitle')}</h1>
@@ -36,10 +38,10 @@ export const CreateCampaignForm = comp(
                                 />
                             </div>
                             <div className="form-group">
-                                <label className="h4">
-                                    Upload a main image
-                                </label>
-                                <input type="file" />
+                                <UploadButton
+                                    type="image"
+                                    label="Select poster picture"
+                                />
                             </div>
                         </div>
                         <div className="col-sm-8">

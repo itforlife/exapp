@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import {action} from '@storybook/addon-actions'
+import {action} from 'storybook__addon-actions'
 import {linkTo} from '@storybook/addon-links'
-import {storiesOf} from '@storybook/react'
+import {storiesOf} from 'storybook__react'
 
 import {Button, Welcome} from '@storybook/react/demo'
 
