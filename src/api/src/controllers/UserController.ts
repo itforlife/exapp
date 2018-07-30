@@ -30,7 +30,6 @@ export class UserController implements interfaces.Controller {
         await this.entityManager.save(user)
 
         const users = await this.entityManager.find(User)
-        // tslint:disable-next-line:no-console
         return users
     }
     @httpGet('/')
