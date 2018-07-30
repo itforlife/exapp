@@ -1,33 +1,51 @@
-import * as bodyParser from 'body-parser'
-import * as express from 'express'
 import 'reflect-metadata'
-import RestypedRouter from 'restyped-express-async'
+import * as bodyParser from 'body-parser'
+import * as cors from 'cors'
+import * as helmet from 'helmet'
+import { Container } from 'inversify'
+import {
+    interfaces,
+    InversifyExpressServer,
+    cleanUpMetadata,
+    TYPE,
+} from 'inversify-express-utils'
+import * as dotenv from 'dotenv'
 import { createConnection } from 'typeorm'
-import { User } from './entities/User'
-import { IExappAPI } from './types/ExappAPI'
+import { createContainer } from './di/container'
 
-createConnection()
-    .then(async connection => {
-        const app = express()
-        app.use(bodyParser.json())
-
-        const router = RestypedRouter<IExappAPI>(app)
-        router.post('/users', async (req, res) => {
-            const user = new User()
-            user.firstName = 'Timber'
-            user.lastName = 'Saw'
-            user.age = 25
-            await connection.manager.save(user)
-
-            const users = await connection.manager.find(User)
-            // tslint:disable-next-line:no-console
-            console.log('Loaded users: ', users)
-            return users
+class Startup {
+    public server() {
+        // create database connection
+        dotenv.config()
+        createConnection().then(conn => {
+            this.startExpressServer(conn.manager)
         })
-        router.get('/users', async (req, res) => {
-            return { users: [] }
+    }
+
+    private startExpressServer(entityManager) {
+        // load everything needed to the Container
+        cleanUpMetadata()
+        require('./controllers/index')
+        const container = createContainer({ entityManager })
+        const server = new InversifyExpressServer(container)
+        server.setConfig(srv => {
+            srv.use(
+                bodyParser.urlencoded({
+                    extended: true,
+                })
+            )
+            srv.use(bodyParser.json())
+            srv.use(cors())
+            srv.use(helmet())
         })
-        app.listen(5000)
-    })
-    // tslint:disable-next-line:no-console
-    .catch(error => console.log(error))
+
+        const app = server.build()
+        const port = process.env.PORT || 3000
+        app.listen(port)
+        // tslint:disable-next-line:no-console
+        console.log(`Server started on port ${port} :)`)
+    }
+}
+
+const startup = new Startup()
+startup.server()

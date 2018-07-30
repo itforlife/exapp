@@ -1,2 +1,24 @@
-GET http://localhost:5000/users HTTP/1.1
+@host=http://localhost:5000
+
+## Users API
+
+### Get all users
+GET {{host}}/users
 content-type: application/json
+
+### Create new user
+
+POST {{host}}/users
+content-type: application/json
+
+{
+    "firstName": "test",
+    "lastName": "test last name",
+    "age": 35
+}
+
+## Campaigns API
+
+### Get all campagins
+
+GET {{host}}/campaigns

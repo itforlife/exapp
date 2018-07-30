@@ -8,6 +8,8 @@ export interface IExappAPI {
                 lastName: string
                 age: number
             }
+            params: {}
+            query: {}
             response: User[]
         }
     }
@@ -16,6 +18,9 @@ export interface IExappAPI {
             response: {
                 name: string
             }
+            body: {}
+            params: {}
+            query: {}
         }
     }
 }
