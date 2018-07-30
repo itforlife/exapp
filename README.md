@@ -34,6 +34,16 @@ Upon a challenge completion users are rewarded points which unlock badges that g
 
 ## Install
 
+### Pre-requisites
+
+Make sure you have SQLlite installed
+
+```sh
+sudo apt-get install sqlite3 libsqlite3-dev
+```
+
+### Step to run the app
+
 1.  Go to https://console.firebase.google.com/ and create a new project
 2.  Create a Database in test mode
 3.  Enable Authentication with email
