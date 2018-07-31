@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import flush from 'styled-jsx/server'
 import * as path from 'path'
+import * as fs from 'fs'
 
 export default {
     entry: path.join(__dirname, 'src', 'index.tsx'),
@@ -13,18 +14,25 @@ export default {
         title: 'Exapp',
     }),
     getRoutes: async () => {
-        const { data: posts } = await axios.get(
-            'https://jsonplaceholder.typicode.com/posts'
-        )
-        return [
-            {
-                path: '/',
-                getData: () => ({
-                    posts,
-                }),
-                component: 'src/pages/index',
-            },
-        ]
+        const pages = fs.readdirSync('src/pages')
+        const pagesWithData = pages
+            .map(page => {
+                const pageParts = page.split('.')
+                if (pageParts.length !== 2 || pageParts[1] !== 'tsx') {
+                    return null
+                }
+                const pagePath =
+                    pageParts[0] === 'index' ? '/' : '/' + pageParts[0]
+                return {
+                    path: pagePath,
+                    getData: () => ({
+                        data: {},
+                    }),
+                    component: `src/pages/${pageParts[0]}`,
+                }
+            })
+            .filter(p => !!p)
+        return pagesWithData
     },
     renderToHtml: (render, Comp, meta) => {
         const html = render(<Comp />)

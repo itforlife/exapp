@@ -1,9 +1,9 @@
 import { computed } from 'mobx'
 import { observer } from 'mobx-react'
 import React from 'react'
-import { AuthenticatedUserPageLayout } from '../modules/layout/AuthenticatedUserPageLayout'
-import { CoreLayout } from '../modules/layout/CoreLayout'
-import { LandingPageLayout } from '../modules/layout/LandingPageLayout'
+import { AuthenticatedUserPageLayout } from './modules/layout/AuthenticatedUserPageLayout'
+import { CoreLayout } from './modules/layout/CoreLayout'
+import { LandingPageLayout } from './modules/layout/LandingPageLayout'
 
 import { Router, Link } from 'react-static'
 import { hot } from 'react-hot-loader'
@@ -32,10 +32,16 @@ export default class Exapp extends React.Component {
                         <div>
                             <nav>
                                 <Link exact={true} to="/">
-                                    Home
+                                    <button className="btn">Home</button>
                                 </Link>
-                                <Link to="/about">About</Link>
-                                <Link to="/blog">Blog</Link>
+                                <Link to="/campaigns">
+                                    <button className="btn">
+                                        Start a campaign
+                                    </button>
+                                </Link>
+                                <Link to="/blog">
+                                    <button className="btn">Blog</button>
+                                </Link>
                             </nav>
                             <div className="content">
                                 <Routes />

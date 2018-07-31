@@ -16,5 +16,4 @@ const StartCampaign = comp(
         }
     }
 )
-
 export default StartCampaign
