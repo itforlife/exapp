@@ -84,6 +84,7 @@ export class UserApi {
             age: 10,
         })
     }
+
     public signOut = async () => {
         await this.authService.signOut()
     }

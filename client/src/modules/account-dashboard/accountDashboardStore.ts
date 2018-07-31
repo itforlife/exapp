@@ -1,5 +1,5 @@
 
-import { computed, observable, reaction } from 'mobx';
+import { action, computed, observable, reaction } from 'mobx';
 import { profileInformationForm } from './ProfileInformationForm';
 
 
@@ -14,11 +14,15 @@ export interface ICurrentUser {
   data: IUserData;
 }
 
+export type settingsComponentType = 'personalInformation' | 'changePassword';
+
 export class AccountDashboardStore {
 
   @observable public isLoading = false;
   @observable public currentUser: ICurrentUser;
   @observable public userStore;
+  @observable public passwordError: string = null;
+  @observable public settingsComponent: settingsComponentType = 'personalInformation';
   public profileInformationForm;
   constructor(config) {
     this.profileInformationForm = profileInformationForm;
@@ -45,7 +49,10 @@ export class AccountDashboardStore {
       firstName: userInfo.firstName,
       lastName: userInfo.lastName,
       phoneNumber: userInfo.phoneNumber,
-      birthday: userInfo.birthday
+      birthday: userInfo.birthday, 
+      password: null, 
+      newPassword: null, 
+      confirmPassword: null
     })
   }
   public updateUser = () => {
@@ -56,6 +63,23 @@ export class AccountDashboardStore {
       birthday: this.profileInformationForm.$('birthday').value
 
     })
+  }
+
+  @action 
+  public changeSettingsComponent = (componentName: settingsComponentType) => {
+    this.settingsComponent = componentName;
+  }
+
+  @action
+  public changePassword = () => {
+    const password = this.profileInformationForm.$('password').value;
+    const newPassword = this.profileInformationForm.$('newPassword').value;
+    const confirmPassword = this.profileInformationForm.$('newPassword').value;
+    if(confirmPassword !== newPassword) {
+      this.passwordError = 'The password dose not match';
+    }
+
+    return this.userStore.updatePassword(password, newPassword);
   }
   @computed
   get userProfile() {

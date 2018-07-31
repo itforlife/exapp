@@ -36,11 +36,18 @@
     "termsAndConditionsText": "I Accept terms & conditions",
     "registerButtonText": "Complete Registration!",
     "phoneNumberInputLabel": "Your Phone Number",
-    "birthdayInputlabel": "Your birthday" 
+    "birthdayInputlabel": "Your birthday",
+    "newPassword": "Your new password",
+    "currentPassword": "Current password",
+    "confirmPassword": "Confirm new password"
   },
   "accountDashboard": {
     "headerTitle": "Your Account Dashboard",
     "headerContent":
-      "Here you’ll find everything you need to change your profile information, settings, change your pasword and much more! have fun!"
+      "Here you’ll find everything you need to change your profile information, settings, change your pasword and much more! have fun!",
+    "yourProfile": "Your Profile",
+    "profileSettings": "Profile settings",
+    "personalInformation": "Personal information",
+    "changePassword": "Change Password"
   }
 }

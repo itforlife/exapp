@@ -6,35 +6,32 @@ import { indexStyles } from './index.css'
 import { LogIn } from './logIn'
 import { Register } from './register'
 
-interface IAuthenticationComponentProps extends IInjectedProps {
-    x: string
-}
 
 class AuthenticationComponentCls extends React.Component<
-    IAuthenticationComponentProps
+IInjectedProps
 > {
-    constructor(props: IAuthenticationComponentProps) {
-        super(props)
-        const { userStore } = this.props.appStore
-        autorun(() => {
-            const currentUser = userStore.currentUser
-            if (currentUser) {
-                this.props.router.push('/account-dashboard')
-            }
-        })
-    }
-    get injectedProps() {
-        return this.props as IInjectedProps
-    }
-    public render() {
-        const { t, appStore } = this.injectedProps
-        const userStore = appStore.userStore
-        const loginActiveClassName = classnames({
-            active: userStore.isLoginFormActive,
-        })
-        const registerActiveClassName = classnames({
-            active: userStore.isRegisterFormActive,
-        })
+  constructor(props: IInjectedProps) {
+    super(props)
+    const {userStore} = this.props.appStore;
+    autorun(() => {
+        const currentUser = userStore.currentUser;
+        if (currentUser) {
+          this.props.router.push('/account-dashboard');
+        }
+    })
+  }
+  get injectedProps() {
+    return this.props as IInjectedProps
+  }
+  public render() {
+    const { t, appStore } = this.props
+    const userStore = appStore.userStore
+    const loginActiveClassName = classnames({
+      active: userStore.isLoginFormActive,
+    })
+    const registerActiveClassName = classnames({
+      active: userStore.isRegisterFormActive,
+    })
 
         return (
             <div className="col col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12">
