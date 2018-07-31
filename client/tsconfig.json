@@ -1,0 +1,23 @@
+{
+    "compileOnSave": false,
+    "include": ["**/*.tsx", "**/*.ts"],
+    "exclude": ["node_modules", "build", "scripts", "tmp"],
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "baseUrl": ".",
+        "lib": ["dom", "es2016"],
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    }
+}
