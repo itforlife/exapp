@@ -36,27 +36,28 @@ Upon a challenge completion users are rewarded points which unlock badges that g
 
 ### Pre-requisites
 
-Make sure you have SQLlite installed
+You will find 2 folders in the app root:
+
+1.  `api` - contains the API server which implements the REST endpoints consumed by client
+2.  `client` - The frontend as a react-static app.
+
+Please cd into each of the above folders and run in each of them
 
 ```sh
-sudo apt-get install sqlite3 libsqlite3-dev
+yarn install
 ```
 
-### Step to run the app
-
-1.  Go to https://console.firebase.google.com/ and create a new project
-2.  Create a Database in test mode
-3.  Enable Authentication with email
-4.  Add an .env file in the project root folder that is similar to .sample.env with your firebase config
-5.  Run yarn install
+### Start the server
 
 ```sh
-yarn build-all or npm run build-all
+cd api
+yarn dev
 ```
 
-6.  Start the aplication:
+### Start the frontend
 
 ```sh
+cd client
 yarn dev
 ```
 
@@ -68,5 +69,6 @@ Before commiting please make sure:
 -   TSLint reports no errors
 
 ```sh
+cd client
 yarn lint
 ```
