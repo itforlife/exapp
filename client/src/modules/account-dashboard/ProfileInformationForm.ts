@@ -9,6 +9,13 @@ const fields = [{
   }, {
     name: 'password',
     rules: 'required|string|between:5,25'
+  }, {
+    name: 'newPassword',
+    rules: 'required|string|between:5,25'
+  },
+  {
+    name: 'confirmPassword',
+    rules: 'required|string|between:5,25'
   },
   {
     name: 'firstName',

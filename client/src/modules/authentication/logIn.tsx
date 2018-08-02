@@ -5,29 +5,26 @@ import { loginStyles } from './login.css'
 
 export const LogIn = comp(
     class extends React.Component<IInjectedProps> {
-        get injectedProps() {
-            return this.props as IInjectedProps
-        }
         public onSingIn = async () => {
-            const { appStore } = this.injectedProps
+            const { appStore } = this.props
             const userStore = appStore.userStore
 
             await userStore.signInEmail()
         }
         public onFacebookSignIn = async () => {
-            const { appStore } = this.injectedProps
+            const { appStore } = this.props
             const userStore = appStore.userStore
 
             await userStore.signInFacebook()
         }
         public onTwitterSignIn = async () => {
-            const { appStore } = this.injectedProps
+            const { appStore } = this.props
             const userStore = appStore.userStore
 
             await userStore.signInTwitter()
         }
         public render() {
-            const { t, appStore } = this.injectedProps
+            const { t, appStore } = this.props
             const { userStore } = appStore
             const formStore = userStore.loginForm
             return (

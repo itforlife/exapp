@@ -1,4 +1,4 @@
-import { IExappAPI } from '../../api/src/types/ExappAPI'
+import { IExappAPI } from '../../../api/src/types/ExappAPI'
 import { TypedAxiosInstance } from './typed-axios'
 
 export interface IUserInfo {
@@ -84,6 +84,7 @@ export class UserApi {
             age: 10,
         })
     }
+
     public signOut = async () => {
         await this.authService.signOut()
     }

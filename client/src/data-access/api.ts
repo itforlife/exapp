@@ -1,4 +1,4 @@
-import { IExappAPI } from '../../api/src/types/ExappAPI'
+import { IExappAPI } from '../../../api/src/types/ExappAPI'
 import axios from './typed-axios'
 import { UserApi } from './userApi'
 

@@ -5,17 +5,14 @@ import { registerStyles } from './register.css'
 
 export const Register = comp(
     class extends React.Component<IInjectedProps> {
-        get injectedProps() {
-            return this.props as IInjectedProps
-        }
         public onCompleteRegistration = async () => {
-            const { appStore } = this.injectedProps
+            const { appStore } = this.props
             const userStore = appStore.userStore
 
             await userStore.createUser()
         }
         public render() {
-            const { appStore, t } = this.injectedProps
+            const { appStore, t } = this.props
             const userStore = appStore.userStore
             const formStore = userStore.registerForm
 

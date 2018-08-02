@@ -8,11 +8,8 @@ import * as indexStyles from './index.css'
 
 const LandingPage = comp(
     class extends React.Component<IInjectedProps> {
-        get injectedProps() {
-            return this.props as IInjectedProps
-        }
         public render() {
-            const { t, appStore } = this.injectedProps
+            const { t, appStore } = this.props
             const { userStore } = appStore
             return (
                 <div className={indexStyles.langindPage}>
