@@ -68,7 +68,12 @@ export class UserApi {
         return result
     }
     public getCurrentUser = async (userId: string) => {
-        const currentUser = { firstName: 'test', lastName: 'test', age: 30 }
+        const currentUser = {
+            firstName: 'test',
+            lastName: 'test',
+            age: 30,
+            userId,
+        }
         return currentUser
     }
 

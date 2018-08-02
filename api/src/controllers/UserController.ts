@@ -13,12 +13,20 @@ import { inject } from 'inversify'
 
 const ResourcePath = '/users'
 type CreateUserReqType = TypedRequest<IExappAPI[typeof ResourcePath]['POST']>
+interface IEmailService {
+    send()
+}
 
 @controller(ResourcePath)
 export class UserController implements interfaces.Controller {
+    emailService: IEmailService
     public entityManager: EntityManager
-    constructor(@inject('EntityManager') entityManager: EntityManager) {
+    constructor(
+        @inject('EntityManager') entityManager: EntityManager,
+        @inject('EmailService') emailService: IEmailService
+    ) {
         this.entityManager = entityManager
+        this.emailService = emailService
     }
 
     @httpPost('/')
@@ -28,7 +36,7 @@ export class UserController implements interfaces.Controller {
         user.lastName = req.body.lastName
         user.age = req.body.age
         await this.entityManager.save(user)
-
+        this.emailService.send()
         const users = await this.entityManager.find(User)
         return users
     }

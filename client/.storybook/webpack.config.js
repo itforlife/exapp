@@ -1,18 +1,16 @@
-const withCSS = require('@zeit/next-css')
-
+const path = require('path')
+const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin')
 module.exports = (baseConfig, env, config) => {
     config.module.rules.push({
         test: /\.(ts|tsx)$/,
-        use: [
-            { loader: require.resolve('babel-loader') },
-            'ts-loader?configFile=../../../tsconfig.json',
-        ],
+        loader: require.resolve('awesome-typescript-loader'),
     })
-
+    config.module.rules.push({
+        test: /\.scss$/,
+        loaders: ['style-loader', 'css-loader', 'sass-loader'],
+        include: path.resolve(__dirname, '../'),
+    })
+    config.plugins.push(new TSDocgenPlugin()) // optional
     config.resolve.extensions.push('.ts', '.tsx')
-    config.module.rules = config.module.rules.filter(
-        rule => !rule.test.toString().includes('css$')
-    )
-
-    return withCSS({ cssModules: true }).webpack(config, { defaultLoaders: {} })
+    return config
 }
