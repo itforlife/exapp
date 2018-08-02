@@ -12,7 +12,7 @@ export const Button = props => {
             >
                 {props.children}
             </a>
-            <style jsx={true}>{buttonsStyles}</style>
+            <style jsx>{buttonsStyles}</style>
         </div>
     )
 }

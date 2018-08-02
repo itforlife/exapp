@@ -68,7 +68,7 @@ class AuthenticationComponentCls extends React.Component<
                         </div>
                     </div>
                 </div>
-                <style jsx={true}>{indexStyles}</style>
+                <style jsx>{indexStyles}</style>
             </div>
         )
     }

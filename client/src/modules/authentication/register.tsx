@@ -78,7 +78,7 @@ export const Register = comp(
                             </div>
                         </div>
                     </form>
-                    <style jsx={true}>{registerStyles}</style>
+                    <style jsx>{registerStyles}</style>
                 </div>
             )
         }

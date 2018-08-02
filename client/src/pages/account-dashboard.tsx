@@ -1,9 +1,9 @@
 import { observer } from 'mobx-react'
-import React from 'react';
-import { DashBoardHeader } from '../modules/account-dashboard/dashBoardHeader';
-import { PersonalInformation } from '../modules/account-dashboard/personalInformation';
-import { YourProfile } from '../modules/account-dashboard/yourProfile';
-import { accountDashBoardStyle } from './accountDashboard.css';
+import React from 'react'
+import { DashBoardHeader } from '../modules/account-dashboard/dashBoardHeader'
+import { PersonalInformation } from '../modules/account-dashboard/personalInformation'
+import { YourProfile } from '../modules/account-dashboard/yourProfile'
+import { accountDashBoardStyle } from './accountDashboard.css'
 
 @observer
 class AccountDashBoard extends React.Component {
@@ -26,7 +26,7 @@ class AccountDashBoard extends React.Component {
                         </div>
                     </div>
                 </div>
-                <style jsx={true}>{accountDashBoardStyle}</style>
+                <style jsx>{accountDashBoardStyle}</style>
             </div>
         )
     }

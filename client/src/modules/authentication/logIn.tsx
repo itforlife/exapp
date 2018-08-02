@@ -113,7 +113,7 @@ export const LogIn = comp(
                             </div>
                         </div>
                     </form>
-                    <style jsx={true}>{loginStyles}</style>
+                    <style jsx>{loginStyles}</style>
                 </div>
             )
         }

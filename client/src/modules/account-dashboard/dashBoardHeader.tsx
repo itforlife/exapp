@@ -28,7 +28,7 @@ export const DashBoardHeader = comp(
                         src="/assets/img/account-bottom.png"
                         alt="friends"
                     />
-                    <style jsx={true}>{dasBoardHeaderStyle}</style>
+                    <style jsx>{dasBoardHeaderStyle}</style>
                 </div>
             )
         }

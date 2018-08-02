@@ -37,11 +37,11 @@ const LandingPage = comp(
                             </div>
                         </div>
                     </div>
-                    <style jsx={true}>{indexStyles}</style>
+                    <style jsx>{indexStyles}</style>
                 </div>
             )
         }
     }
 )
 
-export default withRouteData(LandingPage)
+export default LandingPage

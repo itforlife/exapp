@@ -9,5 +9,6 @@ npm-debug.log
 .DS_Store
 /src/functions/next
 /dist
+/client/dist
 tmp
 *.db

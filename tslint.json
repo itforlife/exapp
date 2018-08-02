@@ -9,6 +9,7 @@
         "jsx-no-multiline-js": false,
         "jsx-no-lambda": false,
         "jsx-alignment": false,
+        "jsx-boolean-value": false,
         "no-implicit-dependencies": [true, "dev"],
         "ordered-imports": false
     }

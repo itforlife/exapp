@@ -79,7 +79,7 @@ class PersonalInformationClass extends React.Component<IInjectedProps> {
                         </div>
                     </form>
                 </div>
-                <style jsx={true}>{personalInformationStyle}</style>
+                <style jsx>{personalInformationStyle}</style>
             </div>
         )
     }

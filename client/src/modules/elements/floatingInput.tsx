@@ -11,7 +11,7 @@ export const FloatingInput = observer(props => {
         <div className={floatingClassName}>
             <label className="control-label">{props.label}</label>
             <input className="form-control" {...props} />
-            <style jsx={true}>{floatingInputStyles}</style>
+            <style jsx>{floatingInputStyles}</style>
         </div>
     )
 })

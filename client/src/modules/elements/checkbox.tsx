@@ -11,7 +11,7 @@ export const Checkbox = props => {
                 </span>
                 {props.label}
             </label>
-            <style jsx={true}>{checkboxStyles}</style>
+            <style jsx>{checkboxStyles}</style>
         </div>
     )
 }

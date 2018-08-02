@@ -40,7 +40,7 @@ export class YourProfile extends React.Component {
                         </div>
                     </div>
                 </div>
-                <style jsx={true}>{yourProfileStyle}</style>
+                <style jsx>{yourProfileStyle}</style>
             </div>
         )
     }

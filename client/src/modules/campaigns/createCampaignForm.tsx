@@ -72,7 +72,7 @@ export const CreateCampaignForm = comp(
                             </div>
                         </div>
                     </div>
-                    <style jsx={true}>{createCampaignFormStyles}</style>
+                    <style jsx>{createCampaignFormStyles}</style>
                 </div>
             )
         }
