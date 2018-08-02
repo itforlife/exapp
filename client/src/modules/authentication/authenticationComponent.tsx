@@ -20,9 +20,6 @@ IInjectedProps
         }
     })
   }
-  get injectedProps() {
-    return this.props as IInjectedProps
-  }
   public render() {
     const { t, appStore } = this.props
     const userStore = appStore.userStore

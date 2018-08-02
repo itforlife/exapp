@@ -5,11 +5,8 @@ import { FloatingInput } from '../elements/floatingInput';
 import { Content } from './Content';
 
 class ChangePasswordClass extends React.Component<IInjectedProps> {
-    get injectedProps() {
-        return this.props as IInjectedProps
-      }
     public render() {
-        const { t, appStore } = this.injectedProps;
+        const { t, appStore } = this.props;
         const { accountDashboardStore } = appStore;
         const formStore = accountDashboardStore.profileInformationForm;
         return (

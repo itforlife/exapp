@@ -1,4 +1,4 @@
-import { IExappAPI } from '../../api/src/types/ExappAPI'
+import { IExappAPI } from '../../../api/src/types/ExappAPI'
 import { TypedAxiosInstance } from './typed-axios'
 
 export interface IUserInfo {

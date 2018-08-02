@@ -8,12 +8,9 @@ import { accountDashBoardStyle } from './accountDashboard.css';
 
 class AccountDashBoard extends React.Component<IInjectedProps> {
     
-    get injectedProps() {
-        return this.props as IInjectedProps
-      }
 
     public getSettingsComponent = () => {
-        const componentName = this.injectedProps.appStore.accountDashboardStore.settingsComponent;
+        const componentName = this.props.appStore.accountDashboardStore.settingsComponent;
         switch(componentName) {
             case 'changePassword': 
                 return <ChangePassword />;

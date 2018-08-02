@@ -4,11 +4,8 @@ import { dasBoardHeaderStyle } from './dashBoardHeader.css'
 
 export const DashBoardHeader = comp(
   class extends React.Component<IInjectedProps> {
-    get injectedProps() {
-      return this.props as IInjectedProps
-    }
     public render() {
-      const { t } = this.injectedProps
+      const { t } = this.this.props
 
       return (
         <div className="main-header">

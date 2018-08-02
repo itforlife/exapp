@@ -27,6 +27,16 @@ export class AccountDashboardStore {
   constructor(config) {
     this.profileInformationForm = profileInformationForm;
     this.userStore = config.userStore;
+    this.initForm({
+      email: null,
+      firstName: null,
+      lastName: null,
+      phoneNumber: null,
+      birthday: null, 
+      password: null, 
+      newPassword: null, 
+      confirmPassword: null
+    })
     reaction(() => this.userStore.currentUser, (currentUser) => {
       const isFetching = currentUser.isLoading;
       const { data: userInfo } = currentUser;

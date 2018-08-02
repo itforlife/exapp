@@ -6,11 +6,8 @@ import { Content } from './Content';
 
 
 class PersonalInformationClass extends React.Component<IInjectedProps> {
-    get injectedProps() {
-        return this.props as IInjectedProps
-      }
     public render() {
-        const { t, appStore } = this.injectedProps;
+        const { t, appStore } = this.props;
         const { accountDashboardStore } = appStore;
         const formStore = accountDashboardStore.profileInformationForm;
         return (

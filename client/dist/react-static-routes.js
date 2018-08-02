@@ -19,17 +19,23 @@ const universalOptions = {
   },
 }
 
-  const t_0 = universal(import('../pages/index'), universalOptions)
+  const t_0 = universal(import('../src/pages/404'), universalOptions)
+const t_1 = universal(import('../src/pages/account-dashboard'), universalOptions)
+const t_2 = universal(import('../src/pages/index'), universalOptions)
+const t_3 = universal(import('../src/pages/start-campaign'), universalOptions)
 
 
 // Template Map
 global.componentsByTemplateID = global.componentsByTemplateID || [
-  t_0
+  t_0,
+t_1,
+t_2,
+t_3
 ]
 
 // Template Tree
 global.templateIDsByPath = global.templateIDsByPath || {
-  '404': undefined
+  '404': 0
 }
 
 // Get template for given path
