@@ -65,7 +65,7 @@
         "stage": "react-static build --staging",
         "build": "react-static build",
         "serve": "serve dist -p 3000",
-        "lint": "tslint --project ./tsconfig.json --config ../../tslint.json --format stylish",
+        "lint": "tslint --project ./tsconfig.json --config ../tslint.json --format stylish",
         "storybook": "start-storybook -p 6006 -c src/app/.storybook",
         "build-storybook": "build-storybook"
     },
