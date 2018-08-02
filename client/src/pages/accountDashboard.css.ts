@@ -1,21 +1,19 @@
-import css from 'styled-jsx/css'
-import {colors } from '../theme/index.css';
+import { colors } from '../theme/index.css'
+import { stylesheet } from 'typestyle'
 
-export const accountDashBoardStyle = css`
-    $white-color: ${colors['white-color']};
-    $border-color: ${colors['border-color']};
-    .ui-block {
-        background-color: $white-color;
-        border-radius: 5px;
-        border: 1px solid $border-color;
-        margin-bottom: 15px;
-    
-        .ui-block-title:last-child {
-            border-bottom: 0;
-        }
-    }
-    
-    .ui-block-content {
-        padding: 24px 23px 23px;
-    }
-`;
+export const accountDashBoardStyle = stylesheet({
+    uiBlock: {
+        backgroundColor: colors['white-color'],
+        borderRadius: '5px',
+        border: `1px solid ${colors['border-color']}`,
+        marginBottom: '15px',
+        $nest: {
+            '.ui-block-title:last-child': {
+                borderBottom: '0',
+            },
+        },
+    },
+    uiBlockContent: {
+        padding: '24px 23px 23px',
+    },
+})

@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import App from './app'
+import { setStylesTarget } from 'typestyle'
 
 // Export your top level component as JSX (for static rendering)
 export default App
@@ -18,4 +19,5 @@ if (typeof document !== 'undefined') {
 
     // Render!
     render(App)
+    setStylesTarget(document.getElementById('styles-target'))
 }
