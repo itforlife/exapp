@@ -1,7 +1,7 @@
 import React from 'react'
 import { comp, IInjectedProps } from '../../utils/decorators'
 import { Button, Checkbox, FloatingInput } from '../elements'
-import { registerStyles } from './register.css'
+import * as registerStyles from './register.css'
 
 export const Register = comp(
     class extends React.Component<IInjectedProps> {
@@ -18,10 +18,10 @@ export const Register = comp(
 
             return (
                 <div>
-                    <div className="title h6">
+                    <div className={`${registerStyles.registerTitle} h6`}>
                         {t('authentication.registerTitle')}
                     </div>
-                    <form className="content">
+                    <form className={registerStyles.registerContent}>
                         <div className="row">
                             <div className="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                 <FloatingInput
@@ -58,7 +58,9 @@ export const Register = comp(
                                         ),
                                     })}
                                 />
-                                <div className="remember">
+                                <div
+                                    className={registerStyles.registerRemember}
+                                >
                                     <Checkbox
                                         name={'optionsCheckboxes'}
                                         label={t(
@@ -75,7 +77,6 @@ export const Register = comp(
                             </div>
                         </div>
                     </form>
-                    <style jsx>{registerStyles}</style>
                 </div>
             )
         }

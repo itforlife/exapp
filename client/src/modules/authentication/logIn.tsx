@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { comp, IInjectedProps } from '../../utils/decorators'
 import { Button, Checkbox, FloatingInput } from '../elements'
-import { loginStyles } from './login.css'
+import * as loginStyles from './login.css'
 
 export const LogIn = comp(
     class extends React.Component<IInjectedProps> {
@@ -33,7 +33,7 @@ export const LogIn = comp(
                         {' '}
                         {t('authentication.loginTitle')}
                     </div>
-                    <form className="content">
+                    <form className={loginStyles.loginContent}>
                         <div className="row">
                             <div className="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                 <p>{userStore.errorMessage}</p>
@@ -56,12 +56,15 @@ export const LogIn = comp(
                                 />
                                 <p>{formStore.$('password').error}</p>
 
-                                <div className="remember">
+                                <div className={loginStyles.loginRemember}>
                                     <Checkbox
                                         name={'optionsCheckboxes'}
                                         label={t('authentication.rememberMe')}
                                     />
-                                    <a href="#" className="forgot">
+                                    <a
+                                        href="#"
+                                        className={loginStyles.loginForgot}
+                                    >
                                         {t(
                                             'authentication.forgotPasswordLabel'
                                         )}
@@ -73,7 +76,7 @@ export const LogIn = comp(
                                 >
                                     {t('authentication.loginButton')}
                                 </Button>
-                                <div className="or" />
+                                <div className={loginStyles.or} />
 
                                 <Button
                                     className="btn btn-lg bg-facebook full-width btn-icon-left"
@@ -110,7 +113,6 @@ export const LogIn = comp(
                             </div>
                         </div>
                     </form>
-                    <style jsx>{loginStyles}</style>
                 </div>
             )
         }

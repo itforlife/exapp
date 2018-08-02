@@ -1,96 +1,92 @@
-import css from 'styled-jsx/css'
 import { colors } from '../../theme/index.css'
+import { style, media } from 'typestyle'
 
-export const indexStyles = css`
-    $border-color: ${colors['border-color']};
-    $white-color: ${colors['white-color']};
-    $primary-color: ${colors['primary-color']};
-    $body-font-color: ${colors['body-font-color']};
-    $grey-lighter: ${colors['grey-lighter']};
-    $purple: ${colors.purple};
-    $c-facebook: ${colors['c-facebook']};
-    $c-twitter: ${colors['c-twitter']};
-    /*------------- #REGISTRATION-LOGIN-FORM --------------*/
-
-    .registration-login-form {
-        border: 1px solid $border-color;
-        border-radius: 0 5px 5px 0;
-        background-color: $white-color;
-        overflow: hidden;
-        position: relative;
-        margin-bottom: 20px;
-        min-height: 700px;
-
-        .nav-tabs {
-            height: 100%;
-            border: none;
+export const registrationLoginForm = style(
+    {
+        border: `1px solid ${colors['border-color']}`,
+        borderRadius: '0 5px 5px 0',
+        backgroundColor: colors['white-color'],
+        overflow: 'hidden',
+        position: 'relative',
+        marginBottom: '20px',
+        minHeight: '700px',
+        $debugName: 'registration-login-form',
+    },
+    media({ maxWidth: 1023 }, { paddingLeft: '0' })
+)
+export const registrationLoginFormNavTabs = style(
+    {
+        height: '100%',
+        border: 'none',
+        $debugName: 'nav-tabs',
+    },
+    media(
+        { maxWidth: 1023 },
+        {
+            bottom: 'auto',
+            height: 'auto',
+            width: '100%',
         }
+    )
+)
 
-        .nav-item {
-            margin-bottom: 0;
-            height: 50%;
-            display: table;
-            width: 50%;
+export const registrationLoginFormNavItem = style(
+    {
+        marginBottom: '0',
+        height: '50%',
+        display: 'table',
+        width: '50%',
+        $debugName: 'nav-item',
+    },
+    media(
+        { maxWidth: 1023 },
+        {
+            height: '100%',
+            display: 'block',
+            width: '50%',
+            float: 'left',
+            textAlign: 'center',
+            $nest: {
+                '&:last-child .nav-link': { borderBottom: '1px solid #e6ecf5' },
+            },
         }
+    )
+)
 
-        .nav-link {
-            border-radius: 0;
-            border: none;
-            border-bottom: 1px solid $border-color;
-            border-right: 1px solid $border-color;
-            border-left: 1px solid $border-color;
-            padding: 25px;
-            color: #c0c4d8;
-            fill: #c0c4d8;
-            background-color: $white-color;
-            height: 100%;
-            display: table-cell;
-            vertical-align: middle;
+const navLinkBorder = `1px solid ${colors['border-color']}`
 
-            &.active {
-                fill: #fafbfd;
-                background-color: #fafbfd;
-                border-color: white;
-            }
+export const registrationLoginFormNavLink = style(
+    {
+        borderRadius: '0',
+        border: 'none',
+        borderBottom: navLinkBorder,
+        borderRight: navLinkBorder,
+        borderLeft: navLinkBorder,
+        padding: '25px',
+        color: '#c0c4d8',
+        fill: '#c0c4d8',
+        backgroundColor: colors['white-color'],
+        height: '100%',
+        display: 'table-cell',
+        verticalAlign: 'middle',
+        $debugName: 'nav-link',
+        $nest: {
+            '&.active': {
+                fill: '#fafbfd',
+                backgroundColor: '#fafbfd',
+                borderColor: 'white',
+            },
 
-            svg {
-                width: 21px;
-                height: 21px;
-            }
-        }
+            svg: {
+                width: '21px',
+                height: '21px',
+            },
+        },
+    },
+    media({ maxWidth: 1023 }, { display: 'block' })
+)
 
-        .tab-content {
-            overflow: hidden;
-        }
-    }
-
-    /*================= Responsive Mode ============*/
-
-    @media (max-width: 1023px) {
-        .registration-login-form {
-            padding-left: 0;
-        }
-
-        .registration-login-form .nav-tabs {
-            bottom: auto;
-            height: auto;
-            width: 100%;
-        }
-
-        .registration-login-form .nav-item {
-            height: 100%;
-            display: block;
-            width: 50%;
-            float: left;
-            text-align: center;
-        }
-
-        .registration-login-form .nav-link {
-            display: block;
-        }
-
-        .registration-login-form .nav-item:last-child .nav-link {
-            border-bottom: 1px solid #e6ecf5;
-        }
-    }
-`
+export const registrationLoginFormTabContent = style({
+    overflow: 'hidden',
+    $debugName: 'tab-content',
+})
