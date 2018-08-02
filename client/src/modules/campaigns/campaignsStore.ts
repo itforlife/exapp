@@ -1,9 +1,8 @@
-import { Collection } from 'firestorter'
 import { observable } from 'mobx'
 
 export class CampaignsStore {
     @observable public name
-    public campaignsCollection: Collection
+    public campaignsCollection
     constructor(campaignsCollection) {
         this.campaignsCollection = campaignsCollection
     }

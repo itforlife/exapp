@@ -9,14 +9,11 @@ export const CreateCampaignForm = comp(
         constructor(props) {
             super(props)
         }
-        get injectedProps() {
-            return this.props as IInjectedProps
-        }
         public render() {
             const {
                 t,
                 appStore: { createCampaignFormStore },
-            } = this.injectedProps
+            } = this.props
 
             return (
                 <div>

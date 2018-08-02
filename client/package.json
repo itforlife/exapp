@@ -56,7 +56,8 @@
         "tslint-config-prettier": "^1.14.0",
         "tslint-loader": "^3.6.0",
         "tslint-react": "^3.6.0",
-        "typescript": "^2.9.2"
+        "typescript": "^2.9.2",
+        "utility-types": "^2.0.0"
     },
     "license": "MIT",
     "scripts": {
@@ -64,7 +65,7 @@
         "stage": "react-static build --staging",
         "build": "react-static build",
         "serve": "serve dist -p 3000",
-        "lint": "tslint --project ./tsconfig.json --config ../../tslint.json --format stylish",
+        "lint": "tslint --project ./tsconfig.json --config ../tslint.json --format stylish",
         "storybook": "start-storybook -p 6006 -c src/app/.storybook",
         "build-storybook": "build-storybook"
     },

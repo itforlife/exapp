@@ -3,11 +3,8 @@ import { comp, IInjectedProps } from '../../utils/decorators'
 import { Footer, Header } from '.'
 
 class AuthenticatedUserPageLayoutCmp extends React.Component<IInjectedProps> {
-    get injectedProps() {
-        return this.props as IInjectedProps
-    }
     public render() {
-        const { appStore } = this.injectedProps
+        const { appStore } = this.props
         const authenticatedMarkup = (
             <div>
                 <Header />
