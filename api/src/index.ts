@@ -2,12 +2,9 @@ import 'reflect-metadata'
 import * as bodyParser from 'body-parser'
 import * as cors from 'cors'
 import * as helmet from 'helmet'
-import { Container } from 'inversify'
 import {
-    interfaces,
     InversifyExpressServer,
     cleanUpMetadata,
-    TYPE,
 } from 'inversify-express-utils'
 import * as dotenv from 'dotenv'
 import { createConnection } from 'typeorm'

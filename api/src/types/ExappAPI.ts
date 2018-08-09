@@ -6,7 +6,8 @@ export interface IExappAPI {
             body: {
                 firstName: string
                 lastName: string
-                age: number
+                age: number,
+                email: string, 
             }
             params: {}
             query: {}
@@ -21,6 +22,31 @@ export interface IExappAPI {
             body: {}
             params: {}
             query: {}
+        }
+    },
+    '/login': {
+        POST: {
+            body: {
+                password: string,
+                email: string, 
+            }
+            params: {}
+            query: {}
+            response: User
+        }
+    },
+    '/register': {
+        POST: {
+            body: {
+                firstName: string
+                lastName: string
+                age: number,
+                email: string,
+                password: string 
+            }
+            params: {}
+            query: {}
+            response: User
         }
     }
 }

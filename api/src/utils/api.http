@@ -1,4 +1,4 @@
-@host=http://localhost:5000
+@host=http://localhost:3000
 
 ## Users API
 
@@ -22,3 +22,26 @@ content-type: application/json
 ### Get all campagins
 
 GET {{host}}/campaigns
+
+### register user
+
+POST {{host}}/register
+content-type: application/json
+
+{
+    "firstName": "test",
+    "lastName": "test last name",
+    "age": 35,
+    "email": "cosmin@gmail.com",
+    "password": "123"
+}
+
+### login user
+
+POST {{host}}/login
+content-type: application/json
+
+{
+    "email": "*",
+    "password": "123"
+}

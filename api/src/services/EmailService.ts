@@ -13,7 +13,6 @@ export class EmailService {
         this.mailProvider = mailProvider
     }
     send() {
-        this.entityManager.save(AuditTrail)
         this.mailProvider.send()
     }
 }
