@@ -8,7 +8,11 @@ export class User {
 
     @Column() public firstName: string
 
+    @Column() public email: string
+
     @Column() public lastName: string
 
     @Column() public age: number
+    @Column() public password: string
+
 }

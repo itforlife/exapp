@@ -36,7 +36,7 @@ export class UserController implements interfaces.Controller {
         user.lastName = req.body.lastName
         user.age = req.body.age
         await this.entityManager.save(user)
-        this.emailService.send()
+        //this.emailService.send()
         const users = await this.entityManager.find(User)
         return users
     }
