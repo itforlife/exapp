@@ -1,4 +1,5 @@
 @host=http://localhost:3000
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvc21pbkBnbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJ0ZXN0IiwibGFzdE5hbWUiOiJ0ZXN0IGxhc3QgbmFtZSIsImFnZSI6MzUsImlhdCI6MTUzNDE3MjA0MX0.PHwqlhSo0qTz6x9pyI-mlLaPSyOxxb-6fwOF7kpLDeI
 
 ## Users API
 
@@ -31,9 +32,8 @@ content-type: application/json
 {
     "firstName": "test",
     "lastName": "test last name",
-    "age": 35,
-    "email": "cosmin@gmail.com",
-    "password": "123"
+    "email": "cosmin5@gmail.com",
+    "password": "123456"
 }
 
 ### login user
@@ -42,6 +42,17 @@ POST {{host}}/login
 content-type: application/json
 
 {
-    "email": "*",
-    "password": "123"
+    "email": "cosmin@gmail.com",
+    "password": "123456"
+}
+
+### get user 
+
+get {{host}}/me
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvc21pbkBnbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJ0ZXN0IiwibGFzdE5hbWUiOiJ0ZXN0IGxhc3QgbmFtZSIsImFnZSI6MzUsImlhdCI6MTUzNDIzMzA3Mn0.xdj_9gThx1FeuXKZldjpAbIUpG12eZrdbbW-Eu0DRhA
+
+{
+    "email": "cosmin@gmail.com",
+    "password": "123456"
 }

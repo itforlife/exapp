@@ -1,6 +1,10 @@
 import { inject, injectable } from 'inversify'
 import { EntityManager, Repository } from 'typeorm'
 import { User } from '../entities/User'
+import {validate} from "class-validator";
+
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 export interface ILoginPayload {
     password: string;
@@ -21,28 +25,54 @@ export class AuthService {
     ) {
         this.userRepository = entityManager.getRepository(User);
     }
+
     login = async (payload: ILoginPayload) => {
-        const userRepsonse = await this.userRepository.findOne({email: payload.email, password: payload.password})
-        if(userRepsonse) {
+        const userRepsonse = await this.userRepository.findOne({email: payload.email})
+
+        const isValidPassword = bcrypt.compareSync(payload.password, userRepsonse.password);
+
+        const errorResponse = {
+            error: 'invalid credentials' 
+        }
+        if(userRepsonse && isValidPassword) {
             return {
-                email: userRepsonse.email,
-                firstName: userRepsonse.firstName,
-                lastName: userRepsonse.lastName,
-                age: userRepsonse.age
-            }
-        }
-        return {
-           error: 'user not found' 
+                token: jwt.sign(this.toJson(userRepsonse), '1234')
+            };
+        } else {
+            throw errorResponse;
         }
     }
+
     register = async(payload: IRegisterPayload) => {
-        const user = new User();
-        const userRepsonse =  await this.userRepository.save({...user, ...payload});
-        return {
-            email: userRepsonse.email,
-            firstName: userRepsonse.firstName,
-            lastName: userRepsonse.lastName,
-            age: userRepsonse.age
+        const exitingUser = await this.userRepository.findOne({email: payload.email})
+        if(exitingUser) {
+            throw [{error: 'email aleardy exists'}];
         }
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(payload.password, salt);
+        const user = new User();
+        user.age = payload.age;
+        user.email = payload.email;
+        user.firstName = payload.firstName;
+        user.lastName = payload.lastName;
+        user.password = hash; 
+        const errors = await validate(user);
+        if(errors.length > 0) {
+            const err = errors.map(error => error.constraints);
+            throw err;
+        }
+        const userRepsonse =  await this.userRepository.save(user);
+        return {
+                token: jwt.sign(this.toJson(userRepsonse), '1234')
+            };
     }
+
+    toJson = (user: User) => {
+        return {
+            email: user.email,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            age: user.age
+        }
+    }  
 }
