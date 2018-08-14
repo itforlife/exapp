@@ -25,8 +25,8 @@ export class UserController implements interfaces.Controller {
         @inject('EntityManager') entityManager: EntityManager,
         @inject('EmailService') emailService: IEmailService
     ) {
-        this.entityManager = entityManager
-        this.emailService = emailService
+        this.entityManager = entityManager;
+        this.emailService = emailService;
     }
 
     @httpPost('/')
