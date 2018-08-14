@@ -1,10 +1,10 @@
 import { secret } from '../../config/config';
-import { injectable } from 'inversify'
+import { Service } from 'typedi';
 
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-@injectable()
+@Service()
 export class EncryptionService {
 
     sign = (payload) => {

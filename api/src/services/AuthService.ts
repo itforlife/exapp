@@ -1,67 +1,41 @@
-import { inject, injectable } from 'inversify'
-import { EntityManager, Repository } from 'typeorm'
+import { Repository } from 'typeorm'
 import { User } from '../entities/User'
-import {validate} from "class-validator";
 import { EncryptionService } from '../services/EncryptionService';
 import {classToPlain} from "class-transformer";
+import { Service, Inject } from 'typedi';
+import { InjectRepository } from "typeorm-typedi-extensions";
 
-export interface ILoginPayload {
-    password: string;
-    email: string;
-}
-export interface IRegisterPayload {
-    password: string;
-    email: string;
-    firstName: string;
-    lastName: string;
-    age: number;
-}
-@injectable()
+@Service()
 export class AuthService {
+    @InjectRepository(User)
     userRepository: Repository<User>
+    @Inject()
     encryptionService: EncryptionService;
-    constructor(
-        @inject('EntityManager') entityManager: EntityManager,
-        @inject('EncryptionService') encryptionService: EncryptionService,
-    ) {
-        this.userRepository = entityManager.getRepository(User);
-        this.encryptionService = encryptionService;
-    }
 
-    login = async (payload: ILoginPayload) => {
-        const userRepsonse = await this.userRepository.findOne({email: payload.email})
+    login = async (currentPassword: string, user: User) => {
 
-        const isValidPassword = this.encryptionService.compare(payload.password, userRepsonse.password);
-        console.log(isValidPassword)
+        const isValidPassword = this.encryptionService.compare(currentPassword, user.password);
         const errorResponse = {
             error: 'invalid credentials' 
         }
-        if(userRepsonse && isValidPassword) {
+        if(user && isValidPassword) {
             return {
-                token: this.encryptionService.sign(this.toJson(userRepsonse))
+                token: this.encryptionService.sign(this.toJson(user))
             };
         } else {
             throw errorResponse;
         }
     }
 
-    register = async(payload: IRegisterPayload) => {
-        const exitingUser = await this.userRepository.findOne({email: payload.email})
+    register = async(user: User, password) => {
+        const exitingUser = await this.userRepository.findOne({email: user.email})
         if(exitingUser) {
             throw [{error: 'email aleardy exists'}];
         }
-        const hash = this.encryptionService.encrypt(payload.password);
-        const user = new User();
-        user.age = payload.age;
-        user.email = payload.email;
-        user.firstName = payload.firstName;
-        user.lastName = payload.lastName;
-        user.password = hash; 
-        const errors = await validate(user);
-        if(errors.length > 0) {
-            const err = errors.map(error => error.constraints);
-            throw err;
-        }
+
+        const hash = this.encryptionService.encrypt(password);
+        user.password = hash;
+
         const userRepsonse =  await this.userRepository.save(user);
         return {
                 token: this.encryptionService.sign(this.toJson(userRepsonse))

@@ -1,9 +1,8 @@
 import { Column, Entity, PrimaryGeneratedColumn, Index } from 'typeorm'
-import { injectable } from 'inversify'
 import {MinLength, IsEmail} from "class-validator";
 import {Exclude} from "class-transformer";
+
 @Entity()
-@injectable()
 export class User {
     @PrimaryGeneratedColumn() public id: number
 

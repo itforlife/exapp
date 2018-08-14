@@ -1,13 +1,13 @@
-import { inject, injectable } from 'inversify'
 import { EntityManager } from 'typeorm'
+import { Service, Inject } from 'typedi';
 
-@injectable()
+@Service()
 export class EmailService {
     mailProvider: any
     entityManager: EntityManager
     constructor(
-        @inject('EntityManager') entityManager: EntityManager,
-        @inject('MailProvider') mailProvider: any
+        @Inject() entityManager: EntityManager,
+        @Inject() mailProvider: any
     ) {
         this.entityManager = entityManager
         this.mailProvider = mailProvider

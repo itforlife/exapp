@@ -1,27 +1,21 @@
-import * as express from 'express'
-import {
-    controller,
-    httpGet,
-    httpPost,
-    interfaces,
-} from 'inversify-express-utils'
+import { Get, JsonController} from "routing-controllers";
+
 import { TypedRequest } from 'restyped-express-async'
-import { Campaign } from '../entities/Campaign'
 import { IExappAPI } from '../types/ExappAPI'
 import { EntityManager } from 'typeorm'
-import { inject } from 'inversify'
+import { Inject } from 'typedi';
 
 const ResourcePath = '/campaigns'
 type GetCampaignsReqType = TypedRequest<IExappAPI[typeof ResourcePath]['GET']>
 
-@controller(ResourcePath)
-export class CampaignsController implements interfaces.Controller {
+@JsonController(ResourcePath)
+export class CampaignsController  {
     public entityManager: EntityManager
-    constructor(@inject('EntityManager') entityManager: EntityManager) {
+    constructor(@Inject() entityManager: EntityManager) {
         this.entityManager = entityManager
     }
 
-    @httpGet('/')
+    @Get('/')
     public async list(req: GetCampaignsReqType) {
         return [{ name: 'My first campaign' }]
     }

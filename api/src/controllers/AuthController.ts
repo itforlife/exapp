@@ -1,59 +1,48 @@
-import {
-    controller,
-    httpPost,
-    httpGet,
-    interfaces,
-    BaseHttpController
-} from 'inversify-express-utils'
+import { Body, BodyParam ,Get, JsonController, UseBefore, Post as HttpPost, BadRequestError} from "routing-controllers";
+import { EntityFromBodyParam, EntityFromBody } from 'typeorm-routing-controllers-extensions';
 import { TypedRequest } from 'restyped-express-async'
 import { IExappAPI } from '../types/ExappAPI'
-import { inject } from 'inversify'
-import {ILoginPayload, IRegisterPayload} from '../services/AuthService';
 import { secret } from '../../config/config';
+import { User } from '../entities/User'
+import { Inject } from 'typedi';
+import { AuthService } from "../services/AuthService";
+
+
 var jwt = require('express-jwt');
 
 const loginPath = '/login'
 type LoginUserReqType = TypedRequest<IExappAPI[typeof loginPath]['POST']>
-const registerPath = '/register'
-type RegisterUserReqType = TypedRequest<IExappAPI[typeof registerPath]['POST']>
 
 
-interface IAuthService {
-    login(payload: ILoginPayload)
-    register(payload: IRegisterPayload)
-}
+@JsonController('/')
+export class AuthController {
+    @Inject()
+    authService: AuthService
 
-@controller('/')
-export class AuthController extends BaseHttpController implements interfaces.Controller{
-    authService: IAuthService
-    constructor(
-        @inject('AuthService') authService: IAuthService
-    ) {
-        super();
-        this.authService = authService
-    }
-
-    @httpGet('me', jwt({secret: secret}))
+    @Get('me' )
+    @UseBefore(jwt({secret: secret}))
     public async user(req: {user: LoginUserReqType}) {
         return req.user;
     }
 
-    @httpPost('login')
-    public async login(req: LoginUserReqType) {
-       const {email, password} = req.body;
-       try {
-        return await this.authService.login({email, password});
-        } catch(e) {
-            return this.badRequest(JSON.stringify(e));
-        }
+    @HttpPost('login')
+    public async login(@Body() payload: {password: string}, @EntityFromBodyParam('email') user: User) {
+       const { password } = payload;
+       console.log(user);
+    //    try {
+    //     return await this.authService.login(password, user);
+    //     } catch(e) {
+    //         console.log(e)
+    //         throw new BadRequestError(e);
+    //     }
     }
-    @httpPost('register')
-    public async register(req: RegisterUserReqType) {
-        const { email, password, firstName, lastName, age } = req.body;
+    @HttpPost('register')
+    public async  register(@BodyParam('password') password: string, @EntityFromBody() user: User) {
+
         try {
-            return await this.authService.register({email, password, firstName, lastName, age});
+            return await this.authService.register(user, password);
         } catch(e) {
-            return this.badRequest(JSON.stringify(e));
+            throw new BadRequestError(e);
         }
     }
 }
