@@ -2,9 +2,8 @@ import { inject, injectable } from 'inversify'
 import { EntityManager, Repository } from 'typeorm'
 import { User } from '../entities/User'
 import {validate} from "class-validator";
-
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+import { EncryptionService } from '../services/EncryptionService';
+import {classToPlain} from "class-transformer";
 
 export interface ILoginPayload {
     password: string;
@@ -20,23 +19,26 @@ export interface IRegisterPayload {
 @injectable()
 export class AuthService {
     userRepository: Repository<User>
+    encryptionService: EncryptionService;
     constructor(
         @inject('EntityManager') entityManager: EntityManager,
+        @inject('EncryptionService') encryptionService: EncryptionService,
     ) {
         this.userRepository = entityManager.getRepository(User);
+        this.encryptionService = encryptionService;
     }
 
     login = async (payload: ILoginPayload) => {
         const userRepsonse = await this.userRepository.findOne({email: payload.email})
 
-        const isValidPassword = bcrypt.compareSync(payload.password, userRepsonse.password);
-
+        const isValidPassword = this.encryptionService.compare(payload.password, userRepsonse.password);
+        console.log(isValidPassword)
         const errorResponse = {
             error: 'invalid credentials' 
         }
         if(userRepsonse && isValidPassword) {
             return {
-                token: jwt.sign(this.toJson(userRepsonse), '1234')
+                token: this.encryptionService.sign(this.toJson(userRepsonse))
             };
         } else {
             throw errorResponse;
@@ -48,8 +50,7 @@ export class AuthService {
         if(exitingUser) {
             throw [{error: 'email aleardy exists'}];
         }
-        const salt = bcrypt.genSaltSync(10);
-        const hash = bcrypt.hashSync(payload.password, salt);
+        const hash = this.encryptionService.encrypt(payload.password);
         const user = new User();
         user.age = payload.age;
         user.email = payload.email;
@@ -63,16 +64,13 @@ export class AuthService {
         }
         const userRepsonse =  await this.userRepository.save(user);
         return {
-                token: jwt.sign(this.toJson(userRepsonse), '1234')
+                token: this.encryptionService.sign(this.toJson(userRepsonse))
             };
     }
 
     toJson = (user: User) => {
-        return {
-            email: user.email,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            age: user.age
-        }
+        const newUser = classToPlain(user);
+        console.log(newUser)
+        return classToPlain(user);
     }  
 }

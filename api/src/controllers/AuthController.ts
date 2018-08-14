@@ -9,6 +9,7 @@ import { TypedRequest } from 'restyped-express-async'
 import { IExappAPI } from '../types/ExappAPI'
 import { inject } from 'inversify'
 import {ILoginPayload, IRegisterPayload} from '../services/AuthService';
+import { secret } from '../../config/config';
 var jwt = require('express-jwt');
 
 const loginPath = '/login'
@@ -32,7 +33,7 @@ export class AuthController extends BaseHttpController implements interfaces.Con
         this.authService = authService
     }
 
-    @httpGet('me', jwt({secret: '1234'}))
+    @httpGet('me', jwt({secret: secret}))
     public async user(req: {user: LoginUserReqType}) {
         return req.user;
     }

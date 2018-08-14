@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn, Index } from 'typeorm'
 import { injectable } from 'inversify'
 import {MinLength, IsEmail} from "class-validator";
-
+import {Exclude} from "class-transformer";
 @Entity()
 @injectable()
 export class User {
@@ -15,7 +15,8 @@ export class User {
 
     @Column() public lastName: string
     @Column({nullable: true}) public age: number;
-
+    
+    @Exclude()
     @MinLength(6)
     @Column() public password: string
 

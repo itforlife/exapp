@@ -9,7 +9,7 @@ import {
 import * as dotenv from 'dotenv'
 import { createConnection } from 'typeorm'
 import { createContainer } from './di/container'
-
+import "reflect-metadata";
 class Startup {
     public server() {
         // create database connection
