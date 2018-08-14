@@ -69,8 +69,6 @@ export class AuthService {
     }
 
     toJson = (user: User) => {
-        const newUser = classToPlain(user);
-        console.log(newUser)
         return classToPlain(user);
     }  
 }
