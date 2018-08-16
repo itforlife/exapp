@@ -39,13 +39,13 @@ export class AuthService {
         if (exitingUser) {
             throw [{ error: 'email aleardy exists' }]
         }
+        const hash = this.encryptionService.encrypt(password)
+        user.password = hash
         const errors = await validate(user)
         if (errors.length > 0) {
             const err = errors.map(error => error.constraints)
             throw err
         }
-        const hash = this.encryptionService.encrypt(password)
-        user.password = hash
 
         const userResponse = await this.userRepository.save(user)
         return {
