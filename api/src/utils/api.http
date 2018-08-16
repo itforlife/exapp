@@ -15,7 +15,9 @@ content-type: application/json
 {
     "firstName": "test",
     "lastName": "test last name",
-    "age": 35
+    "age": 35,
+    "email": "test1243@gmail.com",
+    "password": "21341"
 }
 
 ## Campaigns API
@@ -32,8 +34,8 @@ content-type: application/json
 {
     "firstName": "test",
     "lastName": "test last name",
-    "email": "cosmin5@gmail.com",
-    "password": "123456"
+    "email": "cosmiasdfddsfdsfdssfdfssadsadadnasdsad",
+    "password": "123"
 }
 
 ### login user
@@ -42,7 +44,7 @@ POST {{host}}/login
 content-type: application/json
 
 {
-    "email": "cosmin@gmail.com",
+    "email": "cossadsamin@gmsadsadail.com",
     "password": "123456"
 }
 

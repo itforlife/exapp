@@ -1,46 +1,25 @@
 import * as express from 'express'
-import {
-    controller,
-    httpGet,
-    httpPost,
-    interfaces,
-} from 'inversify-express-utils'
-import { TypedRequest } from 'restyped-express-async'
+import { Get, JsonController, Post as HttpPost } from 'routing-controllers'
+import { Repository } from 'typeorm'
+import { InjectRepository } from 'typeorm-typedi-extensions'
+import { EntityFromBody } from 'typeorm-routing-controllers-extensions'
 import { User } from '../entities/User'
-import { IExappAPI } from '../types/ExappAPI'
-import { EntityManager } from 'typeorm'
-import { inject } from 'inversify'
 
 const ResourcePath = '/users'
-type CreateUserReqType = TypedRequest<IExappAPI[typeof ResourcePath]['POST']>
-interface IEmailService {
-    send()
-}
 
-@controller(ResourcePath)
-export class UserController implements interfaces.Controller {
-    emailService: IEmailService
-    public entityManager: EntityManager
-    constructor(
-        @inject('EntityManager') entityManager: EntityManager,
-        @inject('EmailService') emailService: IEmailService
-    ) {
-        this.entityManager = entityManager;
-        this.emailService = emailService;
-    }
+@JsonController(ResourcePath)
+export class UserController {
+    @InjectRepository(User)
+    userRepository: Repository<User>
 
-    @httpPost('/')
-    public async create(req: CreateUserReqType) {
-        const user = new User()
-        user.firstName = req.body.firstName
-        user.lastName = req.body.lastName
-        user.age = req.body.age
-        await this.entityManager.save(user)
+    @HttpPost('/')
+    public async create(@EntityFromBody() user: User) {
+        await this.userRepository.save(user)
         //this.emailService.send()
-        const users = await this.entityManager.find(User)
+        const users = await this.userRepository.find()
         return users
     }
-    @httpGet('/')
+    @Get('/')
     public async list(req: express.Request) {
         return [{ name: 'it works' }]
     }
