@@ -1,5 +1,5 @@
 import { EntityManager } from 'typeorm'
-import { Service, Inject } from 'typedi';
+import { Service, Inject } from 'typedi'
 
 @Service()
 export class EmailService {

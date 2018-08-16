@@ -1,13 +1,12 @@
 import 'reflect-metadata'
 import * as bodyParser from 'body-parser'
-import * as cors from 'cors'
 import * as helmet from 'helmet'
 import {Container} from "typedi";
-
 import {createExpressServer, useContainer as routingUseContainer} from "routing-controllers";
 import * as dotenv from 'dotenv'
 import { createConnection, useContainer } from 'typeorm'
-import {AuthController} from './controllers/index';
+import { AuthController, UserController, CampaignsController } from './controllers/index';
+
 class Startup {
     public server() {
         // create database connection
@@ -22,7 +21,10 @@ class Startup {
     private startExpressServer() {
         // load everything needed to the Container
         const app = createExpressServer({
-            controllers: [AuthController],
+            controllers: [AuthController, UserController, CampaignsController],
+            middlewares: [helmet],
+            cors: true,
+            validation: true
         })
         app.use(
             bodyParser.urlencoded({
@@ -30,8 +32,6 @@ class Startup {
             })
         )
         app.use(bodyParser.json())
-        app.use(cors())
-        app.use(helmet())
         const port = process.env.PORT || 3000
         app.listen(port)
         // tslint:disable-next-line:no-console

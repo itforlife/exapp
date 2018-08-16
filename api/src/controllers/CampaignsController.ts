@@ -1,19 +1,18 @@
-import { Get, JsonController} from "routing-controllers";
+import { Get, JsonController } from 'routing-controllers'
+import { InjectRepository } from 'typeorm-typedi-extensions'
+import { Repository } from 'typeorm'
 
 import { TypedRequest } from 'restyped-express-async'
 import { IExappAPI } from '../types/ExappAPI'
-import { EntityManager } from 'typeorm'
-import { Inject } from 'typedi';
+import { Campaign } from '../entities/Campaign'
 
 const ResourcePath = '/campaigns'
 type GetCampaignsReqType = TypedRequest<IExappAPI[typeof ResourcePath]['GET']>
 
 @JsonController(ResourcePath)
-export class CampaignsController  {
-    public entityManager: EntityManager
-    constructor(@Inject() entityManager: EntityManager) {
-        this.entityManager = entityManager
-    }
+export class CampaignsController {
+    @InjectRepository(Campaign)
+    public campaignRepository: Repository<Campaign>
 
     @Get('/')
     public async list(req: GetCampaignsReqType) {
