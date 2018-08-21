@@ -1,41 +1,33 @@
 import {
     Body,
     BodyParam,
-    Get,
     JsonController,
-    UseBefore,
     Post as HttpPost,
     BadRequestError,
 } from 'routing-controllers'
 import { EntityFromBody } from 'typeorm-routing-controllers-extensions'
-import { TypedRequest } from 'restyped-express-async'
-import { IExappAPI } from '../types/ExappAPI'
-import { secret } from '../../config/config'
+
 import { User } from '../entities/User'
 import { Inject } from 'typedi'
 import { AuthService } from '../services/AuthService'
-
-var jwt = require('express-jwt')
-
-const loginPath = '/login'
-type LoginUserReqType = TypedRequest<IExappAPI[typeof loginPath]['POST']>
+import { request } from 'request'
+import { providers } from '../constants/SocialProviders';
 
 export interface IUserLoginPayload {
     password: string
     email: string
 }
-@JsonController('/')
+export interface IUserPasswordChangePayload {
+    password: string
+    newPassword: string
+    email: string
+}
+@JsonController('/auth')
 export class AuthController {
     @Inject()
     authService: AuthService
 
-    @Get('me')
-    @UseBefore(jwt({ secret: secret }))
-    public async user(req: { user: LoginUserReqType }) {
-        return req.user
-    }
-
-    @HttpPost('login')
+    @HttpPost('/local')
     public async login(@Body() user: IUserLoginPayload) {
         const { password, email } = user
         try {
@@ -45,7 +37,17 @@ export class AuthController {
             throw new BadRequestError(e)
         }
     }
-    @HttpPost('register')
+    @HttpPost('/reset')
+    public async resetPassword(@Body() payload: IUserPasswordChangePayload) {
+        const { password, email, newPassword } = payload
+        try {
+            return await this.authService.resetPassword(password, email, newPassword)
+        } catch (e) {
+            console.log(e)
+            throw new BadRequestError(e)
+        }
+    }
+    @HttpPost('/register')
     public async register(
         @BodyParam('password') password: string,
         @EntityFromBody() user: User
@@ -55,5 +57,22 @@ export class AuthController {
         } catch (e) {
             throw new BadRequestError(e)
         }
+    }
+    @HttpPost('/provider')
+    public async providerLogin(
+        @BodyParam('provider') provider: keyof typeof providers,
+        @BodyParam('authToken') authToken: string
+    ) {
+        const providerUrl = providers[provider].url;
+        return request({
+            url: providerUrl,
+            qs: {access_token: authToken}
+        }, async (error, response, body) => {
+            if (!error && response.statusCode == 200) {
+                return await this.authService.registerWithProvider(body)
+            } else {
+                throw new BadRequestError(error);
+            }
+        })
     }
 }

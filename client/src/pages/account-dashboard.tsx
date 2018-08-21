@@ -28,7 +28,7 @@ class AccountDashBoard extends React.Component<IInjectedProps> {
                     <div className="row">
                         <div className="col col-xl-9 order-xl-2 col-lg-9 order-lg-2 col-md-12 order-md-1 col-sm-12 col-12">
                             <div className={accountDashBoardStyle.uiBlock}>
-                                <PersonalInformation />
+                             {this.getSettingsComponent()}
                             </div>
                         </div>
 

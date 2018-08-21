@@ -17,77 +17,52 @@ export interface IAddUserPayload {
     lastName: string
 }
 export type providerType = 'facebook' | 'twitter'
-
+export interface IChangePassword {
+    email: string;
+    password: string;
+    newPassword: string
+  }
 export class UserApi {
     private api: TypedAxiosInstance<IExappAPI>
     private authService: any
-    constructor(api) {
-        this.api = api
-        // Create a real auth service and move it in a separate file
-        this.authService = {
-            signInWithEmailAndPassword() {
-                return Promise.resolve()
-            },
-            createUserWithEmailAndPassword() {
-                return Promise.resolve()
-            },
-        }
+    constructor(api: TypedAxiosInstance<IExappAPI>) {
+        this.api = api;
     }
     public signInWithEmailAndPassword = async (
         email: string,
         password: string
     ) => {
-        const resp = await this.authService.signInWithEmailAndPassword(
+        return this.api.post('/auth/local', {
             email,
             password
-        )
-
-        return resp
+        });
     }
     public createUserWithEmailAndPassword = async (
         payload: IAddUserPayload
     ) => {
         const { email, password, firstName, lastName } = payload
-        const result = await this.authService.createUserWithEmailAndPassword(
-            email,
-            password
-        )
-
-        await this.addUserCollection({
-            email,
-            userId: result.user.uid,
+        return this.api.post('/auth/register', {
             firstName,
             lastName,
-            signInMethod: 'email',
-        })
-        this.api.post('/users', {
-            firstName: 'x',
-            lastName: 'y',
             age: 30,
+            email,
+            password
         })
-        return result
     }
-    public getCurrentUser = async (userId: string) => {
-        const currentUser = {
-            firstName: 'test',
-            lastName: 'test',
-            age: 30,
-            userId,
-        }
-        return currentUser
+
+    public updateUserPassword = async (
+       payload: IChangePassword
+    ) => {
+        return this.api.post('/auth/reset', payload);
+    }
+
+    public getCurrentUser = async (token: string) => {
+        return this.api.get('/users/me',{ headers: {authorization: token}})
     }
 
     public signInWithProvider = async (providerName: providerType) => {
         const result = await this.authService.signInWithPopup(providerName)
         return result
-    }
-
-    public addUserCollection = async (userInfo: IUserInfo) => {
-        await this.api.post('/users', {
-            firstName: userInfo.firstName,
-            lastName: userInfo.lastName,
-            age: 10,
-        })
     }
 
     public signOut = async () => {

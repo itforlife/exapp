@@ -1,23 +1,22 @@
 import * as express from 'express'
-import { Get, JsonController, Post as HttpPost } from 'routing-controllers'
+import { Get, JsonController, HeaderParam} from 'routing-controllers'
 import { Repository } from 'typeorm'
 import { InjectRepository } from 'typeorm-typedi-extensions'
-import { EntityFromBody } from 'typeorm-routing-controllers-extensions'
 import { User } from '../entities/User'
-
+import { Inject } from 'typedi'
+import { EncryptionService } from '../services/EncryptionService'
 const ResourcePath = '/users'
+
 
 @JsonController(ResourcePath)
 export class UserController {
     @InjectRepository(User)
     userRepository: Repository<User>
-
-    @HttpPost('/')
-    public async create(@EntityFromBody() user: User) {
-        await this.userRepository.save(user)
-        //this.emailService.send()
-        const users = await this.userRepository.find()
-        return users
+    @Inject()
+    encryptionService: EncryptionService
+    @Get('/me')
+    public async user(@HeaderParam('authorization') token: string ) {
+       return this.encryptionService.verify(token)
     }
     @Get('/')
     public async list(req: express.Request) {

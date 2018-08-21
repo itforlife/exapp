@@ -50,11 +50,6 @@ content-type: application/json
 
 ### get user 
 
-get {{host}}/me
+get {{host}}/users/me
 content-type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvc21pbkBnbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJ0ZXN0IiwibGFzdE5hbWUiOiJ0ZXN0IGxhc3QgbmFtZSIsImFnZSI6MzUsImlhdCI6MTUzNDIzMzA3Mn0.xdj_9gThx1FeuXKZldjpAbIUpG12eZrdbbW-Eu0DRhA
-
-{
-    "email": "cosmin@gmail.com",
-    "password": "123456"
-}
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCfJ9.eyJmaXJzdE5hbWUiOiJDb3NtaW4iLCJsYXN0TmFtZSI6IklvbmFzY3UiLCJhZ2UiOjMwLCJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWQiOjIxLCJpYXQiOjE1MzQ4MzkxMjR9.z9eIgtJY5VB8bTull6loX1DWqfG7i10B-whEQ2jfoI0

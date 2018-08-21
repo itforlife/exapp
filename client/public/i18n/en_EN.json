@@ -38,7 +38,9 @@
     "phoneNumberInputLabel": "Your Phone Number",
     "birthdayInputlabel": "Your birthday",
     "newPassword": "Your new password",
-    "currentPassword": "Current password"
+    "currentPassword": "Current password",
+    "confirmPassword": "Confirm new password"
+
 
   },
   "accountDashboard": {

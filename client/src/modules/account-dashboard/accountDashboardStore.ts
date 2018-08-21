@@ -38,9 +38,8 @@ export class AccountDashboardStore {
       confirmPassword: null
     })
     reaction(() => this.userStore.currentUser, (currentUser) => {
-      const isFetching = currentUser.isLoading;
       const { data: userInfo } = currentUser;
-        if(!isFetching && userInfo){
+        if(userInfo){
             this.currentUser = currentUser;
             this.initForm(userInfo);
         }
@@ -84,12 +83,13 @@ export class AccountDashboardStore {
   public changePassword = () => {
     const password = this.profileInformationForm.$('password').value;
     const newPassword = this.profileInformationForm.$('newPassword').value;
+    const email = this.profileInformationForm.$('email').value;
     const confirmPassword = this.profileInformationForm.$('newPassword').value;
     if(confirmPassword !== newPassword) {
       this.passwordError = 'The password dose not match';
     }
 
-    return this.userStore.updatePassword(password, newPassword);
+    return this.userStore.updatePassword({password, email, newPassword});
   }
   @computed
   get userProfile() {

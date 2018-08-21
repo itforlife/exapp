@@ -13,7 +13,18 @@ export interface IExappAPI {
             query: {}
             response: User[]
         }
-    }
+    },
+    '/users/me': {
+        GET: {
+            body: {}
+            params: {}
+            query: {}
+            response: User
+            headers: {
+                authorization: string;
+            }
+        }
+    },
     '/campaigns': {
         GET: {
             response: {
@@ -24,7 +35,7 @@ export interface IExappAPI {
             query: {}
         }
     },
-    '/login': {
+    '/auth/local': {
         POST: {
             body: {
                 password: string,
@@ -32,10 +43,26 @@ export interface IExappAPI {
             }
             params: {}
             query: {}
-            response: User
+            response: {
+                token: string;
+            }
         }
     },
-    '/register': {
+    '/auth/reset': {
+        POST: {
+            body: {
+                password: string,
+                email: string,
+                newPassword: string
+            }
+            params: {}
+            query: {}
+            response: {
+                token: string;
+            }
+        }
+    },
+    '/auth/register': {
         POST: {
             body: {
                 firstName: string
@@ -46,7 +73,9 @@ export interface IExappAPI {
             }
             params: {}
             query: {}
-            response: User
+            response: {
+                token: string;
+            }
         }
     }
 }
