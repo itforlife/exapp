@@ -21,6 +21,10 @@ export default {
                 component: 'src/pages/index',
             },
             {
+                path: '/account-dashboard',
+                component: 'src/pages/account-dashboard'
+            },
+            {
                 path: '404',
                 component: 'src/pages/404',
             },

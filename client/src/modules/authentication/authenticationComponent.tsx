@@ -13,7 +13,7 @@ class AuthenticationComponentCls extends React.Component<IInjectedProps> {
         autorun(() => {
             const currentUser = userStore.currentUser
             if (currentUser) {
-                // this.props.router.push('/account-dashboard')
+                this.props.history.push('/account-dashboard')
             }
         })
     }

@@ -1,5 +1,5 @@
 import { action, computed, observable } from 'mobx'
-import { UserApi } from '../../data-access/userApi';
+import { UserApi, IChangePassword } from '../../data-access/userApi';
 import { loginForm, registerForm } from './authenticationForm'
 
 interface IFBProfile {
@@ -11,11 +11,13 @@ interface ITwitterProfile {
     name: string
 }
 
+
 export class UserStore {
   @observable public isLoginFormActive = true;
   @observable public isRegisterFormActive = false;
   @observable public currentUser = null;
   @observable public errorMessage: string = '';
+  @observable public token: string;
   public loginForm: typeof loginForm
   public registerForm: typeof registerForm
   private userApi: UserApi;
@@ -48,7 +50,9 @@ export class UserStore {
       lastName: this.registerForm.$('lastName').value
     }
     try {
-      await this.userApi.createUserWithEmailAndPassword(payload);
+      const response = await this.userApi.createUserWithEmailAndPassword(payload);
+      this.token = response.data.token;
+      await this.getCurrentUser();
       this.registerForm.clear()
       this.errorMessage = '';
     } catch (error) {
@@ -97,20 +101,21 @@ export class UserStore {
   @action
   public signInEmail = async () => {
     try {
-      const userRepsonse = await this.userApi.signInWithEmailAndPassword(
+      const response = await this.userApi.signInWithEmailAndPassword(
         this.loginForm.$('email').value,
         this.loginForm.$('password').value
       )
+      this.token = response.data.token;
+      await this.getCurrentUser();
       this.loginForm.clear()
       this.errorMessage = '';
-      return userRepsonse;
     } catch (error) {
       this.errorMessage = error.message
     }
   }
   public addUserCollection = async (userInfo, isNewUser) => {
       if (isNewUser) {
-        await this.userApi.addUserCollection(userInfo);
+        console.log(userInfo)
       }
   }
   public updateUserInformation = async (userInfo) => {
@@ -123,11 +128,6 @@ export class UserStore {
       : {}
   }
 
-  @action
-  public waitForUser = () => {
-    this.userApi.auth.onAuthStateChanged(this.handleUserAuthChange);
-  }
-
   public updateEmail = async (email: string, password: string) => {
 
     try {
@@ -138,10 +138,9 @@ export class UserStore {
     }
 
   }
-  public updatePassword = async (password: string, newPassword: string) => {
+  public updatePassword = async (payload: IChangePassword) => {
    try{
-        const response = await this.userApi.signInWithEmailAndPassword(this.userProfile.email, password);
-        await response.user.updatePassword(newPassword);
+        await this.userApi.updateUserPassword(payload);
    } catch(err) {
         return err.message;
    }
@@ -152,7 +151,7 @@ export class UserStore {
   }
  
   @action
-  private handleUserAuthChange = async (user) => {
-    this.currentUser = user ? await this.userApi.getCurrentUser(user.uid) : null;
+  private getCurrentUser = async () => {
+    this.currentUser = this.token ? await this.userApi.getCurrentUser(this.token) : null;
   }
 }

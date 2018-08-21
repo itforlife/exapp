@@ -3,7 +3,7 @@ import axios from './typed-axios'
 import { UserApi } from './userApi'
 
 const api = axios.create<IExappAPI>({
-    baseURL: 'localhost:5000',
+    baseURL: 'http://localhost:3000',
 })
 
 export class Api {

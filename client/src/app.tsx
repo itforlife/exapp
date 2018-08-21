@@ -15,7 +15,7 @@ export default class Exapp extends React.Component {
     @computed
     get pageLayout() {
         // Add here funky logic to determine what layout to use
-        const currentRoute = '/'
+        const currentRoute = window.location.pathname;
         switch (currentRoute) {
             case '/':
                 return LandingPageLayout
@@ -27,8 +27,8 @@ export default class Exapp extends React.Component {
         const PageLayout = this.pageLayout
         return (
             <CoreLayout>
-                <PageLayout>
-                    <Router>
+                <Router>
+                    <PageLayout>
                         <div>
                             <nav>
                                 <Link exact={true} to="/">
@@ -47,8 +47,8 @@ export default class Exapp extends React.Component {
                                 <Routes />
                             </div>
                         </div>
-                    </Router>
-                </PageLayout>
+                    </PageLayout>
+                </Router>
             </CoreLayout>
         )
     }
