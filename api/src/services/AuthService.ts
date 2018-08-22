@@ -81,12 +81,14 @@ export class AuthService {
             email: profile.email,
         })
         if (exitingUser) {
-            throw [{ error: 'email aleardy exists' }]
+            return {
+                token: this.encryptionService.sign(classToPlain(exitingUser))
+            }
         }
         const user = new User();
         user.email = profile.email;
-        user.firstName = profile.firstName;
-        user.lastName = profile.lastName;
+        user.firstName = profile.first_name;
+        user.lastName = profile.last_name;
 
         const userResponse = await this.userRepository.save(user)
         return {

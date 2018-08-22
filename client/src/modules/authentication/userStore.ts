@@ -1,15 +1,6 @@
-import { action, computed, observable } from 'mobx'
+import { action, computed, observable, reaction } from 'mobx'
 import { UserApi, IChangePassword } from '../../data-access/userApi';
 import { loginForm, registerForm } from './authenticationForm'
-
-interface IFBProfile {
-    first_name: string
-    last_name: string
-    birthday: string
-}
-interface ITwitterProfile {
-    name: string
-}
 
 
 export class UserStore {
@@ -26,6 +17,11 @@ export class UserStore {
     this.loginForm = loginForm;
     this.registerForm = registerForm;
     this.currentUser = null;
+    this.token = localStorage.getItem('token');
+    this.getCurrentUser();
+    reaction(() => this.token, (token) => {
+      localStorage.setItem('token', token);
+    })
   }
 
     @action
@@ -61,42 +57,15 @@ export class UserStore {
   }
   public signInFacebook = async () => {
       try {
-          const result = await this.userApi.signInWithProvider('facebook');
-          const profile = result.additionalUserInfo.profile as IFBProfile
+          const response = await this.userApi.signInWithProvider('facebook');
+          this.token = response.data.token;
+          
+          await this.getCurrentUser();
 
-          await this.addUserCollection(
-              {
-                  email: result.user.email,
-                  userId: result.user.uid,
-                  firstName: profile.first_name,
-                  lastName: profile.last_name,
-                  birthday: profile.birthday,
-                  signInMethod: result.credential.signInMethod,
-              },
-              result.additionalUserInfo.isNewUser
-          )
       } catch (error) {
           this.errorMessage = error.message
       }
   }
-
-    public signInTwitter = async () => {
-        try {
-            const result = await this.userApi.signInWithProvider('twitter');
-            const profile = result.additionalUserInfo.profile as ITwitterProfile
-            await this.addUserCollection(
-                {
-                    userId: result.user.uid,
-                    firstName: profile.name,
-                    lastName: profile.name,
-                    signInMethod: result.credential.signInMethod,
-                },
-                result.additionalUserInfo.isNewUser
-            )
-        } catch (error) {
-          this.errorMessage = error.message
-        }
-    }
 
   @action
   public signInEmail = async () => {
@@ -112,11 +81,6 @@ export class UserStore {
     } catch (error) {
       this.errorMessage = error.message
     }
-  }
-  public addUserCollection = async (userInfo, isNewUser) => {
-      if (isNewUser) {
-        console.log(userInfo)
-      }
   }
   public updateUserInformation = async (userInfo) => {
         await this.currentUser.update(userInfo)

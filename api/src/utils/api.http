@@ -53,3 +53,14 @@ content-type: application/json
 get {{host}}/users/me
 content-type: application/json
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCfJ9.eyJmaXJzdE5hbWUiOiJDb3NtaW4iLCJsYXN0TmFtZSI6IklvbmFzY3UiLCJhZ2UiOjMwLCJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWQiOjIxLCJpYXQiOjE1MzQ4MzkxMjR9.z9eIgtJY5VB8bTull6loX1DWqfG7i10B-whEQ2jfoI0
+
+
+### auth with facebook
+
+POST {{host}}/auth/provider
+content-type: application/json
+
+{
+    "provider": "facebook",
+    "authToken": "EAACyu34bczdddwBAIOqXSCWW4w1ity8YD85nlcRfPEbK1WYVc8SXT2mSjyG4JG95fgJ2xKj6R69XX3ipO04yRvu7O79n3o0snKRvsIHkC8l8tNpHaezS02E9ZAc6ZA2fNEg77Moy3XqBslH9ZB0q3YbBLM3zzHanbaQb9qZA4mFSKpehuzfNw0UfyxyjnJppSJQeQYqcLt9fSmbR1SCS4qd"
+}

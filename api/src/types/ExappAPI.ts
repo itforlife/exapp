@@ -77,5 +77,18 @@ export interface IExappAPI {
                 token: string;
             }
         }
+    },
+    '/auth/provider': {
+        POST: {
+            body: {
+                provider: string,
+                authToken: string 
+            }
+            params: {}
+            query: {}
+            response: {
+                token: string;
+            }
+        }
     }
 }

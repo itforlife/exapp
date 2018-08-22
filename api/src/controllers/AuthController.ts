@@ -10,7 +10,7 @@ import { EntityFromBody } from 'typeorm-routing-controllers-extensions'
 import { User } from '../entities/User'
 import { Inject } from 'typedi'
 import { AuthService } from '../services/AuthService'
-import { request } from 'request'
+var request = require('request');
 import { providers } from '../constants/SocialProviders';
 
 export interface IUserLoginPayload {
@@ -60,19 +60,32 @@ export class AuthController {
     }
     @HttpPost('/provider')
     public async providerLogin(
-        @BodyParam('provider') provider: keyof typeof providers,
+        @BodyParam('provider') provider: string,
         @BodyParam('authToken') authToken: string
     ) {
-        const providerUrl = providers[provider].url;
-        return request({
-            url: providerUrl,
-            qs: {access_token: authToken}
-        }, async (error, response, body) => {
-            if (!error && response.statusCode == 200) {
-                return await this.authService.registerWithProvider(body)
-            } else {
-                throw new BadRequestError(error);
-            }
-        })
+        try {
+            const response = await this.validateWithProvider(provider, authToken);
+            return await this.authService.registerWithProvider(response);
+        } catch (e) {
+            throw new BadRequestError('Invalid token');
+        }
+
+    }
+
+    validateWithProvider(network, socialToken) {
+        return new Promise(function (resolve, reject) {
+            request({
+                    url: providers[network].url,
+                    qs: {access_token: socialToken ,fields: 'email, first_name, last_name, birthday'}
+                },
+                function (error, response, body) {
+                    if (!error && response.statusCode == 200) {
+                        resolve(JSON.parse(body));
+                    } else {
+                        reject(error);
+                    }
+                }
+            );
+        });
     }
 }

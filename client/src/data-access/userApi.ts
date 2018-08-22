@@ -1,5 +1,5 @@
 import { AxiosInstance } from 'axios'
-
+import hello from 'hellojs';
 export interface IUserInfo {
     email?: string
     userId: string
@@ -25,7 +25,10 @@ export class UserApi {
     private api: AxiosInstance
     private authService: any
     constructor(api: AxiosInstance) {
-        this.api = api
+        this.api = api;
+        hello.init({
+            facebook: '196518344356668'
+        })
     }
     public signInWithEmailAndPassword = async (
         email: string,
@@ -58,8 +61,16 @@ export class UserApi {
     }
 
     public signInWithProvider = async (providerName: providerType) => {
-        const result = await this.authService.signInWithPopup(providerName)
-        return result
+        try {
+            const result = await hello(providerName).login()
+        
+            return this.api.post('/auth/provider', {
+                provider: providerName,
+                authToken: result.authResponse.access_token
+            })
+        } catch (e) {
+            console.error('login failed')
+        }
     }
 
     public signOut = async () => {
