@@ -21,7 +21,7 @@ export const LogIn = container(
             const { appStore } = this.props
             const userStore = appStore.userStore
             // TODO
-            console.log('twitter login');
+            console.log('twitter login')
         }
         public render() {
             const { t, appStore } = this.props

@@ -32,8 +32,11 @@ export class AuthService {
         }
     }
 
-
-    resetPassword = async (password: string, email: string, newPassword: string) => {
+    resetPassword = async (
+        password: string,
+        email: string,
+        newPassword: string
+    ) => {
         const currentUser = await this.userRepository.findOne({ email })
 
         const isValidPassword = this.encryptionService.compare(
@@ -76,19 +79,19 @@ export class AuthService {
         }
     }
 
-    registerWithProvider = async (profile) => {
+    registerWithProvider = async profile => {
         const exitingUser = await this.userRepository.findOne({
             email: profile.email,
         })
         if (exitingUser) {
             return {
-                token: this.encryptionService.sign(classToPlain(exitingUser))
+                token: this.encryptionService.sign(classToPlain(exitingUser)),
             }
         }
-        const user = new User();
-        user.email = profile.email;
-        user.firstName = profile.first_name;
-        user.lastName = profile.last_name;
+        const user = new User()
+        user.email = profile.email
+        user.firstName = profile.first_name
+        user.lastName = profile.last_name
 
         const userResponse = await this.userRepository.save(user)
         return {
