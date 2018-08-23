@@ -1,5 +1,6 @@
 import React from 'react'
-import { buttonsStyles } from './buttons.css'
+// import { buttonsStyles } from './buttons.css'
+// <style jsx>{buttonsStyles}</style>
 
 export const Button = props => {
     return (
@@ -12,7 +13,6 @@ export const Button = props => {
             >
                 {props.children}
             </a>
-            <style jsx>{buttonsStyles}</style>
         </div>
     )
 }
