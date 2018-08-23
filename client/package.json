@@ -24,11 +24,13 @@
         "react-i18next": "^7.8.1",
         "react-icons-kit": "^1.1.6",
         "react-router": "^4.3.1",
+        "react-select": "^2.0.0",
         "react-static": "^5.9.7",
         "react-static-routes": "^1.0.0",
         "restyped": "^1.1.0",
         "slate": "^0.34.6",
         "slate-react": "^0.13.3",
+        "slice-machine": "0.1.2",
         "styled-jsx": "^2.2.7",
         "typestyle": "^2.0.1",
         "validatorjs": "^3.14.2"

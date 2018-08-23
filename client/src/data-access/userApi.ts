@@ -18,15 +18,15 @@ export interface IAddUserPayload {
 }
 export type providerType = 'facebook' | 'twitter'
 export interface IChangePassword {
-    email: string;
-    password: string;
+    email: string
+    password: string
     newPassword: string
-  }
+}
 export class UserApi {
     private api: TypedAxiosInstance<IExappAPI>
     private authService: any
     constructor(api: TypedAxiosInstance<IExappAPI>) {
-        this.api = api;
+        this.api = api
     }
     public signInWithEmailAndPassword = async (
         email: string,
@@ -34,8 +34,8 @@ export class UserApi {
     ) => {
         return this.api.post('/auth/local', {
             email,
-            password
-        });
+            password,
+        })
     }
     public createUserWithEmailAndPassword = async (
         payload: IAddUserPayload
@@ -46,18 +46,16 @@ export class UserApi {
             lastName,
             age: 30,
             email,
-            password
+            password,
         })
     }
 
-    public updateUserPassword = async (
-       payload: IChangePassword
-    ) => {
-        return this.api.post('/auth/reset', payload);
+    public updateUserPassword = async (payload: IChangePassword) => {
+        return this.api.post('/auth/reset', payload)
     }
 
     public getCurrentUser = async (token: string) => {
-        return this.api.get('/users/me',{ headers: {authorization: token}})
+        return this.api.get('/users/me', { headers: { authorization: token } })
     }
 
     public signInWithProvider = async (providerName: providerType) => {
