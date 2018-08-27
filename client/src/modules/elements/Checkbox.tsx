@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as checkboxStyle from './CheckboxStyle'
+import * as checkboxStyle from './CheckboxStyle.scss'
 import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 

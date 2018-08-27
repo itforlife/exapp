@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { container, IInjectedProps } from '../../utils/decorators'
 import { Button, Checkbox, FloatingInput } from '../elements'
-import * as loginStyles from './login.css'
+import * as loginStyles from './login.scss'
 
 export const LogIn = container(
     class extends React.Component<IInjectedProps> {

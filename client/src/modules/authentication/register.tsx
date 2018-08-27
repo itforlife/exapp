@@ -1,7 +1,7 @@
 import React from 'react'
 import { container, IInjectedProps } from '../../utils/decorators'
 import { Button, Checkbox, FloatingInput } from '../elements'
-import * as registerStyles from './register.css'
+import * as registerStyles from './register.scss'
 
 export const Register = container(
     class extends React.Component<IInjectedProps> {

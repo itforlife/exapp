@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import { observer } from 'mobx-react'
 import React from 'react'
-import * as indexStyles from './floatingInput.css'
+import * as indexStyles from './floatingInput.scss'
 
 export const FloatingInput = observer(props => {
     const floatingClassName = classnames('form-group', 'label-floating', {

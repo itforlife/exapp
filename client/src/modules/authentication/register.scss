@@ -1,0 +1,15 @@
+.register-content {
+    padding: 35px 25px;
+}
+
+.register-title {
+    padding: 25px;
+    margin-bottom: 0;
+}
+
+.register-remember {
+    margin-bottom: 1rem;
+    & a {
+        line-height: 2;
+    }
+}

@@ -3,7 +3,7 @@ import { AuthenticationComponent } from '../modules/authentication/authenticatio
 import { Button } from '../modules/elements'
 
 import { container, IInjectedProps } from '../utils/decorators'
-import * as indexStyles from './index.css'
+import * as indexStyles from './index.scss'
 
 const LandingPage = container(
     class extends React.Component<IInjectedProps> {

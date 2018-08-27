@@ -31,7 +31,6 @@
         "slate": "^0.34.6",
         "slate-react": "^0.13.3",
         "slice-machine": "0.1.2",
-        "typestyle": "^2.0.1",
         "validatorjs": "^3.14.2"
     },
     "devDependencies": {

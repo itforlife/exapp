@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import { autorun } from 'mobx'
 import * as React from 'react'
 import { container, IInjectedProps } from '../../utils/decorators'
-import * as indexStyles from './index.css'
+import * as indexStyles from './index.scss'
 import { LogIn } from './logIn'
 import { Register } from './register'
 

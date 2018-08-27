@@ -1,0 +1,14 @@
+.account-dashBoard-style {
+    &.ui-block {
+        background-color: #ffffff;
+        border-radius: 5px;
+        border: 1px solid #e6ecf5;
+        margin-bottom: 15px;
+        &.ui-block-title:last-child {
+            border-bottom: 0;
+        }
+    }
+    &.ui-block-content {
+        padding: 24px 23px 23px;
+    }
+}
