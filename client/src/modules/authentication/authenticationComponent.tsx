@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import { autorun } from 'mobx'
 import * as React from 'react'
-import { comp, IInjectedProps } from '../../utils/decorators'
+import { container, IInjectedProps } from '../../utils/decorators'
 import * as indexStyles from './index.css'
 import { LogIn } from './logIn'
 import { Register } from './register'
@@ -85,4 +85,4 @@ class AuthenticationComponentCls extends React.Component<IInjectedProps> {
     }
 }
 
-export const AuthenticationComponent = comp(AuthenticationComponentCls)
+export const AuthenticationComponent = container(AuthenticationComponentCls)

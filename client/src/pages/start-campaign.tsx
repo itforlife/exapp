@@ -1,8 +1,8 @@
 import React from 'react'
 import { CreateCampaignForm } from '../modules/campaigns/createCampaignForm'
-import { comp, IInjectedProps } from '../utils/decorators'
+import { container, IInjectedProps } from '../utils/decorators'
 
-const StartCampaign = comp(
+const StartCampaign = container(
     class extends React.Component<IInjectedProps> {
         constructor(props) {
             super(props)

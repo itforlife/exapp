@@ -16,6 +16,6 @@ export class CampaignsController {
 
     @Get('/')
     public async list(req: GetCampaignsReqType) {
-        return [{ name: 'My first campaign' }]
+        return [{ name: 'My first campaign', description: 'Lorem ipsum' }]
     }
 }

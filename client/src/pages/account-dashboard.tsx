@@ -3,7 +3,7 @@ import { ChangePassword } from '../modules/account-dashboard/ChangePassword'
 import { DashBoardHeader } from '../modules/account-dashboard/DashBoardHeader'
 import { PersonalInformation } from '../modules/account-dashboard/PersonalInformation'
 import { YourProfile } from '../modules/account-dashboard/YourProfile'
-import { comp, IInjectedProps } from '../utils/decorators'
+import { container, IInjectedProps } from '../utils/decorators'
 import { accountDashBoardStyle } from './accountDashboard.css'
 
 class AccountDashBoard extends React.Component<IInjectedProps> {
@@ -44,4 +44,4 @@ class AccountDashBoard extends React.Component<IInjectedProps> {
     }
 }
 
-export default comp(AccountDashBoard)
+export default container(AccountDashBoard)

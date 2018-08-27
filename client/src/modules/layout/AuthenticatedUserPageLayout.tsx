@@ -1,5 +1,5 @@
 import React from 'react'
-import { comp, IInjectedProps } from '../../utils/decorators'
+import { container, IInjectedProps } from '../../utils/decorators'
 import { Footer, Header } from '.'
 
 class AuthenticatedUserPageLayoutCmp extends React.Component<IInjectedProps> {
@@ -20,4 +20,6 @@ class AuthenticatedUserPageLayoutCmp extends React.Component<IInjectedProps> {
     }
 }
 
-export const AuthenticatedUserPageLayout = comp(AuthenticatedUserPageLayoutCmp)
+export const AuthenticatedUserPageLayout = container(
+    AuthenticatedUserPageLayoutCmp
+)

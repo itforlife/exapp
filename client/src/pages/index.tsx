@@ -3,10 +3,10 @@ import React from 'react'
 import { AuthenticationComponent } from '../modules/authentication/authenticationComponent'
 import { Button } from '../modules/elements'
 
-import { comp, IInjectedProps } from '../utils/decorators'
+import { container, IInjectedProps } from '../utils/decorators'
 import * as indexStyles from './index.css'
 
-const LandingPage = comp(
+const LandingPage = container(
     class extends React.Component<IInjectedProps> {
         public render() {
             const { t, appStore } = this.props

@@ -1,21 +1,24 @@
 import React from 'react'
-import { comp, IInjectedProps } from '../../utils/decorators';
-import { settingsComponentType } from './accountDashboardStore';
+import { container, IInjectedProps } from '../../utils/decorators'
+import { settingsComponentType } from './accountDashboardStore'
 import { yourProfileStyle } from './yourProfile.css'
 
 export class YouProfileClass extends React.Component<IInjectedProps> {
     public changeSettingsComponent = (componentName: settingsComponentType) => {
-        const { appStore } = this.props;
-        const { accountDashboardStore } = appStore;
-        return () => accountDashboardStore.changeSettingsComponent(componentName);
+        const { appStore } = this.props
+        const { accountDashboardStore } = appStore
+        return () =>
+            accountDashboardStore.changeSettingsComponent(componentName)
     }
     public render() {
-        const { t } = this.props;
+        const { t } = this.props
 
         return (
             <div className="your-profile">
                 <div className="ui-block-title ui-block-title-small">
-                    <h6 className="title">{t('accountDashboard.yourProfile')}</h6>
+                    <h6 className="title">
+                        {t('accountDashboard.yourProfile')}
+                    </h6>
                 </div>
                 <div role="tablist" aria-multiselectable="true">
                     <div className="card">
@@ -40,10 +43,25 @@ export class YouProfileClass extends React.Component<IInjectedProps> {
                         >
                             <ul className="your-profile-menu">
                                 <li>
-                                    <a onClick={this.changeSettingsComponent('personalInformation')}> {t('accountDashboard.personalInformation')}</a>
+                                    <a
+                                        onClick={this.changeSettingsComponent(
+                                            'personalInformation'
+                                        )}
+                                    >
+                                        {' '}
+                                        {t(
+                                            'accountDashboard.personalInformation'
+                                        )}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a onClick={this.changeSettingsComponent('changePassword')}>{t('accountDashboard.changePassword')}</a>
+                                    <a
+                                        onClick={this.changeSettingsComponent(
+                                            'changePassword'
+                                        )}
+                                    >
+                                        {t('accountDashboard.changePassword')}
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -55,4 +73,4 @@ export class YouProfileClass extends React.Component<IInjectedProps> {
     }
 }
 
-export const YourProfile = comp(YouProfileClass);
+export const YourProfile = container(YouProfileClass)

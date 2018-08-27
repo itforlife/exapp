@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { comp, IInjectedProps } from '../../utils/decorators'
+import { container, IInjectedProps } from '../../utils/decorators'
 import { Button, Checkbox, FloatingInput } from '../elements'
 import * as loginStyles from './login.css'
 
-export const LogIn = comp(
+export const LogIn = container(
     class extends React.Component<IInjectedProps> {
         public onSingIn = async () => {
             const { appStore } = this.props

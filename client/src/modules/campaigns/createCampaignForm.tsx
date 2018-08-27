@@ -1,10 +1,10 @@
 import React from 'react'
-import { comp, IInjectedProps } from '../../utils/decorators'
+import { container, IInjectedProps } from '../../utils/decorators'
 import { Button, FloatingInput } from '../elements'
 import { RichTextEditor } from '../elements/rich-text'
 import { createCampaignFormStyles } from './createCampaignForm.css'
 
-export const CreateCampaignForm = comp(
+export const CreateCampaignForm = container(
     class extends React.Component<IInjectedProps> {
         constructor(props) {
             super(props)

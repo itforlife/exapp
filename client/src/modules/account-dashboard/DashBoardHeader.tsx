@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { comp, IInjectedProps } from '../../utils/decorators'
+import { container, IInjectedProps } from '../../utils/decorators'
 import { dasBoardHeaderStyle } from './dashBoardHeader.css'
 
-export const DashBoardHeader = comp(
+export const DashBoardHeader = container(
     class extends React.Component<IInjectedProps> {
         public render() {
             const { t } = this.props
