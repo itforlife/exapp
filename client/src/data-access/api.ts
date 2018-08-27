@@ -1,8 +1,7 @@
-import { IExappAPI } from '../../../api/src/types/ExappAPI'
-import axios from './typed-axios'
+import axios from 'axios'
 import { UserApi } from './userApi'
 
-const api = axios.create<IExappAPI>({
+const api = axios.create({
     baseURL: 'http://localhost:3000',
 })
 

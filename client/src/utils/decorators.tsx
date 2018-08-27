@@ -2,8 +2,8 @@ import { inject, observer } from 'mobx-react'
 import * as React from 'react'
 import { translate } from 'react-i18next'
 import { Diff } from 'utility-types'
+import { withRouter } from 'react-router'
 import ApplicationStore from '../modules/layout/ApplicationStore'
-import { withRouter } from 'react-static'
 
 export interface IInjectedProps {
     appStore: typeof ApplicationStore

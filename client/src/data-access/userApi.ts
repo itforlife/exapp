@@ -1,5 +1,4 @@
-import { IExappAPI } from '../../../api/src/types/ExappAPI'
-import { TypedAxiosInstance } from './typed-axios'
+import { AxiosInstance } from 'axios'
 
 export interface IUserInfo {
     email?: string
@@ -23,9 +22,9 @@ export interface IChangePassword {
     newPassword: string
 }
 export class UserApi {
-    private api: TypedAxiosInstance<IExappAPI>
+    private api: AxiosInstance
     private authService: any
-    constructor(api: TypedAxiosInstance<IExappAPI>) {
+    constructor(api: AxiosInstance) {
         this.api = api
     }
     public signInWithEmailAndPassword = async (

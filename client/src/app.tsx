@@ -4,10 +4,10 @@ import React from 'react'
 import { AuthenticatedUserPageLayout } from './modules/layout/AuthenticatedUserPageLayout'
 import { CoreLayout } from './modules/layout/CoreLayout'
 import { LandingPageLayout } from './modules/layout/LandingPageLayout'
-
-import { Router, Link } from 'react-static'
+import { BrowserRouter, Link, Route } from 'react-router-dom'
+import AccountDashboard from './pages/account-dashboard'
+import LandingPage from './pages/index'
 import { hot } from 'react-hot-loader'
-import Routes from 'react-static-routes'
 
 @observer
 @hot(module)
@@ -15,7 +15,7 @@ export default class Exapp extends React.Component {
     @computed
     get pageLayout() {
         // Add here funky logic to determine what layout to use
-        const currentRoute = window.location.pathname;
+        const currentRoute = window.location.pathname
         switch (currentRoute) {
             case '/':
                 return LandingPageLayout
@@ -27,7 +27,7 @@ export default class Exapp extends React.Component {
         const PageLayout = this.pageLayout
         return (
             <CoreLayout>
-                <Router>
+                <BrowserRouter>
                     <PageLayout>
                         <div>
                             <nav>
@@ -44,11 +44,16 @@ export default class Exapp extends React.Component {
                                 </Link>
                             </nav>
                             <div className="content">
-                                <Routes />
+                                <Route exact path="/" component={LandingPage} />
+                                <Route
+                                    exact
+                                    path="/account-dashboard"
+                                    component={AccountDashboard}
+                                />
                             </div>
                         </div>
                     </PageLayout>
-                </Router>
+                </BrowserRouter>
             </CoreLayout>
         )
     }

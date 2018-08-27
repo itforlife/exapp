@@ -1,5 +1,4 @@
 import React from 'react'
-// import { withRouteData } from 'react-static'
 import { AuthenticationComponent } from '../modules/authentication/authenticationComponent'
 import { Button } from '../modules/elements'
 
