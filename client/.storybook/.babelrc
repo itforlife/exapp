@@ -1,5 +1,0 @@
-{
-    "compact": false,
-    "presets": ["env", "stage-0", "react"],
-    "plugins": [["styled-jsx/babel", { "plugins": ["styled-jsx-plugin-sass"] }]]
-}

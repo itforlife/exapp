@@ -1,6 +1,6 @@
 import React from 'react'
 import { container, IInjectedProps } from '../../utils/decorators'
-import { contentStyle } from './content.css'
+import './content.scss'
 
 export interface ISettingsPage extends IInjectedProps {
     title: string
@@ -14,7 +14,6 @@ class ContentClass extends React.Component<ISettingsPage> {
                     <h6 className="title">{this.props.title}</h6>
                 </div>
                 <div className="ui-block-content">{this.props.children}</div>
-                <style jsx={true}>{contentStyle}</style>
             </div>
         )
     }

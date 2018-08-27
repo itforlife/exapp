@@ -1,4 +1,6 @@
 import * as React from 'react'
+import './LanguageSelector.scss'
+
 export const LanguageSelector = props => {
     return (
         <div>
@@ -18,24 +20,6 @@ export const LanguageSelector = props => {
                     RO
                 </li>
             </ul>
-            <style jsx>
-                {`
-                    .flag {
-                        display: inline-block;
-                        padding-left: 16px;
-                        background: url('/assets/img/flags.png') no-repeat;
-                        cursoir: pointer;
-                    }
-
-                    .flag.flag-gb {
-                        background-position: -16px 0;
-                    }
-
-                    .flag.flag-ro {
-                        background-position: 0 -11px;
-                    }
-                `}
-            </style>
         </div>
     )
 }

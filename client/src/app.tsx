@@ -4,7 +4,7 @@ import React from 'react'
 import { AuthenticatedUserPageLayout } from './modules/layout/AuthenticatedUserPageLayout'
 import { CoreLayout } from './modules/layout/CoreLayout'
 import { LandingPageLayout } from './modules/layout/LandingPageLayout'
-import { BrowserRouter, Link, Route } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import AccountDashboard from './pages/account-dashboard'
 import LandingPage from './pages/index'
 import { hot } from 'react-hot-loader'
@@ -30,19 +30,6 @@ export default class Exapp extends React.Component {
                 <BrowserRouter>
                     <PageLayout>
                         <div>
-                            <nav>
-                                <Link exact={true} to="/">
-                                    <button className="btn">Home</button>
-                                </Link>
-                                <Link to="/campaigns">
-                                    <button className="btn">
-                                        Start a campaign
-                                    </button>
-                                </Link>
-                                <Link to="/blog">
-                                    <button className="btn">Blog</button>
-                                </Link>
-                            </nav>
                             <div className="content">
                                 <Route exact path="/" component={LandingPage} />
                                 <Route

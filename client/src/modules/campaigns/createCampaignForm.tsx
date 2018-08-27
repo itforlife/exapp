@@ -2,7 +2,6 @@ import React from 'react'
 import { container, IInjectedProps } from '../../utils/decorators'
 import { Button, FloatingInput } from '../elements'
 import { RichTextEditor } from '../elements/rich-text'
-import { createCampaignFormStyles } from './createCampaignForm.css'
 
 export const CreateCampaignForm = container(
     class extends React.Component<IInjectedProps> {
@@ -69,7 +68,6 @@ export const CreateCampaignForm = container(
                             </div>
                         </div>
                     </div>
-                    <style jsx>{createCampaignFormStyles}</style>
                 </div>
             )
         }

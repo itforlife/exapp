@@ -22,6 +22,10 @@ const config = {
                 use: ['babel-loader'],
             },
             {
+                test: /\.scss$/,
+                loader: 'style-loader!css-loader!sass-loader',
+            },
+            {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader',
             },
@@ -52,10 +56,10 @@ const config = {
             template: './index.html',
         }),
         new CopyWebpackPlugin(['./public']),
+        new webpack.WatchIgnorePlugin([/scss\.d\.ts$/]),
     ],
 }
 
 module.exports = (env, argv) => {
-    config.mode = process.env.MODE || 'development'
     return config
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { container, IInjectedProps } from '../../utils/decorators'
 import { settingsComponentType } from './accountDashboardStore'
-import { yourProfileStyle } from './yourProfile.css'
+import './yourProfile.scss'
 
 export class YouProfileClass extends React.Component<IInjectedProps> {
     public changeSettingsComponent = (componentName: settingsComponentType) => {
@@ -67,7 +67,6 @@ export class YouProfileClass extends React.Component<IInjectedProps> {
                         </div>
                     </div>
                 </div>
-                <style jsx>{yourProfileStyle}</style>
             </div>
         )
     }

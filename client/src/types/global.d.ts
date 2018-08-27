@@ -3,3 +3,4 @@ declare namespace NodeJS {
         browser: boolean
     }
 }
+declare module '*.scss'

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { container, IInjectedProps } from '../../utils/decorators'
-import { dasBoardHeaderStyle } from './dashBoardHeader.css'
+import './dashBoardHeader.scss'
 
 export const DashBoardHeader = container(
     class extends React.Component<IInjectedProps> {
@@ -25,7 +25,6 @@ export const DashBoardHeader = container(
                         src="static/assets/img/account-bottom.png"
                         alt="friends"
                     />
-                    <style jsx={true}>{dasBoardHeaderStyle}</style>
                 </div>
             )
         }

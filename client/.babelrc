@@ -4,8 +4,5 @@
         "@babel/preset-typescript",
         "@babel/preset-react"
     ],
-    "plugins": [
-        "@babel/plugin-transform-runtime",
-        ["styled-jsx/babel", { "plugins": ["styled-jsx-plugin-sass"] }]
-    ]
+    "plugins": ["@babel/plugin-transform-runtime"]
 }
