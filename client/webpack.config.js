@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -23,11 +24,22 @@ const config = {
             },
             {
                 test: /\.scss$/,
-                loader: 'style-loader!css-loader!sass-loader',
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'typings-for-css-modules-loader',
+                        options: {
+                            modules: true,
+                            namedExport: true,
+                            camelCase: true,
+                        },
+                    },
+                    'sass-loader',
+                ],
             },
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader',
+                use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,

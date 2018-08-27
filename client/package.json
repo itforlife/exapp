@@ -76,6 +76,7 @@
         "tslint-loader": "^3.6.0",
         "tslint-react": "^3.6.0",
         "typescript": "^2.9.2",
+        "typings-for-css-modules-loader": "^1.7.0",
         "utility-types": "^2.0.0",
         "webpack": "^4.17.1",
         "webpack-cli": "^3.1.0",

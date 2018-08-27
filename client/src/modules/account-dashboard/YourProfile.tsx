@@ -1,7 +1,7 @@
 import React from 'react'
 import { container, IInjectedProps } from '../../utils/decorators'
 import { settingsComponentType } from './accountDashboardStore'
-import './yourProfile.scss'
+import * as styles from './yourProfile.scss'
 
 export class YouProfileClass extends React.Component<IInjectedProps> {
     public changeSettingsComponent = (componentName: settingsComponentType) => {
@@ -14,22 +14,30 @@ export class YouProfileClass extends React.Component<IInjectedProps> {
         const { t } = this.props
 
         return (
-            <div className="your-profile">
-                <div className="ui-block-title ui-block-title-small">
-                    <h6 className="title">
+            <div>
+                <div
+                    className={`${styles.uiBlockTitle} ${
+                        styles.uiBlockTitleSmall
+                    }`}
+                >
+                    <h6 className={styles.title}>
                         {t('accountDashboard.yourProfile')}
                     </h6>
                 </div>
                 <div role="tablist" aria-multiselectable="true">
                     <div className="card">
-                        <div className="card-header" role="tab">
+                        <div className={styles.cardHeader} role="tab">
                             <h6 className="mb-0">
                                 <a
                                     aria-expanded="true"
                                     aria-controls="collapseOne"
                                 >
                                     {t('accountDashboard.profileSettings')}
-                                    <svg className="olymp-dropdown-arrow-icon">
+                                    <svg
+                                        className={
+                                            styles.olympDropdownArrowIcon
+                                        }
+                                    >
                                         <use xlinkHref="#static/asstes/olymp-dropdown-arrow-icon" />
                                     </svg>
                                 </a>
@@ -41,7 +49,7 @@ export class YouProfileClass extends React.Component<IInjectedProps> {
                             role="tabpanel"
                             aria-labelledby="headingOne"
                         >
-                            <ul className="your-profile-menu">
+                            <ul className={styles.yourProfileMenu}>
                                 <li>
                                     <a
                                         onClick={this.changeSettingsComponent(

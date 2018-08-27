@@ -12,3 +12,4 @@ npm-debug.log
 /client/dist
 tmp
 *.db
+*.scss.d.ts
