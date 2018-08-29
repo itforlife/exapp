@@ -13,14 +13,6 @@ export class EncryptionService {
         const salt = bcrypt.genSaltSync(10)
         return bcrypt.hashSync(value, salt)
     }
-    verify = (token: string) => {
-        return jwt.verify(token, secret, (err, decoded) => {
-            if(err) {
-                return err;
-            }
-            return decoded;
-        })
-    }
     compare = (currentValue: string, correctValue: string) => {
         return bcrypt.compareSync(currentValue, correctValue)
     }

@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const babelLoader = path.resolve('./node_modules/babel-loader')
-
+const Dotenv = require('dotenv-webpack')
 const config = {
     entry: './src/index.tsx',
     devServer: {
@@ -70,6 +70,7 @@ const config = {
         }),
         new CopyWebpackPlugin(['./public']),
         new webpack.WatchIgnorePlugin([/scss\.d\.ts$/]),
+        new Dotenv(),
     ],
 }
 

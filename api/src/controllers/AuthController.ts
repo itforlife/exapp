@@ -1,6 +1,7 @@
 import {
     Body,
     BodyParam,
+    Param,
     JsonController,
     Post as HttpPost,
     BadRequestError,
@@ -10,8 +11,7 @@ import { EntityFromBody } from 'typeorm-routing-controllers-extensions'
 import { User } from '../entities/User'
 import { Inject } from 'typedi'
 import { AuthService } from '../services/AuthService'
-import { request } from 'request'
-import { providers } from '../constants/SocialProviders';
+
 
 export interface IUserLoginPayload {
     password: string
@@ -33,7 +33,6 @@ export class AuthController {
         try {
             return await this.authService.login(password, email)
         } catch (e) {
-            console.log(e)
             throw new BadRequestError(e)
         }
     }
@@ -41,9 +40,12 @@ export class AuthController {
     public async resetPassword(@Body() payload: IUserPasswordChangePayload) {
         const { password, email, newPassword } = payload
         try {
-            return await this.authService.resetPassword(password, email, newPassword)
+            return await this.authService.resetPassword(
+                password,
+                email,
+                newPassword
+            )
         } catch (e) {
-            console.log(e)
             throw new BadRequestError(e)
         }
     }
@@ -58,21 +60,16 @@ export class AuthController {
             throw new BadRequestError(e)
         }
     }
-    @HttpPost('/provider')
+    @HttpPost('/:providerName')
     public async providerLogin(
-        @BodyParam('provider') provider: keyof typeof providers,
+        @Param('providerName') providerName: 'facebook' | 'google',
         @BodyParam('authToken') authToken: string
     ) {
-        const providerUrl = providers[provider].url;
-        return request({
-            url: providerUrl,
-            qs: {access_token: authToken}
-        }, async (error, response, body) => {
-            if (!error && response.statusCode == 200) {
-                return await this.authService.registerWithProvider(body)
-            } else {
-                throw new BadRequestError(error);
-            }
-        })
+        try {
+            return await this.authService.registerWithProvider(providerName, authToken)
+        } catch (e) {
+            throw new BadRequestError('Invalid auth token')
+        }
     }
+
 }

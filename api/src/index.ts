@@ -2,10 +2,12 @@ import 'reflect-metadata'
 import * as bodyParser from 'body-parser'
 import * as helmet from 'helmet'
 import {Container} from "typedi";
-import {createExpressServer, useContainer as routingUseContainer} from "routing-controllers";
+import {createExpressServer, useContainer as routingUseContainer, Action} from "routing-controllers";
 import * as dotenv from 'dotenv'
 import { createConnection, useContainer } from 'typeorm'
 import { AuthController, UserController, CampaignsController } from './controllers/index';
+const jwt = require('jsonwebtoken')
+import { secret } from '../config/config'
 
 class Startup {
     public server() {
@@ -24,8 +26,17 @@ class Startup {
             controllers: [AuthController, UserController, CampaignsController],
             middlewares: [helmet],
             cors: true,
-            validation: true
-        })
+            validation: true,
+            currentUserChecker: async (action: Action) => {
+                const token = action.request.headers["authorization"];
+                return jwt.verify(token, secret, (err, decoded) => {
+                        if(err) {
+                            return false;
+                        }
+                        return decoded;
+                    })
+                }
+            })
         app.use(
             bodyParser.urlencoded({
                 extended: true,
