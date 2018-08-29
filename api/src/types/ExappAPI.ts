@@ -1,4 +1,5 @@
 import { User } from '../entities/User'
+export type providerType = 'facebook' | 'twitter'
 
 export interface IExappAPI {
     '/users': {
@@ -78,13 +79,14 @@ export interface IExappAPI {
             }
         }
     },
-    '/auth/provider': {
+    '/auth/:providerName': {
         POST: {
             body: {
-                provider: string,
                 authToken: string 
             }
-            params: {}
+            params: {
+                providerName: providerType
+            }
             query: {}
             response: {
                 token: string;

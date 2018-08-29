@@ -1,6 +1,7 @@
 import {
     Body,
     BodyParam,
+    Param,
     JsonController,
     Post as HttpPost,
     BadRequestError,
@@ -10,8 +11,7 @@ import { EntityFromBody } from 'typeorm-routing-controllers-extensions'
 import { User } from '../entities/User'
 import { Inject } from 'typedi'
 import { AuthService } from '../services/AuthService'
-var request = require('request')
-import { providers } from '../constants/SocialProviders'
+
 
 export interface IUserLoginPayload {
     password: string
@@ -62,40 +62,16 @@ export class AuthController {
             throw new BadRequestError(e)
         }
     }
-    @HttpPost('/provider')
+    @HttpPost('/:providerName')
     public async providerLogin(
-        @BodyParam('provider') provider: string,
+        @Param('providerName') providerName: 'facebook' | 'google',
         @BodyParam('authToken') authToken: string
     ) {
         try {
-            const response = await this.validateWithProvider(
-                provider,
-                authToken
-            )
-            return await this.authService.registerWithProvider(response)
+            return await this.authService.registerWithProvider(providerName, authToken)
         } catch (e) {
-            throw new BadRequestError('Invalid token')
+            throw new BadRequestError('Invalid auth token')
         }
     }
 
-    validateWithProvider(network, socialToken) {
-        return new Promise(function(resolve, reject) {
-            request(
-                {
-                    url: providers[network].url,
-                    qs: {
-                        access_token: socialToken,
-                        fields: 'email, first_name, last_name, birthday',
-                    },
-                },
-                function(error, response, body) {
-                    if (!error && response.statusCode == 200) {
-                        resolve(JSON.parse(body))
-                    } else {
-                        reject(error)
-                    }
-                }
-            )
-        })
-    }
 }

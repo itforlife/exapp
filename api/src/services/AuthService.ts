@@ -5,6 +5,8 @@ import { classToPlain } from 'class-transformer'
 import { Service, Inject } from 'typedi'
 import { InjectRepository } from 'typeorm-typedi-extensions'
 import { validate } from 'class-validator'
+import axios from 'axios';
+import { providers } from '../constants/SocialProviders'
 
 @Service()
 export class AuthService {
@@ -14,16 +16,19 @@ export class AuthService {
     encryptionService: EncryptionService
 
     login = async (password: string, email: string) => {
+        const errorResponse = {
+            error: 'invalid credentials',
+        }
         const currentUser = await this.userRepository.findOne({ email })
-
+        if(!currentUser) {
+            throw errorResponse
+        }
         const isValidPassword = this.encryptionService.compare(
             password,
             currentUser.password
         )
-        const errorResponse = {
-            error: 'invalid credentials',
-        }
-        if (currentUser && isValidPassword) {
+     
+        if (isValidPassword) {
             return {
                 token: this.encryptionService.sign(classToPlain(currentUser)),
             }
@@ -79,7 +84,11 @@ export class AuthService {
         }
     }
 
-    registerWithProvider = async profile => {
+    registerWithProvider = async (provider, authToken) => {
+        const profile = await this.validateWithProvider(
+            provider,
+            authToken
+        )
         const exitingUser = await this.userRepository.findOne({
             email: profile.email,
         })
@@ -97,5 +106,18 @@ export class AuthService {
         return {
             token: this.encryptionService.sign(classToPlain(userResponse)),
         }
+    }
+
+    validateWithProvider = async (network, socialToken) => {
+        const url = providers[network].url;
+        const fields = providers[network].fields;
+        const resp = await axios.get(url,{
+            params: {
+                access_token: socialToken,
+                fields
+            }
+        })
+
+        return resp.data
     }
 }

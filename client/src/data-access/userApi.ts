@@ -27,7 +27,7 @@ export class UserApi {
     constructor(api: AxiosInstance) {
         this.api = api;
         hello.init({
-            facebook: '196518344356668',
+            facebook: process.env.FACEBOOK_SECRET,
         })
     }
     public signInWithEmailAndPassword = async (
@@ -64,9 +64,15 @@ export class UserApi {
         try {
             const result = await hello(providerName).login()
 
-            return this.api.post('/auth/provider', {
-                provider: providerName,
-                authToken: result.authResponse.access_token,
+            return this.api.request({
+                url: '/auth/:providerName',
+                params: {
+                    providerName
+                },
+                data: {
+                    authToken: result.authResponse.access_token
+                },
+                method: 'POST'
             })
         } catch (e) {
             console.error('login failed')
