@@ -18,10 +18,8 @@ export const LogIn = container(
             await userStore.signInFacebook()
         }
         public onTwitterSignIn = async () => {
-            const { appStore } = this.props
-            const userStore = appStore.userStore
-
-            await userStore.signInTwitter()
+            // TODO
+            console.log('twitter login')
         }
         public render() {
             const { t, appStore } = this.props

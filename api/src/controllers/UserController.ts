@@ -1,10 +1,11 @@
 import * as express from 'express'
-import { Get, JsonController, HeaderParam} from 'routing-controllers'
+import { Get, JsonController, CurrentUser} from 'routing-controllers'
 import { Repository } from 'typeorm'
-import { InjectRepository } from 'typeorm-typedi-extensions'
+import { InjectRepository  } from 'typeorm-typedi-extensions'
 import { User } from '../entities/User'
 import { Inject } from 'typedi'
 import { EncryptionService } from '../services/EncryptionService'
+
 const ResourcePath = '/users'
 
 
@@ -15,8 +16,10 @@ export class UserController {
     @Inject()
     encryptionService: EncryptionService
     @Get('/me')
-    public async user(@HeaderParam('authorization') token: string ) {
-       return this.encryptionService.verify(token)
+    public async user(@CurrentUser() user: User) {
+       return user ? user : {
+           message: 'invalid token'
+       }
     }
     @Get('/')
     public async list(req: express.Request) {

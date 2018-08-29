@@ -22,6 +22,6 @@ export class User {
 
     @Exclude()
     @MinLength(6)
-    @Column()
+    @Column({ nullable: true })
     public password: string
 }

@@ -40,11 +40,11 @@ content-type: application/json
 
 ### login user
 
-POST {{host}}/login
+POST {{host}}/auth/local
 content-type: application/json
 
 {
-    "email": "cossadsamin@gmsadsadail.com",
+    "email": "test@test1.com",
     "password": "123456"
 }
 
@@ -52,4 +52,22 @@ content-type: application/json
 
 get {{host}}/users/me
 content-type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCfJ9.eyJmaXJzdE5hbWUiOiJDb3NtaW4iLCJsYXN0TmFtZSI6IklvbmFzY3UiLCJhZ2UiOjMwLCJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWQiOjIxLCJpYXQiOjE1MzQ4MzkxMjR9.z9eIgtJY5VB8bTull6loX1DWqfG7i10B-whEQ2jfoI0
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsImZpcnN0TmFtZSI6IkNvc21pbiIsImVtYWlsIjoidGVzdEB0ZXN0MS5jb20iLCJsYXN0TmFtZSI6IklvbmFzY3UiLCJhZ2UiOjMwLCJpYXQiOjE1MzUwMjU0NjZ9.18OMqv2rZniF3inGrPiuzIvGXl6LvDxcjnhJJj1pq-c
+
+### auth with facebook
+
+POST {{host}}/auth/provider
+content-type: application/json
+
+{
+    "provider": "facebook",
+    "authToken": "EAACyu34bczwBAHxRq5M33L1WYZAUwl7LN7lP96VMSGEiuYkZAFSIcMuBdZCmXZCjnDP8WypIlEu0NybegcgK0UxXXvHdAZBDovzbJiZCZBHvwNedNJ3KbSNc2mdTmfYYyuLcJt2ufOLZCTIL19Q3vSTBUtvN5SChFm0BMLWYxiquD2vNDwpV2RwEEG9th7ECrGexxCTytjDDqLZCFnkz3EEgH"
+}
+
+
+### get user 
+
+get https://graph.facebook.com/me?access_token=EAACyu34bczwBAHxRq5M33L1WYZAUwl7LN7lP96VMSGEiuYkZAFSIcMuBdZCmXZCjnDP8WypIlEu0NybegcgK0UxXXvHdAZBDovzbJiZCZBHvwNedNJ3KbSNc2mdTmfYYyuLcJt2ufOLZCTIL19Q3vSTBUtvN5SChFm0BMLWYxiquD2vNDwpV2RwEEG9th7ECrGexxCTytjDDqLZCFnkz3EEgH
+content-type: application/json
+
+
