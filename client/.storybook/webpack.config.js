@@ -1,3 +1,8 @@
 const baseWebpackConfig = require('../webpack.config')
-
-module.exports = baseWebpackConfig
+const path = require('path')
+module.exports = Object.assign({}, baseWebpackConfig, {
+    output: {
+        path: 'bundle.js',
+        path: path.resolve(__dirname, '..', 'dist'),
+    },
+})

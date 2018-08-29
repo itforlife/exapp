@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const babelLoader = path.resolve('./node_modules/babel-loader')
 
 const config = {
     entry: './src/index.tsx',
@@ -14,13 +15,13 @@ const config = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: ['babel-loader', 'ts-loader'],
+                use: [babelLoader, 'ts-loader'],
                 exclude: /node_modules/,
             },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: ['babel-loader'],
+                use: [babelLoader],
             },
             {
                 test: /\.scss$/,
@@ -72,6 +73,4 @@ const config = {
     ],
 }
 
-module.exports = (env, argv) => {
-    return config
-}
+module.exports = config

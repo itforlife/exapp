@@ -43,7 +43,7 @@
         "@storybook/addon-info": "^3.4.8",
         "@storybook/addon-links": "^3.4.8",
         "@storybook/addons": "^3.4.8",
-        "@storybook/react": "4.0.0-alpha.3",
+        "@storybook/react": "4.0.0-alpha.18",
         "@types/classnames": "^2.2.6",
         "@types/i18next": "^8.4.4",
         "@types/slate": "^0.33.1",
