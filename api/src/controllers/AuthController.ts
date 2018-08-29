@@ -33,7 +33,6 @@ export class AuthController {
         try {
             return await this.authService.login(password, email)
         } catch (e) {
-            console.log(e)
             throw new BadRequestError(e)
         }
     }
@@ -47,7 +46,6 @@ export class AuthController {
                 newPassword
             )
         } catch (e) {
-            console.log(e)
             throw new BadRequestError(e)
         }
     }

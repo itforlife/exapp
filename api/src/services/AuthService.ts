@@ -1,11 +1,12 @@
 import { Repository } from 'typeorm'
 import { User } from '../entities/User'
 import { EncryptionService } from './EncryptionService'
+import { HttpService } from './HttpService'
+
 import { classToPlain } from 'class-transformer'
 import { Service, Inject } from 'typedi'
 import { InjectRepository } from 'typeorm-typedi-extensions'
 import { validate } from 'class-validator'
-import axios from 'axios';
 import { providers } from '../constants/SocialProviders'
 
 @Service()
@@ -14,6 +15,8 @@ export class AuthService {
     userRepository: Repository<User>
     @Inject()
     encryptionService: EncryptionService
+    @Inject()
+    httpService: HttpService
 
     login = async (password: string, email: string) => {
         const errorResponse = {
@@ -111,7 +114,7 @@ export class AuthService {
     validateWithProvider = async (network, socialToken) => {
         const url = providers[network].url;
         const fields = providers[network].fields;
-        const resp = await axios.get(url,{
+        const resp = await this.httpService.get(url,{
             params: {
                 access_token: socialToken,
                 fields

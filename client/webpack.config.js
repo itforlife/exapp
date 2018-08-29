@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const Dotenv = require ('dotenv-webpack');
 
 const config = {
     entry: './src/index.tsx',
@@ -69,6 +70,7 @@ const config = {
         }),
         new CopyWebpackPlugin(['./public']),
         new webpack.WatchIgnorePlugin([/scss\.d\.ts$/]),
+        new Dotenv()
     ],
 }
 
