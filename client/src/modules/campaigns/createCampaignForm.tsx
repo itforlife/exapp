@@ -20,7 +20,7 @@ export const CreateCampaignForm = container(
                     <div className="row">
                         <div className="col-sm-4">
                             <div className="form-group">
-                                <label className="h4">Title</label>
+                                <h4>Title</h4>
                                 <FloatingInput
                                     name="campaignTitle"
                                     id="campaignTitle"
@@ -32,11 +32,10 @@ export const CreateCampaignForm = container(
                                     }
                                 />
                             </div>
-                            <div className="form-group">Test</div>
                         </div>
                         <div className="col-sm-8">
                             <div className="form-group">
-                                <label className="h4">Description</label>
+                                <h4>Description</h4>
                                 <RichTextEditor
                                     onChange={
                                         createCampaignFormStore.onDescriptionChange
@@ -45,7 +44,7 @@ export const CreateCampaignForm = container(
                                 />
                             </div>
                             <div className="form-group">
-                                <label className="h4">Short summary</label>
+                                <h4>Short summary</h4>
                                 <textarea
                                     className="form-control"
                                     onChange={ev =>
@@ -56,12 +55,12 @@ export const CreateCampaignForm = container(
                                     placeholder="A really short excerpt of what the campaign is about"
                                 />
                             </div>
-                            <div className="create-campaign-btn-container">
+                            <div>
                                 <Button
                                     onClick={
                                         createCampaignFormStore.onCreateCampaign
                                     }
-                                    className="btn btn-md btn-purple"
+                                    className="btn btn-md"
                                 >
                                     Create campaign
                                 </Button>

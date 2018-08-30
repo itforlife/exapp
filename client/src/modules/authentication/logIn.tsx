@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { container, IInjectedProps } from '../../utils/decorators'
 import { Button, Checkbox, FloatingInput } from '../elements'
-import * as loginStyles from './login.scss'
 
 export const LogIn = container(
     class extends React.Component<IInjectedProps> {
@@ -27,13 +26,10 @@ export const LogIn = container(
             const formStore = userStore.loginForm
             return (
                 <div>
-                    <div className="title h6">
-                        {' '}
-                        {t('authentication.loginTitle')}
-                    </div>
-                    <form className={loginStyles.loginContent}>
+                    <div> {t('authentication.loginTitle')}</div>
+                    <form>
                         <div className="row">
-                            <div className="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div className="col col-12">
                                 <p>{userStore.errorMessage}</p>
                                 <FloatingInput
                                     {...formStore.$('email').bind({
@@ -54,46 +50,31 @@ export const LogIn = container(
                                 />
                                 <p>{formStore.$('password').error}</p>
 
-                                <div className={loginStyles.loginRemember}>
+                                <div>
                                     <Checkbox
                                         name={'optionsCheckboxes'}
                                         label={t('authentication.rememberMe')}
                                     />
-                                    <a
-                                        href="#"
-                                        className={loginStyles.loginForgot}
-                                    >
+                                    <a href="#">
                                         {t(
                                             'authentication.forgotPasswordLabel'
                                         )}
                                     </a>
                                 </div>
                                 <Button
-                                    className="btn btn-lg btn-primary full-width"
+                                    className="btn btn-lg btn-primary"
                                     onClick={this.onSingIn}
                                 >
                                     {t('authentication.loginButton')}
                                 </Button>
-                                <div className={loginStyles.or} />
+                                <div>OR</div>
 
-                                <Button
-                                    className="btn btn-lg bg-facebook full-width btn-icon-left"
-                                    onClick={this.onFacebookSignIn}
-                                >
-                                    <i
-                                        className="fab fa-facebook-f"
-                                        aria-hidden="true"
-                                    />
+                                <Button onClick={this.onFacebookSignIn}>
+                                    <i aria-hidden="true">fb icon</i>
                                     {t('authentication.loginFacebookButton')}
                                 </Button>
-                                <Button
-                                    className="btn btn-lg bg-twitter full-width btn-icon-left"
-                                    onClick={this.onTwitterSignIn}
-                                >
-                                    <i
-                                        className="fab fa-twitter"
-                                        aria-hidden="true"
-                                    />{' '}
+                                <Button onClick={this.onTwitterSignIn}>
+                                    <i aria-hidden="true">twitter icon</i>
                                     {t('authentication.loginTwitterButton')}
                                 </Button>
                                 <p>

@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { container, IInjectedProps } from '../../utils/decorators'
-import * as styles from './dashBoardHeader.scss'
 
 export const DashBoardHeader = container(
     class extends React.Component<IInjectedProps> {
@@ -8,16 +7,12 @@ export const DashBoardHeader = container(
             const { t } = this.props
 
             return (
-                <div className={styles.mainHeader}>
-                    <div
-                        className={`${styles.contentBgWrap} ${
-                            styles.bgAccount
-                        }`}
-                    />
+                <div>
+                    <div>styles.bgAccount</div>
                     <div className="container">
                         <div className="row">
-                            <div className="col col-lg-8 m-auto col-md-8 col-sm-12 col-12">
-                                <div className={styles.mainHeaderContent}>
+                            <div className="col m-auto col-md-8 col-12">
+                                <div>
                                     <h1>{t('accountDashboard.headerTitle')}</h1>
                                     <p>{t('accountDashboard.headerContent')}</p>
                                 </div>
@@ -25,7 +20,6 @@ export const DashBoardHeader = container(
                         </div>
                     </div>
                     <img
-                        className={styles.imgBottom}
                         src="static/assets/img/account-bottom.png"
                         alt="friends"
                     />

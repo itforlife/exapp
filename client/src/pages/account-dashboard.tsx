@@ -4,7 +4,6 @@ import { DashBoardHeader } from '../modules/account-dashboard/DashBoardHeader'
 import { PersonalInformation } from '../modules/account-dashboard/PersonalInformation'
 import { YourProfile } from '../modules/account-dashboard/YourProfile'
 import { container, IInjectedProps } from '../utils/decorators'
-import * as accountDashBoardStyle from './accountDashboard.scss'
 
 class AccountDashBoard extends React.Component<IInjectedProps> {
     public getSettingsComponent = () => {
@@ -26,14 +25,12 @@ class AccountDashBoard extends React.Component<IInjectedProps> {
                 <DashBoardHeader />
                 <div className="container">
                     <div className="row">
-                        <div className="col col-xl-9 order-xl-2 col-lg-9 order-lg-2 col-md-12 order-md-1 col-sm-12 col-12">
-                            <div className={accountDashBoardStyle.uiBlock}>
-                                {this.getSettingsComponent()}
-                            </div>
+                        <div className="col col-lg-9 order-lg-2 order-md-1 col-12">
+                            <div>{this.getSettingsComponent()}</div>
                         </div>
 
-                        <div className="col col-xl-3 order-xl-1 col-lg-3 order-lg-1 col-md-12 order-md-2 col-sm-12  responsive-display-none">
-                            <div className={accountDashBoardStyle.uiBlock}>
+                        <div className="col col-lg-3 order-lg-1 order-md-2 col-12">
+                            <div>
                                 <YourProfile />
                             </div>
                         </div>

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import * as checkboxStyle from './CheckboxStyle.scss'
 import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 
@@ -37,21 +36,11 @@ export class Checkbox extends React.Component<IProps> {
                 : this.isChecked
 
         return (
-            <div className={checkboxStyle.checkbox}>
-                <label className={checkboxStyle.labelCls}>
-                    <input
-                        type="checkbox"
-                        name={name}
-                        className={checkboxStyle.optionsCheckboxes}
-                    />
-                    <span
-                        className={checkboxStyle.checkboxMaterial}
-                        onClick={this.handleClick}
-                    >
-                        <span
-                            className={`${checkboxStyle.check} ${checked &&
-                                checkboxStyle.checked}`}
-                        />
+            <div>
+                <label>
+                    <input type="checkbox" name={name} />
+                    <span onClick={this.handleClick}>
+                        <span>{checked}</span>
                     </span>
                     {label}
                 </label>
