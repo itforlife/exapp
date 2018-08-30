@@ -1,8 +1,6 @@
-import classnames from 'classnames'
 import { autorun } from 'mobx'
 import * as React from 'react'
 import { container, IInjectedProps } from '../../utils/decorators'
-import * as indexStyles from './index.scss'
 import { LogIn } from './logIn'
 import { Register } from './register'
 
@@ -20,62 +18,27 @@ class AuthenticationComponentCls extends React.Component<IInjectedProps> {
     public render() {
         const { t, appStore } = this.props
         const userStore = appStore.userStore
-        const loginActiveClassName = classnames({
-            active: userStore.isLoginFormActive,
-        })
-        const registerActiveClassName = classnames({
-            active: userStore.isRegisterFormActive,
-        })
 
         return (
-            <div className="col col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12">
-                <div className={indexStyles.registrationLoginForm}>
-                    <ul
-                        className={`${
-                            indexStyles.registrationLoginFormNavTabs
-                        } nav nav-tabs`}
-                        role="tablist"
-                    >
-                        <li
-                            className={`${
-                                indexStyles.registrationLoginFormNavItem
-                            } nav-item`}
-                        >
-                            <a
-                                className={`${
-                                    indexStyles.registrationLoginFormNavLink
-                                } nav-link inline-items ${loginActiveClassName}`}
-                                role="tab"
-                                onClick={userStore.setLoginFormActive}
-                            >
+            <div className="col col-xl-5 col-lg-6 col-12">
+                <div>
+                    <ul>
+                        <li>
+                            <a onClick={userStore.setLoginFormActive}>
                                 {t('authentication.loginTab')}
                             </a>
                         </li>
-                        <li
-                            className={`${
-                                indexStyles.registrationLoginFormNavItem
-                            } nav-item`}
-                        >
-                            <a
-                                className={`${
-                                    indexStyles.registrationLoginFormNavLink
-                                } nav-link inline-items ${registerActiveClassName}`}
-                                role="tab"
-                                onClick={userStore.setRegisterFormActive}
-                            >
+                        <li>
+                            <a onClick={userStore.setRegisterFormActive}>
                                 {t('authentication.registerTab')}
                             </a>
                         </li>
                     </ul>
-                    <div
-                        className={`${
-                            indexStyles.registrationLoginFormTabContent
-                        } tab-content`}
-                    >
-                        <div className={`tab-pane ${loginActiveClassName}`}>
+                    <div>
+                        <div>
                             <LogIn />
                         </div>
-                        <div className={`tab-pane ${registerActiveClassName}`}>
+                        <div>
                             <Register />
                         </div>
                     </div>

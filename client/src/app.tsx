@@ -30,7 +30,7 @@ export default class Exapp extends React.Component {
                 <BrowserRouter>
                     <PageLayout>
                         <div>
-                            <div className="content">
+                            <div>
                                 <Route exact path="/" component={LandingPage} />
                                 <Route
                                     exact

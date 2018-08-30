@@ -13,7 +13,7 @@ class PersonalInformationClass extends React.Component<IInjectedProps> {
             <Content title={t('accountDashboard.personalInformation')}>
                 <form>
                     <div className="row">
-                        <div className="col col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div className="col col-md-6 col-12">
                             <FloatingInput
                                 {...formStore.$('firstName').bind({
                                     label: t(
@@ -29,7 +29,7 @@ class PersonalInformationClass extends React.Component<IInjectedProps> {
                                 })}
                             />
                         </div>
-                        <div className="col col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div className="col col-md-6 col-12">
                             <FloatingInput
                                 {...formStore.$('lastName').bind({
                                     label: t(
@@ -45,9 +45,9 @@ class PersonalInformationClass extends React.Component<IInjectedProps> {
                                 })}
                             />
                         </div>
-                        <div className="col col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div className="col col-md-6 col-12">
                             <Button
-                                className="btn btn-secondary btn-lg full-width"
+                                className="btn btn-secondary btn-lg"
                                 onClick={accountDashboardStore.resetForm}
                             >
                                 Cancel
@@ -55,11 +55,11 @@ class PersonalInformationClass extends React.Component<IInjectedProps> {
                         </div>
                         <div className="col col-lg-6 col-md-6 col-sm-12 col-12">
                             <Button
-                                className="btn btn-primary btn-lg full-width"
+                                className="btn btn-primary btn-lg"
                                 onClick={accountDashboardStore.updateUser}
                             >
                                 Save all Changes
-                                <div className="ripple-container" />
+                                <div>ripple container</div>
                             </Button>
                         </div>
                     </div>

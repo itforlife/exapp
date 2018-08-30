@@ -1,7 +1,6 @@
 import React from 'react'
 import { container, IInjectedProps } from '../../utils/decorators'
 import { Button, Checkbox, FloatingInput } from '../elements'
-import * as registerStyles from './register.scss'
 
 export const Register = container(
     class extends React.Component<IInjectedProps> {
@@ -18,12 +17,10 @@ export const Register = container(
 
             return (
                 <div>
-                    <div className={`${registerStyles.registerTitle} h6`}>
-                        {t('authentication.registerTitle')}
-                    </div>
-                    <form className={registerStyles.registerContent}>
+                    <div>{t('authentication.registerTitle')}</div>
+                    <form>
                         <div className="row">
-                            <div className="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div className="col col-12 col-md-6">
                                 <FloatingInput
                                     {...formStore.$('firstName').bind({
                                         label: t(
@@ -32,7 +29,7 @@ export const Register = container(
                                     })}
                                 />
                             </div>
-                            <div className="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div className="col col-12 col-md-6">
                                 <FloatingInput
                                     {...formStore.$('lastName').bind({
                                         label: t(
@@ -41,7 +38,7 @@ export const Register = container(
                                     })}
                                 />
                             </div>
-                            <div className="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div className="col col-12">
                                 <FloatingInput
                                     {...formStore.$('email').bind({
                                         type: 'email',
@@ -58,9 +55,7 @@ export const Register = container(
                                         ),
                                     })}
                                 />
-                                <div
-                                    className={registerStyles.registerRemember}
-                                >
+                                <div>
                                     <Checkbox
                                         name={'optionsCheckboxes'}
                                         label={t(
@@ -69,7 +64,7 @@ export const Register = container(
                                     />
                                 </div>
                                 <Button
-                                    className="btn btn-purple btn-lg full-width"
+                                    className="btn btn-lg"
                                     onClick={this.onCompleteRegistration}
                                 >
                                     {t('authentication.registerButtonText')}

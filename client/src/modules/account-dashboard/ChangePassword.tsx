@@ -13,7 +13,7 @@ class ChangePasswordClass extends React.Component<IInjectedProps> {
             <Content title={t('accountDashboard.changePassword')}>
                 <form>
                     <div className="row">
-                        <div className="col col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div className="col col-md-6 col-12">
                             <FloatingInput
                                 {...formStore.$('email').bind({
                                     type: 'email',
@@ -27,7 +27,7 @@ class ChangePasswordClass extends React.Component<IInjectedProps> {
                                 })}
                             />
                         </div>
-                        <div className="col col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div className="col col-md-6 col-12">
                             <FloatingInput
                                 {...formStore.$('password').bind({
                                     label: t('authentication.currentPassword'),
@@ -41,9 +41,9 @@ class ChangePasswordClass extends React.Component<IInjectedProps> {
                                 })}
                             />
                         </div>
-                        <div className="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div className="col col-12">
                             <Button
-                                className="btn btn-primary btn-lg full-width"
+                                className="btn btn-primary btn-lg"
                                 onClick={accountDashboardStore.changePassword}
                             >
                                 Change password
