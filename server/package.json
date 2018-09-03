@@ -18,6 +18,8 @@
         "helmet": "^3.13.0",
         "jsonwebtoken": "^8.3.0",
         "multer": "^1.3.1",
+        "react": "^16.4.2",
+        "react-dom": "^16.4.2",
         "reflect-metadata": "^0.1.12",
         "restyped-express-async": "^0.6.1",
         "routing-controllers": "^0.7.7",
