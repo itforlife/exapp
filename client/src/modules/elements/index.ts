@@ -1,5 +1,5 @@
-export { Button } from './button'
-export { FloatingInput } from './floatingInput'
-export { Dropdown } from './Dropdown'
-export { Checkbox } from './Checkbox'
-export { RichTextEditor } from './rich-text'
+export { Button } from './button';
+export { FloatingInput } from './FloatingInput';
+export { Dropdown } from './Dropdown';
+export { Checkbox } from './Checkbox';
+export { RichTextEditor } from './rich-text';

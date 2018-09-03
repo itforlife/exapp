@@ -30,6 +30,7 @@
         "slate": "^0.34.6",
         "slate-react": "^0.13.3",
         "slice-machine": "0.1.2",
+        "typestyle": "^2.0.1",
         "validatorjs": "^3.14.2"
     },
     "devDependencies": {
@@ -59,9 +60,9 @@
         "cpx": "^1.5.0",
         "cross-env": "^5.2.0",
         "css-loader": "^1.0.0",
+        "dotenv-webpack": "^1.5.7",
         "file-loader": "^2.0.0",
         "html-webpack-plugin": "^3.2.0",
-        "dotenv-webpack": "^1.5.7",
         "node-sass": "^4.9.2",
         "prettier": "^1.13.7",
         "pretty-quick": "^1.6.0",
