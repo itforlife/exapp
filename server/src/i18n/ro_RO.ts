@@ -1,0 +1,51 @@
+export const labels = {
+    index: {
+        mainCallToAction: 'Exapp - platforma sociala caritabila',
+        joinUsButton: 'Alatura-te!',
+    },
+    startCampaign: {
+        campaignInfoTitle: 'Informatii campanie',
+    },
+    notFound: {
+        description: 'Nu am gasit ceea ce cautai...',
+        title: 'Pagina lipsa',
+    },
+    layout: {
+        footerText: 'Copyright 2018',
+        headerText: 'Here goes the header data & nav',
+    },
+    authentication: {
+        loginTab: 'Intra in cont',
+        registerTab: 'Inregistreaza-te',
+        loginTitle: 'Intra in cont',
+        mailInputLabel: 'Email-ul tau',
+        passwordInputLabel: 'Parola ta',
+        forgotPasswordLabel: 'Ai uitat parola?',
+        loginButton: 'Intra in cont',
+        loginFacebookButton: 'Intra cu Facebook',
+        loginTwitterButton: 'Intra cu Twitter',
+        noAccountText: 'Nu ai cont ?',
+        registerNowText: 'Inregistreza-te acum!',
+        createAccountCall: 'e simplu sa fii implicat!',
+        rememberMe: 'Tine-ma minte',
+        registerTitle: 'Inregistreza-te in Exapp',
+        firstNameInputLabel: 'Prenume',
+        lastNameInputLabel: 'Nume',
+        termsAndConditionsText: 'Accept termenii si conditiile',
+        registerButtonText: 'Finalizeaza inregistrarea!',
+        phoneNumberInputLabel: 'Numarul de telefon',
+        birthdayInputlabel: 'Data de nastere',
+        newPassword: 'Parola noua',
+        currentPassword: 'Parola curenta',
+        confirmPassword: 'Confirma parola noua',
+    },
+    accountDashboard: {
+        headerTitle: 'Pagina de profil',
+        headerContent:
+            'Aici vei gasit tot ce ai nevoie pentru a schimba informatii despre profil, setari si parola!',
+        yourProfile: 'Profilul dumneavoastra',
+        profileSettings: 'Setari profil',
+        personalInformation: 'Informatii personale',
+        changePassword: 'Schimbare parola',
+    },
+};

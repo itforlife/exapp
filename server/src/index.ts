@@ -1,5 +1,7 @@
 import 'reflect-metadata';
+import 'module-alias/register';
 import * as bodyParser from 'body-parser';
+import * as express from 'express';
 import * as helmet from 'helmet';
 import { Container } from 'typedi';
 import {
@@ -32,7 +34,7 @@ class Startup {
     private startExpressServer() {
         // load everything needed to the Container
         const app = createExpressServer({
-            controllers: [__dirname + '/controllers/*.ts'],
+            controllers: [__dirname + '/controllers/**/*.ts'],
             middlewares: [helmet],
             cors: true,
             validation: true,
@@ -44,14 +46,8 @@ class Startup {
             })
         );
         app.use(bodyParser.json());
-        const viewsPath = path.resolve(
-            __dirname,
-            '..',
-            '..',
-            'client',
-            'src',
-            'pages'
-        );
+        app.use(express.static(path.resolve('..', 'public')));
+        const viewsPath = path.resolve(__dirname, 'views');
         registerEngine(app, viewsPath);
         const port = process.env.PORT || 3000;
         app.listen(port);

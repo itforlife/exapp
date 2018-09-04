@@ -5,48 +5,47 @@ import {
     JsonController,
     Post as HttpPost,
     BadRequestError,
-} from 'routing-controllers'
-import { EntityFromBody } from 'typeorm-routing-controllers-extensions'
+} from 'routing-controllers';
+import { EntityFromBody } from 'typeorm-routing-controllers-extensions';
 
-import { User } from '../entities/User'
-import { Inject } from 'typedi'
-import { AuthService } from '../services/AuthService'
-
+import { User } from '@entities/User';
+import { Inject } from 'typedi';
+import { AuthService } from '@services/AuthService';
 
 export interface IUserLoginPayload {
-    password: string
-    email: string
+    password: string;
+    email: string;
 }
 export interface IUserPasswordChangePayload {
-    password: string
-    newPassword: string
-    email: string
+    password: string;
+    newPassword: string;
+    email: string;
 }
 @JsonController('/auth')
 export class AuthController {
     @Inject()
-    authService: AuthService
+    authService: AuthService;
 
     @HttpPost('/local')
     public async login(@Body() user: IUserLoginPayload) {
-        const { password, email } = user
+        const { password, email } = user;
         try {
-            return await this.authService.login(password, email)
+            return await this.authService.login(password, email);
         } catch (e) {
-            throw new BadRequestError(e)
+            throw new BadRequestError(e);
         }
     }
     @HttpPost('/reset')
     public async resetPassword(@Body() payload: IUserPasswordChangePayload) {
-        const { password, email, newPassword } = payload
+        const { password, email, newPassword } = payload;
         try {
             return await this.authService.resetPassword(
                 password,
                 email,
                 newPassword
-            )
+            );
         } catch (e) {
-            throw new BadRequestError(e)
+            throw new BadRequestError(e);
         }
     }
     @HttpPost('/register')
@@ -55,9 +54,9 @@ export class AuthController {
         @EntityFromBody() user: User
     ) {
         try {
-            return await this.authService.register(user, password)
+            return await this.authService.register(user, password);
         } catch (e) {
-            throw new BadRequestError(e)
+            throw new BadRequestError(e);
         }
     }
     @HttpPost('/:providerName')
@@ -66,10 +65,12 @@ export class AuthController {
         @BodyParam('authToken') authToken: string
     ) {
         try {
-            return await this.authService.registerWithProvider(providerName, authToken)
+            return await this.authService.registerWithProvider(
+                providerName,
+                authToken
+            );
         } catch (e) {
-            throw new BadRequestError('Invalid auth token')
+            throw new BadRequestError('Invalid auth token');
         }
     }
-
 }
