@@ -34,6 +34,9 @@ export const inputStyle = style({
         },
         '&:focus+label': labelActiveStyle,
         '&:valid+label': labelActiveStyle,
+        '&:disabled': {
+            backgroundColor: '#e9ecef',
+        },
     },
 });
 
@@ -48,5 +51,12 @@ const iconStyle = {
     marginTop: '-10px',
 };
 
-export const successIconStyle = style(iconStyle, { position: 'absolute' }, { color: '#08ddc1' });
-export const errorIconStyle = style(iconStyle, { position: 'absolute' }, { color: '#f92552' });
+export const successIconStyle = style(iconStyle, {
+    position: 'absolute',
+    color: '#08ddc1',
+});
+
+export const errorIconStyle = style(iconStyle, {
+    position: 'absolute',
+    color: '#f92552',
+});

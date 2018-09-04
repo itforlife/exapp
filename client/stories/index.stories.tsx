@@ -9,4 +9,7 @@ storiesOf('FloatingInput', module)
     .add('success render', () => (
         <FloatingInput label="Success Input" success />
     ))
-    .add('error render', () => <FloatingInput label="Error Input" error />);
+    .add('error render', () => <FloatingInput label="Error Input" error />)
+    .add('disabled render', () => (
+        <FloatingInput label="Disabled Input" disabled />
+    ));
