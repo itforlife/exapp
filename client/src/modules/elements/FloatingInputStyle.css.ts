@@ -36,3 +36,17 @@ export const inputStyle = style({
         '&:valid+label': labelActiveStyle,
     },
 });
+
+const iconStyle = {
+    right: '20px',
+    top: '50%',
+    height: '20px',
+    width: '20px',
+    display: 'block',
+    fontSize: '20px',
+    lineHeight: '20px',
+    marginTop: '-10px',
+};
+
+export const successIconStyle = style(iconStyle, { position: 'absolute' }, { color: '#08ddc1' });
+export const errorIconStyle = style(iconStyle, { position: 'absolute' }, { color: '#f92552' });
