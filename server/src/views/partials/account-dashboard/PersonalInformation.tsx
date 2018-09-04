@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button } from '@elements/button';
-import { FloatingInput } from '@elements/floatingInput';
+import { FloatingInput } from '@elements/FloatingInput';
 import { Content } from './Content';
 import { labels } from '@i18n/en_EN';
 

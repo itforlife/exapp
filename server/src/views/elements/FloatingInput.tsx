@@ -1,5 +1,4 @@
-import React from 'react';
-import { observer } from 'mobx-react';
+import * as React from 'react';
 import {
     formGroupStyle,
     labelStyle,
@@ -8,7 +7,7 @@ import {
     errorIconStyle,
 } from './FloatingInputStyle.css';
 
-export const FloatingInput = observer(props => (
+export const FloatingInput = props => (
     <div className={`form-group ${formGroupStyle}`}>
         <input
             className={`${inputStyle} form-control`}
@@ -26,4 +25,4 @@ export const FloatingInput = observer(props => (
             <i className={`fas fa-times-circle ${errorIconStyle}`} />
         )}
     </div>
-));
+);
