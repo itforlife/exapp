@@ -1,11 +1,12 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import { storiesOf } from '@storybook/react'
+import { storiesOf } from '@storybook/react';
 
-import { FloatingInput } from '../src/modules/elements/floatingInput'
+import { FloatingInput } from '../src/modules/elements/FloatingInput';
 
 storiesOf('FloatingInput', module)
-    .add('floating with label down', () => <FloatingInput label="test" />)
-    .add('floating with label up', () => (
-        <FloatingInput label="test" value="typed value" />
+    .add('basic render', () => <FloatingInput label="Default Input" />)
+    .add('success render', () => (
+        <FloatingInput label="Success Input" success />
     ))
+    .add('error render', () => <FloatingInput label="Error Input" error />);

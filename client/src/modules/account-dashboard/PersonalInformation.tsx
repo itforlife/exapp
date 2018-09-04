@@ -1,14 +1,14 @@
-import React from 'react'
-import { container, IInjectedProps } from '../../utils/decorators'
-import { Button } from '../elements/button'
-import { FloatingInput } from '../elements/floatingInput'
-import { Content } from './Content'
+import React from 'react';
+import { container, IInjectedProps } from '../../utils/decorators';
+import { Button } from '../elements/button';
+import { FloatingInput } from '../elements/FloatingInput';
+import { Content } from './Content';
 
 class PersonalInformationClass extends React.Component<IInjectedProps> {
     public render() {
-        const { t, appStore } = this.props
-        const { accountDashboardStore } = appStore
-        const formStore = accountDashboardStore.profileInformationForm
+        const { t, appStore } = this.props;
+        const { accountDashboardStore } = appStore;
+        const formStore = accountDashboardStore.profileInformationForm;
         return (
             <Content title={t('accountDashboard.personalInformation')}>
                 <form>
@@ -65,8 +65,8 @@ class PersonalInformationClass extends React.Component<IInjectedProps> {
                     </div>
                 </form>
             </Content>
-        )
+        );
     }
 }
 
-export const PersonalInformation = container(PersonalInformationClass)
+export const PersonalInformation = container(PersonalInformationClass);
