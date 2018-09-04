@@ -10,7 +10,6 @@ import {
     Action,
 } from 'routing-controllers';
 import * as dotenv from 'dotenv';
-import { registerEngine } from './utils/tsx-view-engine';
 import { createConnection, useContainer } from 'typeorm';
 import * as path from 'path';
 
@@ -47,8 +46,6 @@ class Startup {
         );
         app.use(bodyParser.json());
         app.use(express.static(path.resolve('..', 'public')));
-        const viewsPath = path.resolve(__dirname, 'views');
-        registerEngine(app, viewsPath);
         const port = process.env.PORT || 3000;
         app.listen(port);
         // tslint:disable-next-line:no-console
