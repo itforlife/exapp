@@ -5,7 +5,7 @@ import * as express from 'express';
 import * as helmet from 'helmet';
 import { Container } from 'typedi';
 import {
-    createExpressServer,
+    useExpressServer,
     useContainer as routingUseContainer,
     Action,
 } from 'routing-controllers';
@@ -32,20 +32,22 @@ class Startup {
 
     private startExpressServer() {
         // load everything needed to the Container
-        const app = createExpressServer({
+        const documentRoot = path.resolve(__dirname, '..', 'public', 'assets');
+        const app = express();
+        app.use(express.static(documentRoot));
+        useExpressServer(app, {
             controllers: [__dirname + '/controllers/**/*.ts'],
-            middlewares: [helmet],
             cors: true,
             validation: true,
             currentUserChecker: this.currentUserChecker,
         });
+
         app.use(
             bodyParser.urlencoded({
                 extended: true,
             })
         );
         app.use(bodyParser.json());
-        app.use(express.static(path.resolve('..', 'public')));
         const port = process.env.PORT || 3000;
         app.listen(port);
         // tslint:disable-next-line:no-console

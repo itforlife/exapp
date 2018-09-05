@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "lib": ["es5", "es6"],
+        "baseUrl": ".",
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "outDir": "./build",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "jsx": "react",
+        "sourceMap": true,
+        "allowJs": true,
+        "paths": {
+            "@pages/*": ["server/src/views/pages/*"],
+            "@partials/*": ["server/src/views/partials/*"],
+            "@elements/*": ["server/src/views/elements/*"],
+            "@layout/*": ["server/src/views/layout/*"],
+            "@theme/*": ["server/src/views/theme/*"],
+            "@utils/*": ["server/src/utils/*"],
+            "@controllers/*": ["server/src/controllers/*"],
+            "@services/*": ["server/src/services/*"],
+            "@entities/*": ["server/src/entities/*"],
+            "@i18n/*": ["server/src/i18n/*"],
+            "@constants/*": ["server/src/constants/*"]
+        }
+    },
+    "exclude": ["node_modules", "**/*.spec.ts"]
+}

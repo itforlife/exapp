@@ -1,15 +1,9 @@
-# Project dependencies
-.cache
-node_modules
-yarn-error.log
-.env
-firebase-debug.log
-npm-debug.log
-# Build directory
+.idea/
+.vscode/
+.cache/
 .DS_Store
-/src/functions/next
-/dist
-/client/dist
-tmp
-*.db
-*.scss.d.ts
+db/
+node_modules/
+build/
+tmp/
+temp/

@@ -12,12 +12,13 @@ export class LogIn extends React.Component<ILogInForm> {
         return (
             <div>
                 <div> {labels.authentication.loginTitle}</div>
-                <form>
+                <form data-controller="register">
                     <div className="row">
                         <div className="col col-12">
                             <p>{'userStore.errorMessage'}</p>
                             <FloatingInput
                                 type="email"
+                                data-target="email"
                                 label={labels.authentication.mailInputLabel}
                             />
                             <p>{'Email error message'}</p>
@@ -36,7 +37,7 @@ export class LogIn extends React.Component<ILogInForm> {
                                     {labels.authentication.forgotPasswordLabel}
                                 </a>
                             </div>
-                            <Button className="btn btn-lg btn-primary">
+                            <Button className="btn btn-lg btn-primary" data-action="click->register#login">
                                 {labels.authentication.loginButton}
                             </Button>
                             <div>OR</div>
