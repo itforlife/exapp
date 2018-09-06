@@ -7,21 +7,25 @@ import {
     errorIconStyle,
 } from './FloatingInputStyle.css';
 
-export const FloatingInput = props => (
+interface IFloatingInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+    success?: boolean;
+    error?: boolean;
+    label: string;
+    type?: string;
+}
+export const FloatingInput = ({success, error, label, ...inputProps}: IFloatingInputProps) => (
     <div className={`form-group ${formGroupStyle}`}>
         <input
+            {...inputProps}
+            type={inputProps.type || 'text'}
             className={`${inputStyle} form-control`}
-            type="text"
-            disabled={props.disabled}
-            placeholder={props.placeholder}
-            value={props.value}
             required={true}
         />
-        <label className={labelStyle}>{props.label}</label>
-        {props.success && (
+        <label className={labelStyle}>{label}</label>
+        {success && (
             <i className={`fas fa-check-circle ${successIconStyle}`} />
         )}
-        {props.error && (
+        {error && (
             <i className={`fas fa-times-circle ${errorIconStyle}`} />
         )}
     </div>

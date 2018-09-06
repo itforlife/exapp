@@ -8,13 +8,13 @@ export interface IProps {
 
 export class Checkbox extends React.Component<IProps> {
     public render() {
-        const { label, name, checked } = this.props;
+        const { label, ...rest } = this.props;
         return (
             <div>
                 <label>
-                    <input type="checkbox" name={name} />
+                    <input type="checkbox" {...rest} />
                     <span>
-                        <span>{checked}</span>
+                        <span>{rest.checked}</span>
                     </span>
                     {label}
                 </label>

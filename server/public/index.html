@@ -23,7 +23,11 @@
     <div>
         <%= component %>
     </div>
-    <script type="application/javascript" src="/js/application.js"></script>
+    <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
+    <script>
+        var application = Stimulus.Application.start();
+    </script>
+    <script src="js/AjaxFormController.js"></script>
 </body>
 
 </html>

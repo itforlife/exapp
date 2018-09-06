@@ -35,19 +35,18 @@ class Startup {
         const documentRoot = path.resolve(__dirname, '..', 'public', 'assets');
         const app = express();
         app.use(express.static(documentRoot));
-        useExpressServer(app, {
-            controllers: [__dirname + '/controllers/**/*.ts'],
-            cors: true,
-            validation: true,
-            currentUserChecker: this.currentUserChecker,
-        });
-
         app.use(
             bodyParser.urlencoded({
                 extended: true,
             })
         );
         app.use(bodyParser.json());
+        useExpressServer(app, {
+            controllers: [__dirname + '/controllers/**/*.ts'],
+            cors: true,
+            validation: true,
+            currentUserChecker: this.currentUserChecker,
+        });
         const port = process.env.PORT || 3000;
         app.listen(port);
         // tslint:disable-next-line:no-console

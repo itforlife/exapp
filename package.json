@@ -82,7 +82,7 @@
     },
     "scripts": {
         "dev": "nodemon",
-        "client:dev": "webpack --config webpack.config.js client/src/Application.ts --watch --mode=development -o server/public/assets/js/application.js",
+        "client:dev": "webpack --config ./client/webpack.config.js --watch --mode=development",
         "storybook": "start-storybook -p 6006"
     }
 }

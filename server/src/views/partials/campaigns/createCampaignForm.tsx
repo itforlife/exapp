@@ -21,6 +21,7 @@ export class CreateCampaignForm extends React.Component<
                         <div className="form-group">
                             <h4>Title</h4>
                             <FloatingInput
+                                label="Campaign title"
                                 name="campaignTitle"
                                 id="campaignTitle"
                                 placeholder="Type a campaign title"

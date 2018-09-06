@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "lib": ["es5", "es6"],
+        "lib": ["dom", "es5", "es6"],
         "baseUrl": ".",
         "target": "es5",
         "module": "commonjs",

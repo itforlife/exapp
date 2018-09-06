@@ -8,7 +8,7 @@ export class DashBoardHeader extends React.Component<IDashBoardHeaderProps> {
     public render() {
         return (
             <div>
-                <div>styles.bgAccount</div>
+                <div>Account management</div>
                 <div className="container">
                     <div className="row">
                         <div className="col m-auto col-md-8 col-12">
@@ -19,7 +19,7 @@ export class DashBoardHeader extends React.Component<IDashBoardHeaderProps> {
                         </div>
                     </div>
                 </div>
-                <img src="static/assets/img/account-bottom.png" alt="friends" />
+                <img src="img/account-bottom.png" alt="friends" />
             </div>
         );
     }

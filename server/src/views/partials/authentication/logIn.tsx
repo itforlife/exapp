@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Button, Checkbox, FloatingInput } from '@elements/index';
+import { Button } from '@elements/index';
+import { LogInForm } from './LogInForm';
 import { labels } from '@i18n/en_EN';
 
 interface ILogInForm {
@@ -12,54 +13,24 @@ export class LogIn extends React.Component<ILogInForm> {
         return (
             <div>
                 <div> {labels.authentication.loginTitle}</div>
-                <form data-controller="register">
-                    <div className="row">
-                        <div className="col col-12">
-                            <p>{'userStore.errorMessage'}</p>
-                            <FloatingInput
-                                type="email"
-                                data-target="email"
-                                label={labels.authentication.mailInputLabel}
-                            />
-                            <p>{'Email error message'}</p>
-                            <FloatingInput
-                                type="password"
-                                label={labels.authentication.passwordInputLabel}
-                            />
-                            <p>{"formStore.$('password').error"}</p>
+                <LogInForm labels={labels} />
+                <div>OR</div>
 
-                            <div>
-                                <Checkbox
-                                    name={'optionsCheckboxes'}
-                                    label={labels.authentication.rememberMe}
-                                />
-                                <a href="#">
-                                    {labels.authentication.forgotPasswordLabel}
-                                </a>
-                            </div>
-                            <Button className="btn btn-lg btn-primary" data-action="click->register#login">
-                                {labels.authentication.loginButton}
-                            </Button>
-                            <div>OR</div>
-
-                            <Button>
-                                <i aria-hidden="true">fb icon</i>
-                                {labels.authentication.loginFacebookButton}
-                            </Button>
-                            <Button>
-                                <i aria-hidden="true">twitter icon</i>
-                                {labels.authentication.loginTwitterButton}
-                            </Button>
-                            <p>
-                                {labels.authentication.noAccountText}{' '}
-                                <a href="#">
-                                    {labels.authentication.registerNowText}
-                                </a>{' '}
-                                {labels.authentication.createAccountCall}
-                            </p>
-                        </div>
-                    </div>
-                </form>
+                <Button>
+                    <i aria-hidden="true">fb icon</i>
+                    {labels.authentication.loginFacebookButton}
+                </Button>
+                <Button>
+                    <i aria-hidden="true">twitter icon</i>
+                    {labels.authentication.loginTwitterButton}
+                </Button>
+                <p>
+                    {labels.authentication.noAccountText}{' '}
+                    <a href="#">
+                        {labels.authentication.registerNowText}
+                    </a>{' '}
+                    {labels.authentication.createAccountCall}
+                </p>
             </div>
         );
     }
