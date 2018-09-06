@@ -9,7 +9,7 @@ import { classes } from 'typestyle';
               itemClass="item"
               itemSelectedClass="selected"
               value="Fishing"
-             items={['Fishing', 'Hunting']} />
+              items={['Fishing', 'Hunting']} />
  */
 interface IOption {
     label: string;

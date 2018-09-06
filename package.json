@@ -47,7 +47,7 @@
             "test/*",
             "docs/*"
         ],
-        "exec": "node -r ts-node/register ./server/src/index.ts",
+        "exec": "node --inspect -r ts-node/register ./server/src/index.ts",
         "watch": [
             "./server/src"
         ],
@@ -84,6 +84,6 @@
     "scripts": {
         "dev": "nodemon",
         "client:dev": "webpack --config ./client/webpack.config.js --watch --mode=development",
-        "storybook": "start-storybook -p 6006"
+        "storybook": "start-storybook -p 6006 -c ./server/.storybook/ -s ./server/public/assets/"
     }
 }

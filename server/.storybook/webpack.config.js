@@ -2,9 +2,10 @@ const path = require('path');
 const babelLoader = path.resolve('./node_modules/babel-loader');
 const npmPackage = require('../../package.json');
 const alias = Object.keys(npmPackage._moduleAliases).reduce((acc, k) => {
-    acc[k] = path.resolve(__dirname, npmPackage._moduleAliases[k]);
+    acc[k] = path.resolve(__dirname, '..', '..', npmPackage._moduleAliases[k]);
     return acc;
 }, {});
+// console.log(JSON.stringify(alias));
 
 const config = {
     module: {

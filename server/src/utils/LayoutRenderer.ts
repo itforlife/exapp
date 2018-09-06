@@ -6,12 +6,24 @@ import * as path from 'path';
 import * as _ from 'lodash';
 const htmlPath = path.resolve(__dirname, '..', '..', 'public', 'index.html');
 const htmlTemplate = _.template(String(fs.readFileSync(htmlPath)));
-type ComponentType<P> = React.ComponentClass<P> | React.SFC<P>;
+const controllersRegex = /data-controller="(.+?)"/gim;
 
-export const View = <P>(viewToRender: ComponentType<P>) => (
+type ComponentType<P> = React.ComponentClass<P> | React.SFC<P>;
+const extractControllersInUse = (rendered: string) => {
+    let match = null;
+    const controllers = [];
+    while ((match = controllersRegex.exec(rendered))) {
+        controllers.push(match[1]);
+    }
+    return _.uniq(controllers).map(
+        c => `<script src="js/${_.upperFirst(c)}Controller.js"></script>`
+    );
+};
+
+export const View = <P>(viewToRender: ComponentType<P>) => <TP extends P>(
     object: Object,
     methodName: string,
-    descriptor: TypedPropertyDescriptor<(...any) => Promise<P>>
+    descriptor: TypedPropertyDescriptor<(...any) => Promise<TP>>
 ) => {
     const originalMethod = descriptor.value;
     descriptor.value = (...args) => {
@@ -20,10 +32,12 @@ export const View = <P>(viewToRender: ComponentType<P>) => (
             const component = ReactDOMServer.renderToStaticMarkup(
                 React.createElement(viewToRender, data)
             );
+            const controllers = extractControllersInUse(component).join('\n');
             const styles = getStyles();
             const rendered = htmlTemplate({
                 component,
                 styles,
+                controllers,
             });
             return rendered;
         });
