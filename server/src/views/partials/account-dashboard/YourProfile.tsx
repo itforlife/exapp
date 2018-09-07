@@ -17,7 +17,7 @@ export class YourProfile extends React.Component<IYouProfileProps> {
                     <div>
                         <div>
                             <h6>
-                                <a>
+                                <a href="/account-dashboard/settings">
                                     {labels.accountDashboard.profileSettings}
                                     <svg>
                                         <use xlinkHref="#static/asstes/olymp-dropdown-arrow-icon" />
@@ -28,7 +28,7 @@ export class YourProfile extends React.Component<IYouProfileProps> {
                         <div>
                             <ul>
                                 <li>
-                                    <a>
+                                    <a  href="/account-dashboard/personal">
                                         {' '}
                                         {
                                             labels.accountDashboard
@@ -37,7 +37,7 @@ export class YourProfile extends React.Component<IYouProfileProps> {
                                     </a>
                                 </li>
                                 <li>
-                                    <a>
+                                    <a  href="/account-dashboard/change-password">
                                         {labels.accountDashboard.changePassword}
                                     </a>
                                 </li>

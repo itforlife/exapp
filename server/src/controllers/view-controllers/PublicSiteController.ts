@@ -5,7 +5,9 @@ import LandingPage from '@pages/LandingPage';
 import AccountDashboard from '@pages/AccountDashboard';
 import StartCampaign from '@pages/StartCampaign';
 import { labels } from '@i18n/en_EN';
-import { LogInForm } from '@partials/authentication/LogInForm';
+import { PersonalInformation } from '@partials/account-dashboard/PersonalInformation';
+import { ChangePassword } from '@partials/account-dashboard/ChangePassword';
+
 
 @Controller()
 export class PublicSiteController {
@@ -31,20 +33,20 @@ export class PublicSiteController {
             labels,
         };
     }
-    @PartialView(LogInForm)
-    @Post('/login')
-    public async login(
-        @BodyParam('email') email: string,
-        @BodyParam('password') password: string
-    ) {
-        const emailError = email !== 'test' ? 'Email incorrect' : '';
-        const passwordError = password !== 'test' ? 'Password incorrect!' : '';
+    @Get('/account-dashboard/personal')
+    @View(AccountDashboard)
+    public async personalInformation(req: express.Request, res: express.Response) {
         return {
             labels,
-            emailError,
-            passwordError,
-            email,
-            password,
+            settingsComponent: 'personalInformation'
+        };
+    }
+    @Get('/account-dashboard/change-password')
+    @View(AccountDashboard)
+    public async changePassword(req: express.Request, res: express.Response) {
+        return {
+            labels,
+            settingsComponent: 'changePassword'
         };
     }
 }

@@ -12,21 +12,16 @@ export class LogIn extends React.Component<ILogInForm> {
     public render() {
         const { labels } = this.props;
         return (
-            <div>
+            <div data-controller="socialAuth">
                 <div> {labels.authentication.loginTitle}</div>
                 <LogInForm labels={labels} />
                 <div>OR</div>
 
-                <Button>
+                <Button name="facebook" data-action="socialAuth#login">
                     <i aria-hidden="true">fb icon</i>
                     {labels.authentication.loginFacebookButton}
                 </Button>
-                <Dropdown data-controller="dropdown"
-                          itemClass="item"
-                          itemSelectedClass="selected"
-                          value="Fishing"
-                          items={['Fishing', 'Hunting']} />
-                <Button>
+                <Button name="twitter" data-action="socialAuth#login">
                     <i aria-hidden="true">twitter icon</i>
                     {labels.authentication.loginTwitterButton}
                 </Button>

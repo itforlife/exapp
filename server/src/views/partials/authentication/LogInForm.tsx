@@ -2,38 +2,38 @@
 import * as React from 'react';
 import { Button, Checkbox, FloatingInput } from '@elements/index';
 import { labels } from '@i18n/en_EN';
+import { User } from '@entities/User';
 
 interface ILogInForm {
     labels: typeof labels;
-    emailError?: string;
-    passwordError?: string;
-    email?: string;
-    password?: string;
+    errors?: { [type: string]: string; },
+    generalError?: string,
+    user?: User;
 }
 
-export const LogInForm = (props: ILogInForm) => (
-<form data-controller="ajaxForm" action="/login">
+export const LogInForm: React.SFC<ILogInForm> = (props: ILogInForm) => (
+<form data-controller="ajaxForm" action="/auth/login">
     <div className="row">
         <div className="col col-12">
-            <p>{'userStore.errorMessage'}</p>
+            <p>{props.generalError}</p>
             <FloatingInput
                 type="email"
                 name="email"
-                value={props.email}
-                error={!!props.emailError}
+                value={props.user.email}
+                error={!!props.errors.email}
                 data-target="ajaxForm.field"
                 label={labels.authentication.mailInputLabel}
             />
-            <p>{props.emailError}</p>
+            <p>{props.errors.email}</p>
             <FloatingInput
                 type="password"
                 name="password"
-                value={props.password}
-                error={!!props.passwordError}
+                value={props.user.password}
+                error={!!props.errors.password}
                 data-target="ajaxForm.field"
                 label={labels.authentication.passwordInputLabel}
             />
-            <p>{props.passwordError}</p>
+            <p>{props.errors.password}</p>
 
             <div>
                 <Checkbox
@@ -52,3 +52,8 @@ export const LogInForm = (props: ILogInForm) => (
     </div>
 </form>
 );
+
+LogInForm.defaultProps = {
+    errors: {},
+    user: new User()
+}

@@ -8,9 +8,12 @@ import { Service, Inject } from 'typedi'
 import { InjectRepository } from 'typeorm-typedi-extensions'
 import { validate } from 'class-validator'
 import { providers } from '../constants/SocialProviders'
+import { ServiceResult } from '@utils/ServiceResult';
 
 @Service()
 export class AuthService {
+    static INVALID_CREDENTIALS = 'invalid_credentials';
+    static EMAIL_ALREADY_EXISTS = 'email_already_exists';
     @InjectRepository(User)
     userRepository: Repository<User>
     @Inject()
@@ -19,12 +22,10 @@ export class AuthService {
     httpService: HttpService
 
     login = async (password: string, email: string) => {
-        const errorResponse = {
-            error: 'invalid credentials',
-        }
+        const result = new ServiceResult();
         const currentUser = await this.userRepository.findOne({ email })
         if(!currentUser) {
-            throw errorResponse
+            return result.error(AuthService.INVALID_CREDENTIALS);
         }
         const isValidPassword = this.encryptionService.compare(
             password,
@@ -32,14 +33,28 @@ export class AuthService {
         )
      
         if (isValidPassword) {
-            return {
-                token: this.encryptionService.sign(classToPlain(currentUser)),
-            }
+            return result.success(this.encryptionService.sign(classToPlain(currentUser)))
         } else {
-            throw errorResponse
+            return result.error(AuthService.INVALID_CREDENTIALS);
         }
     }
 
+    register = async (user: User, password) => {
+        const result = new ServiceResult();
+        const existingUser = await this.userRepository.findOne({
+            email: user.email,
+        })
+       
+        if (existingUser) {
+           return result.error(AuthService.EMAIL_ALREADY_EXISTS);
+            
+        }
+        const hash = this.encryptionService.encrypt(password)
+        user.password = hash
+
+        const userResponse = await this.userRepository.save(user)
+        return result.success(this.encryptionService.sign(classToPlain(userResponse)));
+    }
     resetPassword = async (
         password: string,
         email: string,
@@ -63,27 +78,6 @@ export class AuthService {
             }
         } else {
             throw errorResponse
-        }
-    }
-
-    register = async (user: User, password) => {
-        const exitingUser = await this.userRepository.findOne({
-            email: user.email,
-        })
-        if (exitingUser) {
-            throw [{ error: 'email aleardy exists' }]
-        }
-        const hash = this.encryptionService.encrypt(password)
-        user.password = hash
-        const errors = await validate(user)
-        if (errors.length > 0) {
-            const err = errors.map(error => error.constraints)
-            throw err
-        }
-
-        const userResponse = await this.userRepository.save(user)
-        return {
-            token: this.encryptionService.sign(classToPlain(userResponse)),
         }
     }
 

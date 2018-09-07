@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, Index } from 'typeorm'
 import { MinLength, IsEmail } from 'class-validator'
-import { Exclude } from 'class-transformer'
+// import { Exclude } from 'class-transformer'
 
 @Entity()
 export class User {
@@ -20,7 +20,6 @@ export class User {
     @Column({ nullable: true })
     public age: number
 
-    @Exclude()
     @MinLength(6)
     @Column({ nullable: true })
     public password: string

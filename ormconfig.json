@@ -3,12 +3,12 @@
     "database": "db/exapp.db",
     "synchronize": true,
     "logging": false,
-    "entities": ["src/entities/**/*.ts"],
-    "migrations": ["src/migration/**/*.ts"],
-    "subscribers": ["src/subscriber/**/*.ts"],
+    "entities": ["server/src/entities/**/*.ts"],
+    "migrations": ["server/src/migration/**/*.ts"],
+    "subscribers": ["server/src/subscriber/**/*.ts"],
     "cli": {
-        "entitiesDir": "src/entities",
-        "migrationsDir": "src/migration",
-        "subscribersDir": "src/subscriber"
+        "entitiesDir": "server/src/entities",
+        "migrationsDir": "server/src/migration",
+        "subscribersDir": "server/src/subscriber"
     }
 }
