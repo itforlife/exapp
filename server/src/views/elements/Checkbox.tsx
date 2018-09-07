@@ -1,24 +1,32 @@
 import * as React from 'react';
+import {
+    checkboxContainerStyle,
+    labelStyle,
+    inputStyle,
+    squareStyle,
+    checkStyle,
+    checkDisabledStyle,
+    textStyle,
+} from './CheckboxStyle.css';
 
-export interface IProps {
-    name?: string;
-    label: string;
-    checked?: boolean;
-}
-
-export class Checkbox extends React.Component<IProps> {
-    public render() {
-        const { label, ...rest } = this.props;
-        return (
-            <div>
-                <label>
-                    <input type="checkbox" {...rest} />
-                    <span>
-                        <span>{rest.checked}</span>
-                    </span>
-                    {label}
-                </label>
-            </div>
-        );
-    }
-}
+export const Checkbox = props => (
+    <div className={`checkbox ${checkboxContainerStyle}`}>
+        <label className={labelStyle}>
+            <input
+                type="checkbox"
+                name={props.name}
+                checked={props.checked}
+                disabled={props.disabled}
+                className={inputStyle}
+            />
+            {props.checked && (
+                <i
+                    className={`fas fa-check ${checkStyle} ${props.disabled &&
+                        checkDisabledStyle}`}
+                />
+            )}
+            <i className={`far fa-square ${squareStyle}`} />
+            <span className={textStyle}>{props.label}</span>
+        </label>
+    </div>
+);
