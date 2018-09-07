@@ -1,4 +1,5 @@
 import { style } from 'typestyle';
+import { colors } from '@theme/colors';
 
 export const checkboxContainerStyle = style({
     position: 'relative',
@@ -20,7 +21,7 @@ export const inputStyle = style({
 });
 
 export const squareStyle = style({
-    color: '#888da8',
+    color: colors.grey,
     fontSize: '24px',
     position: 'absolute',
     left: '0',
@@ -28,7 +29,7 @@ export const squareStyle = style({
 });
 
 export const checkStyle = style({
-    color: '#ff5e3a',
+    color: colors.orange,
     fontSize: '14px',
     position: 'absolute',
     left: '3px',
@@ -37,10 +38,10 @@ export const checkStyle = style({
 });
 
 export const checkDisabledStyle = style({
-    color: '#888da8',
+    color: colors.grey,
 });
 
 export const textStyle = style({
-    color: '#888da8',
+    color: colors.grey,
     paddingLeft: '25px',
 });
