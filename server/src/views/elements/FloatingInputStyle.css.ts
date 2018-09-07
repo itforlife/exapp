@@ -1,11 +1,12 @@
 import { style } from 'typestyle';
+import { colors } from '@theme/colors';
 
 export const formGroupStyle = style({
     position: 'relative',
 });
 
 export const labelStyle = style({
-    color: '#888da8',
+    color: colors.grey,
     position: 'absolute',
     pointerEvents: 'none',
     transition: '.3s ease all',
@@ -21,14 +22,14 @@ const labelActiveStyle = {
 };
 
 export const inputStyle = style({
-    color: '#515365',
+    color: colors.darkGrey,
     fontSize: '0.875rem',
     height: 'auto',
     padding: '1.5rem 1.1rem .5rem',
     lineHeight: 1.75,
     $nest: {
         '&:focus': {
-            borderColor: '#ffc6ba',
+            borderColor: colors.orange,
             outline: 0,
             boxShadow: 'none',
         },
@@ -48,5 +49,5 @@ const iconStyle = {
     marginTop: '-10px',
 };
 
-export const successIconStyle = style(iconStyle, { position: 'absolute' }, { color: '#08ddc1' });
-export const errorIconStyle = style(iconStyle, { position: 'absolute' }, { color: '#f92552' });
+export const successIconStyle = style(iconStyle, { position: 'absolute' }, { color: colors.green });
+export const errorIconStyle = style(iconStyle, { position: 'absolute' }, { color: colors.red });
