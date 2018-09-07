@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ChangePassword } from '@partials/account-dashboard/ChangePassword';
-import { DashBoardHeader } from '@partials/account-dashboard/DashBoardHeader';
+import { DashBoardHeader } from '@partials/account-dashboard/DashboardHeader';
 import { PersonalInformation } from '@partials/account-dashboard/PersonalInformation';
 import { YourProfile } from '@partials/account-dashboard/YourProfile';
 import { labels } from '@i18n/en_EN';

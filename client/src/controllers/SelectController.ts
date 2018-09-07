@@ -1,12 +1,11 @@
 import { Controller } from 'stimulus';
 declare var application;
 
-class DropdownController extends Controller {
+class SelectController extends Controller {
     element: HTMLSelectElement;
     newDropdown: HTMLDivElement;
     selectedItem: HTMLLIElement;
     connect() {
-        console.log('Dropdown mounted!');
         this.element.style.display = 'none';
         this.newDropdown = this.replaceDropdown();
     }
@@ -71,14 +70,8 @@ class DropdownController extends Controller {
             option => {
                 const li = document.createElement('li');
                 li.innerHTML = option.innerHTML;
-                const isSelected = option.getAttribute('selected');
                 const value = option.getAttribute('value');
-                if (isSelected) {
-                    li.setAttribute('data-selected', isSelected);
-                    dropdownLabel.innerHTML = li.innerHTML;
-                    li.classList.add(this.data.get('item-selected-class'));
-                    this.selectedItem = li;
-                }
+                this.syncSelectedOption(option, li, dropdownLabel);
                 li.setAttribute('data-value', value);
                 li.classList.add(this.data.get('item-class'));
                 li.addEventListener('click', this.elementSelectListener);
@@ -86,6 +79,20 @@ class DropdownController extends Controller {
             }
         );
     }
+
+    private syncSelectedOption(
+        option: HTMLOptionElement,
+        li: HTMLLIElement,
+        dropdownLabel: HTMLLabelElement
+    ) {
+        const isSelected = option.getAttribute('selected');
+        if (isSelected) {
+            li.setAttribute('data-selected', isSelected);
+            dropdownLabel.innerHTML = li.innerHTML;
+            li.classList.add(this.data.get('item-selected-class'));
+            this.selectedItem = li;
+        }
+    }
 }
 
-application.register('dropdown', DropdownController);
+application.register('select', SelectController);

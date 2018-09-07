@@ -30,6 +30,7 @@
         "react-dom": "^16.4.2",
         "react-select": "^2.0.0",
         "reflect-metadata": "^0.1.12",
+        "rimraf": "^2.6.2",
         "routing-controllers": "^0.7.7",
         "sqlite": "^2.9.2",
         "sqlite3": "^3.1.10",
@@ -83,7 +84,9 @@
     },
     "scripts": {
         "dev": "nodemon",
-        "client:dev": "webpack --config ./client/webpack.config.js --watch --mode=development",
+        "clean": "rimraf ./server/public/assets/js",
+        "client:dev": "npm run clean && webpack --config ./client/webpack.config.js --watch --mode=development",
+        "client:prod": "npm run clean &&  webpack --config ./client/webpack.config.js --watch --mode=production",
         "storybook": "start-storybook -p 6006 -c ./server/.storybook/ -s ./server/public/assets/"
     }
 }

@@ -12,16 +12,15 @@ interface IRegisterProps {
 
 export const Register: React.SFC<IRegisterProps> = ({ labels, user, errors, generalError }: IRegisterProps) => {
         return (
-            <div data-controller="ajaxForm">
+            <div data-controller="ajax">
                 <div>{ generalError }</div>
                 <div>{labels.authentication.registerTitle}</div>
-                <form action="/auth/register" data-controller="actionConfirmation"  data-actionConfirmation-text="Really?">
+                <form action="/auth/register">
                     <div className="row">
                         <div className="col col-12 col-md-6">
                             <FloatingInput
                                 name="firstName"
                                 value={user.firstName}
-                                data-target="ajaxForm.field"
                                 label={
                                     labels.authentication.firstNameInputLabel
                                 }
@@ -32,7 +31,6 @@ export const Register: React.SFC<IRegisterProps> = ({ labels, user, errors, gene
                             <FloatingInput
                                 name="lastName"
                                 value={user.lastName}
-                                data-target="ajaxForm.field"
                                 label={labels.authentication.lastNameInputLabel}
                             />
                             <p>{errors.lastName}</p>
@@ -42,7 +40,6 @@ export const Register: React.SFC<IRegisterProps> = ({ labels, user, errors, gene
                                 name="email"
                                 type="email"
                                 value={user.email}
-                                data-target="ajaxForm.field"
                                 label={labels.authentication.mailInputLabel}
                             />
                             <p>{errors.email}</p>
@@ -51,7 +48,6 @@ export const Register: React.SFC<IRegisterProps> = ({ labels, user, errors, gene
                                 type="password"
                                 name="password"
                                 value=""
-                                data-target="ajaxForm.field"
                                 label={labels.authentication.passwordInputLabel}
                             />
                             <p>{errors.password}</p>
@@ -64,7 +60,7 @@ export const Register: React.SFC<IRegisterProps> = ({ labels, user, errors, gene
                                     }
                                 />
                             </div>
-                            <Button data-action="ajaxForm#submit actionConfirmation#confirm"  className="btn btn-lg">
+                            <Button data-action="ajax#submit"  className="btn btn-lg">
                                 {labels.authentication.registerButtonText}
                             </Button>
                         </div>

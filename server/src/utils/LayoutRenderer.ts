@@ -16,7 +16,10 @@ const extractControllersInUse = (rendered: string) => {
         controllers.push(match[1]);
     }
     return _.uniq(controllers).map(
-        c => `<script src="js/${_.upperFirst(c)}Controller.js"></script>`
+        c =>
+            `<script src="js/${_.upperFirst(
+                _.camelCase(c)
+            )}Controller.js"></script>`
     );
 };
 

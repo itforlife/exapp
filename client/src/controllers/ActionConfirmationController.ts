@@ -1,8 +1,6 @@
 import { Controller } from 'stimulus';
-import axios from 'axios';
 
 declare var application;
-
 
 class ActionConfirmationController extends Controller {
     fieldTargets: HTMLElement[];
@@ -13,4 +11,4 @@ class ActionConfirmationController extends Controller {
     }
 }
 
-application.register('actionConfirmation', ActionConfirmationController);
+application.register('action-confirmation', ActionConfirmationController);

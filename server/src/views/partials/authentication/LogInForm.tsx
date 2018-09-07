@@ -12,7 +12,7 @@ interface ILogInForm {
 }
 
 export const LogInForm: React.SFC<ILogInForm> = (props: ILogInForm) => (
-<form data-controller="ajaxForm" action="/auth/login">
+<form data-controller="ajax" action="/auth/login">
     <div className="row">
         <div className="col col-12">
             <p>{props.generalError}</p>
@@ -21,7 +21,6 @@ export const LogInForm: React.SFC<ILogInForm> = (props: ILogInForm) => (
                 name="email"
                 value={props.user.email}
                 error={!!props.errors.email}
-                data-target="ajaxForm.field"
                 label={labels.authentication.mailInputLabel}
             />
             <p>{props.errors.email}</p>
@@ -30,7 +29,6 @@ export const LogInForm: React.SFC<ILogInForm> = (props: ILogInForm) => (
                 name="password"
                 value={props.user.password}
                 error={!!props.errors.password}
-                data-target="ajaxForm.field"
                 label={labels.authentication.passwordInputLabel}
             />
             <p>{props.errors.password}</p>
@@ -38,14 +36,13 @@ export const LogInForm: React.SFC<ILogInForm> = (props: ILogInForm) => (
             <div>
                 <Checkbox
                     name={'rememberMe'}
-                    data-target="ajaxForm.field"
                     label={labels.authentication.rememberMe}
                 />
                 <a href="#">
                     {labels.authentication.forgotPasswordLabel}
                 </a>
             </div>
-            <Button className="btn btn-lg btn-primary" data-action="ajaxForm#submit">
+            <Button className="btn btn-lg btn-primary" data-action="ajax#submit">
                 {labels.authentication.loginButton}
             </Button>
         </div>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AuthenticationComponent } from '@partials/authentication/authenticationComponent';
+import { SignupOrLogin } from '@partials/authentication/SignupOrLogin';
 import { Button } from '@elements//index';
 import { labels } from '@i18n/en_EN';
 
@@ -23,7 +23,7 @@ export default class LandingPage extends React.Component<ILandingPageProps> {
                                     </Button>
                                 </div>
                             </div>
-                            <AuthenticationComponent
+                            <SignupOrLogin
                                 labels={this.props.labels}
                             />
                         </div>

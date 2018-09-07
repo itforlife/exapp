@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { Dropdown } from '@elements/Dropdown';
+import { Select } from '@elements/Select';
 
-storiesOf('Dropdown', module).add('basic render', () => (
-    <Dropdown
-        data-controller="dropdown"
+storiesOf('Select', module).add('basic render', () => (
+    <Select
+        data-controller="select"
         itemClass="item"
         itemSelectedClass="selected"
         value="Fishing"

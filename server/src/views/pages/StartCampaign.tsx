@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CreateCampaignForm } from '@partials/campaigns/createCampaignForm';
+import { CreateCampaignForm } from '@partials/campaigns/CreateCampaignForm';
 
 import { labels } from '@i18n/en_EN';
 

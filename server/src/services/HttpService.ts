@@ -1,8 +1,5 @@
-
-import { Service, Inject } from 'typedi'
+import { Service } from 'typedi';
 import axios from 'axios';
-
-
 
 export interface IConfig {
     params?: any;
@@ -18,15 +15,15 @@ export interface IConfig {
 @Service()
 export class HttpService {
     get = (url: string, config: IConfig) => {
-        return axios.get(url, config)
-    }
+        return axios.get(url, config);
+    };
     post = (url: string, data: any, config: IConfig) => {
-        return axios.post(url, data, config)
-    }
+        return axios.post(url, data, config);
+    };
     put = (url: string, data: any, config: IConfig) => {
-        return axios.put(url, data, config)
-    }
+        return axios.put(url, data, config);
+    };
     delete = (url: string, config: IConfig) => {
-        return axios.delete(url, config)
-    }
+        return axios.delete(url, config);
+    };
 }

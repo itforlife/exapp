@@ -5,7 +5,7 @@ import { classes } from 'typestyle';
  * To attach client side behaviour, eg ability to click and open it etc
  * you need to pass it a data-controller attribute
  * Usage:
- *  <Dropdown data-controller="dropdown"
+ *  <Dropdown data-controller="select"
               itemClass="item"
               itemSelectedClass="selected"
               value="Fishing"
@@ -31,7 +31,7 @@ const toSelectOptions = (ddProps) => (item: ItemType) => {
     return (<option className={optionCls} selected={selected} key={value} value={value}>{label}</option>);
 }
 
-export const Dropdown = ({ items, itemClass, itemSelectedClass, ...props}: IDropdownProps) => {
+export const Select = ({ items, itemClass, itemSelectedClass, ...props}: IDropdownProps) => {
     return (<select {...props} style={{ display: "none" }} 
                     data-dropdown-item-class={itemClass} 
                     data-dropdown-item-selected-class={itemSelectedClass}>
