@@ -30,7 +30,7 @@ class AjaxFormController extends Controller {
             {}
         );
         const { data } = await axios.post<PartialViewResponse>(
-            this.element.getAttribute('action'),
+            this.element.querySelector('form').getAttribute('action'),
             values
         );
         this.element.parentNode.replaceChild(

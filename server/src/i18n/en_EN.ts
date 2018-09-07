@@ -41,6 +41,10 @@ export const labels = {
         currentPassword: 'Current password',
         confirmPassword: 'Confirm new password',
     },
+    errors: {
+        'invalid_credentials': 'Your email or password is not valid!',
+        'email_already_exists': 'Email aleardy exists'
+    },
     accountDashboard: {
         headerTitle: 'Your Account Dashboard',
         headerContent:

@@ -2,7 +2,6 @@ import 'reflect-metadata';
 import 'module-alias/register';
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
-import * as helmet from 'helmet';
 import { Container } from 'typedi';
 import {
     useExpressServer,

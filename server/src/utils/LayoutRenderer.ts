@@ -26,7 +26,7 @@ export const View = <P>(viewToRender: ComponentType<P>) => <TP extends P>(
     descriptor: TypedPropertyDescriptor<(...any) => Promise<TP>>
 ) => {
     const originalMethod = descriptor.value;
-    descriptor.value = (...args) => {
+    descriptor.value = function(...args) {
         const dataPromise = originalMethod.apply(this, args);
         return dataPromise.then(data => {
             const component = ReactDOMServer.renderToStaticMarkup(
@@ -53,7 +53,7 @@ export const PartialView = <P>(viewToRender: ComponentType<P>) => <
     descriptor: TypedPropertyDescriptor<(...any) => Promise<TP>>
 ) => {
     const originalMethod = descriptor.value;
-    descriptor.value = (...args) => {
+    descriptor.value = function(...args) {
         const dataPromise = originalMethod.apply(this, args);
         return dataPromise.then(data => {
             const component = ReactDOMServer.renderToStaticMarkup(
